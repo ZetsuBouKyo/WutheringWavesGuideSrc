@@ -1,0 +1,4251 @@
+{
+    "resonator_template": {
+        "id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+        "labels": [
+            {
+                "name": "",
+                "duration_1": "",
+                "duration_2": ""
+            }
+        ],
+        "test_resonator_id_1": "",
+        "test_resonator_id_2": "",
+        "test_resonator_id_3": "",
+        "duration_1": "24",
+        "duration_2": "26",
+        "monster_id": "90等抗性20白板",
+        "description": "",
+        "resonators": [
+            {
+                "resonator_name": "菲比",
+                "resonator_chain": "0",
+                "resonator_weapon_name": "和光回唱",
+                "resonator_weapon_rank": "1",
+                "resonator_inherent_skill_1": true,
+                "resonator_inherent_skill_2": true,
+                "resonator_base_attr": "攻擊",
+                "resonator_skill_bonus": "重擊",
+                "resonator_energy_regen": "",
+                "resonator_echo_1": "夢魘·哀聲鷙",
+                "resonator_echo_sonata_1": "此間永駐之光",
+                "resonator_echo_sonata_2": "此間永駐之光",
+                "resonator_echo_sonata_3": "此間永駐之光",
+                "resonator_echo_sonata_4": "此間永駐之光",
+                "resonator_echo_sonata_5": "此間永駐之光",
+                "resonator_echo_cost_1": "",
+                "resonator_echo_cost_2": "",
+                "resonator_echo_cost_3": "",
+                "resonator_echo_cost_4": "",
+                "resonator_echo_cost_5": "",
+                "resonator_echo_affix_1": "",
+                "resonator_echo_affix_2": "",
+                "resonator_echo_affix_3": "",
+                "resonator_echo_affix_4": "",
+                "resonator_echo_affix_5": ""
+            },
+            {
+                "resonator_name": "莫特斐",
+                "resonator_chain": "0",
+                "resonator_weapon_name": "停駐之煙",
+                "resonator_weapon_rank": "1",
+                "resonator_inherent_skill_1": true,
+                "resonator_inherent_skill_2": true,
+                "resonator_base_attr": "攻擊",
+                "resonator_skill_bonus": "共鳴解放",
+                "resonator_energy_regen": "",
+                "resonator_echo_1": "無常凶鷺",
+                "resonator_echo_sonata_1": "輕雲出月",
+                "resonator_echo_sonata_2": "輕雲出月",
+                "resonator_echo_sonata_3": "輕雲出月",
+                "resonator_echo_sonata_4": "輕雲出月",
+                "resonator_echo_sonata_5": "輕雲出月",
+                "resonator_echo_cost_1": "",
+                "resonator_echo_cost_2": "",
+                "resonator_echo_cost_3": "",
+                "resonator_echo_cost_4": "",
+                "resonator_echo_cost_5": "",
+                "resonator_echo_affix_1": "",
+                "resonator_echo_affix_2": "",
+                "resonator_echo_affix_3": "",
+                "resonator_echo_affix_4": "",
+                "resonator_echo_affix_5": ""
+            },
+            {
+                "resonator_name": "漂泊者·衍射(男)",
+                "resonator_chain": "0",
+                "resonator_weapon_name": "千古洑流",
+                "resonator_weapon_rank": "1",
+                "resonator_inherent_skill_1": true,
+                "resonator_inherent_skill_2": true,
+                "resonator_base_attr": "攻擊",
+                "resonator_skill_bonus": "共鳴解放",
+                "resonator_energy_regen": "",
+                "resonator_echo_1": "鳴鐘之龜",
+                "resonator_echo_sonata_1": "隱世回光",
+                "resonator_echo_sonata_2": "隱世回光",
+                "resonator_echo_sonata_3": "隱世回光",
+                "resonator_echo_sonata_4": "隱世回光",
+                "resonator_echo_sonata_5": "隱世回光",
+                "resonator_echo_cost_1": "",
+                "resonator_echo_cost_2": "",
+                "resonator_echo_cost_3": "",
+                "resonator_echo_cost_4": "",
+                "resonator_echo_cost_5": "",
+                "resonator_echo_affix_1": "",
+                "resonator_echo_affix_2": "",
+                "resonator_echo_affix_3": "",
+                "resonator_echo_affix_4": "",
+                "resonator_echo_affix_5": ""
+            }
+        ],
+        "rows": [
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "變奏",
+                "skill_id": "金色恩典",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[加成-全部]鳴鐘之龜",
+                        "type": "加成",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[攻擊百分比]停駐之煙-1諧振",
+                        "type": "攻擊百分比",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "共鳴解放",
+                "skill_id": "啟明之誓願-赦罪",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[加成-全部]鳴鐘之龜",
+                        "type": "加成",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[攻擊百分比]停駐之煙-1諧振",
+                        "type": "攻擊百分比",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "重擊",
+                "skill_id": "聖禱赦罪傷害",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[加成-全部]鳴鐘之龜",
+                        "type": "加成",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[攻擊百分比]停駐之煙-1諧振",
+                        "type": "攻擊百分比",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[重擊-下一位]莫特斐-延奏技能-怒意移調",
+                        "type": "加深",
+                        "value": "0.38",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[重擊]和光回唱-1諧振",
+                        "type": "加成",
+                        "value": "0.14",
+                        "stack": "3",
+                        "duration": "6"
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "普攻",
+                "skill_id": "第一段傷害",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[加成-全部]鳴鐘之龜",
+                        "type": "加成",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[攻擊百分比]停駐之煙-1諧振",
+                        "type": "攻擊百分比",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[普攻]和光回唱-1諧振",
+                        "type": "加成",
+                        "value": "0.14",
+                        "stack": "3",
+                        "duration": "6"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "普攻",
+                "skill_id": "第二段傷害",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[加成-全部]鳴鐘之龜",
+                        "type": "加成",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[攻擊百分比]停駐之煙-1諧振",
+                        "type": "攻擊百分比",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[普攻]和光回唱-1諧振",
+                        "type": "加成",
+                        "value": "0.14",
+                        "stack": "3",
+                        "duration": "6"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "重擊",
+                "skill_id": "重擊·星輝傷害",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[加成-全部]鳴鐘之龜",
+                        "type": "加成",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[加深-自己]菲比-共鳴回路-赦罪狀態",
+                        "type": "加深",
+                        "value": "2.56",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[攻擊百分比]停駐之煙-1諧振",
+                        "type": "攻擊百分比",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[重擊-下一位]莫特斐-延奏技能-怒意移調",
+                        "type": "加深",
+                        "value": "0.38",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[重擊]和光回唱-1諧振",
+                        "type": "加成",
+                        "value": "0.14",
+                        "stack": "3",
+                        "duration": "6"
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "普攻",
+                "skill_id": "第一段傷害",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[攻擊百分比]停駐之煙-1諧振",
+                        "type": "攻擊百分比",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[普攻]和光回唱-1諧振",
+                        "type": "加成",
+                        "value": "0.14",
+                        "stack": "3",
+                        "duration": "6"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "普攻",
+                "skill_id": "第二段傷害",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[攻擊百分比]停駐之煙-1諧振",
+                        "type": "攻擊百分比",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[普攻]和光回唱-1諧振",
+                        "type": "加成",
+                        "value": "0.14",
+                        "stack": "3",
+                        "duration": "6"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "重擊",
+                "skill_id": "重擊·星輝傷害",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[加深-自己]菲比-共鳴回路-赦罪狀態",
+                        "type": "加深",
+                        "value": "2.56",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[攻擊百分比]停駐之煙-1諧振",
+                        "type": "攻擊百分比",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[重擊-下一位]莫特斐-延奏技能-怒意移調",
+                        "type": "加深",
+                        "value": "0.38",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[重擊]和光回唱-1諧振",
+                        "type": "加成",
+                        "value": "0.14",
+                        "stack": "3",
+                        "duration": "6"
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "普攻",
+                "skill_id": "第一段傷害",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[攻擊百分比]停駐之煙-1諧振",
+                        "type": "攻擊百分比",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[普攻]和光回唱-1諧振",
+                        "type": "加成",
+                        "value": "0.14",
+                        "stack": "3",
+                        "duration": "6"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "普攻",
+                "skill_id": "第二段傷害",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[攻擊百分比]停駐之煙-1諧振",
+                        "type": "攻擊百分比",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[普攻]和光回唱-1諧振",
+                        "type": "加成",
+                        "value": "0.14",
+                        "stack": "3",
+                        "duration": "6"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "重擊",
+                "skill_id": "重擊·星輝傷害",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[加深-自己]菲比-共鳴回路-赦罪狀態",
+                        "type": "加深",
+                        "value": "2.56",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[攻擊百分比]停駐之煙-1諧振",
+                        "type": "攻擊百分比",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[重擊-下一位]莫特斐-延奏技能-怒意移調",
+                        "type": "加深",
+                        "value": "0.38",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[重擊]和光回唱-1諧振",
+                        "type": "加成",
+                        "value": "0.14",
+                        "stack": "3",
+                        "duration": "6"
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "普攻",
+                "skill_id": "第一段傷害",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[攻擊百分比]停駐之煙-1諧振",
+                        "type": "攻擊百分比",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[普攻]和光回唱-1諧振",
+                        "type": "加成",
+                        "value": "0.14",
+                        "stack": "3",
+                        "duration": "6"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "普攻",
+                "skill_id": "第二段傷害",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[攻擊百分比]停駐之煙-1諧振",
+                        "type": "攻擊百分比",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[普攻]和光回唱-1諧振",
+                        "type": "加成",
+                        "value": "0.14",
+                        "stack": "3",
+                        "duration": "6"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "重擊",
+                "skill_id": "重擊·星輝傷害",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[加深-自己]菲比-共鳴回路-赦罪狀態",
+                        "type": "加深",
+                        "value": "2.56",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[重擊-下一位]莫特斐-延奏技能-怒意移調",
+                        "type": "加深",
+                        "value": "0.38",
+                        "stack": "1",
+                        "duration": "14"
+                    },
+                    {
+                        "name": "[重擊]和光回唱-1諧振",
+                        "type": "加成",
+                        "value": "0.14",
+                        "stack": "3",
+                        "duration": "6"
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            },
+            {
+                "labels": [],
+                "resonator_name": "菲比",
+                "real_dmg_no_crit": "",
+                "real_dmg_crit": "",
+                "action": "延奏",
+                "skill_id": "傾聽之心-赦罪",
+                "skill_bonus_type": "",
+                "hit": "1",
+                "buffs": [
+                    {
+                        "name": "[加成-下一位]無常凶鷺",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-下一位]輕雲出月-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.225",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]莫特斐-共鳴鏈6-盛怒的無言歌",
+                        "type": "攻擊百分比",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "20"
+                    },
+                    {
+                        "name": "[攻擊百分比-全部]隱世回光-5/5",
+                        "type": "攻擊百分比",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "30"
+                    },
+                    {
+                        "name": "[暴擊-自己]此間永駐之光-5/5",
+                        "type": "暴擊",
+                        "value": "0.2",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]此間永駐之光-5/5",
+                        "type": "加成",
+                        "value": "0.15",
+                        "stack": "1",
+                        "duration": "15"
+                    },
+                    {
+                        "name": "[衍射-自己]菲比-固有技能2-啟示",
+                        "type": "加成",
+                        "value": "0.12",
+                        "stack": "1",
+                        "duration": ""
+                    },
+                    {
+                        "name": "[衍射-全部]漂泊者·衍射(男)-共鳴鏈6-長路歸鳴",
+                        "type": "抗性降低",
+                        "value": "0.1",
+                        "stack": "1",
+                        "duration": "20"
+                    }
+                ],
+                "resonating_spin_concerto_regen": "",
+                "accumulated_resonating_spin_concerto_regen": "",
+                "time_start": "",
+                "time_end": "",
+                "cumulative_time": "",
+                "frame": "",
+                "comment": ""
+            }
+        ]
+    },
+    "resonator_ids": [
+        "[15有效-1] +0菲比+1和光回唱 4暴3衍射3衍射1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4暴3衍射3攻1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4暴3攻3攻1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4暴3共效3共效1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4暴3共效3攻1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4暴3共效3衍射1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4暴傷3衍射3衍射1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4暴傷3衍射3攻1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4暴傷3攻3攻1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4暴傷3共效3共效1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4暴傷3共效3攻1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4暴傷3共效3衍射1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4攻3衍射3衍射1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4攻3衍射3攻1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4攻3攻3攻1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4攻3共效3共效1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4攻3共效3攻1攻1攻",
+        "[15有效-1] +0菲比+1和光回唱 4攻3共效3衍射1攻1攻"
+    ],
+    "resonator_models": {
+        "[15有效-1] +0菲比+1和光回唱 4暴3衍射3衍射1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,175.44",
+            "defense": "1,258.00",
+            "crit_rate": "100.00%",
+            "crit_dmg": "216.40%",
+            "energy_regen": "109.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "82.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "63.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "64.00%",
+            "echo_crit_dmg": "50.40%",
+            "echo_energy_regen": "9.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "82.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4暴3衍射3攻1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,449.04",
+            "defense": "1,258.00",
+            "crit_rate": "100.00%",
+            "crit_dmg": "216.40%",
+            "energy_regen": "109.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "52.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "93.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "64.00%",
+            "echo_crit_dmg": "50.40%",
+            "echo_energy_regen": "9.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "52.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4暴3攻3攻1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,722.64",
+            "defense": "1,258.00",
+            "crit_rate": "100.00%",
+            "crit_dmg": "216.40%",
+            "energy_regen": "109.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "22.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "123.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "64.00%",
+            "echo_crit_dmg": "50.40%",
+            "echo_energy_regen": "9.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "22.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4暴3共效3共效1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,175.44",
+            "defense": "1,258.00",
+            "crit_rate": "100.00%",
+            "crit_dmg": "216.40%",
+            "energy_regen": "173.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "22.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "63.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "64.00%",
+            "echo_crit_dmg": "50.40%",
+            "echo_energy_regen": "73.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "22.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4暴3共效3攻1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,449.04",
+            "defense": "1,258.00",
+            "crit_rate": "100.00%",
+            "crit_dmg": "216.40%",
+            "energy_regen": "141.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "22.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "93.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "64.00%",
+            "echo_crit_dmg": "50.40%",
+            "echo_energy_regen": "41.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "22.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4暴3共效3衍射1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,175.44",
+            "defense": "1,258.00",
+            "crit_rate": "100.00%",
+            "crit_dmg": "216.40%",
+            "energy_regen": "141.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "52.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "63.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "64.00%",
+            "echo_crit_dmg": "50.40%",
+            "echo_energy_regen": "41.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "52.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4暴傷3衍射3衍射1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,175.44",
+            "defense": "1,258.00",
+            "crit_rate": "83.00%",
+            "crit_dmg": "260.40%",
+            "energy_regen": "109.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "82.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "63.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "42.00%",
+            "echo_crit_dmg": "94.40%",
+            "echo_energy_regen": "9.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "82.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4暴傷3衍射3攻1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,449.04",
+            "defense": "1,258.00",
+            "crit_rate": "83.00%",
+            "crit_dmg": "260.40%",
+            "energy_regen": "109.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "52.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "93.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "42.00%",
+            "echo_crit_dmg": "94.40%",
+            "echo_energy_regen": "9.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "52.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4暴傷3攻3攻1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,722.64",
+            "defense": "1,258.00",
+            "crit_rate": "83.00%",
+            "crit_dmg": "260.40%",
+            "energy_regen": "109.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "22.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "123.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "42.00%",
+            "echo_crit_dmg": "94.40%",
+            "echo_energy_regen": "9.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "22.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4暴傷3共效3共效1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,175.44",
+            "defense": "1,258.00",
+            "crit_rate": "83.00%",
+            "crit_dmg": "260.40%",
+            "energy_regen": "173.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "22.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "63.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "42.00%",
+            "echo_crit_dmg": "94.40%",
+            "echo_energy_regen": "73.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "22.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4暴傷3共效3攻1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,449.04",
+            "defense": "1,258.00",
+            "crit_rate": "83.00%",
+            "crit_dmg": "260.40%",
+            "energy_regen": "141.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "22.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "93.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "42.00%",
+            "echo_crit_dmg": "94.40%",
+            "echo_energy_regen": "41.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "22.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4暴傷3共效3衍射1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,175.44",
+            "defense": "1,258.00",
+            "crit_rate": "83.00%",
+            "crit_dmg": "260.40%",
+            "energy_regen": "141.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "52.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "63.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "42.00%",
+            "echo_crit_dmg": "94.40%",
+            "echo_energy_regen": "41.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "52.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4攻3衍射3衍射1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,476.40",
+            "defense": "1,258.00",
+            "crit_rate": "83.00%",
+            "crit_dmg": "216.40%",
+            "energy_regen": "109.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "82.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "96.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "42.00%",
+            "echo_crit_dmg": "50.40%",
+            "echo_energy_regen": "9.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "82.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4攻3衍射3攻1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,750.00",
+            "defense": "1,258.00",
+            "crit_rate": "83.00%",
+            "crit_dmg": "216.40%",
+            "energy_regen": "109.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "52.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "126.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "42.00%",
+            "echo_crit_dmg": "50.40%",
+            "echo_energy_regen": "9.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "52.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4攻3攻3攻1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "3,023.60",
+            "defense": "1,258.00",
+            "crit_rate": "83.00%",
+            "crit_dmg": "216.40%",
+            "energy_regen": "109.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "22.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "156.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "42.00%",
+            "echo_crit_dmg": "50.40%",
+            "echo_energy_regen": "9.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "22.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4攻3共效3共效1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,476.40",
+            "defense": "1,258.00",
+            "crit_rate": "83.00%",
+            "crit_dmg": "216.40%",
+            "energy_regen": "173.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "22.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "96.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "42.00%",
+            "echo_crit_dmg": "50.40%",
+            "echo_energy_regen": "73.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "22.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4攻3共效3攻1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,750.00",
+            "defense": "1,258.00",
+            "crit_rate": "83.00%",
+            "crit_dmg": "216.40%",
+            "energy_regen": "141.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "22.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "126.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "42.00%",
+            "echo_crit_dmg": "50.40%",
+            "echo_energy_regen": "41.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "22.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        },
+        "[15有效-1] +0菲比+1和光回唱 4攻3共效3衍射1攻1攻": {
+            "resonator_src": "/assets/resonator/icon/菲比.png",
+            "element": "衍射",
+            "element_src": "/assets/element/icon/衍射.png",
+            "element_en": "spectro",
+            "name": "菲比",
+            "chain": "0",
+            "weapon_name": "和光回唱",
+            "weapon_rank": "1",
+            "weapon_level": "90",
+            "level": "90",
+            "hp": "15,385.00",
+            "attack": "2,476.40",
+            "defense": "1,258.00",
+            "crit_rate": "83.00%",
+            "crit_dmg": "216.40%",
+            "energy_regen": "141.60%",
+            "resonance_skill_dmg_bonus": "8.00%",
+            "basic_attack_dmg_bonus": "8.00%",
+            "heavy_attack_dmg_bonus": "8.00%",
+            "resonance_liberation_dmg_bonus": "8.00%",
+            "healing_bonus": "0.00%",
+            "physical_dmg_bonus": "0.00%",
+            "glacio_dmg_bonus": "0.00%",
+            "fusion_dmg_bonus": "0.00%",
+            "electro_dmg_bonus": "0.00%",
+            "aero_dmg_bonus": "0.00%",
+            "spectro_dmg_bonus": "52.00%",
+            "havoc_dmg_bonus": "0.00%",
+            "physical_dmg_res": "0.00%",
+            "glacio_dmg_res": "0.00%",
+            "fusion_dmg_res": "0.00%",
+            "electro_dmg_res": "0.00%",
+            "aero_dmg_res": "0.00%",
+            "spectro_dmg_res": "0.00%",
+            "havoc_dmg_res": "0.00%",
+            "normal_attack_lv": "10",
+            "resonance_skill_lv": "10",
+            "resonance_liberation_lv": "10",
+            "forte_circuit_lv": "10",
+            "intro_skill_lv": "10",
+            "inherent_skill_1": "1",
+            "inherent_skill_2": "1",
+            "echo_hp": "4,560.00",
+            "echo_hp_p": "0.00%",
+            "echo_atk": "470.00",
+            "echo_atk_p": "96.00%",
+            "echo_def": "",
+            "echo_def_p": "0.00%",
+            "echo_crit_rate": "42.00%",
+            "echo_crit_dmg": "50.40%",
+            "echo_energy_regen": "41.60%",
+            "echo_sonata_1": "此間永駐之光",
+            "echo_sonata_2": "此間永駐之光",
+            "echo_sonata_3": "此間永駐之光",
+            "echo_sonata_4": "此間永駐之光",
+            "echo_sonata_5": "此間永駐之光",
+            "echo_resonance_skill_dmg_bonus": "8.00%",
+            "echo_basic_attack_dmg_bonus": "8.00%",
+            "echo_heavy_attack_dmg_bonus": "8.00%",
+            "echo_resonance_liberation_dmg_bonus": "8.00%",
+            "echo_healing_bonus": "0.00%",
+            "echo_glacio_dmg_bonus": "0.00%",
+            "echo_fusion_dmg_bonus": "0.00%",
+            "echo_electro_dmg_bonus": "0.00%",
+            "echo_aero_dmg_bonus": "0.00%",
+            "echo_spectro_dmg_bonus": "52.00%",
+            "echo_havoc_dmg_bonus": "0.00%"
+        }
+    },
+    "damage_distributions": [
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "715675.8367356067656949868073",
+            "damage_no_crit": "274837.1108815694184696569924",
+            "damage_crit": "715675.8367356067656949868073",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4暴傷3衍射3衍射1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "28426.65310957854395778364117",
+                    "heavy": "428946.0375096259403651715040",
+                    "skill": "0.0",
+                    "liberation": "111732.8439041685479683377309",
+                    "intro": "15059.62460316836137203166227",
+                    "outro": "131510.6776090653720316622691",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "28426.65310957854395778364117",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "111732.8439041685479683377309",
+                    "intro_skill": "15059.62460316836137203166227",
+                    "forte_circuit": "428946.0375096259403651715040",
+                    "outro_skill": "131510.6776090653720316622691",
+                    "damage": "715675.8367356067656949868073",
+                    "damage_no_crit": "274837.1108815694184696569924",
+                    "damage_crit": "715675.8367356067656949868073",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "15059.62460316836137203166227"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "111732.8439041685479683377309"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "81152.02140813261624063324539"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "10593.62779310770321899736148"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "17833.02531647084073878627968"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "347794.0161014933241245382586"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "131510.6776090653720316622691"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "694483.5542667597478163588390",
+            "damage_no_crit": "266698.7535586634976253298152",
+            "damage_crit": "694483.5542667597478163588390",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4暴傷3衍射3攻1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "27789.50236503402047493403696",
+                    "heavy": "419843.1505950080813255936677",
+                    "skill": "0.0",
+                    "liberation": "107285.8986071274756728232190",
+                    "intro": "14388.37104447688274406332454",
+                    "outro": "125176.6316551132875989445910",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "27789.50236503402047493403696",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "107285.8986071274756728232190",
+                    "intro_skill": "14388.37104447688274406332454",
+                    "forte_circuit": "419843.1505950080813255936677",
+                    "outro_skill": "125176.6316551132875989445910",
+                    "damage": "694483.5542667597478163588390",
+                    "damage_no_crit": "266698.7535586634976253298152",
+                    "damage_crit": "694483.5542667597478163588390",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "14388.37104447688274406332454"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "107285.8986071274756728232190"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "79593.96664769956387124010556"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "10356.18380665641878627968338"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "17433.31855837760168865435357"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "340249.1839473085174543535621"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "125176.6316551132875989445910"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "659532.0036654729741846965698",
+            "damage_no_crit": "304774.4933759117255936675462",
+            "damage_crit": "659532.0036654729741846965698",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4攻3衍射3衍射1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "26170.70553762820052770448549",
+                    "heavy": "395159.0799210609425224274406",
+                    "skill": "0.0",
+                    "liberation": "102865.6924691731503957783641",
+                    "intro": "13864.48835455548284960422164",
+                    "outro": "121472.0373830551978891820581",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "26170.70553762820052770448549",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "102865.6924691731503957783641",
+                    "intro_skill": "13864.48835455548284960422164",
+                    "forte_circuit": "395159.0799210609425224274406",
+                    "outro_skill": "121472.0373830551978891820581",
+                    "damage": "659532.0036654729741846965698",
+                    "damage_no_crit": "304774.4933759117255936675462",
+                    "damage_crit": "659532.0036654729741846965698",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "13864.48835455548284960422164"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "102865.6924691731503957783641"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "74711.77306272149699208443274"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "9752.914368073709762532981530"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "16417.79116955449076517150395"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "320447.3068583394455303430079"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "121472.0373830551978891820581"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "656689.5310513757226554089711",
+            "damage_no_crit": "252184.9197585928274406332453",
+            "damage_crit": "656689.5310513757226554089711",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4暴傷3攻3攻1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "26541.03010377122786279683378",
+                    "heavy": "401501.2286720567400696569922",
+                    "skill": "0.0",
+                    "liberation": "100089.2601414224244854881267",
+                    "intro": "13333.67215912349382585751979",
+                    "outro": "115224.3399750018364116094987",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "26541.03010377122786279683378",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "100089.2601414224244854881267",
+                    "intro_skill": "13333.67215912349382585751979",
+                    "forte_circuit": "401501.2286720567400696569922",
+                    "outro_skill": "115224.3399750018364116094987",
+                    "damage": "656689.5310513757226554089711",
+                    "damage_no_crit": "252184.9197585928274406332453",
+                    "damage_crit": "656689.5310513757226554089711",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "13333.67215912349382585751979"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "100089.2601414224244854881267"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "76337.29942928721947018469658"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "9890.921491221155461741424805"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "16650.10861255007240105540897"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "325163.9292427695205994722956"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "115224.3399750018364116094987"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "634332.5063155830768126649076",
+            "damage_no_crit": "293129.6239905651926121372031",
+            "damage_crit": "634332.5063155830768126649076",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4攻3衍射3攻1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "25361.80036082619102902374671",
+                    "heavy": "383371.4659617093459419525065",
+                    "skill": "0.0",
+                    "liberation": "97913.35973793630395778364117",
+                    "intro": "13131.39721446279261213720317",
+                    "outro": "114554.4830406484432717678100",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "25361.80036082619102902374671",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "97913.35973793630395778364117",
+                    "intro_skill": "13131.39721446279261213720317",
+                    "forte_circuit": "383371.4659617093459419525065",
+                    "outro_skill": "114554.4830406484432717678100",
+                    "damage": "634332.5063155830768126649076",
+                    "damage_no_crit": "293129.6239905651926121372031",
+                    "damage_crit": "634332.5063155830768126649076",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "13131.39721446279261213720317"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "97913.35973793630395778364117"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "72640.60599318844065435356201"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "9451.463461070134036939313986"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "15910.33689975605699208443272"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "310730.8599685209052875989445"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "114554.4830406484432717678100"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "631914.4755352397353203166227",
+            "damage_no_crit": "242670.6895296619567282321902",
+            "damage_crit": "631914.4755352397353203166227",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4暴傷3共效3衍射1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "25308.55587635237825857519787",
+                    "heavy": "382135.7402956072878269129288",
+                    "skill": "0.0",
+                    "liberation": "97707.80073628128253298153035",
+                    "intro": "13103.82920015948327176781003",
+                    "outro": "113658.5494268393034300791557",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "25308.55587635237825857519787",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "97707.80073628128253298153035",
+                    "intro_skill": "13103.82920015948327176781003",
+                    "forte_circuit": "382135.7402956072878269129288",
+                    "outro_skill": "113658.5494268393034300791557",
+                    "damage": "631914.4755352397353203166227",
+                    "damage_no_crit": "242670.6895296619567282321902",
+                    "damage_crit": "631914.4755352397353203166227",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "13103.82920015948327176781003"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "97707.80073628128253298153035"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "72488.10453181952553878627969"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "9431.621088196437783641160950"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "15876.93478815594047493403693"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "309647.6357637877622881266491"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "113658.5494268393034300791557"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "602421.3226931242138005277042",
+            "damage_no_crit": "231344.5939681736612137203166",
+            "damage_crit": "602421.3226931242138005277042",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4暴傷3共效3攻1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "24365.74437344872021108179420",
+                    "heavy": "368413.3358768226876791556728",
+                    "skill": "0.0",
+                    "liberation": "91886.00885490822079155672824",
+                    "intro": "12240.85297813704949868073879",
+                    "outro": "105515.3806098075356200527704",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "24365.74437344872021108179420",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "91886.00885490822079155672824",
+                    "intro_skill": "12240.85297813704949868073879",
+                    "forte_circuit": "368413.3358768226876791556728",
+                    "outro_skill": "105515.3806098075356200527704",
+                    "damage": "602421.3226931242138005277042",
+                    "damage_no_crit": "231344.5939681736612137203166",
+                    "damage_crit": "602421.3226931242138005277042",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "12240.85297813704949868073879"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "91886.00885490822079155672824"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "70080.74354239682715356200527"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "9080.267937253163905013192613"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "15285.47643619555630606860158"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "298332.5923344258605255936675"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "105515.3806098075356200527704"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "595336.4778691086618680738789",
+            "damage_no_crit": "275109.2781280539102902374671",
+            "damage_crit": "595336.4778691086618680738789",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4攻3攻3攻1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "24044.86916168227124010554090",
+                    "heavy": "363905.9442611773901002638523",
+                    "skill": "0.0",
+                    "liberation": "90675.95173135811715039577837",
+                    "intro": "12079.65181672940580474934037",
+                    "outro": "104630.0608981614775725593668",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "24044.86916168227124010554090",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "90675.95173135811715039577837",
+                    "intro_skill": "12079.65181672940580474934037",
+                    "forte_circuit": "363905.9442611773901002638523",
+                    "outro_skill": "104630.0608981614775725593668",
+                    "damage": "595336.4778691086618680738789",
+                    "damage_no_crit": "275109.2781280539102902374671",
+                    "damage_crit": "595336.4778691086618680738789",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "12079.65181672940580474934037"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "90675.95173135811715039577837"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "69157.84239559578832717678102"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "8960.688873605217941952506598"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "15084.18028807705329815303430"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "294748.1018655816017730870713"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "104630.0608981614775725593668"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "594747.5079477162215683377310",
+            "damage_no_crit": "274837.1108815694184696569924",
+            "damage_crit": "594747.5079477162215683377310",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4暴3衍射3衍射1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "23623.37839060213868073878628",
+                    "heavy": "356466.6763328842300116094988",
+                    "skill": "0.0",
+                    "liberation": "92853.25430438584401055408971",
+                    "intro": "12514.98757344713287598944591",
+                    "outro": "109289.2113463968759894459103",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "23623.37839060213868073878628",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "92853.25430438584401055408971",
+                    "intro_skill": "12514.98757344713287598944591",
+                    "forte_circuit": "356466.6763328842300116094988",
+                    "outro_skill": "109289.2113463968759894459103",
+                    "damage": "594747.5079477162215683377310",
+                    "damage_no_crit": "274837.1108815694184696569924",
+                    "damage_crit": "594747.5079477162215683377310",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "12514.98757344713287598944591"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "92853.25430438584401055408971"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "67439.69828233447831978891821"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "8803.613880293805593667546177"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "14819.76451030833308707124010"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "289026.9780505497516918205805"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "109289.2113463968759894459103"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "582335.7757568237423113456464",
+            "damage_no_crit": "269101.5599615636517150395777",
+            "damage_crit": "582335.7757568237423113456464",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4攻3共效3衍射1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "23300.06142015527176781002640",
+                    "heavy": "352035.5074794116051081794195",
+                    "skill": "0.0",
+                    "liberation": "89953.68086216396833773087071",
+                    "intro": "12063.90545136645910290237467",
+                    "outro": "104982.6205437264379947229551",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "23300.06142015527176781002640",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "89953.68086216396833773087071",
+                    "intro_skill": "12063.90545136645910290237467",
+                    "forte_circuit": "352035.5074794116051081794195",
+                    "outro_skill": "104982.6205437264379947229551",
+                    "damage": "582335.7757568237423113456464",
+                    "damage_no_crit": "269101.5599615636517150395777",
+                    "damage_crit": "582335.7757568237423113456464",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "12063.90545136645910290237467"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "89953.68086216396833773087071"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "66735.42718413913076517150395"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "8683.124857864527704485488127"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "14616.93656229074406332453826"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "285300.0802952724743430079156"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "104982.6205437264379947229551"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "577136.1027009478088612137205",
+            "damage_no_crit": "266698.7535586634976253298152",
+            "damage_crit": "577136.1027009478088612137205",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4暴3衍射3攻1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "23093.88752608817984168865437",
+                    "heavy": "348901.9116311818310248021109",
+                    "skill": "0.0",
+                    "liberation": "89157.71297458673477572559366",
+                    "intro": "11957.15627505682575197889182",
+                    "outro": "104025.4342940342374670184696",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "23093.88752608817984168865437",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "89157.71297458673477572559366",
+                    "intro_skill": "11957.15627505682575197889182",
+                    "forte_circuit": "348901.9116311818310248021109",
+                    "outro_skill": "104025.4342940342374670184696",
+                    "damage": "577136.1027009478088612137205",
+                    "damage_no_crit": "266698.7535586634976253298152",
+                    "damage_crit": "577136.1027009478088612137205",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "11957.15627505682575197889182"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "89157.71297458673477572559366"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "66144.90930323419977625329817"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "8606.290997543967071240105542"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "14487.59652854421277044854882"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "282757.0023279476312485488128"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "104025.4342940342374670184696"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "550238.0128586415861530343006",
+            "damage_no_crit": "254268.9523376347440633245381",
+            "damage_crit": "550238.0128586415861530343006",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4攻3共效3攻1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "22237.14323218230712401055408",
+                    "heavy": "336408.9396494698288970976253",
+                    "skill": "0.0",
+                    "liberation": "83858.81049325645171503957784",
+                    "intro": "11171.48718245342058047493404",
+                    "outro": "96561.63230127957783641160949",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "22237.14323218230712401055408",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "83858.81049325645171503957784",
+                    "intro_skill": "11171.48718245342058047493404",
+                    "forte_circuit": "336408.9396494698288970976253",
+                    "outro_skill": "96561.63230127957783641160949",
+                    "damage": "550238.0128586415861530343006",
+                    "damage_no_crit": "254268.9523376347440633245381",
+                    "damage_crit": "550238.0128586415861530343006",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "11171.48718245342058047493404"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "83858.81049325645171503957784"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "63958.46185057627643271767810"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "8287.012110630281794195250658"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "13950.13112155202532981530343"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "272450.4777988935524643799472"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "96561.63230127957783641160949"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "548153.1143348727049456464382",
+            "damage_no_crit": "210504.2681777544949868073879",
+            "damage_crit": "548153.1143348727049456464382",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4暴傷3共效3共效1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "22190.45864312621255936675462",
+                    "heavy": "335325.4430815886352886543536",
+                    "skill": "0.0",
+                    "liberation": "83682.75756839401709762532982",
+                    "intro": "11148.03379715060517150395778",
+                    "outro": "95806.42124461323482849604220",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "22190.45864312621255936675462",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "83682.75756839401709762532982",
+                    "intro_skill": "11148.03379715060517150395778",
+                    "forte_circuit": "335325.4430815886352886543536",
+                    "outro_skill": "95806.42124461323482849604220",
+                    "damage": "548153.1143348727049456464382",
+                    "damage_no_crit": "210504.2681777544949868073879",
+                    "damage_crit": "548153.1143348727049456464382",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "11148.03379715060517150395778"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "83682.75756839401709762532982"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "63824.18765550643483693931399"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "8269.614383285172348284960422"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "13920.84425984104021108179420"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "271501.2554260822004517150396"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "95806.42124461323482849604220"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "545728.1663575948785815303430",
+            "damage_no_crit": "252184.9197585928274406332453",
+            "damage_crit": "545728.1663575948785815303430",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4暴3攻3攻1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "22056.37063923231071240105542",
+                    "heavy": "333659.2391882990727767810026",
+                    "skill": "0.0",
+                    "liberation": "83177.09636944628517150395779",
+                    "intro": "11080.67071902582205804749340",
+                    "outro": "95754.78944159138786279683377",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "22056.37063923231071240105542",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "83177.09636944628517150395779",
+                    "intro_skill": "11080.67071902582205804749340",
+                    "forte_circuit": "333659.2391882990727767810026",
+                    "outro_skill": "95754.78944159138786279683377",
+                    "damage": "545728.1663575948785815303430",
+                    "damage_no_crit": "252184.9197585928274406332453",
+                    "damage_crit": "545728.1663575948785815303430",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "11080.67071902582205804749340"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "83177.09636944628517150395779"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "63438.52379607432524327176781"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "8219.644434332788179419525068"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "13836.72620489952253298153034"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "270220.7153922247475335092348"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "95754.78944159138786279683377"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "525139.3721421884743598944592",
+            "damage_no_crit": "242670.6895296619567282321902",
+            "damage_crit": "525139.3721421884743598944592",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4暴3共效3衍射1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "21032.14858541726058047493404",
+                    "heavy": "317565.9531488840901910290238",
+                    "skill": "0.0",
+                    "liberation": "81198.03409881439915567282322",
+                    "intro": "10889.66451196049224274406333",
+                    "outro": "94453.57179711223218997361477",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "21032.14858541726058047493404",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "81198.03409881439915567282322",
+                    "intro_skill": "10889.66451196049224274406333",
+                    "forte_circuit": "317565.9531488840901910290238",
+                    "outro_skill": "94453.57179711223218997361477",
+                    "damage": "525139.3721421884743598944592",
+                    "damage_no_crit": "242670.6895296619567282321902",
+                    "damage_crit": "525139.3721421884743598944592",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "10889.66451196049224274406333"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "81198.03409881439915567282322"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "60239.73049418488988707124011"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "7837.952394338360738786279685"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "13194.19619107889984168865435"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "257326.2226546992003039577837"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "94453.57179711223218997361477"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "505139.5478481745104379947228",
+            "damage_no_crit": "233428.6265472155778364116098",
+            "damage_crit": "505139.5478481745104379947228",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4攻3共效3共效1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "20429.41730268234300791556728",
+                    "heavy": "308911.9350377622676939313985",
+                    "skill": "0.0",
+                    "liberation": "77041.66925515478627968337731",
+                    "intro": "10263.32254817743535620052770",
+                    "outro": "88493.20370439767810026385225",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "20429.41730268234300791556728",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "77041.66925515478627968337731",
+                    "intro_skill": "10263.32254817743535620052770",
+                    "forte_circuit": "308911.9350377622676939313985",
+                    "outro_skill": "88493.20370439767810026385225",
+                    "damage": "505139.5478481745104379947228",
+                    "damage_no_crit": "233428.6265472155778364116098",
+                    "damage_crit": "505139.5478481745104379947228",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "10263.32254817743535620052770"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "77041.66925515478627968337731"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "58759.08130555676453825857519"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "7613.335347655345646437994724"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "12816.08195502699736147757256"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "250152.8537322055031556728233"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "88493.20370439767810026385225"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "500629.7013471278028664907650",
+            "damage_no_crit": "231344.5939681736612137203166",
+            "damage_crit": "500629.7013471278028664907650",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4暴3共效3攻1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "20248.64470973234659630606859",
+                    "heavy": "306162.2345765915115736147758",
+                    "skill": "0.0",
+                    "liberation": "76359.95513134461973614775726",
+                    "intro": "10172.50608474983683377308707",
+                    "outro": "87686.36084470948812664907651",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "20248.64470973234659630606859",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "76359.95513134461973614775726",
+                    "intro_skill": "10172.50608474983683377308707",
+                    "forte_circuit": "306162.2345765915115736147758",
+                    "outro_skill": "87686.36084470948812664907651",
+                    "damage": "500629.7013471278028664907650",
+                    "damage_no_crit": "231344.5939681736612137203166",
+                    "damage_crit": "500629.7013471278028664907650",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "10172.50608474983683377308707"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "76359.95513134461973614775726"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "58239.14325105481334881266490"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "7545.967671357852031662269130"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "12702.67703837449456464379947"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "247923.0913255366982248021109"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "87686.36084470948812664907651"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "template_id": "[內鬼]+0菲比+1和光回唱,+0莫特斐+1停駐之煙,+0漂泊者·衍射(男)+1千古洑流-此間永駐之光",
+            "monster_id": "90等抗性20白板",
+            "duration_1": "24",
+            "duration_2": "26",
+            "damage": "455531.2363366607271514511872",
+            "damage_no_crit": "210504.2681777544949868073879",
+            "damage_crit": "455531.2363366607271514511872",
+            "resonators": {
+                "菲比": {
+                    "resonator_id": "[15有效-1] +0菲比+1和光回唱 4暴3共效3共效1攻1攻",
+                    "resonator_name": "菲比",
+                    "basic": "18440.91878023238248021108180",
+                    "heavy": "278665.2299648839503704485488",
+                    "skill": "0.0",
+                    "liberation": "69542.81389324295430079155673",
+                    "intro": "9264.341450473851609498680740",
+                    "outro": "79617.93224782758839050131925",
+                    "echo": "0.0",
+                    "coordinated_attack": "0.0",
+                    "none": "0.0",
+                    "normal_attack": "18440.91878023238248021108180",
+                    "resonance_skill": "0.0",
+                    "resonance_liberation": "69542.81389324295430079155673",
+                    "intro_skill": "9264.341450473851609498680740",
+                    "forte_circuit": "278665.2299648839503704485488",
+                    "outro_skill": "79617.93224782758839050131925",
+                    "damage": "455531.2363366607271514511872",
+                    "damage_no_crit": "210504.2681777544949868073879",
+                    "damage_crit": "455531.2363366607271514511872",
+                    "skills": {
+                        "金色恩典": {
+                            "id": "金色恩典",
+                            "name": "",
+                            "type": "變奏技能",
+                            "damage": "9264.341450473851609498680740"
+                        },
+                        "啟明之誓願-赦罪": {
+                            "id": "啟明之誓願-赦罪",
+                            "name": "",
+                            "type": "共鳴解放",
+                            "damage": "69542.81389324295430079155673"
+                        },
+                        "聖禱赦罪傷害": {
+                            "id": "聖禱赦罪傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "53039.76270603530145435356201"
+                        },
+                        "第一段傷害": {
+                            "id": "第一段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "6872.290908382915883905013193"
+                        },
+                        "第二段傷害": {
+                            "id": "第二段傷害",
+                            "name": "",
+                            "type": "常態攻擊",
+                            "damage": "11568.62787184946659630606860"
+                        },
+                        "重擊·星輝傷害": {
+                            "id": "重擊·星輝傷害",
+                            "name": "",
+                            "type": "共鳴回路",
+                            "damage": "225625.4672588486489160949868"
+                        },
+                        "傾聽之心-赦罪": {
+                            "id": "傾聽之心-赦罪",
+                            "name": "",
+                            "type": "延奏技能",
+                            "damage": "79617.93224782758839050131925"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "base_damage": "715675.8367356067656949868073"
+}
