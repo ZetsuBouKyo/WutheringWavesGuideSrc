@@ -1,0 +1,12 @@
+{
+    "no": "1606",
+    "name": "洛可可",
+    "rank": 5,
+    "is_permanent": false,
+    "stat_bonus": {
+        "atk_p": "0.12",
+        "crit_dmg": "0.16"
+    },
+    "element_zh_tw": "湮滅",
+    "element_en": "havoc"
+}

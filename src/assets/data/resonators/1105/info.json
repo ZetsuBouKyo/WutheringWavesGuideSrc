@@ -1,0 +1,12 @@
+{
+    "no": "1105",
+    "name": "折枝",
+    "rank": 5,
+    "is_permanent": false,
+    "stat_bonus": {
+        "atk_p": "0.12",
+        "crit_rate": "0.08"
+    },
+    "element_zh_tw": "冷凝",
+    "element_en": "glacio"
+}

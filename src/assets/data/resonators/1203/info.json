@@ -1,0 +1,12 @@
+{
+    "no": "1203",
+    "name": "安可",
+    "rank": 5,
+    "is_permanent": true,
+    "stat_bonus": {
+        "atk_p": "0.12",
+        "fusion": "0.12"
+    },
+    "element_zh_tw": "熱熔",
+    "element_en": "fusion"
+}

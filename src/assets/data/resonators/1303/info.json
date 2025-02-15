@@ -1,0 +1,12 @@
+{
+    "no": "1303",
+    "name": "淵武",
+    "rank": 4,
+    "is_permanent": true,
+    "stat_bonus": {
+        "def_p": "0.152",
+        "electro": "0.12"
+    },
+    "element_zh_tw": "導電",
+    "element_en": "electro"
+}

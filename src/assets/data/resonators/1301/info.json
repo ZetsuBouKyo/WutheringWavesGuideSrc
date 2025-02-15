@@ -1,0 +1,12 @@
+{
+    "no": "1301",
+    "name": "卡卡羅",
+    "rank": 5,
+    "is_permanent": true,
+    "stat_bonus": {
+        "atk_p": "0.12",
+        "crit_dmg": "0.16"
+    },
+    "element_zh_tw": "導電",
+    "element_en": "electro"
+}

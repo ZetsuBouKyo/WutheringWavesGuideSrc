@@ -1,0 +1,12 @@
+{
+    "no": "1501",
+    "name": "漂泊者·衍射(男)",
+    "rank": 5,
+    "is_permanent": true,
+    "stat_bonus": {
+        "atk_p": "0.12",
+        "spectro": "0.12"
+    },
+    "element_zh_tw": "衍射",
+    "element_en": "spectro"
+}

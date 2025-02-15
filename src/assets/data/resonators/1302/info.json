@@ -1,0 +1,12 @@
+{
+    "no": "1302",
+    "name": "吟霖",
+    "rank": 5,
+    "is_permanent": false,
+    "stat_bonus": {
+        "atk_p": "0.12",
+        "crit_rate": "0.08"
+    },
+    "element_zh_tw": "導電",
+    "element_en": "electro"
+}

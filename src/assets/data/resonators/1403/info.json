@@ -1,0 +1,12 @@
+{
+    "no": "1403",
+    "name": "秋水",
+    "rank": 4,
+    "is_permanent": true,
+    "stat_bonus": {
+        "atk_p": "0.12",
+        "aero": "0.12"
+    },
+    "element_zh_tw": "氣動",
+    "element_en": "aero"
+}
