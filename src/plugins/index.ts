@@ -13,10 +13,10 @@ import i18n from '../i18n'
 // Types
 import type { App } from 'vue'
 
-export function registerPlugins (app: App) {
+export function registerPlugins(app: App) {
   app
     .use(vuetify)
-    .use(router)
     .use(pinia)
+    .use(router)
     .use(i18n)
 }
