@@ -1,6 +1,3 @@
-import { components } from "vuetify/dist/vuetify-labs.js";
-import { sha256 } from "./hash";
-
 type JsonData = Record<string, any>;
 
 function getNestedValue<T>(obj: Record<string, any>, keyPath: string): T | undefined {
@@ -65,18 +62,12 @@ export class CalculatedResonators {
   constructor() {
     const templatesModule = import.meta.glob("@/assets/calculation/templates.json", { eager: true });
     this.templates = Object.values(templatesModule)[0];
-  }
 
-  public async init() {
     this.hashedComparisonTitleToTemplateIDs = {};
     Object.keys(this.templates.comparisons).forEach((name: string) => {
-      const resonatorID = resonators.getIDByName(name);
-      this.hashedComparisonTitleToTemplateIDs[resonatorID] = {};
       const comparisons: any = this.templates.comparisons[name];
-      comparisons.forEach(async (comparison: any) => {
-        const hashedID = await sha256(comparison.title);
-        comparison.id = hashedID;
-        this.hashedComparisonTitleToTemplateIDs[resonatorID][hashedID] = comparison.template_ids;
+      comparisons.forEach((comparison: any) => {
+        this.hashedComparisonTitleToTemplateIDs[comparison.id] = comparison.template_ids;
       });
     });
   }
@@ -114,6 +105,10 @@ export class CalculatedResonators {
       }
     }
     return [];
+  }
+
+  public getTemplateIDsByComparisonID(id: string): any {
+    return this.hashedComparisonTitleToTemplateIDs[id];
   }
 }
 

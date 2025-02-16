@@ -15,13 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onBeforeMount } from "vue";
-
-import { calculatedResonators } from "@/ww/resonator";
-
-onBeforeMount(async () => {
-  return await calculatedResonators.init()
-});
+//
 </script>
 
 <style scoped lang="sass">
