@@ -23,5 +23,5 @@
     z-index: 999
     background: rgb(var(--v-theme-background))
   .view
-    margin-top: 160px
+    margin-top: var(--ww-nav-height)
 </style>

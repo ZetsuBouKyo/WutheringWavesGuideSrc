@@ -1,7 +1,7 @@
 <template>
   <Doc>
     <template v-slot:left>
-      <v-list>
+      <v-list class="left">
         <v-list-item :title="$t('resonator.header.damage_analysis')"
           v-on:click="jump('#damage_analysis')"></v-list-item>
         <div v-if="comparisons.length > 0">
@@ -17,7 +17,7 @@
       </v-list>
     </template>
     <template v-slot:right>
-      <v-container class=" ml-4">
+      <v-container>
         <v-row class="my-2">
           <h1>{{ $t(resonatorName) }}</h1>
         </v-row>
@@ -108,3 +108,10 @@ function getComparisonID(i: number | string): string {
   return `comparison-${i}`
 }
 </script>
+
+<style scoped lang="sass">
+  .name
+    max-width: 60px
+  .left
+    max-height: calc(80vh - var(--ww-nav-height) - var(--ww-footer-height))
+</style>

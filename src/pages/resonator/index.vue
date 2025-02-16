@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="h-100">
     <h1 class="mb-4">{{ $t('resonators.damage_analysis') }}</h1>
     <v-sheet class=" d-flex flex-wrap justify-center">
       <v-tooltip :text="`${id} ${resonators.getNameByID(id)}`"

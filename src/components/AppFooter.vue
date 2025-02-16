@@ -1,5 +1,5 @@
 <template>
-  <v-footer height="40" app>
+  <v-footer class="footer" app>
     <a v-for="item in items" :key="item.title" :href="item.href" :title="item.title"
       class="d-inline-block mx-2 social-link" rel="noopener noreferrer" target="_blank">
       <v-icon :icon="item.icon" size="16" />
@@ -8,8 +8,8 @@
     <div class="text-caption text-disabled" style="position: absolute; right: 16px;">
       &copy; 2025-{{ (new Date()).getFullYear() }} <span class="d-none d-sm-inline-block">ZetsuBouKyo</span>
       —
-      <a class="text-decoration-none on-surface" href="https://en.wikipedia.org/wiki/MIT_License" rel="noopener noreferrer"
-        target="_blank">
+      <a class="text-decoration-none on-surface" href="https://en.wikipedia.org/wiki/MIT_License"
+        rel="noopener noreferrer" target="_blank">
         MIT License
       </a>
     </div>
@@ -39,4 +39,6 @@ const items = [
 
     &:hover
       color: rgba(25, 118, 210, 1)
+  .footer
+    height: var(--ww-footer-height)
 </style>
