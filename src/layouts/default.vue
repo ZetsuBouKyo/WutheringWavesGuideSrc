@@ -1,6 +1,6 @@
 <template>
-  <v-main class="mx-16">
-    <v-row class="my-4">
+  <v-main class="nav position-fixed w-100">
+    <v-row class="mx-8 my-4">
       <img class="mr-4" src="@/assets/logo.png" height="48px" />
       <h1>{{ $t('nav.title') }}</h1>
     </v-row>
@@ -9,12 +9,25 @@
       <v-tab to="/resonator">{{ $t('nav.tab.resonator') }}</v-tab>
       <v-tab to="/tier">{{ $t('nav.tab.tier') }}</v-tab>
     </v-tabs>
-    <router-view />
   </v-main>
-
+  <router-view class="view" />
   <AppFooter />
 </template>
 
 <script lang="ts" setup>
-//
+import { onBeforeMount } from "vue";
+
+import { calculatedResonators } from "@/ww/resonator";
+
+onBeforeMount(async () => {
+  return await calculatedResonators.init()
+});
 </script>
+
+<style scoped lang="sass">
+  .nav
+    z-index: 999
+    background: rgb(var(--v-theme-background))
+  .view
+    margin-top: 160px
+</style>

@@ -1,3 +1,6 @@
+import { components } from "vuetify/dist/vuetify-labs.js";
+import { sha256 } from "./hash";
+
 type JsonData = Record<string, any>;
 
 function getNestedValue<T>(obj: Record<string, any>, keyPath: string): T | undefined {
@@ -47,7 +50,7 @@ export class Resonators {
     return new URL(`../assets/resonators/${id}/icon.png`, import.meta.url).href;
   }
 
-  public getNoByName(name: string): string {
+  public getIDByName(name: string): string {
     return this.nameToID[name];
   }
 }
@@ -55,24 +58,62 @@ export class Resonators {
 export const resonators = new Resonators();
 
 export class CalculatedResonators {
-  private templatesModule: any;
+  private templates: any;
+  private idToTemplateIDs: any;
+  private hashedComparisonTitleToTemplateIDs: any;
 
   constructor() {
-    this.templatesModule = import.meta.glob("@/assets/calculation/templates.json", { eager: true });
+    const templatesModule = import.meta.glob("@/assets/calculation/templates.json", { eager: true });
+    this.templates = Object.values(templatesModule)[0];
+  }
+
+  public async init() {
+    this.hashedComparisonTitleToTemplateIDs = {};
+    Object.keys(this.templates.comparisons).forEach((name: string) => {
+      const resonatorID = resonators.getIDByName(name);
+      this.hashedComparisonTitleToTemplateIDs[resonatorID] = {};
+      const comparisons: any = this.templates.comparisons[name];
+      comparisons.forEach(async (comparison: any) => {
+        const hashedID = await sha256(comparison.title);
+        comparison.id = hashedID;
+        this.hashedComparisonTitleToTemplateIDs[resonatorID][hashedID] = comparison.template_ids;
+      });
+    });
   }
 
   public getCalculatedResonatorIDs(): Array<string> {
     const s: Set<string> = new Set([]);
-    const templates: any = Object.values(this.templatesModule)[0];
-    for (const template of templates.templates) {
+    for (const template of this.templates.templates) {
       for (const name of template.echo_comparison) {
-        const id = resonators.getNoByName(name);
+        const id = resonators.getIDByName(name);
         s.add(id);
       }
     }
     const arr = Array.from(s);
     arr.sort();
     return arr;
+  }
+
+  public getTemplateIDsByID(resonatorID: string): Array<string> {
+    const ids: Array<string> = [];
+    for (const template of this.templates.templates) {
+      for (const name of template.echo_comparison) {
+        const templateResonator = resonators.getIDByName(name);
+        if (resonatorID === templateResonator) {
+          ids.push(template.id);
+        }
+      }
+    }
+    return ids;
+  }
+  public getComparisonsByID(resonatorID: string): any {
+    for (const [name, comparisons] of Object.entries(this.templates.comparisons)) {
+      const id = resonators.getIDByName(name);
+      if (id === resonatorID) {
+        return comparisons;
+      }
+    }
+    return [];
   }
 }
 

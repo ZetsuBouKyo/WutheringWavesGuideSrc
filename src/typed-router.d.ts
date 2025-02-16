@@ -20,7 +20,9 @@ declare module 'vue-router/auto-routes' {
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
     '/resonator/': RouteRecordInfo<'/resonator/', '/resonator', Record<never, never>, Record<never, never>>,
-    '/resonator/[id]': RouteRecordInfo<'/resonator/[id]', '/resonator/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/resonator/[id]/': RouteRecordInfo<'/resonator/[id]/', '/resonator/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/resonator/[id]/comparison/[affix_policy]/[comparison_id]/resonator_dps': RouteRecordInfo<'/resonator/[id]/comparison/[affix_policy]/[comparison_id]/resonator_dps', '/resonator/:id/comparison/:affix_policy/:comparison_id/resonator_dps', { id: ParamValue<true>, affix_policy: ParamValue<true>, comparison_id: ParamValue<true> }, { id: ParamValue<false>, affix_policy: ParamValue<false>, comparison_id: ParamValue<false> }>,
+    '/resonator/[id]/comparison/[affix_policy]/[comparison_id]/team_dps': RouteRecordInfo<'/resonator/[id]/comparison/[affix_policy]/[comparison_id]/team_dps', '/resonator/:id/comparison/:affix_policy/:comparison_id/team_dps', { id: ParamValue<true>, affix_policy: ParamValue<true>, comparison_id: ParamValue<true> }, { id: ParamValue<false>, affix_policy: ParamValue<false>, comparison_id: ParamValue<false> }>,
     '/resonator/damage-analysis': RouteRecordInfo<'/resonator/damage-analysis', '/resonator/damage-analysis', Record<never, never>, Record<never, never>>,
     '/resonator/echo-comparison': RouteRecordInfo<'/resonator/echo-comparison', '/resonator/echo-comparison', Record<never, never>, Record<never, never>>,
     '/tier/': RouteRecordInfo<'/tier/', '/tier', Record<never, never>, Record<never, never>>,
