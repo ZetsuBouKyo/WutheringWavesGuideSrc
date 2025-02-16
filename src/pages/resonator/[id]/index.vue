@@ -1,27 +1,29 @@
 <template>
   <Doc>
     <template v-slot:left>
-      <v-list class="left">
-        <v-list-item :title="$t('resonator.header.damage_analysis')"
-          v-on:click="jump('#damage_analysis')"></v-list-item>
-        <div v-if="comparisons.length > 0">
-          <v-list-item :title="$t('resonator.header.damage_comparison')"
-            v-on:click="jump('#damage_comparison')"></v-list-item>
-          <v-tooltip :text="comparison.title" v-for="(comparison, i) in comparisons" :key="i">
-            <template v-slot:activator="{ props }">
-              <v-list-item class="ml-4" :title="comparison.title" v-bind="props"
-                v-on:click="jump(`#${getComparisonID(i)}`)"></v-list-item>
-            </template>
-          </v-tooltip>
-        </div>
-      </v-list>
+      <v-container>
+        <v-list class="left">
+          <v-list-item :title="$t('resonator.header.damage_analysis')"
+            v-on:click="jump('#damage_analysis')"></v-list-item>
+          <div v-if="comparisons.length > 0">
+            <v-list-item :title="$t('resonator.header.damage_comparison')"
+              v-on:click="jump('#damage_comparison')"></v-list-item>
+            <v-tooltip :text="comparison.title" v-for="(comparison, i) in comparisons" :key="i">
+              <template v-slot:activator="{ props }">
+                <v-list-item class="ml-4" :title="comparison.title" v-bind="props"
+                  v-on:click="jump(`#${getComparisonID(i)}`)"></v-list-item>
+              </template>
+            </v-tooltip>
+          </div>
+        </v-list>
+      </v-container>
     </template>
     <template v-slot:right>
       <v-container>
-        <v-row class="my-2">
+        <v-row class="my-1" justify="start">
           <h1>{{ $t(resonatorName) }}</h1>
         </v-row>
-        <v-row class="my-2">
+        <v-row class="my-1">
           <h2 id="damage_analysis">{{ $t('resonator.header.damage_analysis') }}</h2>
         </v-row>
         <v-row class="my-1 ml-8" v-for="(templateID, i) in templateIDs" :key="i">
@@ -31,9 +33,9 @@
           <v-row class="my-2">
             <h2 id="damage_comparison">{{ $t('resonator.header.damage_comparison') }}</h2>
           </v-row>
-          <v-col class="ml-8" v-for="(comparison, i) in comparisons" :key="i" :id="$t(comparison.title)">
-            <h3 :id="getComparisonID(i)" class="my-1">{{ $t(comparison.title) }}</h3>
-            <v-col class="ml-8">
+          <v-col class="ml-8 py-1" v-for="(comparison, i) in comparisons" :key="i" :id="$t(comparison.title)">
+            <h3 :id="getComparisonID(i)" class="mb-2">{{ $t(comparison.title) }}</h3>
+            <v-col class="ml-8 py-1">
               <h4>{{ $t('resonator.damage_comparison.team_based') }}</h4>
               <v-col class="my-2">
                 <v-row class="ml-4">
@@ -54,7 +56,7 @@
                 </v-row>
               </v-col>
             </v-col>
-            <v-col class="ml-8">
+            <v-col class="ml-8 py-1">
               <h4>{{ $t('resonator.damage_comparison.resonator_based', { name: resonatorName }) }}</h4>
               <v-col class="my-2">
                 <v-row class="ml-4">
