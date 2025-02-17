@@ -19,5 +19,5 @@
   .left
     width: 20%
   .right
-    margin-left: 30%
+    margin-left: 33%
 </style>
