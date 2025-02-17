@@ -29,7 +29,27 @@ export class TeamDamageDistribution {
     return "";
   }
 
+  public getTeamDamagePercentageString(baseDamage: number): string {
+    if (this.damage) {
+      const d = parseFloat(this.damage);
+      const p = toPercentageString(d / baseDamage);
+      return p;
+    }
+    return "";
+  }
+
+  public getResonatorIconSources(): Array<string> {
+    const sources: Array<string> = [];
+    Object.keys(this.resonators).forEach((resonatorName: string) => {
+      const id = resonators.getIDByName(resonatorName);
+      const source = resonators.getIconSrcByID(id);
+      sources.push(source);
+    });
+    return sources;
+  }
+
   public getResonatorDamage(resonatorName: string): number {
+    console.log(resonatorName);
     const d = parseFloat(this.resonators[resonatorName].damage);
     return d;
   }

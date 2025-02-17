@@ -27,6 +27,11 @@ export class Resonators {
     return this.idToElementEn[id];
   }
 
+  public getElementEnByName(name: string): string {
+    const id = this.getIDByName(name);
+    return this.getElementEnByID(id);
+  }
+
   public getElementSrcByID(id: string): string {
     const element = this.getElementEnByID(id);
     return new URL(`../assets/elements/${element}.png`, import.meta.url).href;
