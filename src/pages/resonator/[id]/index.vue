@@ -1,26 +1,24 @@
 <template>
   <Doc>
     <template v-slot:left>
-      <v-container>
-        <v-list class="left">
-          <v-list-item :title="$t('resonator.header.damage_analysis')"
-            v-on:click="jump('#damage_analysis')"></v-list-item>
-          <div v-if="comparisons.length > 0">
-            <v-list-item :title="$t('resonator.header.damage_comparison')"
-              v-on:click="jump('#damage_comparison')"></v-list-item>
-            <v-tooltip :text="comparison.title" v-for="(comparison, i) in comparisons" :key="i">
-              <template v-slot:activator="{ props }">
-                <v-list-item class="ml-4" :title="comparison.title" v-bind="props"
-                  v-on:click="jump(`#${getComparisonID(i)}`)"></v-list-item>
-              </template>
-            </v-tooltip>
-          </div>
-        </v-list>
-      </v-container>
+      <DocHeaders>
+        <v-list-item :title="$t('resonator.header.damage_analysis')"
+          v-on:click="jump('#damage_analysis')"></v-list-item>
+        <div v-if="comparisons.length > 0">
+          <v-list-item :title="$t('resonator.header.damage_comparison')"
+            v-on:click="jump('#damage_comparison')"></v-list-item>
+          <v-tooltip :text="comparison.title" v-for="(comparison, i) in comparisons" :key="i">
+            <template v-slot:activator="{ props }">
+              <v-list-item class="ml-4" :title="comparison.title" v-bind="props"
+                v-on:click="jump(`#${getComparisonID(i)}`)"></v-list-item>
+            </template>
+          </v-tooltip>
+        </div>
+      </DocHeaders>
     </template>
     <template v-slot:right>
       <v-container>
-        <v-row class="my-1" justify="start">
+        <v-row class="my-1">
           <h1>{{ $t(resonatorName) }}</h1>
         </v-row>
         <v-row class="my-1">
@@ -30,7 +28,7 @@
           <v-list-item class="text-blue-accent-1" :title="templateID" to="/"></v-list-item>
         </v-row>
         <div v-if="comparisons.length > 0">
-          <v-row class="my-2">
+          <v-row class="my-1">
             <h2 id="damage_comparison">{{ $t('resonator.header.damage_comparison') }}</h2>
           </v-row>
           <v-col class="ml-8 py-1" v-for="(comparison, i) in comparisons" :key="i" :id="$t(comparison.title)">
@@ -113,8 +111,6 @@ function getComparisonID(i: number | string): string {
 </script>
 
 <style scoped lang="sass">
-  .name
-    max-width: 60px
-  .left
-    max-height: calc(80vh - var(--ww-nav-height) - var(--ww-footer-height))
+.name
+  max-width: 60px
 </style>
