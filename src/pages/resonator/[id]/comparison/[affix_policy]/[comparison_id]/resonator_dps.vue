@@ -76,9 +76,9 @@ templateIDs.forEach((templateID: string) => {
 
 console.log(resonatorID, affixPolicy, comparisonID, templateIDs)
 
-teamDamageDistributions.sort((analysisA: any, analysisB: any) => {
-  const damageA = getNestedValue(analysisA, `resonators.${resonatorName}.damage`) as number
-  const damageB = getNestedValue(analysisB, `resonators.${resonatorName}.damage`) as number
+teamDamageDistributions.sort((distributionA: any, distributionB: any) => {
+  const damageA = getNestedValue(distributionA, `resonators.${resonatorName}.damage`) as number
+  const damageB = getNestedValue(distributionB, `resonators.${resonatorName}.damage`) as number
   if (!damageA || !damageB) {
     return 0
   }
