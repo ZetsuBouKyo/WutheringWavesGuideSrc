@@ -6,6 +6,11 @@ const i18n = createI18n({
   fallbackLocale: "zh_TW",
   messages: {
     zh_TW: {
+      general: {
+        template_id: "模板ID",
+        monster_id: "怪物ID",
+        team_dps: "隊伍DPS",
+      },
       nav: {
         title: "鳴潮攻略",
         tab: {

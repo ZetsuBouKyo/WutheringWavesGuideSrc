@@ -3,7 +3,7 @@
     <h1 class="mb-4">{{ $t('resonators.damage_analysis') }}</h1>
     <v-sheet class=" d-flex flex-wrap justify-center">
       <v-tooltip :text="`${id} ${resonators.getNameByID(id)}`"
-        v-for="id in calculatedResonators.getCalculatedResonatorIDs()" :key="id">
+        v-for="id in calculatedTemplates.getCalculatedResonatorIDs()" :key="id">
         <template v-slot:activator="{ props }">
           <v-card class="ma-2 pa-2" v-bind="props" :to="`/resonator/${id}`">
             <v-img width="100" :src="resonators.getIconSrcByID(id)"></v-img>
@@ -20,7 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-import { resonators, calculatedResonators } from "@/ww/resonator"
+import { resonators } from "@/ww/resonator"
+import { calculatedTemplates } from "@/ww/template";
 </script>
 
 <style scoped lang="sass">

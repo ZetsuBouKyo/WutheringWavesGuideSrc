@@ -88,7 +88,8 @@
 import { useRoute } from 'vue-router'
 import { useGoTo } from 'vuetify'
 
-import { resonators, calculatedResonators } from "@/ww/resonator"
+import { resonators } from "@/ww/resonator"
+import { calculatedTemplates } from '@/ww/template'
 
 const goTo = useGoTo()
 function jump(id: string) {
@@ -103,8 +104,8 @@ const route = useRoute()
 const resonatorID = (route.params as { id: string }).id
 const resonatorName = resonators.getNameByID(resonatorID)
 
-const templateIDs = calculatedResonators.getTemplateIDsByID(resonatorID)
-const comparisons = calculatedResonators.getComparisonsByID(resonatorID)
+const templateIDs = calculatedTemplates.getTemplateIDsByResonatorID(resonatorID)
+const comparisons = calculatedTemplates.getComparisonsByID(resonatorID)
 
 function getComparisonID(i: number | string): string {
   return `comparison-${i}`
