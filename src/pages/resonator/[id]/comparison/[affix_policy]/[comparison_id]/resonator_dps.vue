@@ -1,6 +1,9 @@
 <template>
   <v-container class="h-100">
     <div class="d-flex flex-column align-start">
+      <v-row class="mb-2">
+        <h1>{{ title }}</h1>
+      </v-row>
       <v-row class="ma-1">
         <h2>{{ $t('resonator.damage_comparison.warning') }}</h2>
       </v-row>
@@ -61,7 +64,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 import { resonators } from '@/ww/resonator'
 import { calculatedTemplates } from '@/ww/template';
@@ -69,10 +72,17 @@ import { calculatedDamageAnalyses } from '@/ww/damage';
 
 const route = useRoute()
 const resonatorID = (route.params as { id: string }).id
-const resonatorName = resonators.getNameByID(resonatorID)
 const affixPolicy = (route.params as { affix_policy: string }).affix_policy
 const comparisonID = (route.params as { comparison_id: string }).comparison_id
-const templateIDs = calculatedTemplates.getTemplateIDsByComparisonID(comparisonID)
+
+const resonatorName = resonators.getNameByID(resonatorID)
+const comparison = calculatedTemplates.getComparisonByComparisonID(comparisonID)
+const templateIDs = comparison.template_ids
+
+const { t } = useI18n()
+const affixPolicyString = t(`general.${affixPolicy}`)
+const title = `【${affixPolicyString}】${resonatorName} ${comparison.title}`
+
 const teamDamageDistributions: Array<any> = []
 
 templateIDs.forEach((templateID: string) => {
