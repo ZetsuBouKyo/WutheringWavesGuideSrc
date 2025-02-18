@@ -7,16 +7,26 @@
         </div>
         <div class="d-flex flex-column">
           <div class="d-flex flex-wrap">
-            <div v-for=" (action, i) in resonatorRotation.actions" class="row d-flex flex-row align-center my-2">
-              <h2 :class="action.src ? 'mr-3' : ''">
-                {{ action.name }}
-                <sup v-if="action.supIndex">
-                  {{ action.supIndex }}
-                </sup>
-              </h2>
-              <img v-if="action.src" class="action" :src="action.src" />
-              <v-icon icon="mdi-menu-right" size="x-large"></v-icon>
-            </div>
+            <v-tooltip location="bottom" v-for=" (action, i) in resonatorRotation.actions"
+              :disabled="!action.skillID && !action.timeStart && !action.timeEnd">
+              <v-col>
+                <v-row v-if="action.skillID">{{ $t('general.resonator_skill_id') }}: {{ action.skillID }}</v-row>
+                <v-row v-if="action.timeStart">{{ $t('general.time_start') }}: {{ action.timeStart }}</v-row>
+                <v-row v-if="action.timeEnd">{{ $t('general.time_end') }}: {{ action.timeEnd }}</v-row>
+              </v-col>
+              <template v-slot:activator="{ props }">
+                <div class="row d-flex flex-row align-center my-2" v-bind="props">
+                  <h2 :class="action.src ? 'mr-3' : ''">
+                    {{ action.name }}
+                    <sup v-if="action.supIndex">
+                      {{ action.supIndex }}
+                    </sup>
+                  </h2>
+                  <img v-if="action.src" class="action" :src="action.src" />
+                  <v-icon icon="mdi-menu-right" size="x-large"></v-icon>
+                </div>
+              </template>
+            </v-tooltip>
           </div>
           <div class="d-flex flex-column">
             <div v-for="comment in resonatorRotation.comments"

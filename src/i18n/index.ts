@@ -10,6 +10,7 @@ const i18n = createI18n({
         template_id: "模板ID",
         monster_id: "怪物ID",
         team_dps: "隊伍DPS",
+        resonator_skill_id: "技能ID",
         resonator_name: "共鳴者名稱",
         resonator_chain: "共鳴鏈",
         resonator_energy_regen: "共鳴效率",
@@ -26,6 +27,8 @@ const i18n = createI18n({
         affixes_15_1: "15有效-1",
         affixes_20_small: "20有效-小Ｏ",
         affixes_20_skill_bonus: "20有效-技能加成",
+        time_start: "開始",
+        time_end: "結束",
       },
       nav: {
         title: "鳴潮攻略",
