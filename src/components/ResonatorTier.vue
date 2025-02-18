@@ -4,13 +4,13 @@
       <v-row class="mb-2">
         <h1>{{ title }}</h1>
       </v-row>
-      <v-row class="ma-1">
+      <v-row v-if="isWarning" class="ma-1">
         <h2>{{ $t('resonator.damage_comparison.warning') }}</h2>
       </v-row>
       <div class="d-flex flex-column w-100 my-2" v-for="(teamDistribution, i) in teamDamageDistributions" :key="i">
         <div class="d-flex flex-row mb-1">
           <div class=" d-flex flex-column mr-4 justify-center">
-            <img class="resonator" :src="resonators.getIconSrcByID(resonatorID)" />
+            <img class="resonator" :src="resonators.getIconSrcByID(resonatorNo)" />
           </div>
           <v-col>
             <v-row class="text-grey-darken-1">
@@ -19,6 +19,13 @@
                 <a class="text-decoration-none text-truncate"
                   :href="`/template/${teamDistribution.getHashedTemplateID()}`">{{
                     teamDistribution.template_id }}</a>
+              </div>
+            </v-row>
+            <v-row class="text-grey-darken-1">
+              <div class="d-flex flex-row">
+                <span class="header">{{ $t('general.resonator_id') }}: </span>
+                <a class="text-decoration-none text-truncate" :href="`#r${i}`">{{
+                  teamDistribution.getResonatorIDByResonatorName(resonatorName) }}</a>
               </div>
             </v-row>
             <v-row class="text-grey-darken-1">
@@ -43,14 +50,14 @@
         </div>
         <div class="d-flex flex-column align-start bg-grey-darken-4">
           <div v-if="teamDistribution.getResonatorMaxDPSPercentageByBasedDPS(resonatorName, baseDPS) > 0.5"
-            :class="`barh d-flex flex-row-reverse align-center bg-${resonators.getElementEnByID(resonatorID)}`"
+            :class="`barh d-flex flex-row-reverse align-center bg-${resonators.getElementEnByNo(resonatorNo)}`"
             :style="`width: ${teamDistribution.getResonatorMaxDPSPercentageStringByBasedDPS(resonatorName, baseDPS)};`">
             <span class="mr-4 text-truncate">
               DPS: {{ teamDistribution.getResonatorDPSString(resonatorName) }}
               ({{ teamDistribution.getResonatorMaxDPSPercentageStringByBasedDPS(resonatorName, baseDPS) }})</span>
           </div>
           <div v-else class="d-flex flex-row align-center w-100">
-            <div :class="`barh d-flex bg-${resonators.getElementEnByID(resonatorID)}`"
+            <div :class="`barh d-flex bg-${resonators.getElementEnByNo(resonatorNo)}`"
               :style="`width: ${teamDistribution.getResonatorMaxDPSPercentageStringByBasedDPS(resonatorName, baseDPS)};`">
             </div>
             <span class="ml-4 text-truncate">
@@ -64,35 +71,33 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from 'vue-i18n'
-
 import { resonators } from '@/ww/resonator'
-import { calculatedTemplates } from '@/ww/template';
-import { calculatedDamageAnalyses } from '@/ww/damage';
 
-const route = useRoute()
-const resonatorID = (route.params as { id: string }).id
-const affixPolicy = (route.params as { affix_policy: string }).affix_policy
-const comparisonID = (route.params as { comparison_id: string }).comparison_id
-
-const resonatorName = resonators.getNameByID(resonatorID)
-const comparison = calculatedTemplates.getComparisonByComparisonID(comparisonID)
-const templateIDs = comparison.template_ids
-
-const { t } = useI18n()
-const affixPolicyString = t(`general.${affixPolicy}`)
-const title = `【${affixPolicyString}】${resonatorName} ${comparison.title}`
-
-const teamDamageDistributions: Array<any> = []
-
-templateIDs.forEach((templateID: string) => {
-  const damageAnalysis = calculatedDamageAnalyses.getDamageAnalysis(templateID, affixPolicy)
-  if (damageAnalysis) {
-    teamDamageDistributions.push(damageAnalysis.getTeamDamageDistribution())
+const props = defineProps({
+  title: {
+    type: Object as PropType<string>,
+    default: ""
+  },
+  resonatorNo: {
+    type: Object as PropType<string>,
+    default: ""
+  },
+  teamDamageDistributions: {
+    type: Object as PropType<Array<any>>,
+    default: []
+  },
+  isWarning: {
+    type: Object as PropType<boolean>,
+    default: true
   }
 });
 
-console.log(resonatorID, affixPolicy, comparisonID, templateIDs)
+const title = props.title
+const teamDamageDistributions = props.teamDamageDistributions
+const resonatorNo = props.resonatorNo
+const isWarning = props.isWarning
+
+const resonatorName = resonators.getNameByNo(resonatorNo)
 
 teamDamageDistributions.sort((distributionA: any, distributionB: any) => {
   const dpsA = distributionA.getResonatorMaxDPS(resonatorName)

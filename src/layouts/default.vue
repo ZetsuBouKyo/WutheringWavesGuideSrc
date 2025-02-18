@@ -24,4 +24,5 @@
     background: rgb(var(--v-theme-background))
   .view
     margin-top: var(--ww-nav-height)
+    margin-bottom: 60px
 </style>

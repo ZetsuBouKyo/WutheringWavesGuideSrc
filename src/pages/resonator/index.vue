@@ -2,15 +2,15 @@
   <v-container class="h-100">
     <h1 class="mb-4">{{ $t('resonators.damage_analysis') }}</h1>
     <v-sheet class=" d-flex flex-wrap justify-center">
-      <v-tooltip :text="`${id} ${resonators.getNameByID(id)}`"
-        v-for="id in calculatedTemplates.getCalculatedResonatorIDs()" :key="id">
+      <v-tooltip :text="`${id} ${resonators.getNameByNo(id)}`"
+        v-for="id in calculatedTemplates.getCalculatedResonatorNos()" :key="id">
         <template v-slot:activator="{ props }">
           <v-card class="ma-2 pa-2" v-bind="props" :to="`/resonator/${id}`">
             <v-img width="100" :src="resonators.getIconSrcByID(id)"></v-img>
             <v-row no-gutters align="center" justify="center">
               <img :src="resonators.getElementSrcByID(id)" height="36">
               <span class="mr-2 text-truncate name">{{
-                resonators.getNameByID(id) }}</span>
+                resonators.getNameByNo(id) }}</span>
             </v-row>
           </v-card>
         </template>

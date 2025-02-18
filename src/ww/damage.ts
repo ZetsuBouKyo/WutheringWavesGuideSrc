@@ -76,6 +76,10 @@ export class TeamDamageDistribution {
     return "";
   }
 
+  public getResonatorIDByResonatorName(resonatorName: string): string {
+    return this.resonators[resonatorName].resonator_id;
+  }
+
   public getResonatorIconSources(): Array<string> {
     const sources: Array<string> = [];
     Object.keys(this.resonators).forEach((resonatorName: string) => {
@@ -87,7 +91,6 @@ export class TeamDamageDistribution {
   }
 
   public getResonatorDamage(resonatorName: string): number {
-    console.log(resonatorName);
     const d = parseFloat(this.resonators[resonatorName].damage);
     return d;
   }
@@ -145,8 +148,8 @@ export class DamageAnalysis {
     return new TeamDamageDistribution(this.damage_distribution);
   }
 
-  public getResonatorDamageAnalysis(resonatorID: string): any {
-    const resonatorName = resonators.getNameByID(resonatorID);
+  public getResonatorDamageAnalysis(resonatorNo: string): any {
+    const resonatorName = resonators.getNameByNo(resonatorNo);
     const resonatorDamageAnalysis = getNestedValue(this, `damage_distribution.resonators.${resonatorName}`);
     return resonatorDamageAnalysis;
   }

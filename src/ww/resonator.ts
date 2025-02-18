@@ -19,21 +19,21 @@ export class Resonators {
     return this.infoJsonModules;
   }
 
-  public getNameByID(id: string): string {
+  public getNameByNo(id: string): string {
     return this.idToName[id];
   }
 
-  public getElementEnByID(id: string): string {
+  public getElementEnByNo(id: string): string {
     return this.idToElementEn[id];
   }
 
   public getElementEnByName(name: string): string {
     const id = this.getIDByName(name);
-    return this.getElementEnByID(id);
+    return this.getElementEnByNo(id);
   }
 
   public getElementSrcByID(id: string): string {
-    const element = this.getElementEnByID(id);
+    const element = this.getElementEnByNo(id);
     return new URL(`../assets/elements/${element}.png`, import.meta.url).href;
   }
 
