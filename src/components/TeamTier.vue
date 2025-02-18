@@ -1,6 +1,8 @@
 <template>
   <v-container class="h-100">
-    <h1 v-if="title" class="mb-2">{{ title }}</h1>
+    <v-row class="mb-2">
+      <h1 v-if="title">{{ title }}</h1>
+    </v-row>
     <div class="d-flex flex-column align-start">
       <div class="d-flex flex-column w-100 my-2" v-for="(teamDistribution, i) in teamDamageDistributions" :key="i">
         <div class="d-flex flex-row mb-1">
