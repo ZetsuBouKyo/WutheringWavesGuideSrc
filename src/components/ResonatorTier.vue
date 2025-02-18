@@ -75,11 +75,11 @@ import { resonators } from '@/ww/resonator'
 
 const props = defineProps({
   title: {
-    type: Object as PropType<string>,
+    type: String,
     default: ""
   },
   resonatorNo: {
-    type: Object as PropType<string>,
+    type: String,
     default: ""
   },
   teamDamageDistributions: {
@@ -87,7 +87,7 @@ const props = defineProps({
     default: []
   },
   isWarning: {
-    type: Object as PropType<boolean>,
+    type: Boolean,
     default: true
   }
 });

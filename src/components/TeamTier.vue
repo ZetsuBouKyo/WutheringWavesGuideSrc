@@ -68,11 +68,11 @@ import { calculatedDamageAnalyses } from '@/ww/damage';
 
 const props = defineProps({
   title: {
-    type: Object as PropType<string>,
+    type: String,
     default: ""
   },
   affixPolicy: {
-    type: Object as PropType<string>,
+    type: String,
     required: true,
   },
   templateIDs: {
