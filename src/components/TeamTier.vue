@@ -33,7 +33,7 @@
           <div class="d-flex flex-row align-start w-100 bg-grey-darken-4">
             <div class="d-flex flex-row align-start"
               :style="`width: ${teamDistribution.getTeamDPSPercentageString(baseDPS)};`">
-              <v-tooltip :text="`DPS: ${teamDistribution.getResonatorDPSString(resonatorName)}
+              <v-tooltip :text="`${$t(resonatorName)} DPS: ${teamDistribution.getResonatorDPSString(resonatorName)}
             (${teamDistribution.getResonatorMaxDPSPercentageString(resonatorName)})`"
                 v-for="(resonatorName, i) in Object.keys(teamDistribution.resonators)" location="bottom">
                 <template v-slot:activator="{ props }">
