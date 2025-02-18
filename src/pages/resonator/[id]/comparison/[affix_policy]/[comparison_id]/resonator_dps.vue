@@ -1,6 +1,9 @@
 <template>
   <v-container class="h-100">
     <div class="d-flex flex-column align-start">
+      <v-row class="ma-1">
+        <h2>{{ $t('resonator.damage_comparison.warning') }}</h2>
+      </v-row>
       <div class="d-flex flex-column w-100 my-2" v-for="(teamDistribution, i) in teamDamageDistributions" :key="i">
         <div class="d-flex flex-row mb-1">
           <div class=" d-flex flex-column mr-4 justify-center">
@@ -24,26 +27,32 @@
             <v-row class="text-grey-darken-1">
               <div class="d-flex flex-row">
                 <span class="header text-truncate">{{ $t('general.team_dps') }}: </span>
-                <span class="text-truncate">{{ teamDistribution.getTeamDPS() }}</span>
+                <div class="d-flex flex-row text-truncate">
+                  <span>{{ teamDistribution.getMinTeamDPSString() }} ({{ teamDistribution.duration_1 }}s)</span>
+                  <span>&ensp;~&ensp;</span>
+                  <span class="text-grey-lighten-1">
+                    {{ teamDistribution.getMaxTeamDPSString() }} ({{ teamDistribution.duration_2 }}s)
+                  </span>
+                </div>
               </div>
             </v-row>
           </v-col>
         </div>
         <div class="d-flex flex-column align-start bg-grey-darken-4">
-          <div v-if="teamDistribution.getResonatorDamagePercentage(resonatorName, baseDamage) > 0.5"
+          <div v-if="teamDistribution.getResonatorMaxDPSPercentageByBasedDPS(resonatorName, baseDPS) > 0.5"
             :class="`barh d-flex flex-row-reverse align-center bg-${resonators.getElementEnByID(resonatorID)}`"
-            :style="`width: ${teamDistribution.getResonatorDamagePercentageString(resonatorName, baseDamage)};`">
+            :style="`width: ${teamDistribution.getResonatorMaxDPSPercentageStringByBasedDPS(resonatorName, baseDPS)};`">
             <span class="mr-4 text-truncate">
               DPS: {{ teamDistribution.getResonatorDPSString(resonatorName) }}
-              ({{ teamDistribution.getResonatorDamagePercentageString(resonatorName, baseDamage) }})</span>
+              ({{ teamDistribution.getResonatorMaxDPSPercentageStringByBasedDPS(resonatorName, baseDPS) }})</span>
           </div>
           <div v-else class="d-flex flex-row align-center w-100">
             <div :class="`barh d-flex bg-${resonators.getElementEnByID(resonatorID)}`"
-              :style="`width: ${teamDistribution.getResonatorDamagePercentageString(resonatorName, baseDamage)};`">
+              :style="`width: ${teamDistribution.getResonatorMaxDPSPercentageStringByBasedDPS(resonatorName, baseDPS)};`">
             </div>
             <span class="ml-4 text-truncate">
               DPS: {{ teamDistribution.getResonatorDPSString(resonatorName) }}
-              ({{ teamDistribution.getResonatorDamagePercentageString(resonatorName, baseDamage) }})</span>
+              ({{ teamDistribution.getResonatorMaxDPSPercentageStringByBasedDPS(resonatorName, baseDPS) }})</span>
           </div>
         </div>
       </div>
@@ -54,7 +63,6 @@
 <script lang="ts" setup>
 import { useRoute } from 'vue-router'
 
-import { getNestedValue } from "@/ww/utils";
 import { resonators } from '@/ww/resonator'
 import { calculatedTemplates } from '@/ww/template';
 import { calculatedDamageAnalyses } from '@/ww/damage';
@@ -77,15 +85,15 @@ templateIDs.forEach((templateID: string) => {
 console.log(resonatorID, affixPolicy, comparisonID, templateIDs)
 
 teamDamageDistributions.sort((distributionA: any, distributionB: any) => {
-  const damageA = getNestedValue(distributionA, `resonators.${resonatorName}.damage`) as number
-  const damageB = getNestedValue(distributionB, `resonators.${resonatorName}.damage`) as number
-  if (!damageA || !damageB) {
+  const dpsA = distributionA.getResonatorMaxDPS(resonatorName)
+  const dpsB = distributionB.getResonatorMaxDPS(resonatorName)
+  if (!dpsA || !dpsB) {
     return 0
   }
-  return damageB - damageA
+  return dpsB - dpsA
 })
 
-const baseDamage = parseFloat(teamDamageDistributions[0].resonators[resonatorName].damage)
+const baseDPS = parseFloat(teamDamageDistributions[0].getResonatorMaxDPS(resonatorName))
 
 </script>
 

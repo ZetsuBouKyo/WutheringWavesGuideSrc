@@ -24,31 +24,34 @@
             <v-row class="text-grey-darken-1">
               <div class="d-flex flex-row w-100">
                 <span class="header text-truncate">{{ $t('general.team_dps') }}: </span>
-                <span class="text-truncate">{{ teamDistribution.getTeamDPS() }} </span>
+                <span class="text-truncate">{{ teamDistribution.getTeamDPSString() }} </span>
               </div>
             </v-row>
           </v-col>
         </div>
         <div class="d-flex flex-row align-center w-100">
-          <div class="d-flex flex-row align-start bg-grey-darken-4 w-100">
-            <v-tooltip
-              :text="`DPS: ${teamDistribution.getResonatorDPSString(resonatorName)} (${teamDistribution.getResonatorDamagePercentageString(resonatorName, baseDamage)})`"
-              v-for="(resonatorName, i) in Object.keys(teamDistribution.resonators)" location="bottom">
-              <template v-slot:activator="{ props }">
-                <div class="d-flex" v-bind="props"
-                  :style="`width: ${teamDistribution.getResonatorDamagePercentageString(resonatorName, baseDamage)};`">
-                  <div
-                    :class="`barh w-100 d-flex flex-row-reverse align-center bg-${resonators.getElementEnByName(resonatorName)} ${isDivide(i)}`">
-                    <span v-if="teamDistribution.getResonatorDamagePercentage(resonatorName, baseDamage) > 0.1"
-                      class="mr-4 text-truncate">
-                      {{ teamDistribution.getResonatorDamagePercentageString(resonatorName, baseDamage) }}</span>
+          <div class="d-flex flex-row align-start w-100 bg-grey-darken-4">
+            <div class="d-flex flex-row align-start"
+              :style="`width: ${teamDistribution.getTeamDPSPercentageString(baseDPS)};`">
+              <v-tooltip :text="`DPS: ${teamDistribution.getResonatorDPSString(resonatorName)}
+            (${teamDistribution.getResonatorMaxDPSPercentageString(resonatorName)})`"
+                v-for="(resonatorName, i) in Object.keys(teamDistribution.resonators)" location="bottom">
+                <template v-slot:activator="{ props }">
+                  <div class="d-flex" v-bind="props"
+                    :style="`width: ${teamDistribution.getResonatorMaxDPSPercentageString(resonatorName)};`">
+                    <div
+                      :class="`barh w-100 d-flex flex-row-reverse align-center bg-${resonators.getElementEnByName(resonatorName)} ${isDivide(i)}`">
+                      <span v-if="teamDistribution.getResonatorMaxDPSPercentage(resonatorName) > 0.1"
+                        class="mr-4 text-truncate">
+                        {{ teamDistribution.getResonatorMaxDPSPercentageString(resonatorName) }}</span>
+                    </div>
                   </div>
-                </div>
-              </template>
-            </v-tooltip>
+                </template>
+              </v-tooltip>
+            </div>
           </div>
           <div class="team d-flex flex-row justify-end h-100">{{
-            teamDistribution.getTeamDamagePercentageString(baseDamage) }}
+            teamDistribution.getTeamDPSPercentageString(baseDPS) }}
           </div>
         </div>
       </div>
@@ -84,15 +87,15 @@ templateIDs.forEach((templateID: string) => {
 });
 
 teamDamageDistributions.sort((distributionA: any, distributionB: any) => {
-  const damageA = parseFloat(distributionA.damage)
-  const damageB = parseFloat(distributionB.damage)
-  if (!damageA || !damageB) {
+  const dpsA = parseFloat(distributionA.getMaxTeamDPS())
+  const dpsB = parseFloat(distributionB.getMaxTeamDPS())
+  if (!dpsA || !dpsB) {
     return 0
   }
-  return damageB - damageA
+  return dpsB - dpsA
 })
 
-const baseDamage = parseFloat(teamDamageDistributions[0].damage)
+const baseDPS = parseFloat(teamDamageDistributions[0].getMaxTeamDPS())
 
 function isDivide(i: number): string {
   if (i < 2) {

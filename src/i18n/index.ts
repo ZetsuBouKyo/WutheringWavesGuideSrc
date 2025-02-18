@@ -36,6 +36,7 @@ const i18n = createI18n({
           affixes_15_1: "15有效-1",
           affixes_20_small: "20有效-小Ｏ",
           affixes_20_skill_bonus: "20有效-技能加成",
+          warning: "注意！這邊的順序不代表隊伍DPS高低，可能會有角色DPS較高，但隊伍DPS變低的狀況。",
         },
       },
     },

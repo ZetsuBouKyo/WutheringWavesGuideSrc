@@ -1,6 +1,6 @@
 import { getNestedValue, mapValueToValue, toNumberString, toPercentageString } from "./utils";
 import { resonators } from "./resonator";
-import { calculatedTemplates } from "./template";
+import { templates } from "./template";
 
 export class TeamDamageDistribution {
   private template_id: any;
@@ -14,17 +14,55 @@ export class TeamDamageDistribution {
   }
 
   public getHashedTemplateID(): string {
-    return calculatedTemplates.getHashedTemplateIDByTemplateID(this.template_id);
+    return templates.getHashedTemplateIDByTemplateID(this.template_id);
   }
 
-  public getTeamDPS(): string {
+  public getMaxTeamDPS(): number {
+    if (this.duration_1 && this.duration_2 && this.damage) {
+      const t1 = parseFloat(this.duration_1);
+      const d = parseFloat(this.damage);
+      const dps2 = d / t1;
+      return dps2;
+    }
+    return 0;
+  }
+
+  public getMaxTeamDPSString(): string {
+    const dps = this.getMaxTeamDPS();
+    return toNumberString(dps);
+  }
+
+  public getMinTeamDPS(): number {
+    if (this.duration_1 && this.duration_2 && this.damage) {
+      const t2 = parseFloat(this.duration_2);
+      const d = parseFloat(this.damage);
+      const dps1 = d / t2;
+      return dps1;
+    }
+    return 0;
+  }
+
+  public getMinTeamDPSString(): string {
+    const dps = this.getMinTeamDPS();
+    return toNumberString(dps);
+  }
+
+  public getTeamDPSString(): string {
     if (this.duration_1 && this.duration_2 && this.damage) {
       const t1 = parseFloat(this.duration_1);
       const t2 = parseFloat(this.duration_2);
-      const d = parseFloat(this.damage);
-      const dps1 = toNumberString(d / t2);
-      const dps2 = toNumberString(d / t1);
+      const dps1 = toNumberString(this.getMinTeamDPS());
+      const dps2 = toNumberString(this.getMaxTeamDPS());
       return `${dps1} (${t2}s) ~ ${dps2} (${t1}s)`;
+    }
+    return "";
+  }
+
+  public getTeamDPSPercentageString(baseDPS: number): string {
+    if (this.duration_1 && this.duration_2 && this.damage) {
+      const dps = this.getMaxTeamDPS();
+      const p = dps / baseDPS;
+      return toPercentageString(p);
     }
     return "";
   }
@@ -59,22 +97,38 @@ export class TeamDamageDistribution {
     return toNumberString(d);
   }
 
-  public getResonatorDamagePercentage(resonatorName: string, baseDamage: number): number {
+  public getResonatorMaxDPS(resonatorName: string): number {
     const d = this.getResonatorDamage(resonatorName);
-    return d / baseDamage;
+    if (this.duration_1 && this.duration_2 && d) {
+      return d / this.duration_1;
+    }
+    return 0;
   }
 
-  public getResonatorDamagePercentageString(resonatorName: string, baseDamage: number): string {
-    const p = this.getResonatorDamagePercentage(resonatorName, baseDamage);
+  public getResonatorMaxDPSPercentageByBasedDPS(resonatorName: string, baseDPS: number): number {
+    const dps = this.getResonatorMaxDPS(resonatorName);
+    return dps / baseDPS;
+  }
+
+  public getResonatorMaxDPSPercentageStringByBasedDPS(resonatorName: string, baseDPS: number): string {
+    const dps = this.getResonatorMaxDPSPercentageByBasedDPS(resonatorName, baseDPS);
+    return toPercentageString(dps);
+  }
+
+  public getResonatorMaxDPSPercentage(resonatorName: string): number {
+    const dps = this.getResonatorMaxDPS(resonatorName);
+    const teamDPS = this.getMaxTeamDPS();
+    return dps / teamDPS;
+  }
+
+  public getResonatorMaxDPSPercentageString(resonatorName: string): string {
+    const p = this.getResonatorMaxDPSPercentage(resonatorName);
     return toPercentageString(p);
   }
 
   public getResonatorDPSString(resonatorName: string): string {
-    const d = this.getResonatorDamage(resonatorName);
-    if (this.duration_1 && this.duration_2 && d) {
-      return toNumberString(d / this.duration_1);
-    }
-    return "";
+    const dps = this.getResonatorMaxDPS(resonatorName);
+    return toNumberString(dps);
   }
 }
 
