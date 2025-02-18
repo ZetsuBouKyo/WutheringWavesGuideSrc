@@ -1,5 +1,6 @@
 <template>
   <v-container class="h-100">
+    <h1 v-if="title" class="mb-2">{{ title }}</h1>
     <div class="d-flex flex-column align-start">
       <div class="d-flex flex-column w-100 my-2" v-for="(teamDistribution, i) in teamDamageDistributions" :key="i">
         <div class="d-flex flex-row mb-1">
@@ -64,6 +65,10 @@ import { resonators } from '@/ww/resonator'
 import { calculatedDamageAnalyses } from '@/ww/damage';
 
 const props = defineProps({
+  title: {
+    type: Object as PropType<string>,
+    default: ""
+  },
   affixPolicy: {
     type: Object as PropType<string>,
     required: true,
@@ -74,6 +79,7 @@ const props = defineProps({
   },
 });
 
+const title = props.title
 const affixPolicy = props.affixPolicy
 const templateIDs = props.templateIDs
 
