@@ -1,5 +1,20 @@
 import { resonators } from "./resonator";
 import { mapValueToValue } from "./utils";
+import { getRotation } from "./rotation";
+export class Template {
+  public resonators: Array<any> = [];
+  public rows: Array<any> = [];
+
+  constructor(template: any) {
+    Object.assign(this, template);
+  }
+
+  public getRotation(): any {
+    const rows = this.rows;
+    return getRotation(rows);
+  }
+}
+
 export class Templates {
   private hashedTemplateIDToTemplate: any;
   private hashedTemplateIDToTemplateID: any;
@@ -13,16 +28,16 @@ export class Templates {
     this.hashedTemplateIDToTemplateID = mapValueToValue(templateModules, "default.hashed_id", "default.id");
   }
 
-  public getTemplateByHashedTemplateID(hashedTemplateID: string): any {
-    return this.hashedTemplateIDToTemplate[hashedTemplateID];
+  public getHashedTemplateIDByTemplateID(templateID: string): string {
+    return this.templateIDToHashedTemplateID[templateID];
+  }
+
+  public getTemplateByHashedTemplateID(hashedTemplateID: string): Template {
+    return new Template(this.hashedTemplateIDToTemplate[hashedTemplateID]);
   }
 
   public getTemplateIDByHashedTemplateID(hashedTemplateID: string): string {
     return this.hashedTemplateIDToTemplateID[hashedTemplateID];
-  }
-
-  public getHashedTemplateIDByTemplateID(templateID: string): string {
-    return this.templateIDToHashedTemplateID[templateID];
   }
 }
 

@@ -37,6 +37,11 @@ export class Resonators {
     return new URL(`../assets/elements/${element}.png`, import.meta.url).href;
   }
 
+  public getIconSrcByName(name: string): any {
+    const id = this.getIDByName(name);
+    return new URL(`../assets/resonators/${id}/icon.png`, import.meta.url).href;
+  }
+
   public getIconSrcByID(id: string): any {
     return new URL(`../assets/resonators/${id}/icon.png`, import.meta.url).href;
   }

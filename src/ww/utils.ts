@@ -22,3 +22,11 @@ export function toPercentageString(number: number): string {
   const s = number.toLocaleString(undefined, { style: "percent", minimumFractionDigits: 2, maximumFractionDigits: 2 });
   return s;
 }
+
+export function jumpToSection(goTo: any, id: string) {
+  goTo(id, {
+    duration: 400,
+    easing: "easeInQuad",
+    offset: -180,
+  });
+}

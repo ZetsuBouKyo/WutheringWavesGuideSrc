@@ -3,14 +3,15 @@
     <template v-slot:left>
       <DocHeaders>
         <v-list-item :title="$t('resonator.header.damage_analysis')"
-          v-on:click="jump('#damage_analysis')"></v-list-item>
+          v-on:click="jumpToSection(goTo, '#damage_analysis')"></v-list-item>
         <div v-if="comparisons.length > 0">
           <v-list-item :title="$t('resonator.header.damage_comparison')"
-            v-on:click="jump('#damage_comparison')"></v-list-item>
+            v-on:click="jumpToSection(goTo, '#damage_comparison')"></v-list-item>
           <v-tooltip :text="comparison.title" v-for="(comparison, i) in comparisons" :key="i">
             <template v-slot:activator="{ props }">
-              <v-list-item class="ml-4" :title="comparison.title" v-bind="props"
-                v-on:click="jump(`#${getComparisonID(i)}`)"></v-list-item>
+              <v-list-item v-bind="props" v-on:click="jumpToSection(goTo, `#${getComparisonID(i)}`)">
+                <span class="ml-4 text-truncate">{{ comparison.title }}</span>
+              </v-list-item>
             </template>
           </v-tooltip>
         </div>
@@ -25,7 +26,8 @@
           <h2 id="damage_analysis">{{ $t('resonator.header.damage_analysis') }}</h2>
         </v-row>
         <v-row class="my-1 ml-8" v-for="(templateID, i) in templateIDs" :key="i">
-          <v-list-item class="text-blue-accent-1" :title="templateID" to="/"></v-list-item>
+          <v-list-item class="text-blue-accent-1 w-100" :title="templateID"
+            :to="`/template/${templates.getHashedTemplateIDByTemplateID(templateID)}`" :active="false"></v-list-item>
         </v-row>
         <div v-if="comparisons.length > 0">
           <v-row class="my-1">
@@ -37,17 +39,18 @@
               <h4>{{ $t('resonator.damage_comparison.team_based') }}</h4>
               <v-col class="my-2">
                 <v-row class="ml-4">
-                  <v-list-item class="text-blue-accent-1" :title="$t('resonator.damage_comparison.affixes_15_1')"
+                  <v-list-item class="text-blue-accent-1 w-100" :title="$t('resonator.damage_comparison.affixes_15_1')"
                     :to="`/resonator/${resonatorID}/comparison/affixes_15_1/${comparison.id}/team_dps`"
                     :active="false"></v-list-item>
                 </v-row>
                 <v-row class="ml-4">
-                  <v-list-item class="text-blue-accent-1" :title="$t('resonator.damage_comparison.affixes_20_small')"
+                  <v-list-item class="text-blue-accent-1 w-100"
+                    :title="$t('resonator.damage_comparison.affixes_20_small')"
                     :to="`/resonator/${resonatorID}/comparison/affixes_20_small/${comparison.id}/team_dps`"
                     :active="false"></v-list-item>
                 </v-row>
                 <v-row class="ml-4">
-                  <v-list-item class="text-blue-accent-1"
+                  <v-list-item class="text-blue-accent-1 w-100"
                     :title="$t('resonator.damage_comparison.affixes_20_skill_bonus')"
                     :to="`/resonator/${resonatorID}/comparison/affixes_20_skill_bonus/${comparison.id}/team_dps`"
                     :active="false"></v-list-item>
@@ -83,20 +86,14 @@
 </template>
 
 <script lang="ts" setup>
-import { useRoute } from 'vue-router'
 import { useGoTo } from 'vuetify'
+import { useRoute } from 'vue-router'
 
 import { resonators } from "@/ww/resonator"
-import { calculatedTemplates } from '@/ww/template'
+import { templates, calculatedTemplates } from '@/ww/template'
+import { jumpToSection } from "@/ww/utils"
 
 const goTo = useGoTo()
-function jump(id: string) {
-  goTo(id, {
-    duration: 400,
-    easing: "easeInQuad",
-    offset: -180,
-  })
-}
 
 const route = useRoute()
 const resonatorID = (route.params as { id: string }).id

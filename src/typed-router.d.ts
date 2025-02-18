@@ -25,6 +25,9 @@ declare module 'vue-router/auto-routes' {
     '/resonator/[id]/comparison/[affix_policy]/[comparison_id]/team_dps': RouteRecordInfo<'/resonator/[id]/comparison/[affix_policy]/[comparison_id]/team_dps', '/resonator/:id/comparison/:affix_policy/:comparison_id/team_dps', { id: ParamValue<true>, affix_policy: ParamValue<true>, comparison_id: ParamValue<true> }, { id: ParamValue<false>, affix_policy: ParamValue<false>, comparison_id: ParamValue<false> }>,
     '/resonator/damage-analysis': RouteRecordInfo<'/resonator/damage-analysis', '/resonator/damage-analysis', Record<never, never>, Record<never, never>>,
     '/resonator/echo-comparison': RouteRecordInfo<'/resonator/echo-comparison', '/resonator/echo-comparison', Record<never, never>, Record<never, never>>,
+    '/template/[id]/': RouteRecordInfo<'/template/[id]/', '/template/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/template/[id]/damage_analysis/[affix_policy]': RouteRecordInfo<'/template/[id]/damage_analysis/[affix_policy]', '/template/:id/damage_analysis/:affix_policy', { id: ParamValue<true>, affix_policy: ParamValue<true> }, { id: ParamValue<false>, affix_policy: ParamValue<false> }>,
+    '/template/[id]/echo_comparison/[affix_policy]/[resonator_id]': RouteRecordInfo<'/template/[id]/echo_comparison/[affix_policy]/[resonator_id]', '/template/:id/echo_comparison/:affix_policy/:resonator_id', { id: ParamValue<true>, affix_policy: ParamValue<true>, resonator_id: ParamValue<true> }, { id: ParamValue<false>, affix_policy: ParamValue<false>, resonator_id: ParamValue<false> }>,
     '/tier/': RouteRecordInfo<'/tier/', '/tier', Record<never, never>, Record<never, never>>,
   }
 }
