@@ -19,34 +19,40 @@ export class Resonators {
     return this.infoJsonModules;
   }
 
-  public getNameByNo(id: string): string {
-    return this.idToName[id];
-  }
-
-  public getElementEnByNo(id: string): string {
-    return this.idToElementEn[id];
+  public getNameByNo(no: string): string {
+    return this.idToName[no];
   }
 
   public getElementEnByName(name: string): string {
-    const id = this.getIDByName(name);
-    return this.getElementEnByNo(id);
+    const no = this.getNoByName(name);
+    return this.getElementEnByNo(no);
   }
 
-  public getElementSrcByID(id: string): string {
-    const element = this.getElementEnByNo(id);
+  public getElementEnByNo(no: string): string {
+    return this.idToElementEn[no];
+  }
+
+  public getElementSrcByName(name: string): string {
+    const no = this.getNoByName(name);
+    const element = this.getElementEnByNo(no);
+    return new URL(`../assets/elements/${element}.png`, import.meta.url).href;
+  }
+
+  public getElementSrcByNo(no: string): string {
+    const element = this.getElementEnByNo(no);
     return new URL(`../assets/elements/${element}.png`, import.meta.url).href;
   }
 
   public getIconSrcByName(name: string): any {
-    const id = this.getIDByName(name);
-    return new URL(`../assets/resonators/${id}/icon.png`, import.meta.url).href;
+    const no = this.getNoByName(name);
+    return new URL(`../assets/resonators/${no}/icon.png`, import.meta.url).href;
   }
 
-  public getIconSrcByID(id: string): any {
-    return new URL(`../assets/resonators/${id}/icon.png`, import.meta.url).href;
+  public getIconSrcByNo(no: string): any {
+    return new URL(`../assets/resonators/${no}/icon.png`, import.meta.url).href;
   }
 
-  public getIDByName(name: string): string {
+  public getNoByName(name: string): string {
     return this.nameToID[name];
   }
 }

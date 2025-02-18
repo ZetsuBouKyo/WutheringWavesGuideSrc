@@ -83,8 +83,8 @@ export class TeamDamageDistribution {
   public getResonatorIconSources(): Array<string> {
     const sources: Array<string> = [];
     Object.keys(this.resonators).forEach((resonatorName: string) => {
-      const id = resonators.getIDByName(resonatorName);
-      const source = resonators.getIconSrcByID(id);
+      const id = resonators.getNoByName(resonatorName);
+      const source = resonators.getIconSrcByNo(id);
       sources.push(source);
     });
     return sources;

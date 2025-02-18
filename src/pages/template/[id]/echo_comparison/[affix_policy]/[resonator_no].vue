@@ -1,7 +1,12 @@
 <template>
-  <ResonatorTier :title="title" :resonatorNo="resonatorNo" :teamDamageDistributions="teamDamageDistributions"
-    :isWarning="false">
-  </ResonatorTier>
+  <v-container>
+    <ResonatorTier :title="title" :resonatorNo="resonatorNo" :teamDamageDistributions="teamDamageDistributions"
+      :isWarning="false" :toSort="false">
+    </ResonatorTier>
+    <v-col v-for="(resonatorInfo, i) in resonatorInfos" :key="i">
+      <ResonatorInfo :i="i" :resonator="resonatorInfo" />
+    </v-col>
+  </v-container>
 </template>
 
 <script lang="ts" setup>
@@ -16,8 +21,19 @@ const affixPolicy = (route.params as { affix_policy: string }).affix_policy
 const resonatorNo = (route.params as { resonator_no: string }).resonator_no
 const resonatorName = resonators.getNameByNo(resonatorNo)
 
-const teamDamageDistributions = calculatedEchoComparisonTemplates.getDamageDistributions(hashedTemplateID, affixPolicy, resonatorNo)
-console.log(teamDamageDistributions)
+const comparison = calculatedEchoComparisonTemplates.getEchoComparison(hashedTemplateID, affixPolicy, resonatorNo)
+const teamDamageDistributions = comparison.damage_distributions
+const resonatorEcho1 = comparison.resonator_template.getResonatorEcho1(resonatorName)
+
+const resonatorInfos: Array<any> = []
+teamDamageDistributions.forEach((damageDistribution: any) => {
+  const resonatorID = damageDistribution.resonators[resonatorName].resonator_id
+  const resonatorInfo = comparison.resonator_models[resonatorID]
+  resonatorInfo.resonatorID = resonatorID
+  resonatorInfo.echo1 = resonatorEcho1
+  resonatorInfos.push(resonatorInfo)
+});
+
 const { t } = useI18n()
 const title = t('template.header.echo_damage_comparison', { name: resonatorName })
 </script>

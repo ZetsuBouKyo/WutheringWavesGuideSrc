@@ -11,6 +11,15 @@ export class Template {
     Object.assign(this, template);
   }
 
+  public getResonatorEcho1(resonatorName: string): string {
+    for (const resonator of this.resonators) {
+      if (resonatorName === resonator.resonator_name) {
+        return resonator.resonator_echo_1;
+      }
+    }
+    return "";
+  }
+
   public getRotation(): any {
     const rows = this.rows;
     return getRotation(rows);
@@ -58,7 +67,7 @@ export class CalculatedTemplates {
       const resonatorNames: Array<string> = template.echo_comparison;
       const r: Array<any> = [];
       resonatorNames.forEach((name: string) => {
-        const id = resonators.getIDByName(name);
+        const id = resonators.getNoByName(name);
         r.push({ id: id, name: name });
       });
       this.hashedTemplateIDToResonatorsForEchoComparison[template.hashed_id] = r;
@@ -77,7 +86,7 @@ export class CalculatedTemplates {
     const s: Set<string> = new Set([]);
     for (const template of this.templates.templates) {
       for (const name of template.echo_comparison) {
-        const id = resonators.getIDByName(name);
+        const id = resonators.getNoByName(name);
         s.add(id);
       }
     }
@@ -94,7 +103,7 @@ export class CalculatedTemplates {
     const ids: Array<string> = [];
     for (const template of this.templates.templates) {
       for (const name of template.echo_comparison) {
-        const templateResonator = resonators.getIDByName(name);
+        const templateResonator = resonators.getNoByName(name);
         if (resonatorNo === templateResonator) {
           ids.push(template.id);
         }
@@ -105,7 +114,7 @@ export class CalculatedTemplates {
 
   public getComparisonsByID(resonatorNo: string): any {
     for (const [name, comparisons] of Object.entries(this.templates.comparisons)) {
-      const id = resonators.getIDByName(name);
+      const id = resonators.getNoByName(name);
       if (id === resonatorNo) {
         return comparisons;
       }
@@ -135,6 +144,13 @@ function initEchoComparison(modules: any, comparison: any) {
     if (!comparison[hashedTemplateID]) {
       comparison[hashedTemplateID] = {};
     }
+    const damageDistributions: Array<any> = [];
+    m.default.damage_distributions.forEach((damageDistribution: any) => {
+      const d = new TeamDamageDistribution(damageDistribution);
+      damageDistributions.push(d);
+    });
+    m.default.resonator_template = new Template(m.default.resonator_template);
+    m.default.damage_distributions = damageDistributions;
     comparison[hashedTemplateID][resonatorNo] = m.default;
   });
 }
@@ -200,12 +216,7 @@ export class CalculatedEchoComparisonTemplates {
 
   public getDamageDistributions(hashedTemplateID: string, affixPolicy: string, resonatorNo: string): Array<any> {
     const echoComparison = this.getEchoComparison(hashedTemplateID, affixPolicy, resonatorNo);
-    const damageDistributions: Array<any> = [];
-    echoComparison.damage_distributions.forEach((damageDistribution: any) => {
-      const d = new TeamDamageDistribution(damageDistribution);
-      damageDistributions.push(d);
-    });
-    return damageDistributions;
+    return echoComparison.damage_distributions;
   }
 }
 

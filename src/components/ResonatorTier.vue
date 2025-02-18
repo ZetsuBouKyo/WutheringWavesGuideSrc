@@ -1,5 +1,5 @@
 <template>
-  <v-container class="h-100">
+  <v-container>
     <div class="d-flex flex-column align-start">
       <v-row class="mb-2">
         <h1>{{ title }}</h1>
@@ -10,13 +10,13 @@
       <div class="d-flex flex-column w-100 my-2" v-for="(teamDistribution, i) in teamDamageDistributions" :key="i">
         <div class="d-flex flex-row mb-1">
           <div class=" d-flex flex-column mr-4 justify-center">
-            <img class="resonator" :src="resonators.getIconSrcByID(resonatorNo)" />
+            <img class="resonator" :src="resonators.getIconSrcByNo(resonatorNo)" />
           </div>
           <v-col>
             <v-row class="text-grey-darken-1">
               <div class="d-flex flex-row">
                 <span class="header">{{ $t('general.template_id') }}: </span>
-                <a class="text-decoration-none text-truncate"
+                <a class="text-blue-accent-1 text-decoration-none text-truncate"
                   :href="`/template/${teamDistribution.getHashedTemplateID()}`">{{
                     teamDistribution.template_id }}</a>
               </div>
@@ -24,8 +24,10 @@
             <v-row class="text-grey-darken-1">
               <div class="d-flex flex-row">
                 <span class="header">{{ $t('general.resonator_id') }}: </span>
-                <a class="text-decoration-none text-truncate" :href="`#r${i}`">{{
-                  teamDistribution.getResonatorIDByResonatorName(resonatorName) }}</a>
+                <div class="text-blue-accent-1 text-decoration-none text-truncate cursor-pointer"
+                  v-on:click="jumpToSection(goTo, `#resonator${i}`)">
+                  {{ teamDistribution.resonators[resonatorName].resonator_id }}
+                </div>
               </div>
             </v-row>
             <v-row class="text-grey-darken-1">
@@ -71,7 +73,13 @@
 </template>
 
 <script lang="ts" setup>
+import { useGoTo } from 'vuetify'
+
 import { resonators } from '@/ww/resonator'
+
+import { jumpToSection } from "@/ww/utils"
+
+const goTo = useGoTo()
 
 const props = defineProps({
   title: {

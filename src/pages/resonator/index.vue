@@ -6,9 +6,9 @@
         v-for="id in calculatedTemplates.getCalculatedResonatorNos()" :key="id">
         <template v-slot:activator="{ props }">
           <v-card class="ma-2 pa-2" v-bind="props" :to="`/resonator/${id}`">
-            <v-img width="100" :src="resonators.getIconSrcByID(id)"></v-img>
+            <v-img width="100" :src="resonators.getIconSrcByNo(id)"></v-img>
             <v-row no-gutters align="center" justify="center">
-              <img :src="resonators.getElementSrcByID(id)" height="36">
+              <img :src="resonators.getElementSrcByNo(id)" height="36">
               <span class="mr-2 text-truncate name">{{
                 resonators.getNameByNo(id) }}</span>
             </v-row>
