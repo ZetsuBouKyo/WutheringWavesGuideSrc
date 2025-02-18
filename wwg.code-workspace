@@ -1,25 +1,36 @@
 {
-  "settings": {
-    "files.exclude": {
-      "**/.git": true,
-      "**/.DS_Store": true,
-      "**/node_modules": true
+    "settings": {
+        "files.exclude": {
+            "**/.git": true,
+            "**/.DS_Store": true,
+            "**/dist": true,
+            "**/node_modules": true
+        },
+        "search.exclude": {
+            "**/.git": true,
+            "**/dist": true,
+            "**/node_modules": true
+        },
+        "files.watcherExclude": {
+            "**/.git": true,
+            "**/dist": true,
+            "**/node_modules": true
+        },
+        "npm.fetchOnlinePackageInfo": false,
+        "workbench.settings.enableNaturalLanguageSearch": false,
+        "terminal.integrated.profiles.windows": {
+            "PowerShell": {
+                "source": "PowerShell",
+                "icon": "terminal-powershell",
+                "args": ["-ExecutionPolicy", "Bypass"]
+            }
+        },
+        "terminal.integrated.defaultProfile.windows": "PowerShell"
     },
-    "search.exclude": {
-      "**/.git": true,
-      "**/node_modules": true
-    },
-    "files.watcherExclude": {
-      "**/.git": true,
-      "**/node_modules": true
-    },
-    "npm.fetchOnlinePackageInfo": false,
-    "workbench.settings.enableNaturalLanguageSearch": false
-  },
-  "folders": [
-    {
-      "path": ".",
-      "name": "wwg"
-    }
-  ]
+    "folders": [
+        {
+            "path": ".",
+            "name": "wwg"
+        }
+    ]
 }
