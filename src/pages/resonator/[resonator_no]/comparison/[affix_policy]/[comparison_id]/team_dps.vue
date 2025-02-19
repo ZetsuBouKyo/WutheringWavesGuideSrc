@@ -19,5 +19,5 @@ const comparisonID = (route.params as { comparison_id: string }).comparison_id
 const resonatorName = resonators.getNameByNo(resonatorNo)
 const comparison = calculatedTemplates.getComparisonByComparisonID(comparisonID)
 const affixPolicyString = t(`general.${affixPolicy}`)
-const title = `【${affixPolicyString}】${resonatorName} ${comparison.title}`
+const title = `【${t(affixPolicyString)}】${resonatorName} ${comparison.title}`
 </script>

@@ -21,7 +21,7 @@ const templateIDs = comparison.template_ids
 
 const { t } = useI18n()
 const affixPolicyString = t(`general.${affixPolicy}`)
-const title = `【${affixPolicyString}】${resonatorName} ${comparison.title}`
+const title = `【${t(affixPolicyString)}】${resonatorName} ${comparison.title}`
 
 const teamDamageDistributions: Array<any> = []
 
