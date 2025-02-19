@@ -1,12 +1,9 @@
 <template>
   <v-container>
     <v-row class="mb-2">
-      <h2 :id="`resonator${i}`">{{ resonator.resonatorID }}</h2>
+      <span>{{ $t('general.resonator') }}</span>
     </v-row>
-    <v-row class="mb-2">
-      <h3>{{ $t('general.resonator') }}</h3>
-    </v-row>
-    <v-row class="d-flex flex-column bg-blue-grey-darken-4 mb-2">
+    <v-row class="d-flex flex-column mb-2 bg-blue-grey-darken-4 overflow-auto w-100">
       <div class="d-flex flex-row align-center mt-1 mx-1 text-truncate">
         <div class="bg-grey-darken-4 d-flex flex-row align-center pa-2 mr-1">
           <img class="title mr-4" :src="resonators.getIconSrcByName(resonator.name)" />
@@ -36,7 +33,7 @@
       </div>
     </v-row>
     <v-row class="mb-2">
-      <h3>{{ $t('general.echo') }}</h3>
+      <span>{{ $t('general.echo') }}</span>
     </v-row>
     <v-row class="d-flex flex-column bg-blue-grey-darken-4 mb-2">
       <div class="d-flex flex-row mx-1">
@@ -60,16 +57,11 @@ import { resonators } from "@/ww/resonator";
 import { toNumberString, toPercentageString } from "@/ww/utils";
 
 const props = defineProps({
-  i: {
-    type: Number,
-    default: 0
-  },
   resonator: {
     type: Object as PropType<any>,
     default: {}
   }
 });
-const i = props.i
 const resonator = props.resonator
 
 const { t } = useI18n()

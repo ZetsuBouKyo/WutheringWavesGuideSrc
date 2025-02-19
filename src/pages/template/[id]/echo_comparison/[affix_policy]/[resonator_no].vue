@@ -4,7 +4,12 @@
       :isWarning="false" :toSort="false">
     </ResonatorTier>
     <v-col v-for="(resonatorInfo, i) in resonatorInfos" :key="i">
-      <ResonatorInfo :i="i" :resonator="resonatorInfo" />
+      <v-container>
+        <v-row class="mb-2">
+          <h2 :id="`resonator${i}`">{{ resonatorInfo.resonatorID }}</h2>
+        </v-row>
+      </v-container>
+      <ResonatorInfo :resonator="resonatorInfo" />
     </v-col>
   </v-container>
 </template>
