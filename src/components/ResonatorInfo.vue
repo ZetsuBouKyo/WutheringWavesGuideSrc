@@ -35,7 +35,7 @@
     <v-row class="mb-2">
       <span>{{ $t('general.echo') }}</span>
     </v-row>
-    <v-row class="d-flex flex-column bg-blue-grey-darken-4 mb-2">
+    <v-row class="d-flex flex-column mb-2 bg-blue-grey-darken-4 overflow-auto w-100">
       <div class="d-flex flex-row mx-1">
         <v-data-table class="table my-1 mr-1" :headers="echoLeftHeaders" :items="echoLeft" disable-sort
           hide-default-footer :items-per-page="18">
