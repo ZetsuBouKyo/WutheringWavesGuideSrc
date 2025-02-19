@@ -26,7 +26,7 @@
           <h2 id="damage_analysis">{{ $t('resonator.header.damage_analysis') }}</h2>
         </v-row>
         <v-row class="my-1 ml-8" v-for="(templateID, i) in templateIDs" :key="i">
-          <v-list-item class="text-blue-accent-1 w-100" :title="templateID"
+          <v-list-item class="text-blue-accent-1 w-100" :title="$t(templateID)"
             :to="`/template/${templates.getHashedTemplateIDByTemplateID(templateID)}`" :active="false"></v-list-item>
         </v-row>
         <div v-if="comparisons.length > 0">

@@ -14,14 +14,15 @@
               <div class="d-flex flex-row w-100">
                 <span class="header">{{ $t('general.template_id') }}: </span>
                 <a class="text-decoration-none text-truncate"
-                  :href="`/template/${teamDistribution.getHashedTemplateID()}`">{{
-                    teamDistribution.template_id }}</a>
+                  :href="`/template/${teamDistribution.getHashedTemplateID()}`">
+                  {{ $t(teamDistribution.template_id) }}
+                </a>
               </div>
             </v-row>
             <v-row class="text-grey-darken-1">
               <div class="d-flex flex-row w-100">
                 <span class="header text-truncater">{{ $t('general.monster_id') }}: </span>
-                <span class="text-truncate">{{ teamDistribution.monster_id }}</span>
+                <span class="text-truncate">{{ $t(teamDistribution.monster_id) }}</span>
               </div>
             </v-row>
             <v-row class="text-grey-darken-1">

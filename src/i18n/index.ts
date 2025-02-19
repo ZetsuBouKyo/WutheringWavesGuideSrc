@@ -1,5 +1,6 @@
 import { createI18n } from "vue-i18n";
-import { babelParse } from "vue/compiler-sfc";
+
+import { zh_TW } from "./zh_TW";
 
 const i18n = createI18n({
   legacy: false,
@@ -114,6 +115,7 @@ const i18n = createI18n({
           rotation: "輸出手法",
         },
       },
+      ...zh_TW,
     },
     en: {},
   },
