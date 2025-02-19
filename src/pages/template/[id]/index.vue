@@ -12,8 +12,7 @@
         </v-list-item>
         <v-list-item :title="$t('template.header.damage_analysis')"
           v-on:click="jumpToSection(goTo, '#damage_analysis')"></v-list-item>
-        <v-list-item :title="$t('template.header.rotation')"
-          v-on:click="jumpToSection(goTo, '#rotation')"></v-list-item>
+        <v-list-item :title="$t('general.rotation')" v-on:click="jumpToSection(goTo, '#rotation')"></v-list-item>
       </DocHeaders>
     </template>
     <template v-slot:right>
@@ -89,7 +88,7 @@
 
         <!-- Rotation -->
         <v-row class="my-1">
-          <h2 id="rotation">{{ $t('template.header.rotation') }}</h2>
+          <h2 id="rotation">{{ $t('general.rotation') }}</h2>
         </v-row>
         <Rotation class="my-2 ml-8" :rotation="template.getRotation()" />
       </v-container>
