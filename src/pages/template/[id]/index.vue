@@ -19,7 +19,7 @@
     <template v-slot:right>
       <v-container class="mb-4">
         <v-row class="my-1">
-          <h1>{{ $t(title) }}</h1>
+          <h1>{{ title }}</h1>
         </v-row>
         <v-row class="my-2 ml-8">
           <span>{{ $t('general.template_id') }}: {{ $t(templateID) }}</span>
@@ -119,7 +119,7 @@ const resonatorNames: Array<string> = []
 const resonators: Array<any> = []
 const echoes: Array<any> = []
 template.resonators.forEach((resonator: any) => {
-  resonatorNames.push(resonator.resonator_name)
+  resonatorNames.push(t(resonator.resonator_name))
 
   const rowResonator: any = {}
   rowResonator[t('general.resonator_name')] = resonator.resonator_name
