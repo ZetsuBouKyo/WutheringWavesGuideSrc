@@ -16,12 +16,12 @@
               </v-col>
               <template v-slot:activator="{ props }">
                 <div class="row d-flex flex-row align-center my-2" v-bind="props">
-                  <h2 :class="action.src ? 'mr-3' : ''">
+                  <span :class="action.src ? 'mr-3' : ''">
                     {{ action.name }}
                     <sup v-if="action.supIndex">
                       {{ action.supIndex }}
                     </sup>
-                  </h2>
+                  </span>
                   <img v-if="action.src" class="action" :src="action.src" />
                   <v-icon icon="mdi-menu-right" size="x-large"></v-icon>
                 </div>
@@ -56,12 +56,13 @@ console.log(rotation)
 
 <style scoped lang="sass">
 .resonator
-  height: 60px
-  width: 60px
-.row
-  height: 60px
-.action
   height: 40px
-.comment
+  width: 40px
+.row
+  height: 40px
+.action
   height: 30px
+.comment
+  height: 20px
+  font-size: 0.75rem
 </style>
