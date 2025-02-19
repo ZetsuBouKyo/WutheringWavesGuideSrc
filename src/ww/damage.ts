@@ -1,16 +1,36 @@
 import { getNestedValue, mapValueToValue, toNumberString, toPercentageString } from "./utils";
 import { resonators } from "./resonator";
-import { templates } from "./template";
+import { templates, Template } from "./template";
+
+export interface Bar {
+  text: string;
+  dps?: number;
+  dpsString?: string;
+  damage?: number;
+  damageString?: string;
+  percentage: number;
+  percentageString: string;
+  data?: any;
+}
+
+function sortBars(barhA: any, barhB: any) {
+  const damageA = barhA.damage;
+  const damageB = barhB.damage;
+  if (!damageA || !damageB) {
+    return 0;
+  }
+  return damageB - damageA;
+}
 
 export class TeamDamageDistribution {
-  private template_id: any;
-  private duration_1: any;
-  private duration_2: any;
-  private damage: any;
-  private resonators: any;
+  public template_id: any;
+  public duration_1: any;
+  public duration_2: any;
+  public damage: any;
+  public resonators: any;
 
-  constructor(analysis: any) {
-    Object.assign(this, analysis);
+  constructor(distribution: any) {
+    Object.assign(this, distribution);
   }
 
   public getHashedTemplateID(): string {
@@ -133,6 +153,122 @@ export class TeamDamageDistribution {
     const dps = this.getResonatorMaxDPS(resonatorName);
     return toNumberString(dps);
   }
+
+  public getResonatorSkillBars(resonatorName: string): Array<Bar> {
+    const duration = this.duration_1;
+    const resonatorDamageDistribution = this.resonators[resonatorName];
+    const baseDamage = parseFloat(resonatorDamageDistribution.damage);
+    const skills = resonatorDamageDistribution.skills;
+    const skillKeys = Object.keys(skills);
+    const bars: Array<Bar> = [];
+    skillKeys.forEach((key: string) => {
+      const skill = skills[key];
+      const damage = parseFloat(skill.damage);
+      const dps = damage / duration;
+      const p = damage / baseDamage;
+      const bar = {
+        text: key,
+        dps: dps,
+        dpsString: toNumberString(dps),
+        damage: damage,
+        damageString: toNumberString(damage),
+        percentage: p,
+        percentageString: toPercentageString(p),
+        data: skill,
+      };
+      bars.push(bar);
+    });
+    bars.sort(sortBars);
+    return bars;
+  }
+
+  public getResonatorSkillTypeBars(resonatorName: string): Array<Bar> {
+    const resonatorDamageDistribution = this.resonators[resonatorName];
+    const baseDamage = parseFloat(resonatorDamageDistribution.damage);
+    const skillTypes = [
+      "normal_attack",
+      "resonance_skill",
+      "forte_circuit",
+      "resonance_liberation",
+      "intro_skill",
+      "outro_skill",
+    ];
+    const bars: Array<Bar> = [];
+    skillTypes.forEach((t: string) => {
+      const damage = parseFloat(resonatorDamageDistribution[t]);
+      const p = damage / baseDamage;
+      const bar = {
+        text: t,
+        damage: damage,
+        damageString: toNumberString(damage),
+        percentage: p,
+        percentageString: toPercentageString(p),
+      };
+      bars.push(bar);
+    });
+    return bars;
+  }
+
+  public getResonatorSkillBonusBars(resonatorName: string): Array<Bar> {
+    const resonatorDamageDistribution = this.resonators[resonatorName];
+    const baseDamage = parseFloat(resonatorDamageDistribution.damage);
+    const skillBonuses = [
+      "basic",
+      "heavy",
+      "skill",
+      "liberation",
+      "intro",
+      "outro",
+      "echo",
+      "coordinated_attack",
+      "none",
+    ];
+    const bars: Array<Bar> = [];
+    skillBonuses.forEach((b: string) => {
+      const damage = parseFloat(resonatorDamageDistribution[b]);
+      const p = damage / baseDamage;
+      const bar = {
+        text: b,
+        damage: damage,
+        damageString: toNumberString(damage),
+        percentage: p,
+        percentageString: toPercentageString(p),
+      };
+      bars.push(bar);
+    });
+    return bars;
+  }
+}
+
+export class TeamDamageDistributionsWithBuffs {
+  private _data: any;
+  constructor(distribution: any) {
+    Object.assign(this, distribution);
+    this._data = distribution;
+  }
+
+  public getBars(baseDamage: number, baseDPS: number): Array<Bar> {
+    const bars: Array<Bar> = [];
+    this._data.forEach((t: any) => {
+      const buffName = t[0];
+      const damageDistribution = new TeamDamageDistribution(t[1]);
+      const damage = baseDamage - parseFloat(damageDistribution.damage);
+      const p = damage / baseDamage;
+      const dps = baseDPS - damageDistribution.getMaxTeamDPS();
+      const bar = {
+        text: buffName,
+        dps: dps,
+        dpsString: toNumberString(dps),
+        damage: damage,
+        damageString: toNumberString(damage),
+        percentage: p,
+        percentageString: toPercentageString(p),
+      };
+      bars.push(bar);
+    });
+    bars.sort(sortBars);
+    return bars;
+  }
 }
 
 export class DamageAnalysis {
@@ -196,16 +332,29 @@ export class CalculatedDamageAnalyses {
   }
 
   public getDamageAnalysis(templateID: string, affixPolicy: string): DamageAnalysis | undefined {
+    let damageAnalysis: any;
     switch (affixPolicy) {
       case "affixes_15_1":
-        return new DamageAnalysis(this.templateIDToAffixes151DamageAnalysis[templateID], affixPolicy);
+        damageAnalysis = new DamageAnalysis(this.templateIDToAffixes151DamageAnalysis[templateID], affixPolicy);
+        break;
       case "affixes_20_small":
-        return new DamageAnalysis(this.templateIDToAffixes20SmallDamageAnalysis[templateID], affixPolicy);
+        damageAnalysis = new DamageAnalysis(this.templateIDToAffixes20SmallDamageAnalysis[templateID], affixPolicy);
+        break;
       case "affixes_20_skill_bonus":
-        return new DamageAnalysis(this.templateIDToAffixes20SkillBonusDamageAnalysis[templateID], affixPolicy);
+        damageAnalysis = new DamageAnalysis(
+          this.templateIDToAffixes20SkillBonusDamageAnalysis[templateID],
+          affixPolicy,
+        );
+        break;
       default:
-        return;
+        break;
     }
+    damageAnalysis.resonator_template = new Template(damageAnalysis.resonator_template);
+    damageAnalysis.damage_distribution = new TeamDamageDistribution(damageAnalysis.damage_distribution);
+    damageAnalysis.damage_distributions_with_buffs = new TeamDamageDistributionsWithBuffs(
+      damageAnalysis.damage_distributions_with_buffs,
+    );
+    return damageAnalysis;
   }
 }
 
