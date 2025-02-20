@@ -1,6 +1,6 @@
 <template>
   <v-container class="h-100">
-    <v-row class="mb-2">
+    <v-row class="mb-2 text-truncate">
       <h1 v-if="title">{{ title }}</h1>
     </v-row>
     <div class="d-flex flex-column align-start">
