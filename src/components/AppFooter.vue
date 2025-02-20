@@ -24,6 +24,11 @@ const items = [
     href: 'https://x.com/zetsuboukyo',
   },
   {
+    title: 'Twitch',
+    icon: `mdi-twitch`,
+    href: 'https://www.twitch.tv/zetsuboukyo',
+  },
+  {
     title: 'GitHub',
     icon: `mdi-github`,
     href: 'https://github.com/ZetsuBouKyo/WutheringWavesGuide',
