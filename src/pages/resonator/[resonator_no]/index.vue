@@ -39,19 +39,17 @@
               <h4>{{ $t('resonator.damage_comparison.team_based') }}</h4>
               <v-col class="my-2">
                 <v-row class="ml-4">
-                  <v-list-item class="text-blue-accent-1 w-100" :title="$t('resonator.damage_comparison.affixes_15_1')"
+                  <v-list-item class="text-blue-accent-1 w-100" :title="$t('general.affixes_15_1')"
                     :to="`/resonator/${resonatorNo}/comparison/affixes_15_1/${comparison.id}/team_dps`"
                     :active="false"></v-list-item>
                 </v-row>
                 <v-row class="ml-4">
-                  <v-list-item class="text-blue-accent-1 w-100"
-                    :title="$t('resonator.damage_comparison.affixes_20_small')"
+                  <v-list-item class="text-blue-accent-1 w-100" :title="$t('general.affixes_20_small')"
                     :to="`/resonator/${resonatorNo}/comparison/affixes_20_small/${comparison.id}/team_dps`"
                     :active="false"></v-list-item>
                 </v-row>
                 <v-row class="ml-4">
-                  <v-list-item class="text-blue-accent-1 w-100"
-                    :title="$t('resonator.damage_comparison.affixes_20_skill_bonus')"
+                  <v-list-item class="text-blue-accent-1 w-100" :title="$t('general.affixes_20_skill_bonus')"
                     :to="`/resonator/${resonatorNo}/comparison/affixes_20_skill_bonus/${comparison.id}/team_dps`"
                     :active="false"></v-list-item>
                 </v-row>
@@ -61,18 +59,17 @@
               <h4>{{ $t('resonator.damage_comparison.resonator_based', { name: resonatorName }) }}</h4>
               <v-col class="my-2">
                 <v-row class="ml-4">
-                  <v-list-item class="text-blue-accent-1" :title="$t('resonator.damage_comparison.affixes_15_1')"
+                  <v-list-item class="text-blue-accent-1" :title="$t('general.affixes_15_1')"
                     :to="`/resonator/${resonatorNo}/comparison/affixes_15_1/${comparison.id}/resonator_dps`"
                     :active="false"></v-list-item>
                 </v-row>
                 <v-row class="ml-4">
-                  <v-list-item class="text-blue-accent-1" :title="$t('resonator.damage_comparison.affixes_20_small')"
+                  <v-list-item class="text-blue-accent-1" :title="$t('general.affixes_20_small')"
                     :to="`/resonator/${resonatorNo}/comparison/affixes_20_small/${comparison.id}/resonator_dps`"
                     :active="false"></v-list-item>
                 </v-row>
                 <v-row class="ml-4">
-                  <v-list-item class="text-blue-accent-1"
-                    :title="$t('resonator.damage_comparison.affixes_20_skill_bonus')"
+                  <v-list-item class="text-blue-accent-1" :title="$t('general.affixes_20_skill_bonus')"
                     :to="`/resonator/${resonatorNo}/comparison/affixes_20_skill_bonus/${comparison.id}/resonator_dps`"
                     :active="false"></v-list-item>
                 </v-row>
