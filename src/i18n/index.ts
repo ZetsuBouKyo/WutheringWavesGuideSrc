@@ -104,6 +104,7 @@ const i18n = createI18n({
         denominator: "分母",
         tiers: "Tiers",
         tier_list: "Tier List",
+        disclaimer: "免責聲明",
       },
       nav: {
         title: "鳴潮攻略",

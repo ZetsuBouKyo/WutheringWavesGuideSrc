@@ -1,10 +1,10 @@
 <template>
   <v-container>
     <v-row no-gutters>
-      <v-col class="left position-fixed">
+      <v-col v-if="!noHeaders" :class="noHeaders ? '' : 'left position-fixed'">
         <slot name="left"></slot>
       </v-col>
-      <v-col class="right">
+      <v-col :class="noHeaders ? '' : 'right'">
         <slot name="right"></slot>
       </v-col>
     </v-row>
@@ -12,7 +12,13 @@
 </template>
 
 <script lang="ts" setup>
-//
+const props = defineProps({
+  noHeaders: {
+    type: Boolean,
+    default: false
+  },
+});
+const noHeaders = props.noHeaders
 </script>
 
 <style scoped lang="sass">

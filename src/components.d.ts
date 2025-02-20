@@ -11,6 +11,8 @@ declare module 'vue' {
     Barh: typeof import('./components/Barh.vue')['default']
     Doc: typeof import('./components/Doc.vue')['default']
     DocHeaders: typeof import('./components/DocHeaders.vue')['default']
+    DocMarkdown: typeof import('./components/DocMarkdown.vue')['default']
+    Markdown: typeof import('./components/Markdown.vue')['default']
     ResonatorInfo: typeof import('./components/ResonatorInfo.vue')['default']
     ResonatorTier: typeof import('./components/ResonatorTier.vue')['default']
     Rotation: typeof import('./components/Rotation.vue')['default']

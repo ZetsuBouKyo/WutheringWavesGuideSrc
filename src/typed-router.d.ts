@@ -19,6 +19,7 @@ declare module 'vue-router/auto-routes' {
    */
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
+    '/docs': RouteRecordInfo<'/docs', '/docs', Record<never, never>, Record<never, never>>,
     '/resonator/': RouteRecordInfo<'/resonator/', '/resonator', Record<never, never>, Record<never, never>>,
     '/resonator/[resonator_no]/': RouteRecordInfo<'/resonator/[resonator_no]/', '/resonator/:resonator_no', { resonator_no: ParamValue<true> }, { resonator_no: ParamValue<false> }>,
     '/resonator/[resonator_no]/comparison/[affix_policy]/[comparison_id]/resonator_dps': RouteRecordInfo<'/resonator/[resonator_no]/comparison/[affix_policy]/[comparison_id]/resonator_dps', '/resonator/:resonator_no/comparison/:affix_policy/:comparison_id/resonator_dps', { resonator_no: ParamValue<true>, affix_policy: ParamValue<true>, comparison_id: ParamValue<true> }, { resonator_no: ParamValue<false>, affix_policy: ParamValue<false>, comparison_id: ParamValue<false> }>,
