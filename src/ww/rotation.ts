@@ -1,4 +1,4 @@
-import { resonators } from "./resonator";
+import { resonators } from "./db";
 
 const ActionIcons: any = {
   普攻: new URL("../assets/actions/left_click.svg", import.meta.url).href,

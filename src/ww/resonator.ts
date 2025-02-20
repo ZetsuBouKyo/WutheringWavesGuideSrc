@@ -56,5 +56,3 @@ export class Resonators {
     return this.nameToID[name];
   }
 }
-
-export const resonators = new Resonators();

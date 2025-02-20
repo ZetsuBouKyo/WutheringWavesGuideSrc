@@ -6,9 +6,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 
-import { resonators } from '@/ww/resonator'
-import { calculatedTemplates } from '@/ww/template';
-import { calculatedDamageAnalyses } from '@/ww/damage';
+import { resonators, calculatedTemplates, calculatedDamageAnalyses } from '@/ww/db'
 
 const route = useRoute()
 const resonatorNo = (route.params as { resonator_no: string }).resonator_no

@@ -52,7 +52,7 @@
 import { ref } from "vue";
 import { useI18n } from 'vue-i18n'
 
-import { resonators } from "@/ww/resonator";
+import { resonators } from "@/ww/db";
 
 import { toNumberString, toPercentageString } from "@/ww/utils";
 

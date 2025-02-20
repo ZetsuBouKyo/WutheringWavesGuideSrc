@@ -20,8 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { resonators } from "@/ww/resonator"
-import { calculatedTemplates } from "@/ww/template";
+import { resonators, calculatedTemplates } from "@/ww/db"
 </script>
 
 <style scoped lang="sass">

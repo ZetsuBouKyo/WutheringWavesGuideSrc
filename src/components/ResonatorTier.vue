@@ -75,7 +75,7 @@
 <script lang="ts" setup>
 import { useGoTo } from 'vuetify'
 
-import { resonators } from '@/ww/resonator'
+import { resonators } from '@/ww/db'
 
 import { jumpToSection } from "@/ww/utils"
 

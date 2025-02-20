@@ -5,8 +5,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 
-import { calculatedTemplates } from '@/ww/template';
-import { resonators } from '@/ww/resonator';
+import { resonators, calculatedTemplates } from '@/ww/db';
 
 import TeamTier from '@/components/TeamTier.vue';
 

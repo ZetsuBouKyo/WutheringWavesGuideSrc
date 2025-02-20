@@ -86,8 +86,7 @@
 import { useGoTo } from 'vuetify'
 import { useRoute } from 'vue-router'
 
-import { resonators } from "@/ww/resonator"
-import { templates, calculatedTemplates } from '@/ww/template'
+import { templates, resonators, calculatedTemplates } from "@/ww/db"
 import { jumpToSection } from "@/ww/utils"
 
 const goTo = useGoTo()

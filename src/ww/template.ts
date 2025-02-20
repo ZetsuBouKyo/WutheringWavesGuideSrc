@@ -1,4 +1,5 @@
-import { resonators } from "./resonator";
+import { TierEnum } from "@/interfaces/tier";
+
 import { mapValueToValue } from "./utils";
 import { getRotation } from "./rotation";
 import { TeamDamageDistribution } from "./damage";
@@ -52,25 +53,68 @@ export class Templates {
   }
 }
 
-export const templates = new Templates();
 export class CalculatedTemplates {
   private templates: any;
   private hashedComparisonTitleToComparison: any;
   private hashedTemplateIDToResonatorsForEchoComparison: any;
+  private tierTemplateIDs: { [key: string]: Array<string> } = {
+    [TierEnum.T01]: [],
+    [TierEnum.T11]: [],
+    [TierEnum.T21]: [],
+    [TierEnum.T31]: [],
+    [TierEnum.T41]: [],
+    [TierEnum.T51]: [],
+    [TierEnum.T61]: [],
+    [TierEnum.T65]: [],
+  };
 
-  constructor() {
+  private _templates: any;
+  private _resonators: any;
+
+  constructor(templates: any, resonators: any) {
+    this._templates = templates;
+    this._resonators = resonators;
+
     const templatesModule = import.meta.glob("@/assets/calculation/templates.json", { eager: true });
     this.templates = Object.values(templatesModule)[0];
 
     this.hashedTemplateIDToResonatorsForEchoComparison = {};
     this.templates.templates.forEach((template: any) => {
+      // Resonator echo comparison
       const resonatorNames: Array<string> = template.echo_comparison;
       const r: Array<any> = [];
       resonatorNames.forEach((name: string) => {
-        const id = resonators.getNoByName(name);
+        const id = this._resonators.getNoByName(name);
         r.push({ id: id, name: name });
       });
       this.hashedTemplateIDToResonatorsForEchoComparison[template.hashed_id] = r;
+
+      // Tiers
+      const templateID = template.id;
+      if (template.is_tier) {
+        this.tierTemplateIDs[TierEnum.T01].push(templateID);
+      }
+      if (template.is_1_1_tier) {
+        this.tierTemplateIDs[TierEnum.T11].push(templateID);
+      }
+      if (template.is_2_1_tier) {
+        this.tierTemplateIDs[TierEnum.T21].push(templateID);
+      }
+      if (template.is_3_1_tier) {
+        this.tierTemplateIDs[TierEnum.T31].push(templateID);
+      }
+      if (template.is_4_1_tier) {
+        this.tierTemplateIDs[TierEnum.T41].push(templateID);
+      }
+      if (template.is_5_1_tier) {
+        this.tierTemplateIDs[TierEnum.T51].push(templateID);
+      }
+      if (template.is_6_1_tier) {
+        this.tierTemplateIDs[TierEnum.T61].push(templateID);
+      }
+      if (template.is_6_5_tier) {
+        this.tierTemplateIDs[TierEnum.T65].push(templateID);
+      }
     });
 
     this.hashedComparisonTitleToComparison = {};
@@ -86,7 +130,7 @@ export class CalculatedTemplates {
     const s: Set<string> = new Set([]);
     for (const template of this.templates.templates) {
       for (const name of template.echo_comparison) {
-        const id = resonators.getNoByName(name);
+        const id = this._resonators.getNoByName(name);
         s.add(id);
       }
     }
@@ -103,7 +147,7 @@ export class CalculatedTemplates {
     const ids: Array<string> = [];
     for (const template of this.templates.templates) {
       for (const name of template.echo_comparison) {
-        const templateResonator = resonators.getNoByName(name);
+        const templateResonator = this._resonators.getNoByName(name);
         if (resonatorNo === templateResonator) {
           ids.push(template.id);
         }
@@ -114,7 +158,7 @@ export class CalculatedTemplates {
 
   public getComparisonsByID(resonatorNo: string): any {
     for (const [name, comparisons] of Object.entries(this.templates.comparisons)) {
-      const id = resonators.getNoByName(name);
+      const id = this._resonators.getNoByName(name);
       if (id === resonatorNo) {
         return comparisons;
       }
@@ -130,23 +174,25 @@ export class CalculatedTemplates {
     const comparison = this.getComparisonByComparisonID(id);
     return comparison.template_ids;
   }
+
+  public getTierTemplateIDs(tier: TierEnum): Array<string> {
+    return this.tierTemplateIDs[tier];
+  }
 }
 
-export const calculatedTemplates = new CalculatedTemplates();
-
-function initEchoComparison(modules: any, comparison: any) {
+function initEchoComparison(modules: any, comparison: any, _templates: any, _resonators: any) {
   Object.keys(modules).forEach((path: string) => {
     const params = path.split("/") as any;
     const resonatorNo = params.at(-1).replace(".json", "");
     const m: any = modules[path];
     const templateID = m.default.resonator_template.id;
-    const hashedTemplateID = templates.getHashedTemplateIDByTemplateID(templateID);
+    const hashedTemplateID = _templates.getHashedTemplateIDByTemplateID(templateID);
     if (!comparison[hashedTemplateID]) {
       comparison[hashedTemplateID] = {};
     }
     const damageDistributions: Array<any> = [];
     m.default.damage_distributions.forEach((damageDistribution: any) => {
-      const d = new TeamDamageDistribution(damageDistribution);
+      const d = new TeamDamageDistribution(damageDistribution, _templates, _resonators);
       damageDistributions.push(d);
     });
     m.default.resonator_template = new Template(m.default.resonator_template);
@@ -169,27 +215,48 @@ export class CalculatedEchoComparisonTemplates {
   private hashedTemplateIDToAffixes20SmallDamageAnalyses: any;
   private hashedTemplateIDToAffixes20SkillBonusDamageAnalyses: any;
 
-  constructor() {
+  private _templates: any;
+  private _resonators: any;
+
+  constructor(templates: any, resonators: any) {
+    this._templates = templates;
+    this._resonators = resonators;
+
     const affixes151TemplateModules = import.meta.glob(
       "@/assets/calculation/resonator/template/*/affixes_15_1/echo_comparison/*.json",
       { eager: true },
     );
     this.hashedTemplateIDToAffixes151DamageAnalyses = {};
-    initEchoComparison(affixes151TemplateModules, this.hashedTemplateIDToAffixes151DamageAnalyses);
+    initEchoComparison(
+      affixes151TemplateModules,
+      this.hashedTemplateIDToAffixes151DamageAnalyses,
+      this._templates,
+      this._resonators,
+    );
 
     const affixes20SmallTemplateModules = import.meta.glob(
       "@/assets/calculation/resonator/template/*/affixes_20_small/echo_comparison/*.json",
       { eager: true },
     );
     this.hashedTemplateIDToAffixes20SmallDamageAnalyses = {};
-    initEchoComparison(affixes20SmallTemplateModules, this.hashedTemplateIDToAffixes20SmallDamageAnalyses);
+    initEchoComparison(
+      affixes20SmallTemplateModules,
+      this.hashedTemplateIDToAffixes20SmallDamageAnalyses,
+      this._templates,
+      this._resonators,
+    );
 
     const affixes20SkillBonusTemplateModules = import.meta.glob(
       "@/assets/calculation/resonator/template/*/affixes_20_skill_bonus/echo_comparison/*.json",
       { eager: true },
     );
     this.hashedTemplateIDToAffixes20SkillBonusDamageAnalyses = {};
-    initEchoComparison(affixes20SkillBonusTemplateModules, this.hashedTemplateIDToAffixes20SkillBonusDamageAnalyses);
+    initEchoComparison(
+      affixes20SkillBonusTemplateModules,
+      this.hashedTemplateIDToAffixes20SkillBonusDamageAnalyses,
+      this._templates,
+      this._resonators,
+    );
   }
 
   public getEchoComparison(hashedTemplateID: string, affixPolicy: string, resonatorNo: string): any {
@@ -219,5 +286,3 @@ export class CalculatedEchoComparisonTemplates {
     return echoComparison.damage_distributions;
   }
 }
-
-export const calculatedEchoComparisonTemplates = new CalculatedEchoComparisonTemplates();

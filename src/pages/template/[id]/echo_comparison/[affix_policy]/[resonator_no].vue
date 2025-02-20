@@ -17,8 +17,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 
-import { resonators } from '@/ww/resonator'
-import { calculatedEchoComparisonTemplates } from '@/ww/template'
+import { resonators, calculatedEchoComparisonTemplates } from '@/ww/db'
 
 const route = useRoute()
 const hashedTemplateID = (route.params as { id: string }).id

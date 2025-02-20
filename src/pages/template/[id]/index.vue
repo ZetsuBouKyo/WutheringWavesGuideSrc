@@ -100,7 +100,7 @@
 import { useGoTo } from 'vuetify'
 import { useI18n } from 'vue-i18n'
 
-import { calculatedTemplates, templates } from '@/ww/template';
+import { templates, calculatedTemplates } from '@/ww/db';
 import { jumpToSection } from '@/ww/utils';
 
 const goTo = useGoTo()

@@ -377,9 +377,7 @@ import { useGoTo } from 'vuetify'
 import { useI18n } from 'vue-i18n'
 
 import { jumpToSection } from "@/ww/utils"
-import { resonators } from '@/ww/resonator'
-import { templates } from '@/ww/template'
-import { calculatedDamageAnalyses } from '@/ww/damage'
+import { templates, resonators, calculatedDamageAnalyses } from '@/ww/db'
 
 const goTo = useGoTo()
 

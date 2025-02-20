@@ -64,8 +64,7 @@
 </template>
 
 <script lang="ts" setup>
-import { resonators } from '@/ww/resonator'
-import { calculatedDamageAnalyses } from '@/ww/damage';
+import { resonators, calculatedDamageAnalyses } from '@/ww/db'
 
 const props = defineProps({
   title: {
