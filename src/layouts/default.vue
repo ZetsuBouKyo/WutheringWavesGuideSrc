@@ -7,7 +7,7 @@
     <v-tabs align-tabs="center" color="blue-accent-1">
       <v-tab to="/">{{ $t('nav.tab.welcome') }}</v-tab>
       <v-tab to="/resonator">{{ $t('nav.tab.resonator') }}</v-tab>
-      <v-tab to="/tier">{{ $t('nav.tab.tier') }}</v-tab>
+      <v-tab to="/tiers">{{ $t('nav.tab.tiers') }}</v-tab>
     </v-tabs>
   </v-main>
   <router-view class="view" />

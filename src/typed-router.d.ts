@@ -26,6 +26,7 @@ declare module 'vue-router/auto-routes' {
     '/template/[id]/': RouteRecordInfo<'/template/[id]/', '/template/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/template/[id]/damage_analysis/[affix_policy]': RouteRecordInfo<'/template/[id]/damage_analysis/[affix_policy]', '/template/:id/damage_analysis/:affix_policy', { id: ParamValue<true>, affix_policy: ParamValue<true> }, { id: ParamValue<false>, affix_policy: ParamValue<false> }>,
     '/template/[id]/echo_comparison/[affix_policy]/[resonator_no]': RouteRecordInfo<'/template/[id]/echo_comparison/[affix_policy]/[resonator_no]', '/template/:id/echo_comparison/:affix_policy/:resonator_no', { id: ParamValue<true>, affix_policy: ParamValue<true>, resonator_no: ParamValue<true> }, { id: ParamValue<false>, affix_policy: ParamValue<false>, resonator_no: ParamValue<false> }>,
-    '/tier/': RouteRecordInfo<'/tier/', '/tier', Record<never, never>, Record<never, never>>,
+    '/tiers/': RouteRecordInfo<'/tiers/', '/tiers', Record<never, never>, Record<never, never>>,
+    '/tiers/[tier]/[affix_policy]': RouteRecordInfo<'/tiers/[tier]/[affix_policy]', '/tiers/:tier/:affix_policy', { tier: ParamValue<true>, affix_policy: ParamValue<true> }, { tier: ParamValue<false>, affix_policy: ParamValue<false> }>,
   }
 }

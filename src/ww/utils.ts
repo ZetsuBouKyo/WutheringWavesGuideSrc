@@ -30,3 +30,10 @@ export function jumpToSection(goTo: any, id: string) {
     offset: -180,
   });
 }
+
+export function enumToArray(e: any): Array<string> {
+  const arr: Array<string> = Object.keys(e)
+    .filter((key) => isNaN(Number(key)))
+    .map((key) => e[key as keyof typeof e]);
+  return arr;
+}
