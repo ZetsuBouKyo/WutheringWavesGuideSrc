@@ -6,6 +6,11 @@ export const docs: any = {
   component: layout,
   children: [
     {
+      path: "",
+      component: Markdown,
+      meta: { path: "main.md" },
+    },
+    {
       path: "simulated_echo",
       component: Markdown,
       meta: { path: "simulated_echo.md" },

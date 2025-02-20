@@ -110,6 +110,7 @@ const i18n = createI18n({
         title: "鳴潮攻略",
         tab: {
           welcome: "Welcome",
+          docs: "文件",
           resonator: "共鳴者",
           tiers: "Tiers",
         },
