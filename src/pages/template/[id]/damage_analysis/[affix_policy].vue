@@ -23,12 +23,12 @@
           </v-list-item>
         </div>
         <v-list-item :title="$t('general.rotation')" v-on:click="jumpToSection(goTo, '#rotation')"></v-list-item>
-        <!-- <v-list-item v-on:click="jumpToSection(goTo, `#rotation_damage`)">
+        <v-list-item v-on:click="jumpToSection(goTo, `#rotation_damage`)">
           <span class="ml-4 text-truncate">{{ $t('template.damage_analysis.rotation_damage') }}</span>
         </v-list-item>
         <v-list-item v-on:click="jumpToSection(goTo, `#detailed_damage`)">
           <span class="ml-4 text-truncate">{{ $t('template.damage_analysis.detailed_damage') }}</span>
-        </v-list-item> -->
+        </v-list-item>
       </DocHeaders>
     </template>
     <template v-slot:right>
@@ -381,14 +381,104 @@
           <Rotation v-if="damageAnalysis.resonator_template" class="my-1"
             :rotation="damageAnalysis.resonator_template.getRotation()" />
         </div>
-        <!-- <v-row class=" my-1 ml-8">
+        <v-row class=" my-1">
           <h3 id="rotation_damage">{{
             $t('template.damage_analysis.rotation_damage') }}</h3>
         </v-row>
-        <v-row class=" my-1 ml-8">
+        <div v-if="damageAnalysis.calculated_rows.length > 0" class="d-flex flex-column my-1 mb-4 w-100"
+          :key="damageAnalysis.calculated_rows.length">
+          <v-container class="bg-blue-grey-darken-4 mx-1">
+            <div class="d-flex flex-column bg-blue-grey-darken-4 text-truncate">
+              <v-row class="ma-1 text-truncate">
+                <span class="team-damage-distribution-header">{{ $t('general.template_id') }}: </span>
+                <span class="team-damage-distribution-header-value text-truncate">{{ $t(templateId) }}</span>
+              </v-row>
+              <v-row class="ma-1 text-truncate">
+                <span class="team-damage-distribution-header">{{ $t('general.monster_id') }}: </span>
+                <span class="team-damage-distribution-header-value text-truncate">
+                  {{ $t(damageAnalysis.resonator_template.monster_id) }}
+                </span>
+              </v-row>
+              <v-row class="ma-1 text-truncate">
+                <span class="team-damage-distribution-header">{{ $t('general.team_dps') }}: </span>
+                <span class="team-damage-distribution-header-value text-truncate">
+                  {{ damageAnalysis.damage_distribution.getMaxTeamDPSString() }}
+                </span>
+              </v-row>
+              <div class="d-flex flex-row align-center ma-1" v-for="(bar, i) in damageAnalysis.getCalculatedRowBars()"
+                :key="`${i}${bar.data.skill_id}`">
+                <img class="resonator-icon mr-2" :src="resonatorStore.getIconSrcByName(bar.data.resonator_name)" />
+                <v-tooltip width="400" location="bottom">
+                  <div class="d-flex flex-column">
+                    <div class="d-flex flex-row">
+                      <span class="tooltip-header">{{ $t('general.resonator') }}: </span>
+                      <span>
+                        {{ $t(bar.data.resonator_name) }}
+                      </span>
+                    </div>
+                    <div class="d-flex flex-row">
+                      <span class="tooltip-header">{{ $t('general.resonator_skill_id') }}:
+                      </span>
+                      <span class="text-truncate">
+                        {{ $t(bar.data.skill_id) }}
+                      </span>
+                    </div>
+                    <div class="d-flex flex-row">
+                      <span class="tooltip-header">{{ $t('general.damage') }}:
+                      </span>
+                      <span>
+                        {{ toNumberString(bar.damage) }}
+                      </span>
+                    </div>
+                    <div class="d-flex flex-row">
+                      <span class="tooltip-header">{{ $t('general.time_start') }}:
+                      </span>
+                      <span>
+                        {{ $t(bar.data.time_start) }}
+                      </span>
+                    </div>
+                    <div class="d-flex flex-row">
+                      <span class="tooltip-header">{{ $t('general.time_end') }}:
+                      </span>
+                      <span>
+                        {{ $t(bar.data.time_end) }}
+                      </span>
+                    </div>
+                    <div class="d-flex flex-row">
+                      <span class="tooltip-header">({{ $t('general.denominator') }}: </span>
+                      <span>{{ $t('general.damage') }} {{ toNumberString(bar.data.baseDamage) }})</span>
+                    </div>
+                  </div>
+                  <template v-slot:activator="{ props }">
+                    <div class="d-flex flex-column align-start bg-grey-darken-4 w-100" v-bind="props"
+                      :key="`${i}${bar.data.skill_id}`">
+                      <div v-if="bar.percentage > 0.5"
+                        :class="`barh d-flex flex-row-reverse align-center bg-${bar.data.color}`"
+                        :style="`width: ${bar.percentageString};`">
+                        <span class="mr-4 text-truncate">
+                          {{ $t(bar.text) }}
+                          ({{ bar.percentageString }})
+                        </span>
+                      </div>
+                      <div v-else class="d-flex flex-row align-center w-100">
+                        <div :class="`barh d-flex bg-${bar.data.color}`" :style="`width: ${bar.percentageString};`">
+                        </div>
+                        <span class="ml-4 text-truncate">
+                          {{ $t(bar.text) }}
+                          ({{ bar.percentageString }})
+                        </span>
+                      </div>
+                    </div>
+                  </template>
+                </v-tooltip>
+              </div>
+            </div>
+          </v-container>
+        </div>
+        <v-row class=" my-1">
           <h3 id="detailed_damage">{{
             $t('template.damage_analysis.detailed_damage') }}</h3>
-        </v-row> -->
+        </v-row>
       </v-container>
     </template>
   </Doc>
@@ -403,7 +493,7 @@ import { useCalculatedTemplateStore } from '@/stores/calculateTemplate'
 import { useDamageAnalysisStore } from '@/stores/damageAnalysis'
 import { useResonatorStore } from '@/stores/resonator'
 
-import { jumpToSection } from "@/ww/utils"
+import { jumpToSection, toNumberString } from "@/ww/utils"
 
 const goTo = useGoTo()
 
@@ -478,6 +568,8 @@ watch(() => { return hashedTemplateId }, async () => {
 .resonator-icon
   height: 40px
   width: 40px
+.tooltip-header
+  width: 60px
 .barh
   height: 40px
 </style>

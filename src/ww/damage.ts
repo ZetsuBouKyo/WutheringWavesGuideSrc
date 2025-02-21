@@ -1,4 +1,4 @@
-import { getNestedValue, mapValueToValue, toNumberString, toPercentageString, md5 } from "./utils";
+import { getNestedValue, toNumberString, toPercentageString, md5 } from "./utils";
 import { Template } from "./template";
 
 import { useResonatorStore } from "@/stores/resonator";
@@ -283,6 +283,7 @@ export class DamageAnalysis {
   public resonator_template: any;
   public damage_distribution: any;
   public damage_distributions_with_buffs: any;
+  public calculated_rows: any;
 
   constructor(analysis: any, affixPolicy: string) {
     Object.assign(this, analysis);
@@ -301,5 +302,52 @@ export class DamageAnalysis {
     const resonatorName = resonatorStore.getNameByNo(resonatorNo);
     const resonatorDamageAnalysis = getNestedValue(this, `damage_distribution.resonators.${resonatorName}`);
     return resonatorDamageAnalysis;
+  }
+
+  public getCalculatedRowBars(): Array<Bar> {
+    const maxTeamDps = this.damage_distribution.getMaxTeamDPS();
+    const calculatedRows = this.calculated_rows;
+    const bars: Array<Bar> = [];
+    let baseDamage: number = 0;
+    calculatedRows.forEach((calculatedRow: any) => {
+      let damage = 0.0;
+      if (calculatedRow.damage) {
+        damage = parseFloat(calculatedRow.damage);
+      }
+      baseDamage = Math.max(baseDamage, damage);
+    });
+
+    calculatedRows.forEach((calculatedRow: any) => {
+      let damage = 0.0;
+      if (calculatedRow.damage) {
+        damage = parseFloat(calculatedRow.damage);
+      }
+      const p = damage / baseDamage;
+
+      // Text
+      let text = `【${calculatedRow.action}】${calculatedRow.skill_id}`;
+      if (!calculatedRow.action) {
+        text = calculatedRow.skill_id;
+      }
+
+      // Color
+      let color = "white";
+      if (damage <= maxTeamDps) {
+        color = "blue-grey-darken-2";
+      }
+
+      calculatedRow.baseDamage = baseDamage;
+      calculatedRow.color = color;
+      const bar = {
+        text: text,
+        damage: damage,
+        damageString: toNumberString(damage),
+        percentage: p,
+        percentageString: toPercentageString(p),
+        data: calculatedRow,
+      };
+      bars.push(bar);
+    });
+    return bars;
   }
 }
