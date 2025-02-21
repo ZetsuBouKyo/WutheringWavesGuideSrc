@@ -22,6 +22,13 @@
             <span class="ml-8 text-truncate">{{ $t('template.damage_analysis.skill_bonus_damage_distribution') }}</span>
           </v-list-item>
         </div>
+        <v-list-item :title="$t('general.rotation')" v-on:click="jumpToSection(goTo, '#rotation')"></v-list-item>
+        <!-- <v-list-item v-on:click="jumpToSection(goTo, `#rotation_damage`)">
+          <span class="ml-4 text-truncate">{{ $t('template.damage_analysis.rotation_damage') }}</span>
+        </v-list-item>
+        <v-list-item v-on:click="jumpToSection(goTo, `#detailed_damage`)">
+          <span class="ml-4 text-truncate">{{ $t('template.damage_analysis.detailed_damage') }}</span>
+        </v-list-item> -->
       </DocHeaders>
     </template>
     <template v-slot:right>
@@ -167,13 +174,13 @@
         </v-row>
         <div v-for="(resonatorName, i) in resonatorNames" class="d-flex flex-column">
           <v-row class="my-1 ml-8">
-            <h2 :id="`resonator${i}`">{{ $t(resonatorName) }}</h2>
+            <h3 :id="`resonator${i}`">{{ $t(resonatorName) }}</h3>
           </v-row>
-          <ResonatorInfo class="my-1 ml-8" :resonator="resonatorInfos[i]" />
+          <ResonatorInfo class="my-1 pl-16" :resonator="resonatorInfos[i]" />
           <!-- Skill -->
           <v-row class=" my-1 ml-16">
-            <h3 :id="`resonator${i}_skill_damage_distribution`">{{
-              $t('template.damage_analysis.skill_damage_distribution') }}</h3>
+            <h4 :id="`resonator${i}_skill_damage_distribution`">{{
+              $t('template.damage_analysis.skill_damage_distribution') }}</h4>
           </v-row>
           <div class="d-flex flex-column my-1 mb-4 w-100 pl-16">
             <v-container class="bg-blue-grey-darken-4 mx-1">
@@ -367,6 +374,21 @@
             </v-container>
           </div>
         </div>
+        <v-row class="my-1">
+          <h2 id="rotation">{{ $t('general.rotation') }}</h2>
+        </v-row>
+        <div class="d-flex flex-column my-1 mb-4 w-100 pl-8">
+          <Rotation v-if="damageAnalysis.resonator_template" class="my-1"
+            :rotation="damageAnalysis.resonator_template.getRotation()" />
+        </div>
+        <!-- <v-row class=" my-1 ml-8">
+          <h3 id="rotation_damage">{{
+            $t('template.damage_analysis.rotation_damage') }}</h3>
+        </v-row>
+        <v-row class=" my-1 ml-8">
+          <h3 id="detailed_damage">{{
+            $t('template.damage_analysis.detailed_damage') }}</h3>
+        </v-row> -->
       </v-container>
     </template>
   </Doc>
