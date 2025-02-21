@@ -1,7 +1,7 @@
 <template>
   <v-main class="nav position-fixed w-100">
     <v-row class="mx-8 my-4">
-      <img class="mr-4" src="@/assets/logo.png" height="48px" />
+      <img class="mr-4" src="/assets/logo.png" height="48px" />
       <h1 class="text-truncate">{{ $t('nav.title') }}</h1>
     </v-row>
     <v-tabs align-tabs="center" color="blue-accent-1">

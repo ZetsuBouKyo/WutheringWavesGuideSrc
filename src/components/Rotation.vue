@@ -51,7 +51,6 @@ const props = defineProps({
   }
 });
 const rotation = props.rotation
-console.log(rotation)
 </script>
 
 <style scoped lang="sass">

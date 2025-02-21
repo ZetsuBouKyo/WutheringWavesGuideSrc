@@ -21,7 +21,7 @@
           <h1>{{ title }}</h1>
         </v-row>
         <v-row class="my-2 ml-8">
-          <span>{{ $t('general.template_id') }}: {{ $t(templateID) }}</span>
+          <span>{{ $t('general.template_id') }}: {{ $t(templateId) }}</span>
         </v-row>
 
         <!-- Basic information -->
@@ -31,12 +31,12 @@
         <v-row class="my-1 ml-8">
           <h3 id="resonator">{{ $t('template.header.resonator') }}</h3>
         </v-row>
-        <v-data-table class="table my-2 mx-8" :items="resonators" disable-sort hide-default-footer>
+        <v-data-table class="table my-2 mx-8" :items="resonatorsTable" disable-sort hide-default-footer>
         </v-data-table>
         <v-row class="my-1 ml-8">
           <h3 id="echo">{{ $t('template.header.echo') }}</h3>
         </v-row>
-        <v-data-table class="table my-2 mx-8" :items="echoes" disable-sort hide-default-footer>
+        <v-data-table class="table my-2 mx-8" :items="echoesTable" disable-sort hide-default-footer>
         </v-data-table>
 
         <!-- Damage analysis -->
@@ -49,12 +49,12 @@
         </v-row>
         <v-row class="my-1 ml-16">
           <v-list-item class="text-blue-accent-1 w-100" :title="$t('template.header.detailed_damage_analysis')"
-            :to="`/template/${hashedTemplateID}/damage_analysis/affixes_15_1`" :active="false"></v-list-item>
+            :to="`/template/${hashedTemplateId}/damage_analysis/affixes_15_1`" :active="false"></v-list-item>
         </v-row>
-        <v-row v-for="resonator in resonatorsForEchoComparison" class="my-1 ml-16">
+        <v-row v-for="resonatorName in resonatorNames" class="my-1 ml-16">
           <v-list-item class="text-blue-accent-1 w-100"
-            :title="$t('template.header.echo_damage_comparison', { name: resonator.name })"
-            :to="`/template/${hashedTemplateID}/echo_comparison/affixes_15_1/${resonator.id}`"
+            :title="$t('template.header.echo_damage_comparison', { name: resonatorName })"
+            :to="`/template/${hashedTemplateId}/echo_comparison/affixes_15_1/${resonatorStore.getNoByName(resonatorName)}`"
             :active="false"></v-list-item>
         </v-row>
         <!-- Affixes 20 small -->
@@ -63,12 +63,12 @@
         </v-row>
         <v-row class="my-1 ml-16">
           <v-list-item class="text-blue-accent-1 w-100" :title="$t('template.header.detailed_damage_analysis')"
-            :to="`/template/${hashedTemplateID}/damage_analysis/affixes_20_small`" :active="false"></v-list-item>
+            :to="`/template/${hashedTemplateId}/damage_analysis/affixes_20_small`" :active="false"></v-list-item>
         </v-row>
-        <v-row v-for="resonator in resonatorsForEchoComparison" class="my-1 ml-16">
+        <v-row v-for="resonatorName in resonatorNames" class="my-1 ml-16">
           <v-list-item class="text-blue-accent-1 w-100"
-            :title="$t('template.header.echo_damage_comparison', { name: resonator.name })"
-            :to="`/template/${hashedTemplateID}/echo_comparison/affixes_20_small/${resonator.id}`"
+            :title="$t('template.header.echo_damage_comparison', { name: resonatorName })"
+            :to="`/template/${hashedTemplateId}/echo_comparison/affixes_20_small/${resonatorStore.getNoByName(resonatorName)}`"
             :active="false"></v-list-item>
         </v-row>
         <!-- Affixes 20 skill bonus -->
@@ -77,12 +77,12 @@
         </v-row>
         <v-row class="my-1 ml-16">
           <v-list-item class="text-blue-accent-1 w-100" :title="$t('template.header.detailed_damage_analysis')"
-            :to="`/template/${hashedTemplateID}/damage_analysis/affixes_20_skill_bonus`" :active="false"></v-list-item>
+            :to="`/template/${hashedTemplateId}/damage_analysis/affixes_20_skill_bonus`" :active="false"></v-list-item>
         </v-row>
-        <v-row v-for="resonator in resonatorsForEchoComparison" class="my-1 ml-16">
+        <v-row v-for="resonatorName in resonatorNames" class="my-1 ml-16">
           <v-list-item class="text-blue-accent-1 w-100"
-            :title="$t('template.header.echo_damage_comparison', { name: resonator.name })"
-            :to="`/template/${hashedTemplateID}/echo_comparison/affixes_20_skill_bonus/${resonator.id}`"
+            :title="$t('template.header.echo_damage_comparison', { name: resonatorName })"
+            :to="`/template/${hashedTemplateId}/echo_comparison/affixes_20_skill_bonus/${resonatorStore.getNoByName(resonatorName)}`"
             :active="false"></v-list-item>
         </v-row>
 
@@ -90,17 +90,21 @@
         <v-row class="my-1">
           <h2 id="rotation">{{ $t('general.rotation') }}</h2>
         </v-row>
-        <Rotation class="my-2 ml-8" :rotation="template.getRotation()" />
+        <Rotation v-if="template" class="my-2 ml-8" :rotation="template.getRotation()" />
       </v-container>
     </template>
   </Doc>
 </template>
 
 <script lang="ts" setup>
+import { reactive, ref } from 'vue';
 import { useGoTo } from 'vuetify'
 import { useI18n } from 'vue-i18n'
 
-import { templates, calculatedTemplates } from '@/ww/db';
+import { useResonatorStore } from '@/stores/resonator';
+import { useTemplateStore } from '@/stores/template';
+import { useCalculatedTemplateStore } from '@/stores/calculateTemplate';
+
 import { jumpToSection } from '@/ww/utils';
 
 const goTo = useGoTo()
@@ -108,39 +112,57 @@ const goTo = useGoTo()
 const { t } = useI18n()
 
 const route = useRoute()
-const hashedTemplateID = (route.params as { id: string }).id
-const templateID = templates.getTemplateIDByHashedTemplateID(hashedTemplateID)
-const template = templates.getTemplateByHashedTemplateID(hashedTemplateID)
+const hashedTemplateId = (route.params as { id: string }).id
 
-const resonatorsForEchoComparison = calculatedTemplates.getResonatorsForEchoComparison(hashedTemplateID)
+const calculatedTemplateStore = useCalculatedTemplateStore()
+const resonatorStore = useResonatorStore()
+const templateStore = useTemplateStore()
 
-const resonatorNames: Array<string> = []
-const resonators: Array<any> = []
-const echoes: Array<any> = []
-template.resonators.forEach((resonator: any) => {
-  resonatorNames.push(t(resonator.resonator_name))
 
-  const rowResonator: any = {}
-  rowResonator[t('general.resonator_name')] = resonator.resonator_name
-  rowResonator[t('general.resonator_chain')] = resonator.resonator_chain
-  rowResonator[t('general.weapon_name')] = resonator.resonator_weapon_name
-  rowResonator[t('general.weapon_tune')] = resonator.resonator_weapon_rank
-  rowResonator[t('general.base_attr')] = resonator.resonator_base_attr
-  rowResonator[t('general.main_skill_bonuss')] = resonator.resonator_skill_bonus
-  rowResonator[t('general.resonator_energy_regen')] = resonator.resonator_energy_regen
-  resonators.push(rowResonator)
+const resonatorNames = ref<Array<string>>([])
+const title = ref<string>("")
 
-  const rowEchoes: any = {}
-  rowEchoes[t('general.resonator_name')] = resonator.resonator_name
-  rowEchoes[t('general.echo_name_1')] = resonator.resonator_echo_1
-  rowEchoes[t('general.echo_sonata_1')] = resonator.resonator_echo_sonata_1
-  rowEchoes[t('general.echo_sonata_2')] = resonator.resonator_echo_sonata_2
-  rowEchoes[t('general.echo_sonata_3')] = resonator.resonator_echo_sonata_3
-  rowEchoes[t('general.echo_sonata_4')] = resonator.resonator_echo_sonata_4
-  rowEchoes[t('general.echo_sonata_5')] = resonator.resonator_echo_sonata_5
-  echoes.push(rowEchoes)
-});
-const title = resonatorNames.join(" | ")
+const template = ref<any>(undefined)
+const templateId = ref<string>("")
+const resonatorsTable = reactive<Array<any>>([])
+const echoesTable = reactive<Array<any>>([])
+
+onMounted(async () => {
+  await calculatedTemplateStore.init()
+  templateId.value = calculatedTemplateStore.getTemplateIdByHashedTemplateId(hashedTemplateId)
+  template.value = await templateStore.getTemplateByHashedTemplateId(hashedTemplateId)
+
+  resonatorNames.value = calculatedTemplateStore.getResonatorNamesForEchoComparisonByHashedTemplateId(hashedTemplateId)
+
+  const resonatorNamesForTitle: Array<string> = []
+  template.value.getResonatorNames().forEach((name: string) => {
+    resonatorNamesForTitle.push(t(name))
+  })
+
+  template.value.resonators.forEach((resonator: any) => {
+    const rowResonator: any = {}
+    rowResonator[t('general.resonator_name')] = resonator.resonator_name
+    rowResonator[t('general.resonator_chain')] = resonator.resonator_chain
+    rowResonator[t('general.weapon_name')] = resonator.resonator_weapon_name
+    rowResonator[t('general.weapon_tune')] = resonator.resonator_weapon_rank
+    rowResonator[t('general.base_attr')] = resonator.resonator_base_attr
+    rowResonator[t('general.main_skill_bonuss')] = resonator.resonator_skill_bonus
+    rowResonator[t('general.resonator_energy_regen')] = resonator.resonator_energy_regen
+    resonatorsTable.push(rowResonator)
+
+    const rowEchoes: any = {}
+    rowEchoes[t('general.resonator_name')] = resonator.resonator_name
+    rowEchoes[t('general.echo_name_1')] = resonator.resonator_echo_1
+    rowEchoes[t('general.echo_sonata_1')] = resonator.resonator_echo_sonata_1
+    rowEchoes[t('general.echo_sonata_2')] = resonator.resonator_echo_sonata_2
+    rowEchoes[t('general.echo_sonata_3')] = resonator.resonator_echo_sonata_3
+    rowEchoes[t('general.echo_sonata_4')] = resonator.resonator_echo_sonata_4
+    rowEchoes[t('general.echo_sonata_5')] = resonator.resonator_echo_sonata_5
+    echoesTable.push(rowEchoes)
+  });
+  title.value = resonatorNamesForTitle.join(" | ")
+})
+
 </script>
 
 <style scoped lang="sass">

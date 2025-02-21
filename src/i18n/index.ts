@@ -4,6 +4,7 @@ import { zh_TW } from "./zh_TW";
 
 const i18n = createI18n({
   legacy: false,
+  globalInjection: true,
   locale: "zh_TW",
   fallbackLocale: "zh_TW",
   messages: {

@@ -6,9 +6,9 @@
     <v-row class="d-flex flex-column mb-2 bg-blue-grey-darken-4 overflow-auto w-100">
       <div class="d-flex flex-row align-center mt-1 mx-1 text-truncate">
         <div class="bg-grey-darken-4 d-flex flex-row align-center pa-2 mr-1">
-          <img class="title mr-4" :src="resonators.getIconSrcByName(resonator.name)" />
+          <img class="title mr-4" :src="resonatorStore.getIconSrcByName(resonator.name)" />
           <h3>{{ $t(resonator.name) }}</h3>
-          <img class="title" :src="resonators.getElementSrcByName(resonator.name)" />
+          <img class="title" :src="resonator.elementSrc" />
           <h3 class="mr-4">{{ $t(resonator.element) }}</h3>
         </div>
         <div class="bg-grey-darken-4 d-flex flex-row pa-2 mr-1">
@@ -52,7 +52,7 @@
 import { ref } from "vue";
 import { useI18n } from 'vue-i18n'
 
-import { resonators } from "@/ww/db";
+import { useResonatorStore } from "@/stores/resonator";
 
 import { toNumberString, toPercentageString } from "@/ww/utils";
 
@@ -65,6 +65,8 @@ const props = defineProps({
 const resonator = props.resonator
 
 const { t } = useI18n()
+
+const resonatorStore = useResonatorStore()
 
 const resonatorLeftCol1 = t('general.level')
 const resonatorLeftCol2 = resonator.level

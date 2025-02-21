@@ -16,7 +16,6 @@ export class Markdown {
     const locale = i18n.global.locale.value;
     const path = `@/docs/${locale}/${p}`;
     const doc = this.docs[path];
-    console.log(path, doc);
     return doc;
   }
 }

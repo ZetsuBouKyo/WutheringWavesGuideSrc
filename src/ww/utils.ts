@@ -1,3 +1,5 @@
+import MD5 from "crypto-js/md5";
+
 type JsonData = Record<string, any>;
 
 export function getNestedValue<T>(obj: Record<string, any>, keyPath: string): T | undefined {
@@ -36,4 +38,13 @@ export function enumToArray(e: any): Array<string> {
     .filter((key) => isNaN(Number(key)))
     .map((key) => e[key as keyof typeof e]);
   return arr;
+}
+
+export function getKeyByValue(object: any, value: any): any {
+  return Object.keys(object).find((key) => object[key] === value);
+}
+
+export function md5(obj: any, n: number = 8): string {
+  const s = MD5(obj).toString();
+  return s.slice(0, n);
 }

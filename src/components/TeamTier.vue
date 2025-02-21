@@ -34,7 +34,7 @@
           </v-col>
         </div>
         <div class="d-flex flex-row align-center w-100">
-          <div class="d-flex flex-row align-start w-100 bg-grey-darken-4">
+          <div class="d-flex flex-row align-start w-100 bg-grey-darken-4" :key="baseDPS">
             <div class="d-flex flex-row align-start"
               :style="`width: ${teamDistribution.getTeamDPSPercentageString(baseDPS)};`">
               <v-tooltip :text="`${$t(resonatorName)} DPS: ${teamDistribution.getResonatorDPSString(resonatorName)}
@@ -44,7 +44,7 @@
                   <div class="d-flex" v-bind="props"
                     :style="`width: ${teamDistribution.getResonatorMaxDPSPercentageString(resonatorName)};`">
                     <div
-                      :class="`barh w-100 d-flex flex-row-reverse align-center bg-${resonators.getElementEnByName(resonatorName)} ${isDivide(i)}`">
+                      :class="`barh w-100 d-flex flex-row-reverse align-center bg-${resonatorNameToElementEn[resonatorName]} ${isDivide(i)}`">
                       <span v-if="teamDistribution.getResonatorMaxDPSPercentage(resonatorName) > 0.1"
                         class="mr-4 text-truncate">
                         {{ teamDistribution.getResonatorMaxDPSPercentageString(resonatorName) }}</span>
@@ -54,8 +54,8 @@
               </v-tooltip>
             </div>
           </div>
-          <div class="team d-flex flex-row justify-end h-100">{{
-            teamDistribution.getTeamDPSPercentageString(baseDPS) }}
+          <div class="team d-flex flex-row justify-end h-100">
+            {{ teamDistribution.getTeamDPSPercentageString(baseDPS) }}
           </div>
         </div>
       </div>
@@ -64,7 +64,10 @@
 </template>
 
 <script lang="ts" setup>
-import { resonators, calculatedDamageAnalyses } from '@/ww/db'
+import { reactive, ref, watch } from 'vue';
+
+import { useResonatorStore } from '@/stores/resonator';
+import { useDamageAnalysisStore } from '@/stores/damageAnalysis';
 
 const props = defineProps({
   title: {
@@ -75,7 +78,7 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  templateIDs: {
+  templateIds: {
     type: Object as PropType<Array<string>>,
     required: true,
   },
@@ -83,27 +86,48 @@ const props = defineProps({
 
 const title = props.title
 const affixPolicy = props.affixPolicy
-const templateIDs = props.templateIDs
+const templateIds = props.templateIds
 
-const teamDamageDistributions: Array<any> = []
+const resonatorStore = useResonatorStore()
+const damageAnalysisStore = useDamageAnalysisStore()
 
-templateIDs.forEach((templateID: string) => {
-  const damageAnalysis = calculatedDamageAnalyses.getDamageAnalysis(templateID, affixPolicy)
-  if (damageAnalysis) {
-    teamDamageDistributions.push(damageAnalysis.getTeamDamageDistribution())
+const resonatorNameToElementEn = reactive<any>({})
+const teamDamageDistributions = reactive<Array<any>>([])
+const baseDPS = ref<number>(0)
+
+async function init(templateIds: Array<string>) {
+  if (templateIds.length === 0) {
+    return
   }
-});
+  templateIds.forEach(async (templateId: string) => {
+    const damageAnalysis = await damageAnalysisStore.getDamageAnalysisByTemplateId(templateId, affixPolicy)
+    if (damageAnalysis) {
+      const teamDamageDistribution = damageAnalysis.getTeamDamageDistribution()
+      teamDamageDistributions.push(teamDamageDistribution)
+      const resonatorNames = teamDamageDistribution.getResonatorNames()
+      resonatorNames.forEach(async (resonatorName: string) => {
+        if (!resonatorNameToElementEn[resonatorName]) {
+          const element = await resonatorStore.getElementEnByName(resonatorName)
+          resonatorNameToElementEn[resonatorName] = element
+        }
+      })
+    }
+  });
+}
 
-teamDamageDistributions.sort((distributionA: any, distributionB: any) => {
-  const dpsA = parseFloat(distributionA.getMaxTeamDPS())
-  const dpsB = parseFloat(distributionB.getMaxTeamDPS())
-  if (!dpsA || !dpsB) {
-    return 0
+function initBaseDps() {
+  if (teamDamageDistributions.length > 0) {
+    teamDamageDistributions.sort((distributionA: any, distributionB: any) => {
+      const dpsA = parseFloat(distributionA.getMaxTeamDPS())
+      const dpsB = parseFloat(distributionB.getMaxTeamDPS())
+      if (!dpsA || !dpsB) {
+        return 0
+      }
+      return dpsB - dpsA
+    })
+    baseDPS.value = parseFloat(teamDamageDistributions[0].getMaxTeamDPS())
   }
-  return dpsB - dpsA
-})
-
-const baseDPS = parseFloat(teamDamageDistributions[0].getMaxTeamDPS())
+}
 
 function isDivide(i: number): string {
   if (i < 2) {
@@ -112,6 +136,16 @@ function isDivide(i: number): string {
   return ""
 }
 
+onMounted(async () => {
+  await init(templateIds)
+})
+
+watch(() => { return templateIds.length }, async () => {
+  await init(templateIds)
+})
+watch(() => { return teamDamageDistributions.length }, () => {
+  initBaseDps()
+})
 </script>
 
 <style scoped lang="sass">

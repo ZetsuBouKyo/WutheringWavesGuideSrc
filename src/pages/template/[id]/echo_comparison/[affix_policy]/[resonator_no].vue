@@ -1,7 +1,8 @@
 <template>
   <v-container>
-    <ResonatorTier :title="title" :resonatorNo="resonatorNo" :teamDamageDistributions="teamDamageDistributions"
-      :isWarning="false" :toSort="false">
+    <ResonatorTier :title="$t('template.header.echo_damage_comparison', { name: resonatorName })"
+      :resonatorNo="resonatorNo" :teamDamageDistributions="teamDamageDistributions" :isWarning="false" :toSort="false"
+      :key="teamDamageDistributions.length">
     </ResonatorTier>
     <v-col v-for="(resonatorInfo, i) in resonatorInfos" :key="i">
       <v-container>
@@ -15,29 +16,38 @@
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from 'vue-i18n'
+import { reactive, ref } from 'vue'
 
-import { resonators, calculatedEchoComparisonTemplates } from '@/ww/db'
+import { useResonatorStore } from '@/stores/resonator'
+import { useEchoComparisonStore } from '@/stores/echoComparison'
 
 const route = useRoute()
 const hashedTemplateID = (route.params as { id: string }).id
 const affixPolicy = (route.params as { affix_policy: string }).affix_policy
 const resonatorNo = (route.params as { resonator_no: string }).resonator_no
-const resonatorName = resonators.getNameByNo(resonatorNo)
 
-const comparison = calculatedEchoComparisonTemplates.getEchoComparison(hashedTemplateID, affixPolicy, resonatorNo)
-const teamDamageDistributions = comparison.damage_distributions
-const resonatorEcho1 = comparison.resonator_template.getResonatorEcho1(resonatorName)
+const resonatorStore = useResonatorStore()
+const echoComparisonStore = useEchoComparisonStore()
 
-const resonatorInfos: Array<any> = []
-teamDamageDistributions.forEach((damageDistribution: any) => {
-  const resonatorID = damageDistribution.resonators[resonatorName].resonator_id
-  const resonatorInfo = comparison.resonator_models[resonatorID]
-  resonatorInfo.resonatorID = resonatorID
-  resonatorInfo.echo1 = resonatorEcho1
-  resonatorInfos.push(resonatorInfo)
-});
+const resonatorName = resonatorStore.getNameByNo(resonatorNo)
 
-const { t } = useI18n()
-const title = t('template.header.echo_damage_comparison', { name: resonatorName })
+const teamDamageDistributions = ref<Array<any>>([])
+const resonatorInfos = reactive<Array<any>>([])
+
+onMounted(async () => {
+  const comparison = await echoComparisonStore.getEchoComparison(hashedTemplateID, affixPolicy, resonatorNo)
+
+  teamDamageDistributions.value = comparison.damage_distributions
+  const resonatorEcho1 = comparison.resonator_template.getResonatorEcho1(resonatorName)
+
+  teamDamageDistributions.value.forEach(async (damageDistribution: any) => {
+    const resonatorID = damageDistribution.resonators[resonatorName].resonator_id
+    const resonatorInfo = comparison.resonator_models[resonatorID]
+    const resonatorElementSrc = await resonatorStore.getElementSrcByName(resonatorName)
+    resonatorInfo.resonatorID = resonatorID
+    resonatorInfo.echo1 = resonatorEcho1
+    resonatorInfo.elementSrc = resonatorElementSrc
+    resonatorInfos.push(resonatorInfo)
+  });
+})
 </script>

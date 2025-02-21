@@ -1,22 +1,22 @@
-import { resonators } from "./db";
+import { useResonatorStore } from "@/stores/resonator";
 
 const ActionIcons: any = {
-  普攻: new URL("../assets/actions/left_click.svg", import.meta.url).href,
-  普攻xN: new URL("../assets/actions/left_click.svg", import.meta.url).href,
-  空中攻擊: new URL("../assets/actions/left_click.svg", import.meta.url).href,
-  重擊: new URL("../assets/actions/hold_left_click.svg", import.meta.url).href,
-  空中重擊: new URL("../assets/actions/hold_left_click.svg", import.meta.url).href,
-  共鳴技能: new URL("../assets/actions/e.svg", import.meta.url).href,
-  共鳴解放: new URL("../assets/actions/r.svg", import.meta.url).href,
-  聲骸: new URL("../assets/actions/q.svg", import.meta.url).href,
-  延奏: new URL("../assets/actions/num.svg", import.meta.url).href,
+  普攻: "/assets/actions/left_click.svg",
+  普攻xN: "/assets/actions/left_click.svg",
+  空中攻擊: "/assets/actions/left_click.svg",
+  重擊: "/assets/actions/hold_left_click.svg",
+  空中重擊: "/assets/actions/hold_left_click.svg",
+  共鳴技能: "/assets/actions/e.svg",
+  共鳴解放: "/assets/actions/r.svg",
+  聲骸: "/assets/actions/q.svg",
+  延奏: "/assets/actions/num.svg",
   變奏: "",
-  入場: new URL("../assets/actions/num.svg", import.meta.url).href,
-  空中入場: new URL("../assets/actions/num.svg", import.meta.url).href,
-  鉤索: new URL("../assets/actions/t.svg", import.meta.url).href,
+  入場: "/assets/actions/num.svg",
+  空中入場: "/assets/actions/num.svg",
+  鉤索: "/assets/actions/t.svg",
   協同攻擊: "",
-  閃避: new URL("../assets/actions/shift.svg", import.meta.url).href,
-  跳: new URL("../assets/actions/space.svg", import.meta.url).href,
+  閃避: "/assets/actions/shift.svg",
+  跳: "/assets/actions/space.svg",
   無: "",
 };
 
@@ -57,8 +57,9 @@ export class ResonatorRotation {
   public comments: Array<any> = [];
 
   constructor(resonatorName: string) {
+    const resonatorStore = useResonatorStore();
     this.resonatorName = resonatorName;
-    this.resonatorSrc = resonators.getIconSrcByName(resonatorName);
+    this.resonatorSrc = resonatorStore.getIconSrcByName(resonatorName);
   }
 }
 

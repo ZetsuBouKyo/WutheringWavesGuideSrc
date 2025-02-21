@@ -42,7 +42,6 @@ if (path) {
   const doc = markdown.getDoc(path)
   marked.use(gfmHeadingId(options));
   m = marked(doc);
-  console.log(getHeadingList())
 }
 </script>
 

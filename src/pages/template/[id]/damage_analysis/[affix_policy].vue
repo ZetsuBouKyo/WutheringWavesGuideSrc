@@ -25,7 +25,7 @@
       </DocHeaders>
     </template>
     <template v-slot:right>
-      <v-container>
+      <v-container v-if="damageAnalysis">
         <v-row class="mt-1 mb-2">
           <h1>{{ title }}</h1>
         </v-row>
@@ -38,7 +38,7 @@
             <div class="d-flex flex-column bg-blue-grey-darken-4">
               <v-row class="ma-1 text-truncate">
                 <span class="team-damage-distribution-header">{{ $t('general.template_id') }}: </span>
-                <span class="team-damage-distribution-header-value text-truncate">{{ $t(templateID) }}</span>
+                <span class="team-damage-distribution-header-value text-truncate">{{ $t(templateId) }}</span>
               </v-row>
               <v-row class="ma-1 text-truncate">
                 <span class="team-damage-distribution-header">{{ $t('general.monster_id') }}: </span>
@@ -53,7 +53,7 @@
                 </span>
               </v-row>
               <div class="d-flex flex-row align-center ma-1" v-for=" resonatorName in resonatorNames">
-                <img class="resonator-icon mr-2" :src="resonators.getIconSrcByName(resonatorName)" />
+                <img class="resonator-icon mr-2" :src="resonatorStore.getIconSrcByName(resonatorName)" />
                 <v-tooltip location="bottom">
                   <div class="d-flex flex-column">
                     <div class="d-flex flex-row">
@@ -75,7 +75,7 @@
                   <template v-slot:activator="{ props }">
                     <div class="d-flex flex-column align-start bg-grey-darken-4 w-100" v-bind="props">
                       <div v-if="damageAnalysis.damage_distribution.getResonatorMaxDPSPercentage(resonatorName) > 0.5"
-                        :class="`barh d-flex flex-row-reverse align-center bg-${resonators.getElementEnByName(resonatorName)}`"
+                        :class="`barh d-flex flex-row-reverse align-center bg-${resonatorNameToElementEn[resonatorName]}`"
                         :style="`width: ${damageAnalysis.damage_distribution.getResonatorMaxDPSPercentageString(resonatorName)};`">
                         <span class="mr-4 text-truncate">
                           DPS: {{ damageAnalysis.damage_distribution.getResonatorDPSString(resonatorName) }}
@@ -83,7 +83,7 @@
                         </span>
                       </div>
                       <div v-else class="d-flex flex-row align-center w-100">
-                        <div :class="`barh d-flex bg-${resonators.getElementEnByName(resonatorName)}`"
+                        <div :class="`barh d-flex bg-${resonatorNameToElementEn[resonatorName]}`"
                           :style="`width: ${damageAnalysis.damage_distribution.getResonatorMaxDPSPercentageString(resonatorName)};`">
                         </div>
                         <span class="ml-4 text-truncate">
@@ -107,7 +107,7 @@
             <div class="d-flex flex-column bg-blue-grey-darken-4 text-truncate">
               <v-row class="ma-1 text-truncate">
                 <span class="team-damage-distribution-header">{{ $t('general.template_id') }}: </span>
-                <span class="team-damage-distribution-header-value text-truncate">{{ $t(templateID) }}</span>
+                <span class="team-damage-distribution-header-value text-truncate">{{ $t(templateId) }}</span>
               </v-row>
               <v-row class="ma-1 text-truncate">
                 <span class="team-damage-distribution-header">{{ $t('general.monster_id') }}: </span>
@@ -180,7 +180,7 @@
               <div class="d-flex flex-column bg-blue-grey-darken-4 text-truncate">
                 <v-row class="ma-1 text-truncate">
                   <span class="team-damage-distribution-header">{{ $t('general.template_id') }}: </span>
-                  <span class="team-damage-distribution-header-value text-truncate">{{ $t(templateID) }}</span>
+                  <span class="team-damage-distribution-header-value text-truncate">{{ $t(templateId) }}</span>
                 </v-row>
                 <v-row class="ma-1 text-truncate">
                   <span class="team-damage-distribution-header">{{ $t('general.monster_id') }}: </span>
@@ -248,7 +248,7 @@
               <div class="d-flex flex-column bg-blue-grey-darken-4 text-truncate">
                 <v-row class="ma-1 text-truncate">
                   <span class="team-damage-distribution-header">{{ $t('general.template_id') }}: </span>
-                  <span class="team-damage-distribution-header-value text-truncate">{{ $t(templateID) }}</span>
+                  <span class="team-damage-distribution-header-value text-truncate">{{ $t(templateId) }}</span>
                 </v-row>
                 <v-row class="ma-1 text-truncate">
                   <span class="team-damage-distribution-header">{{ $t('general.monster_id') }}: </span>
@@ -312,7 +312,7 @@
               <div class="d-flex flex-column bg-blue-grey-darken-4 text-truncate">
                 <v-row class="ma-1 text-truncate">
                   <span class="team-damage-distribution-header">{{ $t('general.template_id') }}: </span>
-                  <span class="team-damage-distribution-header-value text-truncate">{{ $t(templateID) }}</span>
+                  <span class="team-damage-distribution-header-value text-truncate">{{ $t(templateId) }}</span>
                 </v-row>
                 <v-row class="ma-1 text-truncate">
                   <span class="team-damage-distribution-header">{{ $t('general.monster_id') }}: </span>
@@ -373,43 +373,77 @@
 </template>
 
 <script lang="ts" setup>
+import { reactive, ref } from 'vue'
 import { useGoTo } from 'vuetify'
 import { useI18n } from 'vue-i18n'
 
+import { useCalculatedTemplateStore } from '@/stores/calculateTemplate'
+import { useDamageAnalysisStore } from '@/stores/damageAnalysis'
+import { useResonatorStore } from '@/stores/resonator'
+
 import { jumpToSection } from "@/ww/utils"
-import { templates, resonators, calculatedDamageAnalyses } from '@/ww/db'
 
 const goTo = useGoTo()
 
 const { t } = useI18n()
 
 const route = useRoute()
-const hashedTemplateID = (route.params as { id: string }).id
+const hashedTemplateId = (route.params as { id: string }).id
 const affixPolicy = (route.params as { affix_policy: string }).affix_policy
 
-const templateID = templates.getTemplateIDByHashedTemplateID(hashedTemplateID)
-const damageAnalysis: any = calculatedDamageAnalyses.getDamageAnalysis(templateID, affixPolicy)
-const baseTeamDamage = parseFloat(damageAnalysis.damage_distribution.damage)
-const baseTeamDPS = parseFloat(damageAnalysis.damage_distribution.getMaxTeamDPS())
-const bars = damageAnalysis.damage_distributions_with_buffs.getBars(baseTeamDamage, baseTeamDPS)
-console.log(bars)
+const calculatedTemplateStore = useCalculatedTemplateStore()
+const damageAnalysisStore = useDamageAnalysisStore()
+const resonatorStore = useResonatorStore()
 
-const resonatorNames: Array<string> = []
-const resonatorNamesForTitle: Array<string> = []
-const resonatorInfos: Array<any> = []
-Object.keys(damageAnalysis.resonator_models).forEach((resonatorID) => {
-  const resonatorInfo = damageAnalysis.resonator_models[resonatorID]
-  const resonatorName = resonatorInfo.name
-  const resonatorEcho1 = damageAnalysis.resonator_template.getResonatorEcho1(resonatorName)
-  resonatorInfo.echo1 = resonatorEcho1
-  resonatorInfos.push(resonatorInfo)
+const templateId = ref<string>("")
+const title = ref<string>("")
+const resonatorNames = reactive<Array<string>>([])
+const resonatorNameToElementEn = reactive<{ [name: string]: string }>({})
+const resonatorInfos = reactive<Array<any>>([])
+const damageAnalysis = ref<any>(undefined)
+const bars = ref<Array<any>>([])
 
-  resonatorNames.push(resonatorName)
-  resonatorNamesForTitle.push(t(resonatorName))
+async function init() {
+  if (!hashedTemplateId || !affixPolicy) {
+    return
+  }
+  await calculatedTemplateStore.init()
+
+  templateId.value = calculatedTemplateStore.getTemplateIdByHashedTemplateId(hashedTemplateId)
+
+  damageAnalysis.value = await damageAnalysisStore.getDamageAnalysisByHashedTemplateId(hashedTemplateId, affixPolicy)
+  const baseTeamDamage = parseFloat(damageAnalysis.value.damage_distribution.damage)
+  const baseTeamDPS = parseFloat(damageAnalysis.value.damage_distribution.getMaxTeamDPS())
+  bars.value = damageAnalysis.value.damage_distributions_with_buffs.getBars(baseTeamDamage, baseTeamDPS)
+
+  const resonatorNamesForTitle: Array<string> = []
+  Object.keys(damageAnalysis.value.resonator_models).forEach((resonatorID) => {
+    const resonatorInfo = damageAnalysis.value.resonator_models[resonatorID]
+    const resonatorName = resonatorInfo.name
+    const resonatorEcho1 = damageAnalysis.value.resonator_template.getResonatorEcho1(resonatorName)
+    resonatorInfo.echo1 = resonatorEcho1
+    resonatorInfos.push(resonatorInfo)
+
+    resonatorNames.push(resonatorName)
+    resonatorNamesForTitle.push(t(resonatorName))
+  })
+  resonatorNames.forEach(async (name: string) => {
+    const elementEn = await resonatorStore.getElementEnByName(name)
+    resonatorNameToElementEn[name] = elementEn
+  })
+
+  const titlePrefix = resonatorNamesForTitle.join(" | ")
+  const affixPolicyForTitle = t(`general.${affixPolicy}`)
+  title.value = `${titlePrefix} — ${affixPolicyForTitle}`
+}
+
+onMounted(async () => {
+  await init()
 })
-const titleR = resonatorNamesForTitle.join(" | ")
-const affixPolicyString = t(`general.${affixPolicy}`)
-const title = `${titleR} — ${t(affixPolicyString)}`
+
+watch(() => { return hashedTemplateId }, async () => {
+  await init()
+})
 </script>
 
 <style scoped lang="sass">

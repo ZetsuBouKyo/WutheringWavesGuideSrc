@@ -9,7 +9,7 @@
             v-on:click="jumpToSection(goTo, '#damage_comparison')"></v-list-item>
           <v-tooltip :text="comparison.title" v-for="(comparison, i) in comparisons" :key="i">
             <template v-slot:activator="{ props }">
-              <v-list-item v-bind="props" v-on:click="jumpToSection(goTo, `#${getComparisonID(i)}`)">
+              <v-list-item v-bind="props" v-on:click="jumpToSection(goTo, `#${getComparisonId(i)}`)">
                 <span class="ml-4 text-truncate">{{ comparison.title }}</span>
               </v-list-item>
             </template>
@@ -25,16 +25,17 @@
         <v-row class="my-1">
           <h2 id="damage_analysis">{{ $t('resonator.header.damage_analysis') }}</h2>
         </v-row>
-        <v-row class="my-1 ml-8" v-for="(templateID, i) in templateIDs" :key="i">
-          <v-list-item class="text-blue-accent-1 w-100" :title="$t(templateID)"
-            :to="`/template/${templates.getHashedTemplateIDByTemplateID(templateID)}`" :active="false"></v-list-item>
+        <v-row class="my-1 ml-8" v-for="(templateId, i) in templateIds" :key="i">
+          <v-list-item class="text-blue-accent-1 w-100" :title="$t(templateId)"
+            :to="`/template/${calculatedTemplateStore.getHashedTemplateIdByTemplateId(templateId)}`"
+            :active="false"></v-list-item>
         </v-row>
         <div v-if="comparisons.length > 0">
           <v-row class="my-1">
             <h2 id="damage_comparison">{{ $t('resonator.header.damage_comparison') }}</h2>
           </v-row>
           <v-col class="ml-8 py-1" v-for="(comparison, i) in comparisons" :key="i" :id="$t(comparison.title)">
-            <h3 :id="getComparisonID(i)" class="mb-2">{{ $t(comparison.title) }}</h3>
+            <h3 :id="getComparisonId(i)" class="mb-2">{{ $t(comparison.title) }}</h3>
             <v-col class="ml-8 py-1">
               <h4>{{ $t('resonator.damage_comparison.team_based') }}</h4>
               <v-col class="my-2">
@@ -86,21 +87,32 @@
 import { useGoTo } from 'vuetify'
 import { useRoute } from 'vue-router'
 
-import { templates, resonators, calculatedTemplates } from "@/ww/db"
+import { useResonatorStore } from '@/stores/resonator'
+import { useCalculatedTemplateStore } from '@/stores/calculateTemplate'
+
 import { jumpToSection } from "@/ww/utils"
 
 const goTo = useGoTo()
 
+const resonatorStore = useResonatorStore()
+const calculatedTemplateStore = useCalculatedTemplateStore()
+
 const route = useRoute()
 const resonatorNo = (route.params as { resonator_no: string }).resonator_no
-const resonatorName = resonators.getNameByNo(resonatorNo)
+const resonatorName = resonatorStore.getNameByNo(resonatorNo)
 
-const templateIDs = calculatedTemplates.getTemplateIDsByResonatorNo(resonatorNo)
-const comparisons = calculatedTemplates.getComparisonsByID(resonatorNo)
+const templateIds = ref<any>([])
+const comparisons = ref<any>([])
 
-function getComparisonID(i: number | string): string {
+function getComparisonId(i: number | string): string {
   return `comparison-${i}`
 }
+
+onMounted(async () => {
+  await calculatedTemplateStore.init()
+  templateIds.value = calculatedTemplateStore.getTemplateIdsByNo(resonatorNo)
+  comparisons.value = calculatedTemplateStore.getComparisonsByNo(resonatorNo)
+})
 </script>
 
 <style scoped lang="sass">

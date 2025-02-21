@@ -1,5 +1,7 @@
-import { getNestedValue, mapValueToValue, toNumberString, toPercentageString } from "./utils";
+import { getNestedValue, mapValueToValue, toNumberString, toPercentageString, md5 } from "./utils";
 import { Template } from "./template";
+
+import { useResonatorStore } from "@/stores/resonator";
 
 export interface Bar {
   text: string;
@@ -28,17 +30,12 @@ export class TeamDamageDistribution {
   public damage: any;
   public resonators: any;
 
-  private _templates: any;
-  private _resonators: any;
-
-  constructor(distribution: any, templates: any, resonators: any) {
+  constructor(distribution: any) {
     Object.assign(this, distribution);
-    this._templates = templates;
-    this._resonators = resonators;
   }
 
   public getHashedTemplateID(): string {
-    return this._templates.getHashedTemplateIDByTemplateID(this.template_id);
+    return md5(this.template_id);
   }
 
   public getMaxTeamDPS(): number {
@@ -100,15 +97,20 @@ export class TeamDamageDistribution {
     return "";
   }
 
+  public getResonatorNames(): Array<string> {
+    return Object.keys(this.resonators);
+  }
+
   public getResonatorIDByResonatorName(resonatorName: string): string {
     return this.resonators[resonatorName].resonator_id;
   }
 
   public getResonatorIconSources(): Array<string> {
     const sources: Array<string> = [];
+    const resonatorStore = useResonatorStore();
     Object.keys(this.resonators).forEach((resonatorName: string) => {
-      const id = this._resonators.getNoByName(resonatorName);
-      const source = this._resonators.getIconSrcByNo(id);
+      const no = resonatorStore.getNoByName(resonatorName);
+      const source = resonatorStore.getIconSrcByNo(no);
       sources.push(source);
     });
     return sources;
@@ -246,21 +248,17 @@ export class TeamDamageDistribution {
 
 export class TeamDamageDistributionsWithBuffs {
   private _data: any;
-  private _templates: any;
-  private _resonators: any;
 
-  constructor(distribution: any, templates: any, resonators: any) {
+  constructor(distribution: any) {
     Object.assign(this, distribution);
     this._data = distribution;
-    this._templates = templates;
-    this._resonators = resonators;
   }
 
   public getBars(baseDamage: number, baseDPS: number): Array<Bar> {
     const bars: Array<Bar> = [];
     this._data.forEach((t: any) => {
       const buffName = t[0];
-      const damageDistribution = new TeamDamageDistribution(t[1], this._templates, this._resonators);
+      const damageDistribution = new TeamDamageDistribution(t[1]);
       const damage = baseDamage - parseFloat(damageDistribution.damage);
       const p = damage / baseDamage;
       const dps = baseDPS - damageDistribution.getMaxTeamDPS();
@@ -282,116 +280,26 @@ export class TeamDamageDistributionsWithBuffs {
 
 export class DamageAnalysis {
   public affixPolicy: string;
-  private damage_distribution: any;
+  public resonator_template: any;
+  public damage_distribution: any;
+  public damage_distributions_with_buffs: any;
 
-  private _templates: any;
-  private _resonators: any;
-
-  constructor(analysis: any, affixPolicy: string, templates: any, resonators: any) {
+  constructor(analysis: any, affixPolicy: string) {
     Object.assign(this, analysis);
     this.affixPolicy = affixPolicy;
-    this._templates = templates;
-    this._resonators = resonators;
+    this.resonator_template = new Template(this.resonator_template);
+    this.damage_distribution = new TeamDamageDistribution(this.damage_distribution);
+    this.damage_distributions_with_buffs = new TeamDamageDistributionsWithBuffs(this.damage_distributions_with_buffs);
   }
 
-  public getTeamDamageDistribution(): any {
-    return new TeamDamageDistribution(this.damage_distribution, this._templates, this._resonators);
+  public getTeamDamageDistribution(): TeamDamageDistribution {
+    return this.damage_distribution;
   }
 
   public getResonatorDamageAnalysis(resonatorNo: string): any {
-    const resonatorName = this._resonators.getNameByNo(resonatorNo);
+    const resonatorStore = useResonatorStore();
+    const resonatorName = resonatorStore.getNameByNo(resonatorNo);
     const resonatorDamageAnalysis = getNestedValue(this, `damage_distribution.resonators.${resonatorName}`);
     return resonatorDamageAnalysis;
-  }
-}
-
-export class CalculatedDamageAnalyses {
-  private templateIDToAffixes151DamageAnalysis: any;
-  private templateIDToAffixes20SmallDamageAnalysis: any;
-  private templateIDToAffixes20SkillBonusDamageAnalysis: any;
-
-  private _templates: any;
-  private _resonators: any;
-
-  constructor(templates: any, resonators: any) {
-    this._templates = templates;
-    this._resonators = resonators;
-
-    // Affixes 15-1
-    const affixes151TemplateModules = import.meta.glob(
-      "@/assets/calculation/resonator/template/*/affixes_15_1/damage_analysis.json",
-      { eager: true },
-    );
-    this.templateIDToAffixes151DamageAnalysis = mapValueToValue(
-      affixes151TemplateModules,
-      "default.resonator_template.id",
-      "default",
-    );
-
-    // Affixes 20 Small
-    const affixes20SmallTemplateModules = import.meta.glob(
-      "@/assets/calculation/resonator/template/*/affixes_20_small/damage_analysis.json",
-      { eager: true },
-    );
-    this.templateIDToAffixes20SmallDamageAnalysis = mapValueToValue(
-      affixes20SmallTemplateModules,
-      "default.resonator_template.id",
-      "default",
-    );
-
-    // Affixes 20 Skill Bonus
-    const affixes20SkillBonusTemplateModules = import.meta.glob(
-      "@/assets/calculation/resonator/template/*/affixes_20_skill_bonus/damage_analysis.json",
-      { eager: true },
-    );
-    this.templateIDToAffixes20SkillBonusDamageAnalysis = mapValueToValue(
-      affixes20SkillBonusTemplateModules,
-      "default.resonator_template.id",
-      "default",
-    );
-  }
-
-  public getDamageAnalysis(templateID: string, affixPolicy: string): DamageAnalysis | undefined {
-    let damageAnalysis: any;
-    switch (affixPolicy) {
-      case "affixes_15_1":
-        damageAnalysis = new DamageAnalysis(
-          this.templateIDToAffixes151DamageAnalysis[templateID],
-          affixPolicy,
-          this._templates,
-          this._resonators,
-        );
-        break;
-      case "affixes_20_small":
-        damageAnalysis = new DamageAnalysis(
-          this.templateIDToAffixes20SmallDamageAnalysis[templateID],
-          affixPolicy,
-          this._templates,
-          this._resonators,
-        );
-        break;
-      case "affixes_20_skill_bonus":
-        damageAnalysis = new DamageAnalysis(
-          this.templateIDToAffixes20SkillBonusDamageAnalysis[templateID],
-          affixPolicy,
-          this._templates,
-          this._resonators,
-        );
-        break;
-      default:
-        break;
-    }
-    damageAnalysis.resonator_template = new Template(damageAnalysis.resonator_template);
-    damageAnalysis.damage_distribution = new TeamDamageDistribution(
-      damageAnalysis.damage_distribution,
-      this._templates,
-      this._resonators,
-    );
-    damageAnalysis.damage_distributions_with_buffs = new TeamDamageDistributionsWithBuffs(
-      damageAnalysis.damage_distributions_with_buffs,
-      this._templates,
-      this._resonators,
-    );
-    return damageAnalysis;
   }
 }
