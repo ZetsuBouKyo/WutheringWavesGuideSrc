@@ -136,7 +136,9 @@ onMounted(async () => {
 
   const resonatorNamesForTitle: Array<string> = []
   template.value.getResonatorNames().forEach((name: string) => {
-    resonatorNamesForTitle.push(t(name))
+    if (name) {
+      resonatorNamesForTitle.push(t(name))
+    }
   })
 
   template.value.resonators.forEach((resonator: any) => {
