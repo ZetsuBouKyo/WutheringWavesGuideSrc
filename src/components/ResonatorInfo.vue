@@ -1,9 +1,9 @@
 <template>
-  <v-container>
-    <v-row class="mb-2">
+  <div class="d-flex flex-column mx-1 w-100">
+    <div class="d-flex flex-row mb-2">
       <span>{{ $t('general.resonator') }}</span>
-    </v-row>
-    <v-row class="d-flex flex-column mb-2 bg-blue-grey-darken-4 overflow-auto w-100">
+    </div>
+    <div class="d-flex flex-column mb-2 bg-blue-grey-darken-4 overflow-auto w-100">
       <div class="d-flex flex-row align-center mt-1 mx-1 text-truncate">
         <div class="bg-grey-darken-4 d-flex flex-row align-center pa-2 mr-1">
           <img class="title mr-4" :src="resonatorStore.getIconSrcByName(resonator.name)" />
@@ -20,7 +20,7 @@
           <h3 class="title ml-4 d-flex align-center">{{ $t('general.lv') }}</h3>
           <h3 class="title mr-4 d-flex align-center">{{ resonator.weapon_level }}</h3>
           <h3 class="title mr-1 d-flex align-center">{{ $t('general.tune') }}</h3>
-          <h3 class="title mr-2 d-flex align-center">{{ resonator.weapon_rank }}</h3>
+          <h3 class="title d-flex align-center">{{ resonator.weapon_rank }}</h3>
         </div>
       </div>
       <div class="d-flex flex-row mx-1">
@@ -31,11 +31,11 @@
           hide-default-footer :items-per-page="22">
         </v-data-table>
       </div>
-    </v-row>
-    <v-row class="mb-2">
+    </div>
+    <div class="d-flex flex-row mb-2">
       <span>{{ $t('general.echo') }}</span>
-    </v-row>
-    <v-row class="d-flex flex-column mb-2 bg-blue-grey-darken-4 overflow-auto w-100">
+    </div>
+    <div class="d-flex flex-column mb-2 bg-blue-grey-darken-4 overflow-auto w-100">
       <div class="d-flex flex-row mx-1">
         <v-data-table class="table my-1 mr-1" :headers="echoLeftHeaders" :items="echoLeft" disable-sort
           hide-default-footer :items-per-page="18">
@@ -44,8 +44,8 @@
           :items-per-page="18">
         </v-data-table>
       </div>
-    </v-row>
-  </v-container>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>

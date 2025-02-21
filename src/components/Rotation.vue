@@ -1,8 +1,8 @@
 <template>
-  <v-container class="bg-grey-darken-4">
-    <v-col>
-      <div v-for="resonatorRotation in rotation" class="d-flex flex-row justify-start">
-        <div class="d-flex flex-row mr-4 my-2">
+  <v-container class="mx-1 bg-grey-darken-4">
+    <div class="d-flex flex-column">
+      <div v-for="resonatorRotation in rotation" class="d-flex flex-row justify-start py-2">
+        <div class="d-flex flex-row px-4 my-2">
           <img class="resonator" :src="resonatorRotation.resonatorSrc" />
         </div>
         <div class="d-flex flex-column">
@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-    </v-col>
+    </div>
   </v-container>
 </template>
 
@@ -55,13 +55,13 @@ const rotation = props.rotation
 
 <style scoped lang="sass">
 .resonator
-  height: 40px
-  width: 40px
+  height: 48px
+  width: 48px
 .row
-  height: 40px
+  height: 48px
 .action
-  height: 30px
+  height: 36px
 .comment
-  height: 20px
+  height: 24px
   font-size: 0.75rem
 </style>

@@ -40,7 +40,7 @@
         <v-row class="my-1">
           <h2 id="team_damage_distribution">{{ $t('template.damage_analysis.team_damage_distribution') }}</h2>
         </v-row>
-        <div class="d-flex flex-column ml-8 my-1 mb-4">
+        <div class="d-flex flex-column my-1 mb-4">
           <v-container class="bg-blue-grey-darken-4 mx-1">
             <div class="d-flex flex-column bg-blue-grey-darken-4">
               <v-row class="ma-1 text-truncate">
@@ -109,7 +109,7 @@
         <v-row class="my-1">
           <h2 id="buff_damage_distribution">{{ $t('template.damage_analysis.buff_damage_distribution') }}</h2>
         </v-row>
-        <div class="d-flex flex-column ml-8 my-1 mb-4">
+        <div class="d-flex flex-column my-1 mb-4">
           <v-container class="bg-blue-grey-darken-4 mx-1">
             <div class="d-flex flex-column bg-blue-grey-darken-4 text-truncate">
               <v-row class="ma-1 text-truncate">
@@ -173,16 +173,16 @@
           <h2 id="resonator">{{ $t('general.resonator') }}</h2>
         </v-row>
         <div v-for="(resonatorName, i) in resonatorNames" class="d-flex flex-column">
-          <v-row class="my-1 ml-8">
+          <v-row class="my-1">
             <h3 :id="`resonator${i}`">{{ $t(resonatorName) }}</h3>
           </v-row>
-          <ResonatorInfo class="my-1 pl-16" :resonator="resonatorInfos[i]" />
+          <ResonatorInfo class="my-1" :resonator="resonatorInfos[i]" />
           <!-- Skill -->
-          <v-row class=" my-1 ml-16">
+          <v-row class=" my-1">
             <h4 :id="`resonator${i}_skill_damage_distribution`">{{
               $t('template.damage_analysis.skill_damage_distribution') }}</h4>
           </v-row>
-          <div class="d-flex flex-column my-1 mb-4 w-100 pl-16">
+          <div class="d-flex flex-column my-1 mb-4 w-100">
             <v-container class="bg-blue-grey-darken-4 mx-1">
               <div class="d-flex flex-column bg-blue-grey-darken-4 text-truncate">
                 <v-row class="ma-1 text-truncate">
@@ -246,11 +246,11 @@
             </v-container>
           </div>
           <!-- Skill type -->
-          <v-row class=" my-1 ml-16">
-            <h3 :id="`resonator${i}_skill_type_damage_distribution`">{{
-              $t('template.damage_analysis.skill_type_damage_distribution') }}</h3>
+          <v-row class="my-1">
+            <h4 :id="`resonator${i}_skill_type_damage_distribution`">{{
+              $t('template.damage_analysis.skill_type_damage_distribution') }}</h4>
           </v-row>
-          <div class="d-flex flex-column my-1 mb-4 w-100 pl-16">
+          <div class="d-flex flex-column my-1 mb-4 w-100">
             <v-container class="bg-blue-grey-darken-4 mx-1">
               <div class="d-flex flex-column bg-blue-grey-darken-4 text-truncate">
                 <v-row class="ma-1 text-truncate">
@@ -310,11 +310,11 @@
             </v-container>
           </div>
           <!-- Skill Bonus -->
-          <v-row class=" my-1 ml-16">
-            <h3 :id="`resonator${i}_skill_bonus_damage_distribution`">{{
-              $t('template.damage_analysis.skill_bonus_damage_distribution') }}</h3>
+          <v-row class="my-1">
+            <h4 :id="`resonator${i}_skill_bonus_damage_distribution`">{{
+              $t('template.damage_analysis.skill_bonus_damage_distribution') }}</h4>
           </v-row>
-          <div class="d-flex flex-column my-1 mb-4 w-100 pl-16">
+          <div class="d-flex flex-column my-1 mb-4 w-100">
             <v-container class="bg-blue-grey-darken-4 mx-1">
               <div class="d-flex flex-column bg-blue-grey-darken-4 text-truncate">
                 <v-row class="ma-1 text-truncate">
@@ -377,7 +377,7 @@
         <v-row class="my-1">
           <h2 id="rotation">{{ $t('general.rotation') }}</h2>
         </v-row>
-        <div class="d-flex flex-column my-1 mb-4 w-100 pl-8">
+        <div class="d-flex flex-column my-1 mb-4 w-100">
           <Rotation v-if="damageAnalysis.resonator_template" class="my-1"
             :rotation="damageAnalysis.resonator_template.getRotation()" />
         </div>
