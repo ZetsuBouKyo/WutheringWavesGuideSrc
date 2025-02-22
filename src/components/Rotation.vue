@@ -10,12 +10,15 @@
             <v-tooltip location="bottom" v-for=" (action, i) in resonatorRotation.actions"
               :disabled="!action.skillID && !action.timeStart && !action.timeEnd">
               <v-col>
+                <v-row>{{ $t('general.nth_row', { n: parseFloat(action.index0Based) + 1 }) }}</v-row>
                 <v-row v-if="action.skillID">{{ $t('general.resonator_skill_id') }}: {{ action.skillID }}</v-row>
                 <v-row v-if="action.timeStart">{{ $t('general.time_start') }}: {{ action.timeStart }}</v-row>
                 <v-row v-if="action.timeEnd">{{ $t('general.time_end') }}: {{ action.timeEnd }}</v-row>
               </v-col>
               <template v-slot:activator="{ props }">
-                <div class="row d-flex flex-row align-center my-2" v-bind="props">
+                <div :id="`rotation${action.index0Based}`" class="row d-flex flex-row align-center my-2"
+                  :class="jump ? 'cursor-pointer' : ''" v-bind="props"
+                  v-on:click="jumpToSection(goTo, `#${jump}${action.index0Based}`)">
                   <span :class="action.src ? 'mr-3' : ''">
                     {{ action.name }}
                     <sup v-if="action.supIndex">
@@ -44,13 +47,24 @@
 </template>
 
 <script lang="ts" setup>
+import { useGoTo } from 'vuetify'
+
+import { jumpToSection } from "@/ww/utils"
+
+const goTo = useGoTo()
+
 const props = defineProps({
   rotation: {
     type: Object as PropType<Array<any>>,
     default: []
+  },
+  jump: {
+    type: String,
+    default: ""
   }
 });
 const rotation = props.rotation
+const jump = props.jump
 </script>
 
 <style scoped lang="sass">

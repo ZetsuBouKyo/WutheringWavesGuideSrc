@@ -1,0 +1,16 @@
+export enum BuffTypeEnum {
+  SKILL_DMG_ADDITION = "招式倍率",
+  MAGNIFIER = "倍率",
+  AMPLIFIER = "加深",
+  BONUS = "加成",
+  HP_P = "生命百分比",
+  HP = "生命",
+  ATK_P = "攻擊百分比",
+  ATK = "攻擊",
+  DEF_P = "防禦百分比",
+  DEF = "防禦",
+  CRIT_RATE = "暴擊",
+  CRIT_DMG = "暴擊傷害",
+  IGNORE_DEF = "忽視防禦",
+  REDUCE_RES = "抗性降低",
+}

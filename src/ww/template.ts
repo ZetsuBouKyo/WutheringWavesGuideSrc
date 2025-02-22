@@ -56,4 +56,17 @@ export class Template {
     const rows = this.rows;
     return getRotation(rows);
   }
+
+  public getRotationIndices(): Array<string> {
+    const indices: Array<string> = [];
+    const rotation = this.getRotation();
+    rotation.forEach((r: any) => {
+      const actions = r.actions;
+      actions.forEach((action: any) => {
+        const i = action.index0Based;
+        indices.push(i);
+      });
+    });
+    return indices;
+  }
 }

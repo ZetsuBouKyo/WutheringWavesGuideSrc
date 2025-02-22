@@ -16,6 +16,9 @@ export function mapValueToValue(modules: any, key1: string, key2: string): any {
 }
 
 export function toNumberString(number: number): string {
+  if (!number) {
+    return "";
+  }
   const s = number.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   return s;
 }
