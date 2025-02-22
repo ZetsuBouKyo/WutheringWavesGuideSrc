@@ -9,7 +9,7 @@ export const useEchoComparisonStore = defineStore("echoComparison", {
   actions: {
     async getEchoComparison(hashedTemplateId: string, affixPolicy: string, resonatorNo: string): Promise<any> {
       const req = mande(
-        `/data/calculation/resonator/template/${hashedTemplateId}/${affixPolicy}/echo_comparison/${resonatorNo}.json`,
+        `/data/calculation/template/${hashedTemplateId}/${affixPolicy}/echo_comparison/${resonatorNo}.json`,
       );
       const resp: any = await req.get();
 

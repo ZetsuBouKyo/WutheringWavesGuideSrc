@@ -12,7 +12,7 @@ export const useDamageAnalysisStore = defineStore("damageAnalysis", {
   }),
   actions: {
     async getDamageAnalysisByHashedTemplateId(hashedTemplateId: string, affixPolicy: string | AffixPolicyEnum) {
-      const req = mande(`/data/calculation/resonator/template/${hashedTemplateId}/${affixPolicy}/damage_analysis.json`);
+      const req = mande(`/data/calculation/template/${hashedTemplateId}/${affixPolicy}/damage_analysis.json`);
       const resp: any = await req.get();
       return new DamageAnalysis(resp, affixPolicy);
     },
