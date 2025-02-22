@@ -74,4 +74,6 @@ if (path) {
   background: rgb(var(--v-theme-surface))
 ::v-deep(.markdown tr)
   height: 52px
+::v-deep(.markdown a)
+   text-decoration: none
 </style>
