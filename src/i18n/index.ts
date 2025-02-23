@@ -10,6 +10,10 @@ const i18n = createI18n({
   messages: {
     zh_TW: {
       calculation: {
+        tab: {
+          simple: "簡易計算",
+          template: "模板計算",
+        },
         region: {
           attr: "基礎屬性區",
           skill_dmg: "技能傷害區",
@@ -20,8 +24,13 @@ const i18n = createI18n({
           def: "防禦區",
           res: "抗性區",
         },
+        result: "計算結果",
       },
       general: {
+        error: "錯誤",
+        stat_bonus: "屬性加成",
+        calculate: "計算",
+        monster: "怪物",
         back_to: "回到{to}",
         name: "名稱",
         real_damage: "實際傷害",

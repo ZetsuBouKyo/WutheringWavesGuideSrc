@@ -2,6 +2,7 @@ import { mande } from "mande";
 import { defineStore } from "pinia";
 
 import { getKeyByValue } from "@/ww/utils";
+import { ResonatorInfo } from "@/ww/resonator";
 
 const name2no: { [name: string]: string } = {
   散華: "1102",
@@ -40,6 +41,18 @@ const name2no: { [name: string]: string } = {
 export const useResonatorStore = defineStore("resonator", {
   state: () => ({}),
   actions: {
+    getNames(): Array<string> {
+      return Object.keys(name2no);
+    },
+    getChains(): Array<string> {
+      return new Array("1", "2", "3", "4", "5", "6");
+    },
+    getLevels(): Array<string> {
+      return new Array("1", "20", "20+", "40", "40+", "50", "50+", "60", "60+", "70", "70+", "80", "80+", "90");
+    },
+    getSkillLevels(): Array<string> {
+      return new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+    },
     getNoByName(name: string): any {
       return name2no[name];
     },
@@ -53,14 +66,19 @@ export const useResonatorStore = defineStore("resonator", {
       const no = this.getNoByName(name);
       return this.getIconSrcByNo(no);
     },
-    async getInfoByNo(no: string): Promise<any> {
+    async getInfoByNo(no: string): Promise<ResonatorInfo> {
       try {
         const req = mande(`/data/resonators/${no}/info.json`);
-        const info: any = await req.get();
+        const info: any = new ResonatorInfo(await req.get());
         return info;
       } catch (error) {
-        return error;
+        throw error;
       }
+    },
+    async getInfoByName(name: string): Promise<ResonatorInfo> {
+      const no = this.getNoByName(name);
+      const info = await this.getInfoByNo(no);
+      return info;
     },
     async getElementEnByNo(no: string): Promise<string> {
       const info = await this.getInfoByNo(no);
@@ -79,6 +97,10 @@ export const useResonatorStore = defineStore("resonator", {
       const no = this.getNoByName(name);
       const elementSrc = await this.getElementSrcByNo(no);
       return elementSrc;
+    },
+    async getSkillItems(name: string): Promise<any> {
+      const info = await this.getInfoByName(name);
+      return info.getSkillItems();
     },
   },
 });
