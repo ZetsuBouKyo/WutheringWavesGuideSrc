@@ -38,7 +38,7 @@ const weaponTunes = weaponStore.getTunes()
 
 const weapon = useRowWeaponStore(id)
 
-function checkWeaponName() {
+function checkWeaponName(name: string) {
   if (weaponNames.includes(name)) {
     return true
   }
