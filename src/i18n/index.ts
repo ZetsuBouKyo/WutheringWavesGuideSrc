@@ -27,6 +27,8 @@ const i18n = createI18n({
         result: "計算結果",
       },
       general: {
+        result: "結果",
+        sonata: "合鳴",
         error: "錯誤",
         stat_bonus: "屬性加成",
         calculate: "計算",
@@ -43,6 +45,7 @@ const i18n = createI18n({
         n_hits: "{n}段",
         skill: "技能",
         skill_base_attr: "技能基礎屬性",
+        skill_damage_ratio: "技能傷害倍率",
         nth_row: "第{n}列",
         buff: "增益",
         buff_type: "增益種類",
