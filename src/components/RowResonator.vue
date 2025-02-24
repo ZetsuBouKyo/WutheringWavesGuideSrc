@@ -13,7 +13,7 @@
     </div>
     <div class="d-flex flex-row">
       <v-combobox v-model="resonator._skill_item" :items="resonatorSkillItems" :label="$t('general.resonator_skill_id')"
-        :rules="[checkResonatorSkill]"></v-combobox>
+        :rules="[checkResonatorSkill]" :disabled="resonatorSkillItems.length === 0"></v-combobox>
     </div>
     <div class="d-flex flex-row mb-2">
       <span>{{ $t('general.skill') }}</span>
@@ -159,6 +159,7 @@ async function updateResonator() {
   const name = resonator.name
   const check = checkResonatorName(name)
   if (check !== true) {
+    resonatorSkillItems.value = []
     return
   }
   resonatorSkillItems.value = await resonatorStore.getSkillItems(name)
