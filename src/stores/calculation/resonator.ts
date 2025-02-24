@@ -29,7 +29,7 @@ export const useRowResonatorStore = (id: string) => {
       inherent_skill_2: true,
       stat_bonus: new StatBuff(),
       skill: new RowResonatorSkill(),
-      skill_item: { title: "", value: undefined },
+      _skill_item: { title: "", value: undefined },
     }),
     actions: {
       async updateRowResonatorByName() {

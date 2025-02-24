@@ -12,7 +12,7 @@
       <v-select v-model="resonator.chain" :items="resonatorChains" :label="$t('general.resonator_chain')"></v-select>
     </div>
     <div class="d-flex flex-row">
-      <v-combobox v-model="resonator.skill_item" :items="resonatorSkillItems" :label="$t('general.resonator_skill_id')"
+      <v-combobox v-model="resonator._skill_item" :items="resonatorSkillItems" :label="$t('general.resonator_skill_id')"
         :rules="[checkResonatorSkill]"></v-combobox>
     </div>
     <div class="d-flex flex-row mb-2">

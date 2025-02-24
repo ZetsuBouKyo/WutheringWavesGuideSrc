@@ -78,7 +78,7 @@ const resonator = useRowResonatorStore(id)
 const weapon = useRowWeaponStore(id)
 
 async function calculate() {
-  const skill = resonator.skill_item.value
+  const skill = resonator._skill_item.value
   if (!skill) {
     tab.value = "resonator"
     return
