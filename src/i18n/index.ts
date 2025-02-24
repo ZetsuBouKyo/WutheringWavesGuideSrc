@@ -125,6 +125,7 @@ const i18n = createI18n({
         resonator_chain: "共鳴鏈",
         resonator_skill_id: "技能ID",
         resonator_energy_regen: "共鳴效率",
+        weapon: "武器",
         weapon_name: "武器名稱",
         weapon_tune: "武器諧振",
         tune: "諧振",
