@@ -1,25 +1,30 @@
+import { StatBuffEnum } from "@/interfaces/buff";
+
 export class StatBuff {
-  public crit_rate: string = "";
-  public crit_dmg: string = "";
+  public [StatBuffEnum.CRIT_RATE]: string = "";
+  public [StatBuffEnum.CRIT_DMG]: string = "";
 
-  public hp_p: string = "";
-  public atk_p: string = "";
-  public def_p: string = "";
-  public energy_regen: string = "";
+  public [StatBuffEnum.HP]: string = "";
+  public [StatBuffEnum.HP_P]: string = "";
+  public [StatBuffEnum.ATK]: string = "";
+  public [StatBuffEnum.ATK_P]: string = "";
+  public [StatBuffEnum.DEF]: string = "";
+  public [StatBuffEnum.DEF_P]: string = "";
+  public [StatBuffEnum.ENERGY_REGEN]: string = "";
 
-  public bonus_physics: string = "";
-  public bonus_glacio: string = "";
-  public bonus_fusion: string = "";
-  public bonus_electro: string = "";
-  public bonus_aero: string = "";
-  public bonus_spectro: string = "";
-  public bonus_havoc: string = "";
+  public [StatBuffEnum.BONUS_PHYSICS]: string = "";
+  public [StatBuffEnum.BONUS_GLACIO]: string = "";
+  public [StatBuffEnum.BONUS_FUSION]: string = "";
+  public [StatBuffEnum.BONUS_ELECTRO]: string = "";
+  public [StatBuffEnum.BONUS_AERO]: string = "";
+  public [StatBuffEnum.BONUS_SPECTRO]: string = "";
+  public [StatBuffEnum.BONUS_HAVOC]: string = "";
 
-  public bonus_resonance_skill: string = "";
-  public bonus_basic_attack: string = "";
-  public bonus_heavy_attack: string = "";
-  public bonus_resonance_liberation: string = "";
-  public bonus_healing: string = "";
+  public [StatBuffEnum.BONUS_RESONANCE_SKILL]: string = "";
+  public [StatBuffEnum.BONUS_BASIC_ATTACK]: string = "";
+  public [StatBuffEnum.BONUS_HEAVY_ATTACK]: string = "";
+  public [StatBuffEnum.BONUS_RESONANCE_LIBERATION]: string = "";
+  public [StatBuffEnum.BONUS_HEALING]: string = "";
 
   constructor() {}
 }

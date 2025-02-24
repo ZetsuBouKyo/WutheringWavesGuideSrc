@@ -61,3 +61,30 @@ export interface IStatBuff {
   bonus_resonance_liberation: string;
   bonus_healing: string;
 }
+
+export enum StatBuffEnum {
+  CRIT_RATE = "crit_rate",
+  CRIT_DMG = "crit_dmg",
+
+  HP = "hp",
+  HP_P = "hp_p",
+  ATK = "atk",
+  ATK_P = "atk_p",
+  DEF = "def",
+  DEF_P = "def_p",
+  ENERGY_REGEN = "energy_regen",
+
+  BONUS_PHYSICS = "bonus_physics",
+  BONUS_GLACIO = "bonus_glacio",
+  BONUS_FUSION = "bonus_fusion",
+  BONUS_ELECTRO = "bonus_electro",
+  BONUS_AERO = "bonus_aero",
+  BONUS_SPECTRO = "bonus_spectro",
+  BONUS_HAVOC = "bonus_havoc",
+
+  BONUS_RESONANCE_SKILL = "bonus_resonance_skill",
+  BONUS_BASIC_ATTACK = "bonus_basic_attack",
+  BONUS_HEAVY_ATTACK = "bonus_heavy_attack",
+  BONUS_RESONANCE_LIBERATION = "bonus_resonance_liberation",
+  BONUS_HEALING = "bonus_healing",
+}
