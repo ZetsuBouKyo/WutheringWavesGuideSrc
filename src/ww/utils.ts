@@ -60,3 +60,16 @@ export function md5(obj: any, n: number = 8): string {
   const s = MD5(obj).toString();
   return s.slice(0, n);
 }
+
+export function removeEmptyStrings(obj: any): any {
+  if (Array.isArray(obj)) {
+    return obj.map(removeEmptyStrings);
+  } else if (typeof obj === "object" && obj !== null) {
+    return Object.fromEntries(
+      Object.entries(obj)
+        .map(([key, value]) => [key, removeEmptyStrings(value)])
+        .filter(([_, value]) => value !== ""),
+    );
+  }
+  return obj;
+}
