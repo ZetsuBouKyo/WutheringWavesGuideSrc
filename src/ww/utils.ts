@@ -1,3 +1,4 @@
+import domtoimage from "dom-to-image-more";
 import MD5 from "crypto-js/md5";
 
 type JsonData = Record<string, any>;
@@ -72,4 +73,23 @@ export function removeEmptyStrings(obj: any): any {
     );
   }
   return obj;
+}
+
+export async function saveDomToImage(ref: any, fname: string) {
+  const dom = ref.value;
+  if (!dom) return;
+
+  try {
+    const dataUrl = await domtoimage.toPng(dom);
+
+    // Create a download link
+    const link = document.createElement("a");
+    link.href = dataUrl;
+    link.download = `${fname}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } catch (error) {
+    console.error("Error capturing image:", error);
+  }
 }

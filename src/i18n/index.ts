@@ -27,6 +27,7 @@ const i18n = createI18n({
         result: "計算結果",
       },
       general: {
+        download_image: "下載圖片",
         result: "結果",
         sonata: "合鳴",
         error: "錯誤",

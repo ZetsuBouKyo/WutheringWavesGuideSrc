@@ -1,12 +1,14 @@
 <template>
-  <v-container class="mx-1 bg-grey-darken-4">
-    <div class="d-flex flex-column">
-      <div v-for="resonatorRotation in rotation" class="d-flex flex-row justify-start py-2">
+  <div class="d-flex flex-column mx-1 w-100">
+    <v-btn class="ml-auto mb-2" v-on:click="saveImage">{{ $t('general.download_image')
+      }}</v-btn>
+    <div ref="rotationDom" class="d-flex flex-column bg-grey-darken-4 w-100">
+      <div v-for="resonatorRotation in rotation" class="d-flex flex-row justify-start py-2 w-100">
         <div class="d-flex flex-row px-4 my-2">
           <img class="resonator" :src="resonatorRotation.resonatorSrc" />
         </div>
-        <div class="d-flex flex-column">
-          <div class="d-flex flex-wrap">
+        <div class="d-flex flex-column w-100">
+          <div class="d-flex flex-wrap w-100">
             <v-tooltip location="bottom" v-for=" (action, i) in resonatorRotation.actions"
               :disabled="!action.skillID && !action.timeStart && !action.timeEnd">
               <v-col>
@@ -19,22 +21,22 @@
                 <div :id="`rotation${action.index0Based}`" class="row d-flex flex-row align-center my-2"
                   :class="jump ? 'cursor-pointer' : ''" v-bind="props"
                   v-on:click="jumpToSection(goTo, `#${jump}${action.index0Based}`)">
-                  <span :class="action.src ? 'mr-3' : ''">
+                  <span :class="action.supIndex ? '' : 'mr-3'">
                     {{ action.name }}
-                    <sup v-if="action.supIndex">
-                      {{ action.supIndex }}
-                    </sup>
                   </span>
+                  <sup v-if="action.supIndex" :class="action.src ? 'ml-1 mr-3' : ''">
+                    {{ action.supIndex }}
+                  </sup>
                   <img v-if="action.src" class="action" :src="action.src" />
                   <v-icon icon="mdi-menu-right" size="x-large"></v-icon>
                 </div>
               </template>
             </v-tooltip>
           </div>
-          <div class="d-flex flex-column">
+          <div class="d-flex flex-column w-100">
             <div v-for="comment in resonatorRotation.comments"
-              class="comment d-flex flex-row align-center my-2 text-grey-lighten-1">
-              <span>
+              class="comment d-flex flex-row align-center my-2 text-grey-lighten-1 w-100">
+              <span class="w-100">
                 <sup>{{ comment.i }}</sup>
                 {{ comment.text }}
               </span>
@@ -43,15 +45,18 @@
         </div>
       </div>
     </div>
-  </v-container>
+  </div>
 </template>
 
 <script lang="ts" setup>
+import { ref } from "vue";
 import { useGoTo } from 'vuetify'
+import { useI18n } from 'vue-i18n'
 
-import { jumpToSection } from "@/ww/utils"
+import { jumpToSection, saveDomToImage } from "@/ww/utils"
 
 const goTo = useGoTo()
+const { t } = useI18n()
 
 const props = defineProps({
   rotation: {
@@ -65,6 +70,13 @@ const props = defineProps({
 });
 const rotation = props.rotation
 const jump = props.jump
+
+const rotationDom = ref<HTMLElement | null>(null);
+const imageFname = t('general.rotation')
+
+async function saveImage() {
+  await saveDomToImage(rotationDom, imageFname)
+}
 </script>
 
 <style scoped lang="sass">

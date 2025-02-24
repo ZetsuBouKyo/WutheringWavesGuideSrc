@@ -15,6 +15,7 @@
         "@mdi/font": "7.4.47",
         "core-js": "^3.37.1",
         "crypto-js": "^4.2.0",
+        "dom-to-image-more": "^3.5.0",
         "mande": "^2.0.9",
         "marked": "^15.0.7",
         "marked-gfm-heading-id": "^4.1.1",
