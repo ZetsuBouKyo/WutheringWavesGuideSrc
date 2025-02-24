@@ -88,3 +88,30 @@ export enum StatBuffEnum {
   BONUS_RESONANCE_LIBERATION = "bonus_resonance_liberation",
   BONUS_HEALING = "bonus_healing",
 }
+
+export enum StatBuffZhTwEnum {
+  CRIT_RATE = "暴擊",
+  CRIT_DMG = "暴擊傷害",
+
+  HP = "生命",
+  HP_P = "生命百分比",
+  ATK = "攻擊",
+  ATK_P = "攻擊百分比",
+  DEF = "防禦",
+  DEF_P = "防禦百分比",
+  ENERGY_REGEN = "共鳴效率",
+
+  BONUS_PHYSICS = "物理傷害加成",
+  BONUS_GLACIO = "冷凝傷害加成",
+  BONUS_FUSION = "熱熔傷害加成",
+  BONUS_ELECTRO = "導電傷害加成",
+  BONUS_AERO = "氣動傷害加成",
+  BONUS_SPECTRO = "衍射傷害加成",
+  BONUS_HAVOC = "湮滅傷害加成",
+
+  BONUS_RESONANCE_SKILL = "共鳴技能傷害加成",
+  BONUS_BASIC_ATTACK = "普攻傷害加成",
+  BONUS_HEAVY_ATTACK = "重擊傷害加成",
+  BONUS_RESONANCE_LIBERATION = "共鳴解放傷害加成",
+  BONUS_HEALING = "治療效果加成",
+}

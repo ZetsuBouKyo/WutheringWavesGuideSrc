@@ -9,6 +9,7 @@ const i18n = createI18n({
   fallbackLocale: "zh_TW",
   messages: {
     zh_TW: {
+      "": "",
       calculation: {
         tab: {
           simple: "簡易計算",
@@ -27,6 +28,11 @@ const i18n = createI18n({
         result: "計算結果",
       },
       general: {
+        manual_input: "手動輸入",
+        auto_fill: "自動帶入",
+        main_affix: "主詞條",
+        fixed_main_affix: "固定主詞條",
+        sub_affix: "副詞條",
         download_image: "下載圖片",
         result: "結果",
         sonata: "合鳴",
@@ -133,6 +139,7 @@ const i18n = createI18n({
         base_attr: "基礎屬性",
         main_skill_bonuss: "主要技能加成",
         echo: "聲骸",
+        echo_cost: "Cost",
         echo_name_1: "聲骸1",
         echo_sonata_1: "合鳴1",
         echo_sonata_2: "合鳴2",
