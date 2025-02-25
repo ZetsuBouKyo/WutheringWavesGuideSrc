@@ -17,6 +17,7 @@ declare module 'vue' {
     Rotation: typeof import('./components/Rotation.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    RowAutoFillEcho: typeof import('./components/RowAutoFillEcho.vue')['default']
     RowEcho: typeof import('./components/RowEcho.vue')['default']
     RowResonator: typeof import('./components/RowResonator.vue')['default']
     RowResonatorResult: typeof import('./components/RowResonatorResult.vue')['default']

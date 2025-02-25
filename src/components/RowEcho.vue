@@ -35,7 +35,7 @@
       <span>{{ $t('general.sub_affix') }}</span>
     </div>
     <div v-for="key in echoStore.getSubAffixKeys()" class="d-flex flex-row">
-      <v-combobox v-model="echo.sub_affix[key]" :items="subAffixes[key]" :label="$t(getAffixLabelByKey(key))"
+      <v-combobox v-model="echo.sub_affix[key]" :items="(subAffixes as any)[key]" :label="$t(getAffixLabelByKey(key))"
         :key="key"></v-combobox>
     </div>
   </div>
@@ -45,14 +45,12 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import mainAffixes from "@/assets/data/echo/main_affixes.json";
-import fixedMainAffixes from "@/assets/data/echo/fixed_main_affixes.json";
 import subAffixes from "@/assets/data/echo/sub_affixes.json";
 
-import { StatBuffEnum, StatBuffZhTwEnum } from "@/interfaces/buff";
-
-import useRowEchoStore from '@/stores/calculation/echo';
+import { useRowEchoStore } from '@/stores/calculation/echo';
 import { useEchoStore } from '@/stores/echo';
+
+import { getAffixLabelByKey, getMainAffixes } from '@/ww/echo';
 
 const props = defineProps({
   id: {
@@ -69,24 +67,11 @@ const echoStore = useEchoStore()
 const echoItems = echoStore.getEchoItemsForCalculation()
 const sonataNames = ref<Array<string>>(echoStore.getSonataNames())
 
-const mainAffixKeys = ref<Array<string>>([])
+const mainAffixKeys = ref<Array<{ title: string, value: any }>>([])
 
 const echo = useRowEchoStore(id)
 
-function getAffixLabelByKey(key: string): string {
-  if (!key) {
-    return ""
-  }
-  const label = StatBuffZhTwEnum[key.toUpperCase()]
-  if (label) {
-    return label
-  }
-  return ""
-}
 
-function getSubAffixValues(key: string) {
-  return echoStore.getSubAffixValues(key)
-}
 
 function checkEchoName(item: { title: string, value: any }) {
   if (echoItems.some(e => e.title === item.title)) {
@@ -100,35 +85,19 @@ function updateEcho(item: { title: string, value: any }) {
   if (check !== true) {
     return
   }
-  echo.resetMainAffix()
-  echo.resetSubAffix()
-  echo.sonata = { title: "", value: undefined }
+
   if (item.value.sonatas && item.value.sonatas.length > 0) {
     sonataNames.value = item.value.sonatas
   } else {
     sonataNames.value = echoStore.getSonataNames()
   }
-  echo.name = item.value.name
-  echo.cost = item.value.cost
-  switch (echo.cost) {
-    case "4":
-    case "3":
-      echo._fixed_main_affix_key = StatBuffEnum.ATK
-      break;
-    case "1":
-      echo._fixed_main_affix_key = StatBuffEnum.HP
-      break;
-    default:
-      break
-  }
-  mainAffixKeys.value = Object.keys(mainAffixes[echo.cost]).map((value: any, _, __) => {
+
+  echo.updateByEchoItem(item)
+
+  const mainAffixes = getMainAffixes(echo.cost)
+  mainAffixKeys.value = Object.keys(mainAffixes).map((value: any, _, __) => {
     return { title: getAffixLabelByKey(value), value: value };
   });
-  echo.main_affix[echo._fixed_main_affix_key] = fixedMainAffixes[echo.cost][echo._fixed_main_affix_key]
-  echo._main_affix_item = {
-    title: "",
-    value: undefined
-  }
 }
 
 function updateEchoMainAffix(item: string) {
@@ -141,6 +110,7 @@ function updateEchoMainAffix(item: string) {
   if (!key || !cost) {
     return
   }
-  echo.main_affix[echo._main_affix_item.value] = mainAffixes[cost][key]
+  const mainAffixes = getMainAffixes(cost)
+  echo.main_affix[echo._main_affix_item.value] = mainAffixes[key]
 }
 </script>

@@ -16,7 +16,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 
-import useRowWeaponStore from '@/stores/calculation/weapon';
+import { useRowWeaponStore } from '@/stores/calculation/weapon';
 
 import { useWeaponStore } from '@/stores/weapon';
 

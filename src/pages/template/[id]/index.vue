@@ -148,7 +148,7 @@ onMounted(async () => {
     rowResonator[t('general.weapon_name')] = resonator.resonator_weapon_name
     rowResonator[t('general.weapon_tune')] = resonator.resonator_weapon_rank
     rowResonator[t('general.base_attr')] = resonator.resonator_base_attr
-    rowResonator[t('general.main_skill_bonuss')] = resonator.resonator_skill_bonus
+    rowResonator[t('general.main_skill_bonus')] = resonator.resonator_skill_bonus
     rowResonator[t('general.resonator_energy_regen')] = resonator.resonator_energy_regen
     resonatorsTable.push(rowResonator)
 

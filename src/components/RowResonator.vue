@@ -12,8 +12,18 @@
       <v-select v-model="resonator.chain" :items="resonatorChains" :label="$t('general.resonator_chain')"></v-select>
     </div>
     <div class="d-flex flex-row">
-      <v-combobox v-model="resonator._skill_item" :items="resonatorSkillItems" :label="$t('general.resonator_skill_id')"
-        :rules="[checkResonatorSkill]" :disabled="resonatorSkillItems.length === 0"></v-combobox>
+      <v-combobox v-bind="props" v-model="resonator._skill_item" :items="resonatorSkillItems"
+        :label="$t('general.resonator_skill_id')" :rules="[checkResonatorSkill]"
+        :disabled="resonatorSkillItems.length === 0">
+      </v-combobox>
+    </div>
+    <div class="d-flex flex-row">
+      <v-select v-model="resonator.base_attr" :items="getResonatorBaseAttrs()"
+        :label="$t('general.base_attr')"></v-select>
+    </div>
+    <div class="d-flex flex-row">
+      <v-select v-model="resonator.main_skill_bonus" :items="getResonatorMainSkillBonus()"
+        :label="$t('general.main_skill_bonus')"></v-select>
     </div>
     <div class="d-flex flex-row mb-2">
       <span>{{ $t('general.skill') }}</span>
@@ -124,8 +134,10 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import useRowResonatorStore from '@/stores/calculation/resonator';
+import { useRowResonatorStore } from '@/stores/calculation/resonator';
 import { useResonatorStore } from '@/stores/resonator';
+
+import { getResonatorBaseAttrs, getResonatorMainSkillBonus } from '@/ww/resonator';
 
 const props = defineProps({
   id: {
@@ -174,3 +186,8 @@ function checkResonatorSkill(new_item: any) {
   return t('general.error')
 }
 </script>
+
+<style scoped lang="sass">
+.skill
+  white-space: pre-line
+</style>

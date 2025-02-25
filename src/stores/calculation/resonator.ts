@@ -8,13 +8,40 @@ import { SkillTypeEnum } from "@/interfaces/skill";
 import { StatBuff } from "@/ww/buff";
 import { RowResonatorSkill } from "@/ww/resonator";
 
+interface RowResonatorStore {
+  id: string;
+  no: string;
+  name: string;
+  base_attr: string;
+  main_skill_bonus: string;
+  element_zh_tw: string;
+  level: string;
+  chain: string;
+  hp: string;
+  atk: string;
+  def: string;
+  normal_attack_lv: string;
+  resonance_skill_lv: string;
+  forte_circuit_lv: string;
+  resonance_liberation_lv: string;
+  intro_skill_lv: string;
+  inherent_skill_1: boolean;
+  inherent_skill_2: boolean;
+  stat_bonus: StatBuff;
+  skill: RowResonatorSkill;
+  _skill_item: { title: string; value: any };
+}
+
 export const useRowResonatorStore = (id: string) => {
   const storeId: string = `row-resonator-${id}`;
   const store: any = defineStore(storeId, {
-    state: (): any => ({
+    state: () => ({
       id: "",
       no: "",
       name: "",
+      base_attr: "",
+      main_skill_bonus: "",
+      element_zh_tw: "",
       level: "90",
       chain: "1",
       hp: "",
@@ -45,7 +72,9 @@ export const useRowResonatorStore = (id: string) => {
           return;
         }
         this.no = no;
+
         const info = await resonatorStore.getInfoByName(name);
+        this.element_zh_tw = info.element_zh_tw;
         const stat_bonus = info.stat_bonus;
         Object.keys(stat_bonus).forEach((key: string) => {
           const value = (stat_bonus as any)[key];
@@ -102,5 +131,3 @@ export const useRowResonatorStore = (id: string) => {
   });
   return new store();
 };
-
-export default useRowResonatorStore;

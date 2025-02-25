@@ -62,5 +62,3 @@ export const useRowWeaponStore = (id: string) => {
   });
   return new store();
 };
-
-export default useRowWeaponStore;

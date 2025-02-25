@@ -96,7 +96,7 @@
 </template>
 
 <script lang="ts" setup>
-import useRowResonatorStore from '@/stores/calculation/resonator';
+import { useRowResonatorStore } from '@/stores/calculation/resonator';
 
 const props = defineProps({
   id: {

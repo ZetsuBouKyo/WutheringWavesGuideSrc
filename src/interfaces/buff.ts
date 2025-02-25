@@ -36,7 +36,24 @@ export enum SkillBonusEnum {
   NONE = "無",
 }
 
-const BonusEnum = { ...ElementBonusEnum, ...SkillBonusEnum };
+export const BonusEnum = { ...ElementBonusEnum, ...SkillBonusEnum };
+
+export enum AbbrSkillBonusEnum {
+  HP = "生",
+  ATK = "攻",
+  DEF = "防",
+  CRIT_RATE = "暴",
+  CRIT_DMG = "暴傷",
+  ENERGY_REGEN = "共效",
+  BONUS_RESONANCE_SKILL = "共技",
+  BONUS_BASIC_ATTACK = "普",
+  BONUS_HEAVY_ATTACK = "重",
+  BONUS_RESONANCE_LIBERATION = "共解",
+  BONUS_HEALING = "治",
+}
+
+const _AbbrBonusEnum = { ...AbbrSkillBonusEnum, ...ElementBonusEnum };
+export type AbbrBonusEnum = typeof _AbbrBonusEnum;
 
 export interface IStatBuff {
   crit_rate: string;
