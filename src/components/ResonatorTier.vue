@@ -40,10 +40,10 @@
               <div class="d-flex flex-row">
                 <span class="header text-truncate">{{ $t('general.team_dps') }}: </span>
                 <div class="d-flex flex-row text-truncate">
-                  <span>{{ teamDistribution.getMinTeamDPSString() }} ({{ teamDistribution.duration_1 }}s)</span>
+                  <span>{{ teamDistribution.getMinTeamDPSString() }} ({{ teamDistribution.duration_2 }}s)</span>
                   <span>&ensp;~&ensp;</span>
                   <span class="text-grey-lighten-1">
-                    {{ teamDistribution.getMaxTeamDPSString() }} ({{ teamDistribution.duration_2 }}s)
+                    {{ teamDistribution.getMaxTeamDPSString() }} ({{ teamDistribution.duration_1 }}s)
                   </span>
                 </div>
               </div>
