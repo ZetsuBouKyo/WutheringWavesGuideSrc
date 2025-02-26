@@ -1,23 +1,23 @@
 <template>
   <div class="d-flex flex-column w-100">
     <div class="d-flex flex-row">
-      <v-select v-model="resonator.base_attr" :items="getResonatorBaseAttrs()"
+      <v-select v-model="resonator.data.base_attr" :items="getResonatorBaseAttrs()"
         :label="$t('general.base_attr')"></v-select>
     </div>
     <div class="d-flex flex-row">
-      <v-select v-model="resonator.main_skill_bonus" :items="getResonatorMainSkillBonus()"
+      <v-select v-model="resonator.data.main_skill_bonus" :items="getResonatorMainSkillBonus()"
         :label="$t('general.main_skill_bonus')"></v-select>
     </div>
     <div class="d-flex flex-row">
-      <v-combobox v-model="echoStores[0].store._item" :items="echoItems" :key="echoStores[0].id"
+      <v-combobox v-model="echoStores[0].store.data._item" :items="echoItems" :key="echoStores[0].id"
         :label="$t('general.nth_echo', { n: 1 })" @update:modelValue="updateEcho"></v-combobox>
     </div>
     <div class="d-flex flex-row">
       <v-select v-model="echoPolicy" :items="getEchoPolicyItems()" :label="$t('general.echo_policy')"
         @update:modelValue="updateEchoes"></v-select>
     </div>
-    <div v-for="(store, i) in echoStores" class="d-flex flex-row" :key="store.id">
-      <v-select v-model="store.store.sonata" :items="sonataNames"
+    <div v-for="(e, i) in echoStores" class="d-flex flex-row" :key="e.id">
+      <v-select v-model="e.store.data.sonata" :items="sonataNames"
         :label="$t('general.nth_sonata', { n: i + 1 })"></v-select>
     </div>
   </div>
@@ -59,8 +59,8 @@ const { t } = useI18n()
 const sonataNames = echoStore.getSonataNames()
 
 function updateEcho(item: { title: string, value: any }) {
-  echoStores[0].store.name = item.title
-  echoStores[0].store._item = item
+  echoStores[0].store.data.name = item.title
+  echoStores[0].store.data._item = item
 }
 
 function updateEchoes(policy: string) {

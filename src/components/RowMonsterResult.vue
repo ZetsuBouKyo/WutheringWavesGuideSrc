@@ -1,15 +1,15 @@
 <template>
   <div class="d-flex flex-column w-100">
     <div class="d-flex flex-row">
-      <v-text-field v-model="monster.name" :label="$t('general.name')" readonly>
+      <v-text-field v-model="monster.data.name" :label="$t('general.name')" readonly>
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="monster.level" :label="$t('general.level')" readonly>
+      <v-text-field v-model="monster.data.level" :label="$t('general.level')" readonly>
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="monster.def" :label="$t('general.def')" readonly>
+      <v-text-field v-model="monster.data.def" :label="$t('general.def')" readonly>
       </v-text-field>
     </div>
     <div v-for="key in ResEnum" class="d-flex flex-row" :key="key">

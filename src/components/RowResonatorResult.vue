@@ -1,31 +1,31 @@
 <template>
   <div class="d-flex flex-column w-100 mr-8">
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.name" :label="$t('general.name')" readonly>
+      <v-text-field v-model="resonator.data.name" :label="$t('general.name')" readonly>
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.level" :label="$t('general.level')" readonly>
+      <v-text-field v-model="resonator.data.level" :label="$t('general.level')" readonly>
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.chain" :label="$t('general.resonator_chain')" readonly>
+      <v-text-field v-model="resonator.data.chain" :label="$t('general.resonator_chain')" readonly>
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.skill.id" :label="$t('general.resonator_skill_id')" readonly>
+      <v-text-field v-model="resonator.data.skill.id" :label="$t('general.resonator_skill_id')" readonly>
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.skill.dmg" :label="$t('general.skill_damage_ratio')" readonly>
+      <v-text-field v-model="resonator.data.skill.dmg" :label="$t('general.skill_damage_ratio')" readonly>
       </v-text-field>
     </div>
     <div class="d-flex flex-row mb-2">
       <span>{{ $t('general.stat_bonus') }}</span>
     </div>
     <div v-for="key in StatBuffEnum" class="d-flex flex-row" :key="key">
-      <div v-if="resonator.stat_bonus[key]" class="d-flex flex-column w-100">
-        <v-text-field v-model="resonator.stat_bonus[key]" :label="$t(`general.${key}`)" readonly>
+      <div v-if="resonator.data.stat_bonus[key]" class="d-flex flex-column w-100">
+        <v-text-field v-model="resonator.data.stat_bonus[key]" :label="$t(`general.${key}`)" readonly>
         </v-text-field>
       </div>
     </div>

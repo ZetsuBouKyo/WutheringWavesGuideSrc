@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column w-100">
     <div class="d-flex flex-row">
-      <v-select v-model="monster.name" :items="monsterItems" :label="$t('general.name')"
+      <v-select v-model="monster.data.name" :items="monsterItems" :label="$t('general.name')"
         @update:modelValue="updateRowMonsterByItem"></v-select>
     </div>
   </div>

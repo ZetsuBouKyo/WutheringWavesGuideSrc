@@ -116,15 +116,15 @@ const weapon = useRowWeaponStore(id)
 const echoes = useRowEchoesStore(id)
 
 async function calculate() {
-  const skill = resonator._skill_item.value
-  if (!skill || !resonator.main_skill_bonus || !resonator.base_attr) {
+  const skill = resonator.data._skill_item.value
+  if (!skill || !resonator.data.main_skill_bonus || !resonator.data.base_attr) {
     tab.value = "resonator"
     return
   }
 
   tab.value = "result"
   resonator.updateSkill()
-  const stores = echoStores.map((store: any, _, __) => { return store.store })
+  const stores = echoStores.map((e: any, _, __) => { return e.store })
   echoes.updateByStores(stores)
   console.log(resonator)
   console.log(weapon)

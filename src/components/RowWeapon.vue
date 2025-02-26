@@ -1,14 +1,14 @@
 <template>
   <div class="d-flex flex-column w-100">
     <div class="d-flex flex-row">
-      <v-combobox v-model="weapon.name" :items="weaponNames" :label="$t('general.name')" :rules="[checkWeaponName]"
+      <v-combobox v-model="weapon.data.name" :items="weaponNames" :label="$t('general.name')" :rules="[checkWeaponName]"
         @update:modelValue="weapon.updateRowWeaponByName()"></v-combobox>
     </div>
     <div class="d-flex flex-row">
-      <v-select v-model="weapon.level" :items="weaponLevels" :label="$t('general.level')"></v-select>
+      <v-select v-model="weapon.data.level" :items="weaponLevels" :label="$t('general.level')"></v-select>
     </div>
     <div class="d-flex flex-row">
-      <v-select v-model="weapon.tune" :items="weaponTunes" :label="$t('general.tune')"></v-select>
+      <v-select v-model="weapon.data.tune" :items="weaponTunes" :label="$t('general.tune')"></v-select>
     </div>
   </div>
 </template>
