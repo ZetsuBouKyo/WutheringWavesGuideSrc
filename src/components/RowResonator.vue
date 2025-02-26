@@ -85,51 +85,52 @@
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_resonance_skill" :label="$t('general.bonus.skill')">
+      <v-text-field v-model="resonator.stat_bonus.bonus_resonance_skill" :label="$t('general.bonus_resonance_skill')">
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_basic_attack" :label="$t('general.bonus.basic')">
+      <v-text-field v-model="resonator.stat_bonus.bonus_basic_attack" :label="$t('general.bonus_basic_attack')">
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_heavy_attack" :label="$t('general.bonus.heavy')">
+      <v-text-field v-model="resonator.stat_bonus.bonus_heavy_attack" :label="$t('general.bonus_heavy_attack')">
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_resonance_liberation" :label="$t('general.bonus.liberation')">
+      <v-text-field v-model="resonator.stat_bonus.bonus_resonance_liberation"
+        :label="$t('general.bonus_resonance_liberation')">
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_healing" :label="$t('general.bonus.healing')">
+      <v-text-field v-model="resonator.stat_bonus.bonus_healing" :label="$t('general.bonus_healing')">
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_physics" :label="$t('general.bonus.physics')">
+      <v-text-field v-model="resonator.stat_bonus.bonus_physics" :label="$t('general.bonus_physics')">
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_glacio" :label="$t('general.bonus.glacio')">
+      <v-text-field v-model="resonator.stat_bonus.bonus_glacio" :label="$t('general.bonus_glacio')">
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_fusion" :label="$t('general.bonus.fusion')">
+      <v-text-field v-model="resonator.stat_bonus.bonus_fusion" :label="$t('general.bonus_fusion')">
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_electro" :label="$t('general.bonus.electro')">
+      <v-text-field v-model="resonator.stat_bonus.bonus_electro" :label="$t('general.bonus_electro')">
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_aero" :label="$t('general.bonus.aero')">
+      <v-text-field v-model="resonator.stat_bonus.bonus_aero" :label="$t('general.bonus_aero')">
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_spectro" :label="$t('general.bonus.spectro')">
+      <v-text-field v-model="resonator.stat_bonus.bonus_spectro" :label="$t('general.bonus_spectro')">
       </v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_havoc" :label="$t('general.bonus.havoc')">
+      <v-text-field v-model="resonator.stat_bonus.bonus_havoc" :label="$t('general.bonus_havoc')">
       </v-text-field>
     </div>
   </div>

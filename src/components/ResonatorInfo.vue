@@ -90,19 +90,19 @@ const resonatorLeft = [
   { [resonatorLeftCol1]: t('general.crit_dmg'), [resonatorLeftCol2]: toPercentageString(resonator.crit_dmg) },
   { [resonatorLeftCol1]: t('general.energy_regen'), [resonatorLeftCol2]: toPercentageString(resonator.energy_regen) },
   { [resonatorLeftCol1]: "", [resonatorLeftCol2]: "" },
-  { [resonatorLeftCol1]: t('general.bonus.skill'), [resonatorLeftCol2]: toPercentageString(resonator.resonance_skill_dmg_bonus) },
-  { [resonatorLeftCol1]: t('general.bonus.basic'), [resonatorLeftCol2]: toPercentageString(resonator.basic_attack_dmg_bonus) },
-  { [resonatorLeftCol1]: t('general.bonus.heavy'), [resonatorLeftCol2]: toPercentageString(resonator.heavy_attack_dmg_bonus) },
-  { [resonatorLeftCol1]: t('general.bonus.liberation'), [resonatorLeftCol2]: toPercentageString(resonator.resonance_liberation_dmg_bonus) },
-  { [resonatorLeftCol1]: t('general.bonus.healing'), [resonatorLeftCol2]: toPercentageString(resonator.healing_bonus) },
+  { [resonatorLeftCol1]: t('general.bonus_resonance_skill'), [resonatorLeftCol2]: toPercentageString(resonator.resonance_skill_dmg_bonus) },
+  { [resonatorLeftCol1]: t('general.bonus_basic_attack'), [resonatorLeftCol2]: toPercentageString(resonator.basic_attack_dmg_bonus) },
+  { [resonatorLeftCol1]: t('general.bonus_heavy_attack'), [resonatorLeftCol2]: toPercentageString(resonator.heavy_attack_dmg_bonus) },
+  { [resonatorLeftCol1]: t('general.bonus_resonance_liberation'), [resonatorLeftCol2]: toPercentageString(resonator.resonance_liberation_dmg_bonus) },
+  { [resonatorLeftCol1]: t('general.bonus_healing'), [resonatorLeftCol2]: toPercentageString(resonator.healing_bonus) },
   { [resonatorLeftCol1]: "", [resonatorLeftCol2]: "" },
-  { [resonatorLeftCol1]: t('general.bonus.physics'), [resonatorLeftCol2]: toPercentageString(resonator.physical_dmg_bonus) },
-  { [resonatorLeftCol1]: t('general.bonus.glacio'), [resonatorLeftCol2]: toPercentageString(resonator.glacio_dmg_bonus) },
-  { [resonatorLeftCol1]: t('general.bonus.fusion'), [resonatorLeftCol2]: toPercentageString(resonator.fusion_dmg_bonus) },
-  { [resonatorLeftCol1]: t('general.bonus.electro'), [resonatorLeftCol2]: toPercentageString(resonator.electro_dmg_bonus) },
-  { [resonatorLeftCol1]: t('general.bonus.aero'), [resonatorLeftCol2]: toPercentageString(resonator.aero_dmg_bonus) },
-  { [resonatorLeftCol1]: t('general.bonus.spectro'), [resonatorLeftCol2]: toPercentageString(resonator.spectro_dmg_bonus) },
-  { [resonatorLeftCol1]: t('general.bonus.havoc'), [resonatorLeftCol2]: toPercentageString(resonator.havoc_dmg_bonus) },
+  { [resonatorLeftCol1]: t('general.bonus_physics'), [resonatorLeftCol2]: toPercentageString(resonator.physical_dmg_bonus) },
+  { [resonatorLeftCol1]: t('general.bonus_glacio'), [resonatorLeftCol2]: toPercentageString(resonator.glacio_dmg_bonus) },
+  { [resonatorLeftCol1]: t('general.bonus_fusion'), [resonatorLeftCol2]: toPercentageString(resonator.fusion_dmg_bonus) },
+  { [resonatorLeftCol1]: t('general.bonus_electro'), [resonatorLeftCol2]: toPercentageString(resonator.electro_dmg_bonus) },
+  { [resonatorLeftCol1]: t('general.bonus_aero'), [resonatorLeftCol2]: toPercentageString(resonator.aero_dmg_bonus) },
+  { [resonatorLeftCol1]: t('general.bonus_spectro'), [resonatorLeftCol2]: toPercentageString(resonator.spectro_dmg_bonus) },
+  { [resonatorLeftCol1]: t('general.bonus_havoc'), [resonatorLeftCol2]: toPercentageString(resonator.havoc_dmg_bonus) },
 ]
 
 const resonatorRightCol1 = t('general.res.physics')
@@ -171,7 +171,7 @@ const echoLeft = [
   { [echoLeftCol1]: t('general.echo_sonata_5'), [echoLeftCol2]: resonator.echo_sonata_5 },
 ]
 
-const echoRightCol1 = t('general.bonus.skill')
+const echoRightCol1 = t('general.bonus_resonance_skill')
 const echoRightCol2 = toPercentageString(resonator.echo_resonance_skill_dmg_bonus)
 const echoRightHeaders: any = ref([
   {
@@ -186,18 +186,18 @@ const echoRightHeaders: any = ref([
 ])
 
 const echoRight = [
-  { [echoRightCol1]: t('general.bonus.basic'), [echoRightCol2]: toPercentageString(resonator.echo_basic_attack_dmg_bonus) },
-  { [echoRightCol1]: t('general.bonus.heavy'), [echoRightCol2]: toPercentageString(resonator.echo_heavy_attack_dmg_bonus) },
-  { [echoRightCol1]: t('general.bonus.liberation'), [echoRightCol2]: toPercentageString(resonator.echo_resonance_liberation_dmg_bonus) },
+  { [echoRightCol1]: t('general.bonus_basic_attack'), [echoRightCol2]: toPercentageString(resonator.echo_basic_attack_dmg_bonus) },
+  { [echoRightCol1]: t('general.bonus_heavy_attack'), [echoRightCol2]: toPercentageString(resonator.echo_heavy_attack_dmg_bonus) },
+  { [echoRightCol1]: t('general.bonus_resonance_liberation'), [echoRightCol2]: toPercentageString(resonator.echo_resonance_liberation_dmg_bonus) },
   { [echoRightCol1]: "", [echoRightCol2]: "" },
-  { [echoRightCol1]: t('general.bonus.healing'), [echoRightCol2]: toPercentageString(resonator.echo_healing_bonus) },
+  { [echoRightCol1]: t('general.bonus_healing'), [echoRightCol2]: toPercentageString(resonator.echo_healing_bonus) },
   { [echoRightCol1]: "", [echoRightCol2]: "" },
-  { [echoRightCol1]: t('general.bonus.glacio'), [echoRightCol2]: toPercentageString(resonator.echo_glacio_dmg_bonus) },
-  { [echoRightCol1]: t('general.bonus.fusion'), [echoRightCol2]: toPercentageString(resonator.echo_fusion_dmg_bonus) },
-  { [echoRightCol1]: t('general.bonus.electro'), [echoRightCol2]: toPercentageString(resonator.echo_electro_dmg_bonus) },
-  { [echoRightCol1]: t('general.bonus.aero'), [echoRightCol2]: toPercentageString(resonator.echo_aero_dmg_bonus) },
-  { [echoRightCol1]: t('general.bonus.spectro'), [echoRightCol2]: toPercentageString(resonator.echo_spectro_dmg_bonus) },
-  { [echoRightCol1]: t('general.bonus.havoc'), [echoRightCol2]: toPercentageString(resonator.echo_havoc_dmg_bonus) },
+  { [echoRightCol1]: t('general.bonus_glacio'), [echoRightCol2]: toPercentageString(resonator.echo_glacio_dmg_bonus) },
+  { [echoRightCol1]: t('general.bonus_fusion'), [echoRightCol2]: toPercentageString(resonator.echo_fusion_dmg_bonus) },
+  { [echoRightCol1]: t('general.bonus_electro'), [echoRightCol2]: toPercentageString(resonator.echo_electro_dmg_bonus) },
+  { [echoRightCol1]: t('general.bonus_aero'), [echoRightCol2]: toPercentageString(resonator.echo_aero_dmg_bonus) },
+  { [echoRightCol1]: t('general.bonus_spectro'), [echoRightCol2]: toPercentageString(resonator.echo_spectro_dmg_bonus) },
+  { [echoRightCol1]: t('general.bonus_havoc'), [echoRightCol2]: toPercentageString(resonator.echo_havoc_dmg_bonus) },
   { [echoRightCol1]: "", [echoRightCol2]: "" },
 ]
 </script>
