@@ -1,16 +1,16 @@
 <template>
   <div class="d-flex flex-column w-100">
     <div class="d-flex flex-row">
-      <v-select v-model="resonator.data.base_attr" :items="getResonatorBaseAttrs()"
-        :label="$t('general.base_attr')"></v-select>
+      <v-select v-model="resonator.data.base_attr" :items="getResonatorBaseAttrs()" :label="$t('general.base_attr')"
+        @update:modelValue="updateEchoes"></v-select>
     </div>
     <div class="d-flex flex-row">
       <v-select v-model="resonator.data.main_skill_bonus" :items="getResonatorMainSkillBonus()"
-        :label="$t('general.main_skill_bonus')"></v-select>
+        :label="$t('general.main_skill_bonus')" @update:modelValue="updateEchoes"></v-select>
     </div>
     <div class="d-flex flex-row">
       <v-combobox v-model="echoStores[0].store.data._item" :items="echoItems" :key="echoStores[0].id"
-        :label="$t('general.nth_echo', { n: 1 })" @update:modelValue="updateEcho"></v-combobox>
+        :label="$t('general.nth_echo', { n: 1 })" @update:modelValue="updateEchoName1"></v-combobox>
     </div>
     <div class="d-flex flex-row">
       <v-select v-model="echoPolicy" :items="getEchoPolicyItems()" :label="$t('general.echo_policy')"
@@ -58,12 +58,16 @@ const { t } = useI18n()
 
 const sonataNames = echoStore.getSonataNames()
 
-function updateEcho(item: { title: string, value: any }) {
+function updateEchoName1(item: { title: string, value: any }) {
   echoStores[0].store.data.name = item.title
   echoStores[0].store.data._item = item
 }
 
-function updateEchoes(policy: string) {
+function updateEchoes() {
+  const policy = echoPolicy.value
+  if (!policy) {
+    return
+  }
   const stores: Array<any> = []
   echoStores.forEach((e: any) => {
     stores.push(e.store)

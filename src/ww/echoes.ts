@@ -303,6 +303,9 @@ export class RowAutoFillEchoes {
     abbr4: TAbbrBonusEnum = "",
     abbr5: TAbbrBonusEnum = "",
   ) {
+    if (!this.affixPolicy || this.echoStores.length === 0) {
+      return;
+    }
     if (!abbr1) {
       abbr1 = this.getCritAttr();
     }
