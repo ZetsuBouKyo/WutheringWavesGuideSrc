@@ -7,10 +7,19 @@ export class RowEchoes {
   public main_affix: StatBuff = new StatBuff();
   public sub_affix: StatBuff = new StatBuff();
 
+  public reset() {
+    this.name1 = "";
+    this.sonatas = [];
+    this.total_cost = 0;
+    this.main_affix = new StatBuff();
+    this.sub_affix = new StatBuff();
+  }
+
   public updateByStores(stores: Array<any>) {
     if (!stores || stores.length === 0) {
       return;
     }
+    this.reset();
     const name = stores[0].data.name;
     if (name) {
       this.name1 = name;
