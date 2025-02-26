@@ -65,6 +65,10 @@
                 <h2>{{ $t('general.resonator') }}</h2>
               </div>
               <RowResonatorResult :id="id" />
+              <div class="d-flex flex-row mb-2">
+                <h2>{{ $t('general.echo') }}</h2>
+              </div>
+              <RowEchoResult :id="id" />
             </div>
             <div class="d-flex flex-column w-100">
               <div class="d-flex flex-row mb-2">
@@ -89,6 +93,7 @@ import { ref } from 'vue'
 import { useRowResonatorStore } from '@/stores/calculation/resonator';
 import { useRowWeaponStore } from '@/stores/calculation/weapon';
 import { getEchoStores } from '@/stores/calculation/echo'
+import { useRowEchoesStore } from '@/stores/calculation/echoes'
 
 const id = "simple"
 const echoStores = getEchoStores(id)
@@ -96,6 +101,7 @@ const echoStores = getEchoStores(id)
 const tab = ref<string>("")
 const resonator = useRowResonatorStore(id)
 const weapon = useRowWeaponStore(id)
+const echoes = useRowEchoesStore(id)
 
 async function calculate() {
   const skill = resonator._skill_item.value
@@ -106,6 +112,8 @@ async function calculate() {
 
   tab.value = "result"
   resonator.updateSkill()
+  const stores = echoStores.map((store: any, _, __) => { return store.store })
+  echoes.updateByStores(stores)
   console.log(resonator)
   console.log(weapon)
   console.log(echoStores)

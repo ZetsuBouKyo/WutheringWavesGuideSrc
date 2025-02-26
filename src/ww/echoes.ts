@@ -139,7 +139,8 @@ export class RowAutoFillEchoes {
   private updateBase() {
     this.echoStores.forEach((echoStore: any, i: number) => {
       // Reset
-      echoStore.reset();
+      echoStore.resetMainAffix();
+      echoStore.resetSubAffix();
 
       // Sonata
       if (this.sonatas.length > 0) {

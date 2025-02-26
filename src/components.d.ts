@@ -19,6 +19,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     RowAutoFillEcho: typeof import('./components/RowAutoFillEcho.vue')['default']
     RowEcho: typeof import('./components/RowEcho.vue')['default']
+    RowEchoResult: typeof import('./components/RowEchoResult.vue')['default']
     RowResonator: typeof import('./components/RowResonator.vue')['default']
     RowResonatorResult: typeof import('./components/RowResonatorResult.vue')['default']
     RowWeapon: typeof import('./components/RowWeapon.vue')['default']

@@ -21,14 +21,14 @@ export const useRowEchoStore = (id: string) => {
     actions: {
       reset() {
         this.cost = "";
-        this._fixed_main_affix_key = "";
-        this._main_affix_item = { title: "", value: undefined };
         this._item = { title: "", value: undefined };
         this.resetMainAffix();
         this.resetSubAffix();
       },
       resetMainAffix() {
         this.main_affix = new StatBuff();
+        this._fixed_main_affix_key = "";
+        this._main_affix_item = { title: "", value: undefined };
       },
       resetSubAffix() {
         this.sub_affix = new StatBuff();

@@ -1,4 +1,6 @@
-import { StatBuffEnum } from "@/types/buff";
+import { StatBuffEnum, type TStatBuffEnum } from "@/types/buff";
+
+import { getNumber } from "./utils";
 
 export class StatBuff {
   public [StatBuffEnum.CRIT_RATE]: string = "";
@@ -27,4 +29,13 @@ export class StatBuff {
   public [StatBuffEnum.BONUS_HEALING]: string = "";
 
   constructor() {}
+
+  public addStatBuff(buff: StatBuff) {
+    const buffKeys = Object.values(StatBuffEnum);
+    buffKeys.forEach((key: TStatBuffEnum) => {
+      const oldValue = getNumber((this as any)[key]);
+      const newValue = getNumber((buff as any)[key]);
+      (this as any)[key] = getNumber(oldValue + newValue).toString();
+    });
+  }
 }
