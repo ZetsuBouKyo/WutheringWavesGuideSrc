@@ -1,6 +1,14 @@
 <template>
   <div class="d-flex flex-column w-100">
     <div class="d-flex flex-row">
+      <v-select v-model="resonator.base_attr" :items="getResonatorBaseAttrs()"
+        :label="$t('general.base_attr')"></v-select>
+    </div>
+    <div class="d-flex flex-row">
+      <v-select v-model="resonator.main_skill_bonus" :items="getResonatorMainSkillBonus()"
+        :label="$t('general.main_skill_bonus')"></v-select>
+    </div>
+    <div class="d-flex flex-row">
       <v-combobox v-model="echoStores[0].store._item" :items="echoItems" :key="echoStores[0].id"
         :label="$t('general.nth_echo', { n: 1 })" @update:modelValue="updateEcho"></v-combobox>
     </div>
@@ -26,6 +34,7 @@ import { useRowResonatorStore } from '@/stores/calculation/resonator';
 import { useRowWeaponStore } from '@/stores/calculation/weapon';
 import { useEchoStore } from '@/stores/echo';
 
+import { getResonatorBaseAttrs, getResonatorMainSkillBonus } from '@/ww/resonator';
 import { RowAutoFillEchoes } from "@/ww/echoes"
 
 const echoStore = useEchoStore()
@@ -42,6 +51,9 @@ const echoStores = getEchoStores(id)
 const echoItems = echoStore.getEchoItemsForCalculation()
 const echoPolicy = ref<string>("")
 
+const resonator = useRowResonatorStore(id)
+const weapon = useRowWeaponStore(id)
+
 const { t } = useI18n()
 
 const sonataNames = echoStore.getSonataNames()
@@ -52,8 +64,6 @@ function updateEcho(item: { title: string, value: any }) {
 }
 
 function updateEchoes(policy: string) {
-  const resonator = useRowResonatorStore(id)
-  const weapon = useRowWeaponStore(id)
   const stores: Array<any> = []
   echoStores.forEach((e: any) => {
     stores.push(e.store)

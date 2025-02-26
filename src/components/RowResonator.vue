@@ -17,14 +17,6 @@
         :disabled="resonatorSkillItems.length === 0">
       </v-combobox>
     </div>
-    <div class="d-flex flex-row">
-      <v-select v-model="resonator.base_attr" :items="getResonatorBaseAttrs()"
-        :label="$t('general.base_attr')"></v-select>
-    </div>
-    <div class="d-flex flex-row">
-      <v-select v-model="resonator.main_skill_bonus" :items="getResonatorMainSkillBonus()"
-        :label="$t('general.main_skill_bonus')"></v-select>
-    </div>
     <div class="d-flex flex-row mb-2">
       <span>{{ $t('general.skill') }}</span>
     </div>
@@ -136,8 +128,6 @@ import { useI18n } from 'vue-i18n'
 
 import { useRowResonatorStore } from '@/stores/calculation/resonator';
 import { useResonatorStore } from '@/stores/resonator';
-
-import { getResonatorBaseAttrs, getResonatorMainSkillBonus } from '@/ww/resonator';
 
 const props = defineProps({
   id: {
