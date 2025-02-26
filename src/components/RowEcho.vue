@@ -12,6 +12,7 @@
       <v-text-field v-model="echo.cost" :label="$t('general.echo_cost')" readonly>
       </v-text-field>
     </div>
+    <!-- Main affixes -->
     <div class="d-flex flex-row mb-2">
       <span>{{ $t('general.main_affix') }}</span>
     </div>
@@ -31,6 +32,7 @@
         :label="$t(getAffixLabelByKey(echo._fixed_main_affix_key))"
         :key="echo.main_affix[echo._fixed_main_affix_key]"></v-text-field>
     </div>
+    <!-- Sub affixes -->
     <div class="d-flex flex-row mb-2">
       <span>{{ $t('general.sub_affix') }}</span>
     </div>
