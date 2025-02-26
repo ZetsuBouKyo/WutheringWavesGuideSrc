@@ -20,6 +20,13 @@
       <v-text-field v-model="resonator.data.skill.dmg" :label="$t('general.skill_damage_ratio')" readonly>
       </v-text-field>
     </div>
+    <div class="d-flex flex-row">
+      <v-text-field v-model="resonator.data.base_attr" :label="$t('general.base_attr')" readonly></v-text-field>
+    </div>
+    <div class="d-flex flex-row">
+      <v-text-field v-model="resonator.data.main_skill_bonus" :label="$t('general.main_skill_bonus')"
+        readonly></v-text-field>
+    </div>
     <div class="d-flex flex-row mb-2">
       <span>{{ $t('general.stat_bonus') }}</span>
     </div>
