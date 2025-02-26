@@ -1,27 +1,27 @@
 {
     "4": {
-        "hp_p": 0.33,
-        "atk_p": 0.33,
-        "def_p": 0.418,
-        "crit_rate": 0.22,
-        "crit_dmg": 0.44,
-        "bonus_healing": 0.264
+        "hp_p": "0.33",
+        "atk_p": "0.33",
+        "def_p": "0.418",
+        "crit_rate": "0.22",
+        "crit_dmg": "0.44",
+        "bonus_healing": "0.264"
     },
     "3": {
-        "hp_p": 0.3,
-        "atk_p": 0.3,
-        "def_p": 0.38,
-        "bonus_glacio": 0.3,
-        "bonus_fusion": 0.3,
-        "bonus_electro": 0.3,
-        "bonus_aero": 0.3,
-        "bonus_spectro": 0.3,
-        "bonus_havoc": 0.3,
-        "energy_regen": 0.32
+        "hp_p": "0.3",
+        "atk_p": "0.3",
+        "def_p": "0.38",
+        "bonus_glacio": "0.3",
+        "bonus_fusion": "0.3",
+        "bonus_electro": "0.3",
+        "bonus_aero": "0.3",
+        "bonus_spectro": "0.3",
+        "bonus_havoc": "0.3",
+        "energy_regen": "0.32"
     },
     "1": {
-        "hp_p": 0.228,
-        "atk_p": 0.18,
-        "def_p": 0.18
+        "hp_p": "0.228",
+        "atk_p": "0.18",
+        "def_p": "0.18"
     }
 }

@@ -1,24 +1,26 @@
 import { AffixPolicyEnum } from "@/types/affix";
-import { ElementBonusEnum, SkillBonusEnum, AbbrSkillBonusEnum, type TAbbrBonusEnum } from "@/types/buff";
+import { ElementBonusEnum, SkillBonusEnum, AbbrSkillBonusEnum, type TAbbrBonusEnum, StatBuffEnum } from "@/types/buff";
 import { SkillAttrEnum } from "@/types/skill";
 
 import { getAffixLabelByKey, getFixedMainAffixes, getMainAffixes } from "./echo";
+import { RowEcho } from "./row/echo";
+import { StatBuff } from "./buff";
 
 export class RowAutoFillEchoes {
   public resonator: any;
   public weapon: any;
-  public echoStores: Array<any>;
+  public echoes: Array<RowEcho>;
   public sonatas: Array<string>;
   public affixPolicy: string;
 
-  constructor(resonator: any, weapon: any, echoStores: any, sonatas: Array<string>, affixPolicy: string) {
+  constructor(resonator: any, weapon: any, echoes: Array<RowEcho>, sonatas: Array<string>, affixPolicy: string) {
     this.resonator = resonator;
     this.weapon = weapon;
-    this.echoStores = echoStores;
+    this.echoes = echoes;
     this.sonatas = sonatas;
     this.affixPolicy = affixPolicy;
 
-    if (echoStores.length !== 5) {
+    if (echoes.length !== 5) {
       throw new Error("`echoStores` length must be exactly 5");
     }
   }
@@ -53,83 +55,83 @@ export class RowAutoFillEchoes {
     return AbbrSkillBonusEnum.CRIT_DMG;
   }
 
-  private updateSubAffixesWithAffixes151(echoStore: any) {
+  private updateSubAffixesWithAffixes151(echo: RowEcho) {
     const baseAttr = this.resonator.data.base_attr;
     switch (baseAttr) {
       case SkillAttrEnum.HP:
-        echoStore.data.sub_affix.hp = "270";
-        echoStore.data.sub_affix.hp_p = "0.054";
+        echo.sub_affix.hp = "270";
+        echo.sub_affix.hp_p = "0.054";
         break;
       case SkillAttrEnum.DEF:
-        echoStore.data.sub_affix.def = "30";
-        echoStore.data.sub_affix.def_p = "0.068325";
+        echo.sub_affix.def = "30";
+        echo.sub_affix.def_p = "0.068325";
         break;
       case SkillAttrEnum.ATK:
       default:
-        echoStore.data.sub_affix.atk = "24";
-        echoStore.data.sub_affix.atk_p = "0.054";
+        echo.sub_affix.atk = "24";
+        echo.sub_affix.atk_p = "0.054";
         break;
     }
-    echoStore.data.sub_affix.crit_rate = "0.084";
-    echoStore.data.sub_affix.crit_dmg = "0.1008";
+    echo.sub_affix.crit_rate = "0.084";
+    echo.sub_affix.crit_dmg = "0.1008";
 
-    echoStore.data.sub_affix.bonus_resonance_skill = "0.016";
-    echoStore.data.sub_affix.bonus_basic_attack = "0.016";
-    echoStore.data.sub_affix.bonus_heavy_attack = "0.016";
-    echoStore.data.sub_affix.bonus_resonance_liberation = "0.016";
+    echo.sub_affix.bonus_resonance_skill = "0.016";
+    echo.sub_affix.bonus_basic_attack = "0.016";
+    echo.sub_affix.bonus_heavy_attack = "0.016";
+    echo.sub_affix.bonus_resonance_liberation = "0.016";
   }
 
-  private updateSubAffixesWithAffixes20Small(echoStore: any) {
+  private updateSubAffixesWithAffixes20Small(echo: RowEcho) {
     const baseAttr = this.resonator.data.base_attr;
     switch (baseAttr) {
       case SkillAttrEnum.HP:
-        echoStore.data.sub_affix.hp = "450";
-        echoStore.data.sub_affix.hp_p = "0.09";
+        echo.sub_affix.hp = "450";
+        echo.sub_affix.hp_p = "0.09";
         break;
       case SkillAttrEnum.DEF:
-        echoStore.data.sub_affix.def = "50";
-        echoStore.data.sub_affix.def_p = "0.113875";
+        echo.sub_affix.def = "50";
+        echo.sub_affix.def_p = "0.113875";
         break;
       case SkillAttrEnum.ATK:
       default:
-        echoStore.data.sub_affix.atk = "40";
-        echoStore.data.sub_affix.atk_p = "0.09";
+        echo.sub_affix.atk = "40";
+        echo.sub_affix.atk_p = "0.09";
         break;
     }
-    echoStore.data.sub_affix.crit_rate = "0.084";
-    echoStore.data.sub_affix.crit_dmg = "0.168";
+    echo.sub_affix.crit_rate = "0.084";
+    echo.sub_affix.crit_dmg = "0.168";
   }
 
-  private updateSubAffixesWithAffixes20SkillBonus(echoStore: any) {
+  private updateSubAffixesWithAffixes20SkillBonus(echo: RowEcho) {
     const baseAttr = this.resonator.data.base_attr;
     switch (baseAttr) {
       case SkillAttrEnum.HP:
-        echoStore.data.sub_affix.hp_p = "0.09";
+        echo.sub_affix.hp_p = "0.09";
         break;
       case SkillAttrEnum.DEF:
-        echoStore.data.sub_affix.def_p = "0.113875";
+        echo.sub_affix.def_p = "0.113875";
         break;
       case SkillAttrEnum.ATK:
       default:
-        echoStore.data.sub_affix.atk_p = "0.09";
+        echo.sub_affix.atk_p = "0.09";
         break;
     }
-    echoStore.data.sub_affix.crit_rate = "0.084";
-    echoStore.data.sub_affix.crit_dmg = "0.168";
+    echo.sub_affix.crit_rate = "0.084";
+    echo.sub_affix.crit_dmg = "0.168";
 
     const mainSkillBonus = this.resonator.data.main_skill_bonus;
     switch (mainSkillBonus) {
       case SkillBonusEnum.SKILL:
-        echoStore.data.sub_affix.bonus_resonance_skill = "0.09";
+        echo.sub_affix.bonus_resonance_skill = "0.09";
         break;
       case SkillBonusEnum.BASIC:
-        echoStore.data.sub_affix.bonus_basic_attack = "0.09";
+        echo.sub_affix.bonus_basic_attack = "0.09";
         break;
       case SkillBonusEnum.HEAVY:
-        echoStore.data.sub_affix.bonus_heavy_attack = "0.09";
+        echo.sub_affix.bonus_heavy_attack = "0.09";
         break;
       case SkillBonusEnum.LIBERATION:
-        echoStore.data.sub_affix.bonus_resonance_liberation = "0.09";
+        echo.sub_affix.bonus_resonance_liberation = "0.09";
         break;
       default:
         break;
@@ -137,29 +139,29 @@ export class RowAutoFillEchoes {
   }
 
   private updateBase() {
-    this.echoStores.forEach((echoStore: any, i: number) => {
+    this.echoes.forEach((echo: RowEcho, i: number) => {
       // Reset
-      echoStore.resetMainAffix();
-      echoStore.resetSubAffix();
+      echo.resetMainAffix();
+      echo.resetSubAffix();
 
       // Sonata
       if (this.sonatas.length > 0) {
         if (this.sonatas.length !== 5) {
           throw new Error("`sonatas` length must be exactly 5");
         }
-        echoStore.data.sonata = this.sonatas[i];
+        echo.sonata = this.sonatas[i];
       }
 
       // Sub affixes
       switch (this.affixPolicy) {
         case AffixPolicyEnum.AFFIXES_15_1:
-          this.updateSubAffixesWithAffixes151(echoStore);
+          this.updateSubAffixesWithAffixes151(echo);
           break;
         case AffixPolicyEnum.AFFIXES_20_SMALL:
-          this.updateSubAffixesWithAffixes20Small(echoStore);
+          this.updateSubAffixesWithAffixes20Small(echo);
           break;
         case AffixPolicyEnum.AFFIXES_20_SKILL_BONUS:
-          this.updateSubAffixesWithAffixes20SkillBonus(echoStore);
+          this.updateSubAffixesWithAffixes20SkillBonus(echo);
           break;
         default:
           break;
@@ -167,129 +169,129 @@ export class RowAutoFillEchoes {
     });
   }
 
-  private updateFixedMainAffix(echoStore: any, cost: string) {
+  private updateFixedMainAffix(echo: RowEcho, cost: string) {
     const fixedMainAffixes = getFixedMainAffixes(cost);
     for (const [buff, value] of Object.entries(fixedMainAffixes)) {
-      echoStore.data.main_affix[buff] = value;
-      echoStore.data._fixed_main_affix_key = buff;
+      (echo.main_affix as any)[buff] = value;
+      echo._fixed_main_affix_key = buff;
     }
   }
 
-  private updateMainAffixItem(echoStore: any, key: string) {
-    echoStore.data._main_affix_item = {
+  private updateMainAffixItem(echo: RowEcho, key: string) {
+    echo._main_affix_item = {
       title: getAffixLabelByKey(key),
       value: key,
     };
   }
 
-  private updateCost4MainAffixes(echoStore: any, abbr: TAbbrBonusEnum) {
+  private updateCost4MainAffixes(echo: RowEcho, abbr: TAbbrBonusEnum) {
     const cost = "4";
-    echoStore.data.cost = cost;
+    echo.cost = cost;
 
-    this.updateFixedMainAffix(echoStore, cost);
+    this.updateFixedMainAffix(echo, cost);
     const mainAffixes = getMainAffixes(cost);
 
     switch (abbr) {
       case AbbrSkillBonusEnum.HP:
-        echoStore.data.main_affix.hp_p = mainAffixes.hp_p;
-        this.updateMainAffixItem(echoStore, "hp_p");
+        echo.main_affix.hp_p = mainAffixes.hp_p;
+        this.updateMainAffixItem(echo, "hp_p");
         break;
       case AbbrSkillBonusEnum.ATK:
-        echoStore.data.main_affix.atk_p = mainAffixes.atk_p;
-        this.updateMainAffixItem(echoStore, "atk_p");
+        echo.main_affix.atk_p = mainAffixes.atk_p;
+        this.updateMainAffixItem(echo, "atk_p");
         break;
       case AbbrSkillBonusEnum.DEF:
-        echoStore.data.main_affix.def_p = mainAffixes.def_p;
-        this.updateMainAffixItem(echoStore, "def_p");
+        echo.main_affix.def_p = mainAffixes.def_p;
+        this.updateMainAffixItem(echo, "def_p");
         break;
       case AbbrSkillBonusEnum.BONUS_HEALING:
-        echoStore.data.main_affix.bonus_healing = mainAffixes.bonus_healing;
-        this.updateMainAffixItem(echoStore, "bonus_healing");
+        echo.main_affix.bonus_healing = mainAffixes.bonus_healing;
+        this.updateMainAffixItem(echo, "bonus_healing");
         break;
       case AbbrSkillBonusEnum.CRIT_RATE:
-        echoStore.data.main_affix.crit_rate = mainAffixes.crit_rate;
-        this.updateMainAffixItem(echoStore, "crit_rate");
+        echo.main_affix.crit_rate = mainAffixes.crit_rate;
+        this.updateMainAffixItem(echo, "crit_rate");
         break;
       case AbbrSkillBonusEnum.CRIT_DMG:
       default:
-        echoStore.data.main_affix.crit_dmg = mainAffixes.crit_dmg;
-        this.updateMainAffixItem(echoStore, "crit_dmg");
+        echo.main_affix.crit_dmg = mainAffixes.crit_dmg;
+        this.updateMainAffixItem(echo, "crit_dmg");
         break;
     }
   }
 
-  private updateCost3MainAffixes(echoStore: any, abbr: TAbbrBonusEnum) {
+  private updateCost3MainAffixes(echo: RowEcho, abbr: TAbbrBonusEnum) {
     const cost = "3";
-    echoStore.data.cost = cost;
+    echo.cost = cost;
 
-    this.updateFixedMainAffix(echoStore, cost);
+    this.updateFixedMainAffix(echo, cost);
     const mainAffixes = getMainAffixes(cost);
 
     switch (abbr) {
       case AbbrSkillBonusEnum.HP:
-        echoStore.data.main_affix.hp_p = mainAffixes.hp_p;
-        this.updateMainAffixItem(echoStore, "hp_p");
+        echo.main_affix.hp_p = mainAffixes.hp_p;
+        this.updateMainAffixItem(echo, "hp_p");
         break;
       case AbbrSkillBonusEnum.ATK:
-        echoStore.data.main_affix.atk_p = mainAffixes.atk_p;
-        this.updateMainAffixItem(echoStore, "atk_p");
+        echo.main_affix.atk_p = mainAffixes.atk_p;
+        this.updateMainAffixItem(echo, "atk_p");
         break;
       case AbbrSkillBonusEnum.DEF:
-        echoStore.data.main_affix.def_p = mainAffixes.def_p;
-        this.updateMainAffixItem(echoStore, "def_p");
+        echo.main_affix.def_p = mainAffixes.def_p;
+        this.updateMainAffixItem(echo, "def_p");
         break;
       case AbbrSkillBonusEnum.ENERGY_REGEN:
-        echoStore.data.main_affix.energy_regen = mainAffixes.energy_regen;
-        this.updateMainAffixItem(echoStore, "energy_regen");
+        echo.main_affix.energy_regen = mainAffixes.energy_regen;
+        this.updateMainAffixItem(echo, "energy_regen");
         break;
       case ElementBonusEnum.GLACIO:
-        echoStore.data.main_affix.bonus_glacio = mainAffixes.bonus_glacio;
-        this.updateMainAffixItem(echoStore, "bonus_glacio");
+        echo.main_affix.bonus_glacio = mainAffixes.bonus_glacio;
+        this.updateMainAffixItem(echo, "bonus_glacio");
         break;
       case ElementBonusEnum.FUSION:
-        echoStore.data.main_affix.bonus_fusion = mainAffixes.bonus_fusion;
-        this.updateMainAffixItem(echoStore, "bonus_fusion");
+        echo.main_affix.bonus_fusion = mainAffixes.bonus_fusion;
+        this.updateMainAffixItem(echo, "bonus_fusion");
         break;
       case ElementBonusEnum.ELECTRO:
-        echoStore.data.main_affix.bonus_electro = mainAffixes.bonus_electro;
-        this.updateMainAffixItem(echoStore, "bonus_electro");
+        echo.main_affix.bonus_electro = mainAffixes.bonus_electro;
+        this.updateMainAffixItem(echo, "bonus_electro");
         break;
       case ElementBonusEnum.AERO:
-        echoStore.data.main_affix.bonus_aero = mainAffixes.bonus_aero;
-        this.updateMainAffixItem(echoStore, "bonus_aero");
+        echo.main_affix.bonus_aero = mainAffixes.bonus_aero;
+        this.updateMainAffixItem(echo, "bonus_aero");
         break;
       case ElementBonusEnum.SPECTRO:
-        echoStore.data.main_affix.bonus_spectro = mainAffixes.bonus_spectro;
-        this.updateMainAffixItem(echoStore, "bonus_spectro");
+        echo.main_affix.bonus_spectro = mainAffixes.bonus_spectro;
+        this.updateMainAffixItem(echo, "bonus_spectro");
         break;
       case ElementBonusEnum.HAVOC:
-        echoStore.data.main_affix.bonus_havoc = mainAffixes.bonus_havoc;
-        this.updateMainAffixItem(echoStore, "bonus_havoc");
+        echo.main_affix.bonus_havoc = mainAffixes.bonus_havoc;
+        this.updateMainAffixItem(echo, "bonus_havoc");
         break;
       default:
         break;
     }
   }
 
-  private updateCost1MainAffixes(echoStore: any, abbr: TAbbrBonusEnum) {
+  private updateCost1MainAffixes(echo: RowEcho, abbr: TAbbrBonusEnum) {
     const cost = "1";
-    echoStore.data.cost = cost;
+    echo.cost = cost;
 
-    this.updateFixedMainAffix(echoStore, cost);
+    this.updateFixedMainAffix(echo, cost);
     const mainAffixes = getMainAffixes(cost);
 
     switch (abbr) {
       case AbbrSkillBonusEnum.HP:
-        echoStore.data.main_affix.hp_p = mainAffixes.hp_p;
-        this.updateMainAffixItem(echoStore, "hp_p");
+        echo.main_affix.hp_p = mainAffixes.hp_p;
+        this.updateMainAffixItem(echo, "hp_p");
         break;
       case AbbrSkillBonusEnum.ATK:
-        echoStore.data.main_affix.atk_p = mainAffixes.atk_p;
-        this.updateMainAffixItem(echoStore, "atk_p");
+        echo.main_affix.atk_p = mainAffixes.atk_p;
+        this.updateMainAffixItem(echo, "atk_p");
         break;
       case AbbrSkillBonusEnum.DEF:
-        echoStore.data.main_affix.def_p = mainAffixes.def_p;
-        this.updateMainAffixItem(echoStore, "def_p");
+        echo.main_affix.def_p = mainAffixes.def_p;
+        this.updateMainAffixItem(echo, "def_p");
         break;
       default:
         break;
@@ -303,7 +305,7 @@ export class RowAutoFillEchoes {
     abbr4: TAbbrBonusEnum = "",
     abbr5: TAbbrBonusEnum = "",
   ) {
-    if (!this.affixPolicy || this.echoStores.length === 0) {
+    if (!this.affixPolicy || this.echoes.length === 0) {
       return;
     }
     if (!abbr1) {
@@ -323,11 +325,11 @@ export class RowAutoFillEchoes {
     }
 
     this.updateBase();
-    this.updateCost4MainAffixes(this.echoStores[0], abbr1);
-    this.updateCost3MainAffixes(this.echoStores[1], abbr2);
-    this.updateCost3MainAffixes(this.echoStores[2], abbr3);
-    this.updateCost1MainAffixes(this.echoStores[3], abbr4);
-    this.updateCost1MainAffixes(this.echoStores[4], abbr5);
+    this.updateCost4MainAffixes(this.echoes[0], abbr1);
+    this.updateCost3MainAffixes(this.echoes[1], abbr2);
+    this.updateCost3MainAffixes(this.echoes[2], abbr3);
+    this.updateCost1MainAffixes(this.echoes[3], abbr4);
+    this.updateCost1MainAffixes(this.echoes[4], abbr5);
   }
 
   public update43311With2Elem() {

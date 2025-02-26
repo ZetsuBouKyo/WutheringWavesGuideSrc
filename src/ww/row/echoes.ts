@@ -1,37 +1,48 @@
 import { StatBuff } from "@/ww/buff";
 
-export class RowEchoes {
+import { RowEcho } from "./echo";
+export class RowEchoesSummary {
   public name1: string = "";
   public sonatas: Array<string> = [];
   public total_cost: number = 0;
   public main_affix: StatBuff = new StatBuff();
   public sub_affix: StatBuff = new StatBuff();
+}
 
-  public reset() {
-    this.name1 = "";
-    this.sonatas = [];
-    this.total_cost = 0;
-    this.main_affix = new StatBuff();
-    this.sub_affix = new StatBuff();
+export class RowEchoes {
+  public summary: RowEchoesSummary = new RowEchoesSummary();
+  public echoes: Array<RowEcho> = [];
+
+  constructor() {
+    this.echoes = Array.from({ length: 5 }, (_, __) => new RowEcho());
   }
 
-  public updateByStores(stores: Array<any>) {
-    if (!stores || stores.length === 0) {
-      return;
-    }
-    this.reset();
-    const name = stores[0].data.name;
+  public resetSummary() {
+    this.summary.name1 = "";
+    this.summary.sonatas = [];
+    this.summary.total_cost = 0;
+    this.summary.main_affix = new StatBuff();
+    this.summary.sub_affix = new StatBuff();
+  }
+
+  public getEcho(i: number): RowEcho {
+    return this.echoes[i];
+  }
+
+  public updateSummaryByEchoes() {
+    this.resetSummary();
+    const name = this.echoes[0].name;
     if (name) {
-      this.name1 = name;
+      this.summary.name1 = name;
     }
-    stores.forEach((store: any) => {
-      this.total_cost += parseFloat(store.data.cost);
-      const sonata = store.data.sonata;
+    this.echoes.forEach((echo: RowEcho) => {
+      this.summary.total_cost += parseFloat(echo.cost);
+      const sonata = echo.sonata;
       if (sonata) {
-        this.sonatas.push(sonata);
+        this.summary.sonatas.push(sonata);
       }
-      this.main_affix.addStatBuff(store.data.main_affix);
-      this.sub_affix.addStatBuff(store.data.sub_affix);
+      this.summary.main_affix.addStatBuff(echo.main_affix);
+      this.summary.sub_affix.addStatBuff(echo.sub_affix);
     });
   }
 }

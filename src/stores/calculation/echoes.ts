@@ -9,8 +9,14 @@ export const useRowEchoesStore = (id: string) => {
       data: new RowEchoes(),
     }),
     actions: {
-      updateByStores(stores: Array<any>) {
-        this.data.updateByStores(stores);
+      getEcho(i: number) {
+        return this.data.getEcho(i);
+      },
+      getSummary() {
+        return this.data.summary;
+      },
+      updateSummaryByEchoes() {
+        this.data.updateSummaryByEchoes();
       },
     },
   });

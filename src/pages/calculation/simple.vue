@@ -39,17 +39,17 @@
               <div class="d-flex flex-row mb-2">
                 <h2>{{ $t('general.auto_fill') }}</h2>
               </div>
-              <RowAutoFillEcho :prefixId="id" />
+              <RowAutoFillEcho :id="id" />
             </div>
             <div class="d-flex flex-column w-100">
               <div class="d-flex flex-row mb-2">
                 <h2>{{ $t('general.manual_input') }}</h2>
               </div>
-              <div v-for="(store, i) in echoStores" class="d-flex flex-column w-100" :key="store.id">
+              <div v-for="(_, i) in echoes.data.echoes" class="d-flex flex-column w-100">
                 <div class="d-flex flex-row mb-2">
                   <h3>{{ $t('general.nth_echo', { n: i + 1 }) }}</h3>
                 </div>
-                <RowEcho :id="store.id" />
+                <RowEcho :i="i" :id="id" />
               </div>
             </div>
           </div>
@@ -104,11 +104,9 @@ import { ref } from 'vue'
 
 import { useRowResonatorStore } from '@/stores/calculation/resonator';
 import { useRowWeaponStore } from '@/stores/calculation/weapon';
-import { getEchoStores } from '@/stores/calculation/echo'
 import { useRowEchoesStore } from '@/stores/calculation/echoes'
 
 const id = "simple"
-const echoStores = getEchoStores(id)
 
 const tab = ref<string>("")
 const resonator = useRowResonatorStore(id)
@@ -124,11 +122,11 @@ async function calculate() {
 
   tab.value = "result"
   resonator.updateSkill()
-  const stores = echoStores.map((e: any, _, __) => { return e.store })
-  echoes.updateByStores(stores)
+  echoes.updateSummaryByEchoes()
+
   console.log(resonator)
   console.log(weapon)
-  console.log(echoStores)
+  console.log(echoes)
 }
 </script>
 
