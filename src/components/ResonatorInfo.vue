@@ -105,7 +105,7 @@ const resonatorLeft = [
   { [resonatorLeftCol1]: t('general.bonus_havoc'), [resonatorLeftCol2]: toPercentageString(resonator.havoc_dmg_bonus) },
 ]
 
-const resonatorRightCol1 = t('general.res.physics')
+const resonatorRightCol1 = t('general.res_physics')
 const resonatorRightCol2 = toNumberString(resonator.physical_dmg_res)
 const resonatorRightHeaders: any = ref([
   {
@@ -120,12 +120,12 @@ const resonatorRightHeaders: any = ref([
 ])
 
 const resonatorRight = [
-  { [resonatorRightCol1]: t('general.res.glacio'), [resonatorRightCol2]: toNumberString(resonator.glacio_dmg_res) },
-  { [resonatorRightCol1]: t('general.res.fusion'), [resonatorRightCol2]: toNumberString(resonator.fusion_dmg_res) },
-  { [resonatorRightCol1]: t('general.res.electro'), [resonatorRightCol2]: toNumberString(resonator.electro_dmg_res) },
-  { [resonatorRightCol1]: t('general.res.aero'), [resonatorRightCol2]: toPercentageString(resonator.aero_dmg_res) },
-  { [resonatorRightCol1]: t('general.res.spectro'), [resonatorRightCol2]: toPercentageString(resonator.spectro_dmg_res) },
-  { [resonatorRightCol1]: t('general.res.havoc'), [resonatorRightCol2]: toPercentageString(resonator.havoc_dmg_res) },
+  { [resonatorRightCol1]: t('general.res_glacio'), [resonatorRightCol2]: toNumberString(resonator.glacio_dmg_res) },
+  { [resonatorRightCol1]: t('general.res_fusion'), [resonatorRightCol2]: toNumberString(resonator.fusion_dmg_res) },
+  { [resonatorRightCol1]: t('general.res_electro'), [resonatorRightCol2]: toNumberString(resonator.electro_dmg_res) },
+  { [resonatorRightCol1]: t('general.res_aero'), [resonatorRightCol2]: toPercentageString(resonator.aero_dmg_res) },
+  { [resonatorRightCol1]: t('general.res_spectro'), [resonatorRightCol2]: toPercentageString(resonator.spectro_dmg_res) },
+  { [resonatorRightCol1]: t('general.res_havoc'), [resonatorRightCol2]: toPercentageString(resonator.havoc_dmg_res) },
   { [resonatorRightCol1]: "", [resonatorRightCol2]: "" },
   { [resonatorRightCol1]: t('general.resonator_skills.normal_attack_lv'), [resonatorRightCol2]: resonator.normal_attack_lv },
   { [resonatorRightCol1]: t('general.resonator_skills.resonance_skill_lv'), [resonatorRightCol2]: resonator.resonance_skill_lv },

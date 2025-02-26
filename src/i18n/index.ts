@@ -86,15 +86,14 @@ const i18n = createI18n({
         bonus_aero: "氣動傷害加成",
         bonus_spectro: "衍射傷害加成",
         bonus_havoc: "湮滅傷害加成",
-        res: {
-          physics: "物理傷害抗性",
-          glacio: "冷凝傷害抗性",
-          fusion: "熱熔傷害加成",
-          electro: "導電傷害抗性",
-          aero: "氣動傷害抗性",
-          spectro: "衍射傷害抗性",
-          havoc: "湮滅傷害抗性",
-        },
+        // Res
+        res_physics: "物理傷害抗性",
+        res_glacio: "冷凝傷害抗性",
+        res_fusion: "熱熔傷害加成",
+        res_electro: "導電傷害抗性",
+        res_aero: "氣動傷害抗性",
+        res_spectro: "衍射傷害抗性",
+        res_havoc: "湮滅傷害抗性",
         resonator_skills: {
           normal_attack: "常態攻擊",
           resonance_skill: "共鳴技能",
