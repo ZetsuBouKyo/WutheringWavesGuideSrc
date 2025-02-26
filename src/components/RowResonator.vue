@@ -14,31 +14,44 @@
     <div class="d-flex flex-row">
       <v-combobox v-bind="props" v-model="resonator._skill_item" :items="resonatorSkillItems"
         :label="$t('general.resonator_skill_id')" :rules="[checkResonatorSkill]"
-        :disabled="resonatorSkillItems.length === 0">
+        :disabled="resonatorSkillItems.length === 0" @update:modelValue="updateResonatorSkill">
       </v-combobox>
     </div>
+    <div class="d-flex flex-row">
+      <v-text-field v-model="resonator.skill.dmg" :label="$t('general.skill_damage_ratio')"></v-text-field>
+    </div>
+    <div class="d-flex flex-row">
+      <v-select v-model="resonator.base_attr" :items="getResonatorBaseAttrs()"
+        :label="$t('general.base_attr')"></v-select>
+    </div>
+    <div class="d-flex flex-row">
+      <v-select v-model="resonator.main_skill_bonus" :items="getResonatorMainSkillBonus()"
+        :label="$t('general.main_skill_bonus')"></v-select>
+    </div>
+    <!-- Skill -->
     <div class="d-flex flex-row mb-2">
       <span>{{ $t('general.skill') }}</span>
     </div>
     <div class="d-flex flex-row">
       <v-select v-model="resonator.normal_attack_lv" :items="resonatorSkillLevels"
-        :label="$t('general.resonator_skills.normal_attack')"></v-select>
+        :label="$t('general.resonator_skills.normal_attack')" @update:modelValue="updateResonatorSkill"></v-select>
     </div>
     <div class="d-flex flex-row">
       <v-select v-model="resonator.resonance_skill_lv" :items="resonatorSkillLevels"
-        :label="$t('general.resonator_skills.resonance_skill')"></v-select>
+        :label="$t('general.resonator_skills.resonance_skill')" @update:modelValue="updateResonatorSkill"></v-select>
     </div>
     <div class="d-flex flex-row">
       <v-select v-model="resonator.forte_circuit_lv" :items="resonatorSkillLevels"
-        :label="$t('general.resonator_skills.forte_circuit')"></v-select>
+        :label="$t('general.resonator_skills.forte_circuit')" @update:modelValue="updateResonatorSkill"></v-select>
     </div>
     <div class="d-flex flex-row">
       <v-select v-model="resonator.resonance_liberation_lv" :items="resonatorSkillLevels"
-        :label="$t('general.resonator_skills.resonance_liberation')"></v-select>
+        :label="$t('general.resonator_skills.resonance_liberation')"
+        @update:modelValue="updateResonatorSkill"></v-select>
     </div>
     <div class="d-flex flex-row">
       <v-select v-model="resonator.intro_skill_lv" :items="resonatorSkillLevels"
-        :label="$t('general.resonator_skills.intro_skill')"></v-select>
+        :label="$t('general.resonator_skills.intro_skill')" @update:modelValue="updateResonatorSkill"></v-select>
     </div>
     <div class="d-flex flex-row">
       <v-checkbox v-model="resonator.inherent_skill_1" :label="$t('general.resonator_skills.inherent_skill_1')">
@@ -129,6 +142,8 @@ import { useI18n } from 'vue-i18n'
 import { useRowResonatorStore } from '@/stores/calculation/resonator';
 import { useResonatorStore } from '@/stores/resonator';
 
+import { getResonatorBaseAttrs, getResonatorMainSkillBonus } from '@/ww/resonator';
+
 const props = defineProps({
   id: {
     type: String,
@@ -167,7 +182,14 @@ async function updateResonator() {
   resonatorSkillItems.value = await resonatorStore.getSkillItems(name)
 }
 
+async function updateResonatorSkill() {
+  await resonator.updateSkill()
+}
+
 function checkResonatorSkill(new_item: any) {
+  if (!new_item || !new_item.title) {
+    return true
+  }
   for (const old_item of resonatorSkillItems.value) {
     if (new_item.title === old_item.title) {
       return true

@@ -99,13 +99,13 @@ const weapon = useRowWeaponStore(id)
 
 async function calculate() {
   const skill = resonator._skill_item.value
-  if (!skill || !resonator.base_attr || !resonator.main_skill_bonus) {
+  if (!skill || !resonator.main_skill_bonus || !resonator.base_attr) {
     tab.value = "resonator"
     return
   }
 
   tab.value = "result"
-  resonator.updateSkill(skill)
+  resonator.updateSkill()
   console.log(resonator)
   console.log(weapon)
   console.log(echoStores)

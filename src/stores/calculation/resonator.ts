@@ -65,6 +65,7 @@ export const useRowResonatorStore = (id: string) => {
         // Reset
         this.stat_bonus = new StatBuff();
         this.skill = new RowResonatorSkill();
+        this._skill_item = { title: "", value: undefined };
 
         const name = this.name as string;
         const no = resonatorStore.getNoByName(name);
@@ -83,7 +84,7 @@ export const useRowResonatorStore = (id: string) => {
       },
 
       updateSkillDmg(skill: any) {
-        const skill_type = skill.skill_type;
+        const skill_type = this.skill.type;
         let level;
         switch (skill_type) {
           case SkillTypeEnum.NORMAL_ATTACK:
@@ -107,6 +108,15 @@ export const useRowResonatorStore = (id: string) => {
         this.skill.dmg = skill[`lv${level}`];
       },
       updateSkill(skill: any) {
+        if (!skill) {
+          if (!this._skill_item) {
+            return;
+          }
+          skill = this._skill_item.value as any;
+        }
+        if (!skill) {
+          return;
+        }
         this.skill = new RowResonatorSkill();
         this.skill.id = skill.id;
         this.skill.type = skill.skill_type;
@@ -118,14 +128,6 @@ export const useRowResonatorStore = (id: string) => {
           this.skill.bonus_types.push(SkillBonusEnum.COORDINATED_ATTACK);
         }
         this.updateSkillDmg(skill);
-      },
-
-      updateSkillByItem(item: any) {
-        if (!item.title || !item.value) {
-          return;
-        }
-        const skill = item.value;
-        this.updateSkill(skill);
       },
     },
   });
