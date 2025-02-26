@@ -59,7 +59,7 @@ export const useRowResonatorStore = (id: string) => {
       _skill_item: { title: "", value: undefined },
     }),
     actions: {
-      async updateRowResonatorByName() {
+      async updateByName() {
         const resonatorStore = useResonatorStore();
 
         // Reset

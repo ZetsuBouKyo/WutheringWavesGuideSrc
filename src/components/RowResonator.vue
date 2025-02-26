@@ -173,7 +173,7 @@ function checkResonatorName(name: string) {
 }
 
 async function updateResonator() {
-  await resonator.updateRowResonatorByName()
+  await resonator.updateByName()
   const name = resonator.name
   const check = checkResonatorName(name)
   if (check !== true) {
