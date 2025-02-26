@@ -77,3 +77,15 @@ export async function saveDomToImage(ref: any, fname: string) {
     console.error("Error capturing image:", error);
   }
 }
+
+export function getNumber(n: any): number {
+  if (!n) {
+    return 0;
+  }
+  n = Number(n);
+  if (!n) {
+    return 0;
+  }
+  n = Number(n.toFixed(6).toString());
+  return n;
+}
