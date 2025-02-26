@@ -56,6 +56,14 @@
         </v-tabs-window-item>
         <v-tabs-window-item value="monster">
           <div class="d-flex flex-row w-100">
+            <div class="d-flex flex-column w-100 mr-6">
+              <div class="d-flex flex-row mb-2">
+                <h2>{{ $t('general.monster') }}</h2>
+              </div>
+              <RowMonster :id="id" />
+            </div>
+            <div class="d-flex flex-column w-100">
+            </div>
           </div>
         </v-tabs-window-item>
         <v-tabs-window-item value="result">
@@ -69,6 +77,10 @@
                 <h2>{{ $t('general.echo') }}</h2>
               </div>
               <RowEchoResult :id="id" />
+              <div class="d-flex flex-row mb-2">
+                <h2>{{ $t('general.monster') }}</h2>
+              </div>
+              <RowMonsterResult :id="id" />
             </div>
             <div class="d-flex flex-column w-100">
               <div class="d-flex flex-row mb-2">

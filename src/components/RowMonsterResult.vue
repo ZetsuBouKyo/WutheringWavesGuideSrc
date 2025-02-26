@@ -1,0 +1,39 @@
+<template>
+  <div class="d-flex flex-column w-100">
+    <div class="d-flex flex-row">
+      <v-text-field v-model="monster.name" :label="$t('general.name')" readonly>
+      </v-text-field>
+    </div>
+    <div class="d-flex flex-row">
+      <v-text-field v-model="monster.level" :label="$t('general.level')" readonly>
+      </v-text-field>
+    </div>
+    <div class="d-flex flex-row">
+      <v-text-field v-model="monster.def" :label="$t('general.def')" readonly>
+      </v-text-field>
+    </div>
+    <div v-for="key in ResEnum" class="d-flex flex-row" :key="key">
+      <div v-if="monster[key]" class="d-flex flex-column w-100">
+        <v-text-field v-model="monster[key]" :label="$t(`general.${key}`)" readonly>
+        </v-text-field>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import { useRowMonsterStore } from '@/stores/calculation/monster';
+
+import { ResEnum } from '@/types/res';
+
+const props = defineProps({
+  id: {
+    type: String,
+    required: true
+  },
+});
+
+const id = props.id
+
+const monster = useRowMonsterStore(id)
+</script>
