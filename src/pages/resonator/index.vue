@@ -23,7 +23,7 @@ import { onMounted } from 'vue';
 import { useResonatorStore } from '@/stores/resonator';
 import { useCalculatedTemplateStore } from '@/stores/calculateTemplate';
 
-interface Resonator {
+interface IResonator {
   no: string
   name: string
   elementSrc: string
@@ -33,7 +33,7 @@ interface Resonator {
 const resonatorStore = useResonatorStore()
 const calculatedTemplateStore = useCalculatedTemplateStore()
 
-const resonators = reactive<Array<Resonator>>([])
+const resonators = reactive<Array<IResonator>>([])
 
 onMounted(async () => {
   await calculatedTemplateStore.init()

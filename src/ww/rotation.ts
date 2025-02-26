@@ -39,7 +39,7 @@ type RotationActionComment = {
   text: any;
 };
 
-export interface RotationRow {
+export interface IRotationRow {
   action: string;
   labels: string[];
   resonator_name: string;
@@ -63,7 +63,7 @@ export class ResonatorRotation {
   }
 }
 
-export function getRotation(rows: Array<RotationRow>): Array<ResonatorRotation> {
+export function getRotation(rows: Array<IRotationRow>): Array<ResonatorRotation> {
   let currentRotation = new ResonatorRotation("");
   const rotation: Array<ResonatorRotation> = [];
   let c = 1;

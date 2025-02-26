@@ -31,14 +31,14 @@
 <script lang="ts" setup>
 import { useGoTo } from 'vuetify'
 
-import { TierEnum } from "@/interfaces/tier";
-import { AffixPolicyEnum } from '@/interfaces/affix';
+import { TierEnum } from "@/types/tier";
+import { AffixPolicyEnum } from '@/types/affix';
 
-import { jumpToSection, enumToArray } from "@/ww/utils"
+import { jumpToSection } from "@/ww/utils"
 
 const goTo = useGoTo()
-const tiers: Array<string> = enumToArray(TierEnum)
-const afffixPolicies: Array<string> = enumToArray(AffixPolicyEnum)
+const tiers: Array<string> = Object.values(TierEnum)
+const afffixPolicies: Array<string> = Object.values(AffixPolicyEnum)
 </script>
 
 <style scoped lang="sass">

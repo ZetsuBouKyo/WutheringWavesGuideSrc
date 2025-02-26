@@ -1,8 +1,8 @@
 import { mande } from "mande";
 import { defineStore } from "pinia";
 
-import { type CalculatedTemplate, type CalculatedTemplateComparison } from "@/interfaces/calculateTemplate";
-import { TierEnum } from "@/interfaces/tier";
+import { type ICalculatedTemplate, type ICalculatedTemplateComparison } from "@/types/calculateTemplate";
+import { TierEnum, type TTierEnum } from "@/types/tier";
 
 import { useResonatorStore } from "./resonator";
 
@@ -10,11 +10,11 @@ import { getKeyByValue } from "@/ww/utils";
 
 export const useCalculatedTemplateStore = defineStore("calculatedTemplate", {
   state: (): {
-    data: CalculatedTemplate;
+    data: ICalculatedTemplate;
     cache: {
       nameToTemplateIds: { [name: string]: Array<string> };
       templateIdToHashedTemplateId: { [id: string]: string };
-      comparisonIdToComparison: { [id: string]: CalculatedTemplateComparison };
+      comparisonIdToComparison: { [id: string]: ICalculatedTemplateComparison };
       tierToTemplateIds: { [tier: string]: Array<string> };
       hashedTemplateIdToResonatorNamesForEchoComparison: { [id: string]: Array<string> };
     };
@@ -47,7 +47,7 @@ export const useCalculatedTemplateStore = defineStore("calculatedTemplate", {
       }
       try {
         const req = mande("/data/calculation/templates.json");
-        const resp: CalculatedTemplate = await req.get();
+        const resp: ICalculatedTemplate = await req.get();
         this.data = resp;
 
         this.data.templates.forEach((template) => {
@@ -95,7 +95,7 @@ export const useCalculatedTemplateStore = defineStore("calculatedTemplate", {
         const comparisonsKeys = Object.keys(this.data.comparisons);
         comparisonsKeys.forEach((resonatorName: string) => {
           const comparisons = this.data.comparisons[resonatorName];
-          comparisons.forEach((comparison: CalculatedTemplateComparison) => {
+          comparisons.forEach((comparison: ICalculatedTemplateComparison) => {
             const id = comparison.id;
             this.cache.comparisonIdToComparison[id] = comparison;
           });
@@ -119,7 +119,7 @@ export const useCalculatedTemplateStore = defineStore("calculatedTemplate", {
       const name = resonatorStore.getNameByNo(no);
       return this.cache.nameToTemplateIds[name];
     },
-    getComparisonsByNo(no: string): Array<CalculatedTemplateComparison> {
+    getComparisonsByNo(no: string): Array<ICalculatedTemplateComparison> {
       const resonatorStore = useResonatorStore();
       const name = resonatorStore.getNameByNo(no);
       const comparisons = this.data.comparisons[name];
@@ -134,10 +134,10 @@ export const useCalculatedTemplateStore = defineStore("calculatedTemplate", {
     getTemplateIdByHashedTemplateId(hashedTemplateId: string): string {
       return getKeyByValue(this.cache.templateIdToHashedTemplateId, hashedTemplateId);
     },
-    getComparisonByComparisonId(comparisonId: string): CalculatedTemplateComparison {
+    getComparisonByComparisonId(comparisonId: string): ICalculatedTemplateComparison {
       return this.cache.comparisonIdToComparison[comparisonId];
     },
-    getTierTemplateIds(tier: TierEnum): Array<string> {
+    getTierTemplateIds(tier: TTierEnum): Array<string> {
       return this.cache.tierToTemplateIds[tier];
     },
     getResonatorNamesForEchoComparisonByHashedTemplateId(hashedTemplateId: string): Array<string> {

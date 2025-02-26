@@ -1,7 +1,7 @@
 import fixed_main_affixes from "@/assets/data/echo/fixed_main_affixes.json";
 import main_affixes from "@/assets/data/echo/main_affixes.json";
 
-import { StatBuffEnum, StatBuffZhTwEnum } from "@/interfaces/buff";
+import { StatBuffEnum, StatBuffZhTwEnum, type TStatBuffEnum, type TStatBuffZhTwEnum } from "@/types/buff";
 
 const fixedMainAffixes = fixed_main_affixes as { [cost: string]: { [buff: string]: string | number } };
 const mainAffixes = main_affixes as { [cost: string]: { [buff: string]: string | number } };
@@ -31,17 +31,18 @@ export function getAffixLabelByKey(key: string): string {
   if (!key) {
     return "";
   }
-  const label = (StatBuffZhTwEnum as any)[key.toUpperCase()];
+  const buffKey = key.toUpperCase() as keyof typeof StatBuffZhTwEnum;
+  const label = StatBuffZhTwEnum[buffKey];
   if (label) {
     return label;
   }
   return "";
 }
 
-export function getFixedMainAffixes(cost: string): { [buff: StatBuffEnum | string]: string | number } {
+export function getFixedMainAffixes(cost: string): { [buff: TStatBuffEnum]: string | number } {
   return fixedMainAffixes[cost];
 }
 
-export function getMainAffixes(cost: string): { [buff: StatBuffEnum | string]: string | number } {
+export function getMainAffixes(cost: string): { [buff: TStatBuffEnum]: string | number } {
   return mainAffixes[cost];
 }

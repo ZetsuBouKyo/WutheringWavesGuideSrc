@@ -1,4 +1,4 @@
-import { StatBuffEnum } from "@/interfaces/buff";
+import { StatBuffEnum } from "@/types/buff";
 
 export class StatBuff {
   public [StatBuffEnum.CRIT_RATE]: string = "";

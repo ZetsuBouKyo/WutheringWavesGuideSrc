@@ -1,10 +1,10 @@
-export interface CalculatedTemplateComparison {
+export interface ICalculatedTemplateComparison {
   id: string;
   title: string;
   template_ids: Array<string>;
 }
 
-export interface CalculatedTemplate {
+export interface ICalculatedTemplate {
   templates: Array<{
     hashed_id: string;
     id: string;
@@ -19,6 +19,6 @@ export interface CalculatedTemplate {
     echo_comparison: Array<string>;
   }>;
   comparisons: {
-    [resonatorName: string]: Array<CalculatedTemplateComparison>;
+    [resonatorName: string]: Array<ICalculatedTemplateComparison>;
   };
 }

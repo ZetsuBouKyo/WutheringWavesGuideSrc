@@ -2,13 +2,13 @@ import { defineStore } from "pinia";
 
 import { useResonatorStore } from "@/stores/resonator";
 
-import { SkillBonusEnum } from "@/interfaces/buff";
-import { SkillTypeEnum } from "@/interfaces/skill";
+import { SkillBonusEnum } from "@/types/buff";
+import { SkillTypeEnum } from "@/types/skill";
 
 import { StatBuff } from "@/ww/buff";
 import { RowResonatorSkill } from "@/ww/resonator";
 
-interface RowResonatorStore {
+interface IRowResonatorStore {
   id: string;
   no: string;
   name: string;

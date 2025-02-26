@@ -26,9 +26,3 @@ export interface IRowResonator {
   stat_bonus: IStatBuff;
   skill: IRowResonatorSkill;
 }
-
-export enum ResonatorBaseAttrEnum {
-  HP = "生命",
-  ATK = "攻擊",
-  DEF = "防禦",
-}

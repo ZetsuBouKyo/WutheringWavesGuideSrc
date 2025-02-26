@@ -1,8 +1,8 @@
-import { SkillBonusEnum } from "@/interfaces/buff";
-import { ResonatorBaseAttrEnum } from "@/interfaces/resonator";
+import { SkillBonusEnum } from "@/types/buff";
+import { SkillAttrEnum } from "@/types/skill";
 
 import { StatBuff } from "./buff";
-import { enumToArray } from "./utils";
+
 export class ResonatorInfo {
   public no: string = "";
   public name: string = "";
@@ -42,7 +42,7 @@ export class RowResonatorSkill {
 }
 
 export function getResonatorBaseAttrs(): Array<string> {
-  return enumToArray(ResonatorBaseAttrEnum);
+  return Object.values(SkillAttrEnum);
 }
 
 export function getResonatorMainSkillBonus(): Array<string> {

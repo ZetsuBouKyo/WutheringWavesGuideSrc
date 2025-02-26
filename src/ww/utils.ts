@@ -37,22 +37,6 @@ export function jumpToSection(goTo: any, id: string) {
   });
 }
 
-export function enumToArray(e: any): Array<string> {
-  const arr: Array<string> = Object.keys(e)
-    .filter((key) => isNaN(Number(key)))
-    .map((key) => e[key as keyof typeof e]);
-  return arr;
-}
-
-export function enumToObject(e: any): any {
-  const keys = Object.keys(e);
-  const o: any = {};
-  keys.forEach((key: string) => {
-    o[e[key]] = e[key];
-  });
-  return o;
-}
-
 export function getKeyByValue(object: any, value: any): any {
   return Object.keys(object).find((key) => object[key] === value);
 }

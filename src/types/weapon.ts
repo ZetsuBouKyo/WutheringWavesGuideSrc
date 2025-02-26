@@ -1,6 +1,6 @@
 import { type IStatBuff } from "./buff";
 
-export interface RowWeaponT {
+export interface IRowWeapon {
   no: string;
   name: string;
   star: string;

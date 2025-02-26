@@ -19,7 +19,7 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import { AffixPolicyEnum } from "@/interfaces/affix"
+import { AffixPolicyEnum } from "@/types/affix"
 
 import { getEchoStores } from '@/stores/calculation/echo';
 import { useRowResonatorStore } from '@/stores/calculation/resonator';

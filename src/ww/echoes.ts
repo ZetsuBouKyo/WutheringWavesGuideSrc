@@ -1,6 +1,6 @@
-import { AffixPolicyEnum } from "@/interfaces/affix";
-import { ElementBonusEnum, SkillBonusEnum, AbbrSkillBonusEnum, type AbbrBonusEnum } from "@/interfaces/buff";
-import { ResonatorBaseAttrEnum } from "@/interfaces/resonator";
+import { AffixPolicyEnum } from "@/types/affix";
+import { ElementBonusEnum, SkillBonusEnum, AbbrSkillBonusEnum, type TAbbrBonusEnum } from "@/types/buff";
+import { SkillAttrEnum } from "@/types/skill";
 
 import { getAffixLabelByKey, getFixedMainAffixes, getMainAffixes } from "./echo";
 
@@ -23,17 +23,17 @@ export class RowAutoFillEchoes {
     }
   }
 
-  private getBaseAbbr(): AbbrBonusEnum | string {
+  private getBaseAbbr(): TAbbrBonusEnum {
     const baseAttr = this.resonator.base_attr;
-    let abbr: AbbrBonusEnum | string;
+    let abbr: TAbbrBonusEnum;
     switch (baseAttr) {
-      case ResonatorBaseAttrEnum.HP:
+      case SkillAttrEnum.HP:
         abbr = AbbrSkillBonusEnum.HP;
         break;
-      case ResonatorBaseAttrEnum.DEF:
+      case SkillAttrEnum.DEF:
         abbr = AbbrSkillBonusEnum.DEF;
         break;
-      case ResonatorBaseAttrEnum.ATK:
+      case SkillAttrEnum.ATK:
       default:
         abbr = AbbrSkillBonusEnum.ATK;
         break;
@@ -41,7 +41,7 @@ export class RowAutoFillEchoes {
     return abbr;
   }
 
-  private getCritAttr(): AbbrBonusEnum | string {
+  private getCritAttr(): TAbbrBonusEnum {
     const critRate = parseFloat(this.weapon.stat_bonus.crit_rate);
     const critDmg = parseFloat(this.weapon.stat_bonus.crit_dmg);
     if (!critRate && critDmg) {
@@ -56,15 +56,15 @@ export class RowAutoFillEchoes {
   private updateSubAffixesWithAffixes151(echoStore: any) {
     const baseAttr = this.resonator.base_attr;
     switch (baseAttr) {
-      case ResonatorBaseAttrEnum.HP:
+      case SkillAttrEnum.HP:
         echoStore.sub_affix.hp = "270";
         echoStore.sub_affix.hp_p = "0.054";
         break;
-      case ResonatorBaseAttrEnum.DEF:
+      case SkillAttrEnum.DEF:
         echoStore.sub_affix.def = "30";
         echoStore.sub_affix.def_p = "0.068325";
         break;
-      case ResonatorBaseAttrEnum.ATK:
+      case SkillAttrEnum.ATK:
       default:
         echoStore.sub_affix.atk = "24";
         echoStore.sub_affix.atk_p = "0.054";
@@ -82,15 +82,15 @@ export class RowAutoFillEchoes {
   private updateSubAffixesWithAffixes20Small(echoStore: any) {
     const baseAttr = this.resonator.base_attr;
     switch (baseAttr) {
-      case ResonatorBaseAttrEnum.HP:
+      case SkillAttrEnum.HP:
         echoStore.sub_affix.hp = "450";
         echoStore.sub_affix.hp_p = "0.09";
         break;
-      case ResonatorBaseAttrEnum.DEF:
+      case SkillAttrEnum.DEF:
         echoStore.sub_affix.def = "50";
         echoStore.sub_affix.def_p = "0.113875";
         break;
-      case ResonatorBaseAttrEnum.ATK:
+      case SkillAttrEnum.ATK:
       default:
         echoStore.sub_affix.atk = "40";
         echoStore.sub_affix.atk_p = "0.09";
@@ -103,13 +103,13 @@ export class RowAutoFillEchoes {
   private updateSubAffixesWithAffixes20SkillBonus(echoStore: any) {
     const baseAttr = this.resonator.base_attr;
     switch (baseAttr) {
-      case ResonatorBaseAttrEnum.HP:
+      case SkillAttrEnum.HP:
         echoStore.sub_affix.hp_p = "0.09";
         break;
-      case ResonatorBaseAttrEnum.DEF:
+      case SkillAttrEnum.DEF:
         echoStore.sub_affix.def_p = "0.113875";
         break;
-      case ResonatorBaseAttrEnum.ATK:
+      case SkillAttrEnum.ATK:
       default:
         echoStore.sub_affix.atk_p = "0.09";
         break;
@@ -181,7 +181,7 @@ export class RowAutoFillEchoes {
     };
   }
 
-  private updateCost4MainAffixes(echoStore: any, abbr: AbbrBonusEnum | string) {
+  private updateCost4MainAffixes(echoStore: any, abbr: TAbbrBonusEnum) {
     const cost = "4";
     echoStore.cost = cost;
 
@@ -217,7 +217,7 @@ export class RowAutoFillEchoes {
     }
   }
 
-  private updateCost3MainAffixes(echoStore: any, abbr: AbbrBonusEnum | string) {
+  private updateCost3MainAffixes(echoStore: any, abbr: TAbbrBonusEnum) {
     const cost = "3";
     echoStore.cost = cost;
 
@@ -270,7 +270,7 @@ export class RowAutoFillEchoes {
     }
   }
 
-  private updateCost1MainAffixes(echoStore: any, abbr: AbbrBonusEnum | string) {
+  private updateCost1MainAffixes(echoStore: any, abbr: TAbbrBonusEnum) {
     const cost = "1";
     echoStore.cost = cost;
 
@@ -296,11 +296,11 @@ export class RowAutoFillEchoes {
   }
 
   public update43311(
-    abbr1: AbbrBonusEnum | string = "",
-    abbr2: AbbrBonusEnum | string = "",
-    abbr3: AbbrBonusEnum | string = "",
-    abbr4: AbbrBonusEnum | string = "",
-    abbr5: AbbrBonusEnum | string = "",
+    abbr1: TAbbrBonusEnum = "",
+    abbr2: TAbbrBonusEnum = "",
+    abbr3: TAbbrBonusEnum = "",
+    abbr4: TAbbrBonusEnum = "",
+    abbr5: TAbbrBonusEnum = "",
   ) {
     if (!abbr1) {
       abbr1 = this.getCritAttr();

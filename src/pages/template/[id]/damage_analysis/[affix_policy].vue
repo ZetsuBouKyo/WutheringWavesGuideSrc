@@ -598,8 +598,8 @@ import { reactive, ref } from 'vue'
 import { useGoTo } from 'vuetify'
 import { useI18n } from 'vue-i18n'
 
-import { BuffTypeEnum } from '@/interfaces/buff'
-import { SkillAttrEnum } from '@/interfaces/skill'
+import { BuffTypeEnum } from '@/types/buff'
+import { SkillAttrEnum } from '@/types/skill'
 
 import { useCalculatedTemplateStore } from '@/stores/calculateTemplate'
 import { useDamageAnalysisStore } from '@/stores/damageAnalysis'

@@ -5,7 +5,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
 
-import { TierEnum } from '@/interfaces/tier';
+import { type TTierEnum } from '@/types/tier';
 
 import { useCalculatedTemplateStore } from '@/stores/calculateTemplate';
 
@@ -14,7 +14,7 @@ const { t } = useI18n()
 const calculatedTemplateStore = useCalculatedTemplateStore()
 
 const route = useRoute()
-const tier = (route.params as { tier: TierEnum }).tier
+const tier = (route.params as { tier: TTierEnum }).tier
 const affixPolicy = (route.params as { affix_policy: string }).affix_policy
 
 const templateIds = ref<Array<string>>([])

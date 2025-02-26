@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-import { StatBuffEnum } from "@/interfaces/buff";
+import { StatBuffEnum } from "@/types/buff";
 import { StatBuff } from "@/ww/buff";
 import { getFixedMainAffixes } from "@/ww/echo";
 

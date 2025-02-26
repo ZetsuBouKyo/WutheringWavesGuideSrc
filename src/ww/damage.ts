@@ -3,7 +3,7 @@ import { Template } from "./template";
 
 import { useResonatorStore } from "@/stores/resonator";
 
-export interface Bar {
+export interface IBar {
   text: string;
   dps?: number;
   dpsString?: string;
@@ -160,13 +160,13 @@ export class TeamDamageDistribution {
     return toNumberString(dps);
   }
 
-  public getResonatorSkillBars(resonatorName: string): Array<Bar> {
+  public getResonatorSkillBars(resonatorName: string): Array<IBar> {
     const duration = this.duration_1;
     const resonatorDamageDistribution = this.resonators[resonatorName];
     const baseDamage = parseFloat(resonatorDamageDistribution.damage);
     const skills = resonatorDamageDistribution.skills;
     const skillKeys = Object.keys(skills);
-    const bars: Array<Bar> = [];
+    const bars: Array<IBar> = [];
     skillKeys.forEach((key: string) => {
       const skill = skills[key];
       const damage = parseFloat(skill.damage);
@@ -188,7 +188,7 @@ export class TeamDamageDistribution {
     return bars;
   }
 
-  public getResonatorSkillTypeBars(resonatorName: string): Array<Bar> {
+  public getResonatorSkillTypeBars(resonatorName: string): Array<IBar> {
     const resonatorDamageDistribution = this.resonators[resonatorName];
     const baseDamage = parseFloat(resonatorDamageDistribution.damage);
     const skillTypes = [
@@ -199,7 +199,7 @@ export class TeamDamageDistribution {
       "intro_skill",
       "outro_skill",
     ];
-    const bars: Array<Bar> = [];
+    const bars: Array<IBar> = [];
     skillTypes.forEach((t: string) => {
       const damage = parseFloat(resonatorDamageDistribution[t]);
       const p = damage / baseDamage;
@@ -215,7 +215,7 @@ export class TeamDamageDistribution {
     return bars;
   }
 
-  public getResonatorSkillBonusBars(resonatorName: string): Array<Bar> {
+  public getResonatorSkillBonusBars(resonatorName: string): Array<IBar> {
     const resonatorDamageDistribution = this.resonators[resonatorName];
     const baseDamage = parseFloat(resonatorDamageDistribution.damage);
     const skillBonuses = [
@@ -229,7 +229,7 @@ export class TeamDamageDistribution {
       "coordinated_attack",
       "none",
     ];
-    const bars: Array<Bar> = [];
+    const bars: Array<IBar> = [];
     skillBonuses.forEach((b: string) => {
       const damage = parseFloat(resonatorDamageDistribution[b]);
       const p = damage / baseDamage;
@@ -254,8 +254,8 @@ export class TeamDamageDistributionsWithBuffs {
     this._data = distribution;
   }
 
-  public getBars(baseDamage: number, baseDPS: number): Array<Bar> {
-    const bars: Array<Bar> = [];
+  public getBars(baseDamage: number, baseDPS: number): Array<IBar> {
+    const bars: Array<IBar> = [];
     this._data.forEach((t: any) => {
       const buffName = t[0];
       const damageDistribution = new TeamDamageDistribution(t[1]);
@@ -304,10 +304,10 @@ export class DamageAnalysis {
     return resonatorDamageAnalysis;
   }
 
-  public getCalculatedRowBars(): Array<Bar> {
+  public getCalculatedRowBars(): Array<IBar> {
     const maxTeamDps = this.damage_distribution.getMaxTeamDPS();
     const calculatedRows = this.calculated_rows;
-    const bars: Array<Bar> = [];
+    const bars: Array<IBar> = [];
     let baseDamage: number = 0;
     calculatedRows.forEach((calculatedRow: any) => {
       let damage = 0.0;
