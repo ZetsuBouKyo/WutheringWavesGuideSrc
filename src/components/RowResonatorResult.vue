@@ -23,79 +23,18 @@
     <div class="d-flex flex-row mb-2">
       <span>{{ $t('general.stat_bonus') }}</span>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.hp_p" :label="$t('general.hp_p')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.atk_p" :label="$t('general.atk_p')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.def_p" :label="$t('general.def_p')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.crit_rate" :label="$t('general.crit_rate')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.crit_dmg" :label="$t('general.crit_dmg')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_resonance_skill" :label="$t('general.bonus.skill')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_basic_attack" :label="$t('general.bonus.basic')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_heavy_attack" :label="$t('general.bonus.heavy')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_resonance_liberation" :label="$t('general.bonus.liberation')"
-        readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_healing" :label="$t('general.bonus.healing')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_physics" :label="$t('general.bonus.physics')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_glacio" :label="$t('general.bonus.glacio')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_fusion" :label="$t('general.bonus.fusion')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_electro" :label="$t('general.bonus.electro')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_aero" :label="$t('general.bonus.aero')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_spectro" :label="$t('general.bonus.spectro')" readonly>
-      </v-text-field>
-    </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.stat_bonus.bonus_havoc" :label="$t('general.bonus.havoc')" readonly>
-      </v-text-field>
+    <div v-for="key in StatBuffEnum" class="d-flex flex-row" :key="key">
+      <div v-if="resonator.stat_bonus[key]" class="d-flex flex-column w-100">
+        <v-text-field v-model="resonator.stat_bonus[key]" :label="$t(`general.${key}`)" readonly>
+        </v-text-field>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { StatBuffEnum } from '@/types/buff';
+
 import { useRowResonatorStore } from '@/stores/calculation/resonator';
 
 const props = defineProps({
