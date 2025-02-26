@@ -3,7 +3,8 @@ import { defineStore } from "pinia";
 import { StatBuff } from "@/ww/buff";
 
 export const useRowEchoesStore = (id: string) => {
-  const store: any = defineStore(id, {
+  const storeId: string = `row-echoes-${id}`;
+  const store: any = defineStore(storeId, {
     state: (): any => ({
       name1: "",
       sonatas: [],
