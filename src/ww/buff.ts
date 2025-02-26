@@ -38,4 +38,15 @@ export class StatBuff {
       (this as any)[key] = getNumber(oldValue + newValue).toString();
     });
   }
+
+  public getKeys(): Array<string> {
+    const keys: Array<string> = [];
+    Object.values(StatBuffEnum).forEach((key: string) => {
+      const value = (this as any)[key];
+      if (getNumber(value) > 0) {
+        keys.push(key);
+      }
+    });
+    return keys;
+  }
 }

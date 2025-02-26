@@ -27,11 +27,12 @@
       <v-text-field v-model="resonator.data.main_skill_bonus" :label="$t('general.main_skill_bonus')"
         readonly></v-text-field>
     </div>
-    <div class="d-flex flex-row mb-2">
-      <span>{{ $t('general.stat_bonus') }}</span>
-    </div>
-    <div v-for="key in StatBuffEnum" class="d-flex flex-row" :key="key">
-      <div v-if="resonator.data.stat_bonus[key]" class="d-flex flex-column w-100">
+    <div v-if="resonator.data.stat_bonus.getKeys().length > 0" class="d-flex flex-column w-100"
+      :key="resonator.data.stat_bonus.getKeys().length">
+      <div class="d-flex flex-row mb-2">
+        <span>{{ $t('general.stat_bonus') }}</span>
+      </div>
+      <div v-for="key in resonator.data.stat_bonus.getKeys()" class="d-flex flex-row" :key="key">
         <v-text-field v-model="resonator.data.stat_bonus[key]" :label="$t(`general.${key}`)" readonly>
         </v-text-field>
       </div>

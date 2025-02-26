@@ -9,21 +9,23 @@
       </v-text-field>
     </div>
     <!-- Main affixes -->
-    <div class="d-flex flex-row mb-2">
-      <span>{{ $t('general.main_affix') }}</span>
-    </div>
-    <div v-for="key in StatBuffEnum" class="d-flex flex-row" :key="key">
-      <div v-if="Number(echoes.data.main_affix[key]) > 0" class="d-flex flex-column w-100">
+    <div v-if="echoes.data.main_affix.getKeys().length > 0" class="d-flex flex-column w-100"
+      :key="echoes.data.main_affix.getKeys().length">
+      <div class="d-flex flex-row mb-2">
+        <span>{{ $t('general.main_affix') }}</span>
+      </div>
+      <div v-for="key in echoes.data.main_affix.getKeys()" class="d-flex flex-column w-100" :key="key">
         <v-text-field v-model="echoes.data.main_affix[key]" :label="$t(`general.${key}`)" readonly>
         </v-text-field>
       </div>
     </div>
     <!-- Sub affixes -->
-    <div class="d-flex flex-row mb-2">
-      <span>{{ $t('general.sub_affix') }}</span>
-    </div>
-    <div v-for="key in StatBuffEnum" class="d-flex flex-row" :key="key">
-      <div v-if="Number(echoes.data.sub_affix[key]) > 0" class="d-flex flex-column w-100">
+    <div v-if="echoes.data.sub_affix.getKeys().length > 0" class="d-flex flex-column w-100"
+      :key="echoes.data.sub_affix.getKeys().length">
+      <div class="d-flex flex-row mb-2">
+        <span>{{ $t('general.sub_affix') }}</span>
+      </div>
+      <div v-for="key in echoes.data.sub_affix.getKeys()" class="d-flex flex-column w-100" :key="key">
         <v-text-field v-model="echoes.data.sub_affix[key]" :label="$t(`general.${key}`)" readonly>
         </v-text-field>
       </div>
