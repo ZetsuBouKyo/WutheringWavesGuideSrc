@@ -9,6 +9,9 @@ export const useRowEchoesStore = (id: string) => {
       data: new RowEchoes(),
     }),
     actions: {
+      resetPolicy() {
+        this.data.resetPolicy();
+      },
       getEcho(i: number) {
         return this.data.getEcho(i);
       },

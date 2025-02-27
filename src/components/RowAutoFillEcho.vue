@@ -13,7 +13,7 @@
         @update:modelValue="updateEchoName1"></v-combobox>
     </div>
     <div class="d-flex flex-row">
-      <v-select v-model="echoPolicy" :items="getEchoPolicyItems()" :label="$t('general.echo_policy')"
+      <v-select v-model="echoes.data.policy" :items="getEchoPolicyItems()" :label="$t('general.echo_policy')"
         @update:modelValue="updateEchoes"></v-select>
     </div>
     <div v-for="(e, i) in echoes.data.echoes" class="d-flex flex-row" :key="i">
@@ -23,7 +23,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import { AffixPolicyEnum } from "@/types/affix"
@@ -48,7 +47,6 @@ const props = defineProps({
 const id = props.id
 const echoes = useRowEchoesStore(id)
 const echoItems = echoStore.getEchoItemsForCalculation()
-const echoPolicy = ref<string>("")
 
 const resonator = useRowResonatorStore(id)
 const weapon = useRowWeaponStore(id)
@@ -63,7 +61,7 @@ function updateEchoName1(item: { title: string, value: any }) {
 }
 
 function updateEchoes() {
-  const policy = echoPolicy.value
+  const policy = echoes.data.policy
   if (!policy) {
     return
   }

@@ -22,12 +22,12 @@
       <v-text-field v-model="resonator.data.skill.dmg" :label="$t('general.skill_damage_ratio')"></v-text-field>
     </div>
     <div class="d-flex flex-row">
-      <v-select v-model="resonator.data.base_attr" :items="getResonatorBaseAttrs()"
-        :label="$t('general.base_attr')"></v-select>
+      <v-select v-model="resonator.data.base_attr" :items="getResonatorBaseAttrs()" :label="$t('general.base_attr')"
+        @update:modelValue="updateEchoes"></v-select>
     </div>
     <div class="d-flex flex-row">
       <v-select v-model="resonator.data.main_skill_bonus" :items="getResonatorMainSkillBonus()"
-        :label="$t('general.main_skill_bonus')"></v-select>
+        :label="$t('general.main_skill_bonus')" @update:modelValue="updateEchoes"></v-select>
     </div>
     <!-- Skill -->
     <div class="d-flex flex-row mb-2">
@@ -143,9 +143,12 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import { useRowResonatorStore } from '@/stores/calculation/resonator';
+import { useRowWeaponStore } from '@/stores/calculation/weapon';
 import { useResonatorStore } from '@/stores/resonator';
+import { useRowEchoesStore } from '@/stores/calculation/echoes';
 
 import { getResonatorBaseAttrs, getResonatorMainSkillBonus } from '@/ww/resonator';
+import { RowAutoFillEchoes } from "@/ww/echoes"
 
 const props = defineProps({
   id: {
@@ -166,6 +169,9 @@ const resonatorSkillLevels = resonatorStore.getSkillLevels()
 
 const resonator = useRowResonatorStore(id)
 const resonatorSkillItems = ref<any>([])
+
+const weapon = useRowWeaponStore(id)
+const echoes = useRowEchoesStore(id)
 
 function checkResonatorName(name: string) {
   if (resonatorNames.includes(name)) {
@@ -199,6 +205,12 @@ function checkResonatorSkill(new_item: any) {
     }
   }
   return t('general.error')
+}
+
+function updateEchoes() {
+  const policy = echoes.data.policy
+  const auto = new RowAutoFillEchoes(resonator, weapon, echoes.data.echoes, [], policy)
+  auto.update43311()
 }
 </script>
 

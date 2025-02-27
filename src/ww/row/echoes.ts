@@ -10,11 +10,16 @@ export class RowEchoesSummary {
 }
 
 export class RowEchoes {
-  public summary: RowEchoesSummary = new RowEchoesSummary();
+  public policy: string = "";
   public echoes: Array<RowEcho> = [];
+  public summary: RowEchoesSummary = new RowEchoesSummary();
 
   constructor() {
     this.echoes = Array.from({ length: 5 }, (_, __) => new RowEcho());
+  }
+
+  public resetPolicy() {
+    this.policy = "";
   }
 
   public resetSummary() {
