@@ -25,6 +25,7 @@ declare module 'vue' {
     RowResonator: typeof import('./components/RowResonator.vue')['default']
     RowResonatorResult: typeof import('./components/RowResonatorResult.vue')['default']
     RowWeapon: typeof import('./components/RowWeapon.vue')['default']
+    RowWeaponResult: typeof import('./components/RowWeaponResult.vue')['default']
     TeamTier: typeof import('./components/TeamTier.vue')['default']
   }
 }

@@ -74,6 +74,10 @@
               </div>
               <RowResonatorResult :id="id" />
               <div class="d-flex flex-row mb-2">
+                <h2>{{ $t('general.weapon') }}</h2>
+              </div>
+              <RowWeaponResult :id="id" />
+              <div class="d-flex flex-row mb-2">
                 <h2>{{ $t('general.echo') }}</h2>
               </div>
               <RowEchoResult :id="id" />

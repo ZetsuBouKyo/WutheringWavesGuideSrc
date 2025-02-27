@@ -5,10 +5,12 @@
         @update:modelValue="weapon.updateRowWeaponByName()"></v-combobox>
     </div>
     <div class="d-flex flex-row">
-      <v-select v-model="weapon.data.level" :items="weaponLevels" :label="$t('general.level')"></v-select>
+      <v-select v-model="weapon.data.level" :items="weapon.data.getLevels()" :label="$t('general.level')"
+        @update:modelValue="weapon.updateRowWeaponByName()"></v-select>
     </div>
     <div class="d-flex flex-row">
-      <v-select v-model="weapon.data.tune" :items="weaponTunes" :label="$t('general.tune')"></v-select>
+      <v-select v-model="weapon.data.tune" :items="weaponTunes" :label="$t('general.tune')"
+        @update:modelValue="weapon.updateRowWeaponByName()"></v-select>
     </div>
   </div>
 </template>
@@ -33,7 +35,6 @@ const { t } = useI18n()
 
 const weaponStore = useWeaponStore()
 const weaponNames = weaponStore.getNames()
-const weaponLevels = weaponStore.getLevels()
 const weaponTunes = weaponStore.getTunes()
 
 const weapon = useRowWeaponStore(id)

@@ -101,9 +101,6 @@ export const useWeaponStore = defineStore("weapon", {
     getTunes(): Array<string> {
       return new Array("1", "2", "3", "4", "5");
     },
-    getLevels(): Array<string> {
-      return new Array("1", "20", "20+", "40", "40+", "50", "50+", "60", "60+", "70", "70+", "80", "80+", "90");
-    },
     getNoByName(name: string): string {
       return name2no[name];
     },

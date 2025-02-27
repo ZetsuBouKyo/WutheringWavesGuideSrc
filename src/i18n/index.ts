@@ -39,6 +39,7 @@ const i18n = createI18n({
         nth_sonata: "合鳴{n}",
         error: "錯誤",
         stat_bonus: "屬性加成",
+        passive_stat_bonus: "被動屬性加成",
         calculate: "計算",
         monster: "怪物",
         back_to: "回到{to}",

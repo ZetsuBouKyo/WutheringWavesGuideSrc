@@ -1,3 +1,5 @@
+import { getNumber } from "./utils";
+
 export class WeaponInfo {
   public no: string = "";
   public name: string = "";
@@ -12,6 +14,16 @@ export class WeaponInfo {
 
   constructor(info: any) {
     Object.assign(this, info);
+  }
+
+  public getMaxLevel(): string {
+    const attrs = this.attrs;
+    let m = getNumber(0);
+    for (const attr of attrs) {
+      const level = getNumber(attr.lv);
+      m = Math.max(m, level);
+    }
+    return m.toString();
   }
 
   public getAtk(level: string): string {
