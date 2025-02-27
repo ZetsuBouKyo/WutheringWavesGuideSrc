@@ -77,7 +77,7 @@ export class RowWeapon {
       const stat_bonus = info.getStatBonus(level);
       Object.keys(stat_bonus).forEach((key: string) => {
         const value = stat_bonus[key] as string;
-        (this.stat_bonus as any)[key] = value;
+        (this.stat_bonus as any)[key] = getNumber(value).toString();
       });
     }
 
@@ -86,7 +86,7 @@ export class RowWeapon {
       const passive_buff = info.getPassiveStatBonus(this.tune);
       Object.keys(passive_buff).forEach((key: string) => {
         const value = passive_buff[key] as string;
-        (this.passive_stat_bonus as any)[key] = value;
+        (this.passive_stat_bonus as any)[key] = getNumber(value).toString();
       });
     }
   }
