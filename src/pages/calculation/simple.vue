@@ -6,6 +6,7 @@
           <v-tab value="resonator">{{ $t('general.resonator') }}</v-tab>
           <v-tab value="echo">{{ $t('general.echo') }}</v-tab>
           <v-tab value="monster">{{ $t('general.monster') }}</v-tab>
+          <v-tab value="buff">{{ $t('general.buff') }}</v-tab>
           <v-tab value="result">{{ $t('calculation.result') }}</v-tab>
         </v-tabs>
         <div class="d-flex flex-row align-center ml-auto">
@@ -66,6 +67,21 @@
             </div>
           </div>
         </v-tabs-window-item>
+        <v-tabs-window-item value="buff">
+          <div class="d-flex flex-row w-100">
+            <!-- <div class="d-flex flex-column w-100 mr-6">
+              <div class="d-flex flex-row mb-2">
+                <h2>{{ $t('general.quick_input') }}</h2>
+              </div>
+            </div> -->
+            <div class="d-flex flex-column w-100">
+              <div class="d-flex flex-row mb-2">
+                <h2>{{ $t('general.manual_input') }}</h2>
+              </div>
+              <RowManualBuff :id="id" />
+            </div>
+          </div>
+        </v-tabs-window-item>
         <v-tabs-window-item value="result">
           <div class="d-flex flex-row w-100">
             <div class="d-flex flex-column w-100 mr-6">
@@ -85,6 +101,10 @@
                 <h2>{{ $t('general.monster') }}</h2>
               </div>
               <RowMonsterResult :id="id" />
+              <div class="d-flex flex-row mb-2">
+                <h2>{{ $t('general.buff') }}</h2>
+              </div>
+              <RowBuffResult :id="id" />
             </div>
             <div class="d-flex flex-column w-100">
               <div class="d-flex flex-row mb-2">
@@ -109,6 +129,7 @@ import { ref } from 'vue'
 import { useRowResonatorStore } from '@/stores/calculation/resonator';
 import { useRowWeaponStore } from '@/stores/calculation/weapon';
 import { useRowEchoesStore } from '@/stores/calculation/echoes'
+import { useRowBuffsStore } from '@/stores/calculation/buffs';
 
 const id = "simple"
 
@@ -116,6 +137,7 @@ const tab = ref<string>("")
 const resonator = useRowResonatorStore(id)
 const weapon = useRowWeaponStore(id)
 const echoes = useRowEchoesStore(id)
+const buffs = useRowBuffsStore(id)
 
 async function calculate() {
   const skill = resonator.data._skill_item.value
@@ -127,10 +149,7 @@ async function calculate() {
   tab.value = "result"
   resonator.updateSkill()
   echoes.updateSummaryByEchoes()
-
-  console.log(resonator)
-  console.log(weapon)
-  console.log(echoes)
+  buffs.updateSummary()
 }
 </script>
 

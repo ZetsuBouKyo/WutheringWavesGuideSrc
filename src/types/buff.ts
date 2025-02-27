@@ -1,3 +1,20 @@
+export const BuffTypeKeyEnum = {
+  SKILL_DMG_ADDITION: "skill_dmg_addition",
+  MAGNIFIER: "magnifier",
+  AMPLIFIER: "amplifier",
+  BONUS: "bonus",
+  HP_P: "hp_p",
+  HP: "hp",
+  ATK_P: "atk_p",
+  ATK: "atk",
+  DEF_P: "def_p",
+  DEF: "def",
+  CRIT_RATE: "crit_rate",
+  CRIT_DMG: "crit_dmg",
+  IGNORE_DEF: "ignore_def",
+  REDUCE_RES: "reduce_res",
+} as const;
+
 export const BuffTypeEnum = {
   SKILL_DMG_ADDITION: "招式倍率",
   MAGNIFIER: "倍率",
@@ -14,6 +31,8 @@ export const BuffTypeEnum = {
   IGNORE_DEF: "忽視防禦",
   REDUCE_RES: "抗性降低",
 } as const;
+
+export type TBuffTypeEnum = (typeof BuffTypeEnum)[keyof typeof BuffTypeEnum] | string;
 
 export const ElementBonusEnum = {
   GLACIO: "冷凝",

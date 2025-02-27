@@ -28,8 +28,13 @@ const i18n = createI18n({
         result: "計算結果",
       },
       general: {
+        ignore_def: "忽視防禦",
+        reduce_res: "抗性降低",
+        fixed_value: "固定數值",
+        percentage: "百分比",
         manual_input: "手動輸入",
         auto_fill: "自動帶入",
+        quick_input: "快捷輸入",
         main_affix: "主詞條",
         fixed_main_affix: "固定主詞條",
         sub_affix: "副詞條",

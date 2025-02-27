@@ -79,15 +79,31 @@ export async function saveDomToImage(ref: any, fname: string) {
 }
 
 export function getNumber(a: any): number {
+  let n: number = 0;
   if (!a) {
-    return 0;
+    return n;
   }
-  let n = Number(a);
-  if (!n) {
-    n = parseFloat(a);
-    if (!n) {
-      return 0;
-    }
+  switch (typeof a) {
+    case "string":
+      if (a.includes("%")) {
+        n = parseFloat(a) / 100;
+      } else {
+        n = Number(a);
+        if (!n) {
+          n = parseFloat(a);
+          if (!n) {
+            return 0;
+          }
+        }
+      }
+      break;
+    case "number":
+    default:
+      n = Number(a);
+      if (!n) {
+        n = 0;
+      }
+      break;
   }
   n = Number(n.toFixed(6).toString());
   return n;
