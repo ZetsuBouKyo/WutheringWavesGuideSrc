@@ -1,5 +1,5 @@
 import { SkillBonusEnum } from "@/types/buff";
-import { SkillAttrEnum } from "@/types/skill";
+import { SkillAttrEnum, SkillTypeEnum, type TSkillTypeEnum } from "@/types/skill";
 
 import { StatBuff } from "./buff";
 
@@ -50,11 +50,43 @@ export class ResonatorInfo {
     return "";
   }
 
+  public getHtmlInfoBySkillType(type: TSkillTypeEnum): string {
+    let title: string = "";
+    let text: string = "";
+    switch (type) {
+      case SkillTypeEnum.NORMAL_ATTACK:
+        title = `【${SkillTypeEnum.NORMAL_ATTACK}】${this.skill_infos.normal_attack.name}<br /><br />`;
+        text = this.skill_infos.normal_attack.description.replace(/\n/g, "<br />");
+        break;
+      case SkillTypeEnum.RESONANCE_SKILL:
+        title = `【${SkillTypeEnum.RESONANCE_SKILL}】${this.skill_infos.resonance_skill.name}<br /><br />`;
+        text = this.skill_infos.resonance_skill.description.replace(/\n/g, "<br />");
+        break;
+      case SkillTypeEnum.FORTE_CIRCUIT:
+        title = `【${SkillTypeEnum.FORTE_CIRCUIT}】${this.skill_infos.forte_circuit.name}<br /><br />`;
+        text = this.skill_infos.forte_circuit.description.replace(/\n/g, "<br />");
+        break;
+      case SkillTypeEnum.RESONANCE_LIBERATION:
+        title = `【${SkillTypeEnum.RESONANCE_LIBERATION}】${this.skill_infos.resonance_liberation.name}<br /><br />`;
+        text = this.skill_infos.resonance_liberation.description.replace(/\n/g, "<br />");
+        break;
+      case SkillTypeEnum.INTRO_SKILL:
+        title = `【${SkillTypeEnum.INTRO_SKILL}】${this.skill_infos.intro_skill.name}<br /><br />`;
+        text = this.skill_infos.intro_skill.description.replace(/\n/g, "<br />");
+        break;
+      default:
+        return "";
+    }
+    return title + text;
+  }
+
   public getDamageSkillItems(): Array<{ title: string; value: any }> {
     const items: Array<{ title: string; value: any }> = [];
     const skills = this.skills;
     skills.forEach((skill: any) => {
       if (skill.id && skill.type === "Damage") {
+        const skillType = skill.skill_type;
+        skill.tooltip = this.getHtmlInfoBySkillType(skillType);
         items.push({ title: skill.id, value: skill });
       }
     });
