@@ -152,10 +152,6 @@ monster.updateByMonsterItem(monsterItems[1].value)
 
 async function calculate() {
   tab.value = "result"
-  resonator.updateSkill()
-  echoes.updateSummaryByEchoes()
-  buffs.updateSummary()
-
   calculation.value = undefined
   await nextTick();
   calculation.value = new RowCalculation(resonator.data, weapon.data, echoes.data, buffs.data, monster.data)

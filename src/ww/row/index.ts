@@ -94,7 +94,6 @@ export class RowCalculation {
   }
 
   public getRowBuffs(): Array<RowBuff> {
-    this.data.resonator.updateSkill();
     this.data.echoes.updateSummaryByEchoes();
     this.data.buffs.updateSummary();
 
