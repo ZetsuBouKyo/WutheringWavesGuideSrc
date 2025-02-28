@@ -1,16 +1,18 @@
 import { useResonatorStore } from "@/stores/resonator";
 
-import { SkillBonusEnum } from "@/types/buff";
-import { SkillTypeEnum } from "@/types/skill";
+import { BaseTypeEnum, BuffTypeEnum, RowBuffCategoryEnum, SkillBonusEnum, type TElementBonusEnum } from "@/types/buff";
+import { SkillAttrEnum, SkillTypeEnum, type TSkillAttrEnum, type TSkillTypeEnum } from "@/types/skill";
 
 import { StatBuff } from "@/ww/buff";
+import { RowBuff } from "@/ww/row/buff";
+import { getNumber } from "@/ww/utils";
 
 export class RowResonatorSkill {
   public id: string = "";
-  public type: string = "";
-  public base_attr: string = "";
+  public type: TSkillTypeEnum = "";
+  public base_attr: TSkillAttrEnum = "";
   public bonus_types: Array<string> = [];
-  public elment_zh_tw: string = "";
+  public elment_zh_tw: TElementBonusEnum = "";
   public dmg: string = "";
 }
 
@@ -18,8 +20,6 @@ export class RowResonator {
   public id: string = "";
   public no: string = "";
   public name: string = "";
-  public base_attr: string = "";
-  public main_skill_bonus: string = "";
   public element_zh_tw: string = "";
   public level: string = "90";
   public chain: string = "1";
@@ -36,6 +36,71 @@ export class RowResonator {
   public stat_bonus: StatBuff = new StatBuff();
   public skill: RowResonatorSkill = new RowResonatorSkill();
   public _skill_item: { title: string; value: RowResonatorSkill | undefined } = { title: "", value: undefined };
+
+  public getBaseAttrs(): Array<RowBuff> {
+    const buffs: Array<RowBuff> = [];
+
+    const buff = new RowBuff();
+    buff.stack = "1";
+
+    let value: string;
+    let source: string = this.skill.base_attr;
+    switch (this.skill.base_attr) {
+      case SkillAttrEnum.HP:
+        value = getNumber(this.hp).toString();
+        break;
+      case SkillAttrEnum.DEF:
+        value = getNumber(this.def).toString();
+        break;
+      case SkillAttrEnum.ATK:
+      default:
+        value = getNumber(this.atk).toString();
+        source = this.skill.base_attr;
+        break;
+    }
+    if (this.name) {
+      source = `${this.name}-${source}`;
+    }
+    buff.category = RowBuffCategoryEnum.ATTR;
+    buff.source = source;
+    buff.value = value;
+    buff.type = BaseTypeEnum.ATTR;
+    buff.updateId();
+
+    buffs.push(buff);
+
+    return buffs;
+  }
+
+  public getRowBuffs(): Array<RowBuff> {
+    return this.stat_bonus.getRowBuffs(this.name);
+  }
+
+  public getSkillRowBuffs(): Array<RowBuff> {
+    const buffs: Array<RowBuff> = [];
+    const buff = new RowBuff();
+    buff.category = RowBuffCategoryEnum.RESONATOR;
+    buff.type = BuffTypeEnum.SKILL_DMG_ADDITION;
+    buff.value = getNumber(this.skill.dmg).toString();
+    buff.stack = "1";
+
+    let source: string = "";
+    if (this.name) {
+      source = this.name;
+    }
+    if (this.skill.type) {
+      source = `${source}-${this.skill.type}`;
+    }
+    if (this.skill.id) {
+      source = `${source}-${this.skill.id}`;
+    }
+    buff.source = source;
+    buff.updateId();
+    if (buff.value) {
+      buffs.push(buff);
+    }
+    return buffs;
+  }
 
   public async updateByName() {
     const resonatorStore = useResonatorStore();
@@ -54,6 +119,14 @@ export class RowResonator {
 
     const info = await resonatorStore.getInfoByName(name);
     this.element_zh_tw = info.element_zh_tw;
+
+    // Base attr
+    const level = this.level;
+    this.hp = info.getHp(level);
+    this.atk = info.getAtk(level);
+    this.def = info.getDef(level);
+
+    // Stat bonus
     const stat_bonus = info.stat_bonus;
     Object.keys(stat_bonus).forEach((key: string) => {
       const value = (stat_bonus as any)[key];
@@ -86,7 +159,7 @@ export class RowResonator {
     this.skill.dmg = skill[`lv${level}`];
   }
 
-  public updateSkill(skill: any) {
+  public updateSkill(skill: any = undefined) {
     if (!skill) {
       if (!this._skill_item) {
         return;

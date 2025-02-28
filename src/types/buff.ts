@@ -1,3 +1,7 @@
+export const BaseTypeEnum = {
+  ATTR: "基礎屬性",
+} as const;
+
 export const BuffTypeKeyEnum = {
   SKILL_DMG_ADDITION: "skill_dmg_addition",
   MAGNIFIER: "magnifier",
@@ -31,7 +35,6 @@ export const BuffTypeEnum = {
   IGNORE_DEF: "忽視防禦",
   REDUCE_RES: "抗性降低",
 } as const;
-
 export type TBuffTypeEnum = (typeof BuffTypeEnum)[keyof typeof BuffTypeEnum] | string;
 
 export const ElementBonusEnum = {
@@ -42,6 +45,7 @@ export const ElementBonusEnum = {
   SPECTRO: "衍射",
   HAVOC: "湮滅",
 } as const;
+export type TElementBonusEnum = (typeof ElementBonusEnum)[keyof typeof ElementBonusEnum] | string;
 
 export const SkillBonusEnum = {
   BASIC: "普攻",
@@ -54,6 +58,7 @@ export const SkillBonusEnum = {
   COORDINATED_ATTACK: "協同攻擊",
   NONE: "無",
 } as const;
+export type TSkillBonusEnum = (typeof SkillBonusEnum)[keyof typeof SkillBonusEnum] | string;
 
 export const BonusEnum = { ...ElementBonusEnum, ...SkillBonusEnum } as const;
 
@@ -124,7 +129,6 @@ export const StatBuffEnum = {
   BONUS_RESONANCE_LIBERATION: "bonus_resonance_liberation",
   BONUS_HEALING: "bonus_healing",
 } as const;
-
 export type TStatBuffEnum = (typeof StatBuffEnum)[keyof typeof StatBuffEnum] | string;
 
 export const StatBuffZhTwEnum = {
@@ -153,5 +157,29 @@ export const StatBuffZhTwEnum = {
   BONUS_RESONANCE_LIBERATION: "共鳴解放傷害加成",
   BONUS_HEALING: "治療效果加成",
 } as const;
-
 export type TStatBuffZhTwEnum = (typeof StatBuffZhTwEnum)[keyof typeof StatBuffZhTwEnum] | string;
+
+// Parameters used to determine how tooltips are retrieved.
+export const RowBuffCategoryEnum = {
+  BASE: "基礎",
+  ATTR: BaseTypeEnum.ATTR,
+  RESONATOR: "共鳴者",
+  WEAPON: "武器",
+  ECHO: "聲骸",
+  MONSTER: "怪物",
+  SONATA: "合鳴",
+  STAT: "屬性加成",
+  // BUFF
+  MANUAL: "手動",
+} as const;
+export type TRowBuffCategoryEnum = (typeof RowBuffCategoryEnum)[keyof typeof RowBuffCategoryEnum] | string;
+
+export const RowBuffSourceEnum = {
+  // Weapon
+  PASSIVE: "被動",
+  TUNE: "諧振",
+  // Echos
+  MAIN_SLOT: "首位裝配",
+  MAIN_AFFIX: "主詞條",
+  SUB_AFFIX: "副詞條",
+} as const;

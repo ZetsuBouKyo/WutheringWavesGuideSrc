@@ -1,8 +1,14 @@
+import { SkillAttrEnum } from "@/types/skill";
+import { BaseTypeEnum, RowBuffCategoryEnum, RowBuffSourceEnum } from "@/types/buff";
+
 import { useWeaponStore } from "@/stores/weapon";
 
 import { StatBuff } from "@/ww/buff";
 import { WeaponInfo } from "@/ww/weapon";
 import { getNumber } from "@/ww/utils";
+
+import { RowBuff } from "@/ww/row/buff";
+
 export class RowWeapon {
   public no: string = "";
   public name: string = "";
@@ -14,6 +20,45 @@ export class RowWeapon {
   public stat_bonus: StatBuff = new StatBuff();
   public passive_stat_bonus: StatBuff = new StatBuff();
   public _info: WeaponInfo | undefined = undefined;
+
+  public getBaseAttrs(): Array<RowBuff> {
+    const buffs: Array<RowBuff> = [];
+    const buff = new RowBuff();
+
+    let source: string = SkillAttrEnum.ATK;
+    if (this.name) {
+      source = `${this.name}-${source}`;
+    }
+    buff.source = source;
+
+    buff.category = RowBuffCategoryEnum.ATTR;
+    buff.value = this.atk;
+    buff.stack = "1";
+    buff.type = BaseTypeEnum.ATTR;
+    buff.updateId();
+
+    if (buff.value) {
+      buffs.push(buff);
+    }
+    return buffs;
+  }
+
+  public getRowBuffs(): Array<RowBuff> {
+    let source: string = "";
+    if (this.name) {
+      source = this.name;
+    }
+    if (this.tune) {
+      source = `${source}-${this.tune}${RowBuffSourceEnum.TUNE}`;
+    }
+
+    let passiveSource = `${source}-${RowBuffSourceEnum.PASSIVE}`;
+    const passiveBuffs = this.passive_stat_bonus.getRowBuffs(passiveSource);
+
+    const statBuffs = this.stat_bonus.getRowBuffs(source);
+
+    return [...statBuffs, ...passiveBuffs];
+  }
 
   public getMaxLevel(): string {
     if (!this._info) {

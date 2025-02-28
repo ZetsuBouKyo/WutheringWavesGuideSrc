@@ -1,11 +1,11 @@
 <template>
   <div class="d-flex flex-column w-100">
     <div class="d-flex flex-row">
-      <v-select v-model="resonator.data.base_attr" :items="getResonatorBaseAttrs()" :label="$t('general.base_attr')"
+      <v-select v-model="echoes.data.base_attr" :items="getResonatorBaseAttrs()" :label="$t('general.base_attr')"
         @update:modelValue="updateEchoes"></v-select>
     </div>
     <div class="d-flex flex-row">
-      <v-select v-model="resonator.data.main_skill_bonus" :items="getResonatorMainSkillBonus()"
+      <v-select v-model="echoes.data.main_skill_bonus" :items="getResonatorMainSkillBonus()"
         :label="$t('general.main_skill_bonus')" @update:modelValue="updateEchoes"></v-select>
     </div>
     <div class="d-flex flex-row">
@@ -61,11 +61,7 @@ function updateEchoName1(item: { title: string, value: any }) {
 }
 
 function updateEchoes() {
-  const policy = echoes.data.policy
-  if (!policy) {
-    return
-  }
-  const auto = new RowAutoFillEchoes(resonator, weapon, echoes.data.echoes, [], policy)
+  const auto = new RowAutoFillEchoes(resonator.data, weapon.data, echoes.data)
   auto.update43311()
 }
 

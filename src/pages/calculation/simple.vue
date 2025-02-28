@@ -110,6 +110,7 @@
               <div class="d-flex flex-row mb-2">
                 <h2>{{ $t('general.result') }}</h2>
               </div>
+              <RowDetailedDamage v-if="calculation" :calculation="calculation" />
             </div>
           </div>
         </v-tabs-window-item>
@@ -130,6 +131,10 @@ import { useRowResonatorStore } from '@/stores/calculation/resonator';
 import { useRowWeaponStore } from '@/stores/calculation/weapon';
 import { useRowEchoesStore } from '@/stores/calculation/echoes'
 import { useRowBuffsStore } from '@/stores/calculation/buffs';
+import { useRowMonsterStore } from '@/stores/calculation/monster';
+import { useMonsterStore } from '@/stores/monster';
+
+import { RowCalculation } from '@/ww/row';
 
 const id = "simple"
 
@@ -138,18 +143,23 @@ const resonator = useRowResonatorStore(id)
 const weapon = useRowWeaponStore(id)
 const echoes = useRowEchoesStore(id)
 const buffs = useRowBuffsStore(id)
+const monster = useRowMonsterStore(id)
+const calculation = ref<RowCalculation | undefined>(undefined)
+
+const monsterStore = useMonsterStore()
+const monsterItems = monsterStore.getMonsterItems()
+monster.updateByMonsterItem(monsterItems[1].value)
 
 async function calculate() {
-  const skill = resonator.data._skill_item.value
-  if (!skill || !resonator.data.main_skill_bonus || !resonator.data.base_attr) {
-    tab.value = "resonator"
-    return
-  }
-
   tab.value = "result"
   resonator.updateSkill()
   echoes.updateSummaryByEchoes()
   buffs.updateSummary()
+
+  calculation.value = undefined
+  await nextTick();
+  calculation.value = new RowCalculation(resonator.data, weapon.data, echoes.data, buffs.data, monster.data)
+  calculation.value.calculate()
 }
 </script>
 

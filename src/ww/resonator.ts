@@ -20,11 +20,41 @@ export class ResonatorInfo {
     Object.assign(this, info);
   }
 
-  public getSkillItems(): Array<{ title: string; value: any }> {
+  public getHp(level: string): string {
+    const attrs = this.attrs;
+    for (const attr of attrs) {
+      if (attr.lv === level) {
+        return attr.hp;
+      }
+    }
+    return "";
+  }
+
+  public getAtk(level: string): string {
+    const attrs = this.attrs;
+    for (const attr of attrs) {
+      if (attr.lv === level) {
+        return attr.atk;
+      }
+    }
+    return "";
+  }
+
+  public getDef(level: string): string {
+    const attrs = this.attrs;
+    for (const attr of attrs) {
+      if (attr.lv === level) {
+        return attr.def;
+      }
+    }
+    return "";
+  }
+
+  public getDamageSkillItems(): Array<{ title: string; value: any }> {
     const items: Array<{ title: string; value: any }> = [];
     const skills = this.skills;
     skills.forEach((skill: any) => {
-      if (skill.id) {
+      if (skill.id && skill.type === "Damage") {
         items.push({ title: skill.id, value: skill });
       }
     });

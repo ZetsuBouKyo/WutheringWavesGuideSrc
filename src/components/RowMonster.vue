@@ -26,8 +26,6 @@ const monsterItems = monsterStore.getMonsterItems()
 
 const monster = useRowMonsterStore(id)
 
-monster.updateByMonsterItem(monsterItems[1].value)
-
 function updateRowMonsterByItem(item: any) {
   monster.updateByMonsterItem(item)
 }

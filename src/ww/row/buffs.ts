@@ -1,18 +1,7 @@
-import { BuffTypeKeyEnum, type TBuffTypeEnum } from "@/types/buff";
+import { RowBuffCategoryEnum, BuffTypeEnum, BuffTypeKeyEnum, type TBuffTypeEnum } from "@/types/buff";
 
+import { RowBuff } from "./buff";
 import { getNumber } from "../utils";
-
-export class RowBuff {
-  public id: string = "";
-  public source: string = "";
-  public type: TBuffTypeEnum = "";
-  public value: string = "";
-  public stack: string = "";
-  public duration: string = "";
-  public target: string = "";
-  public element: string = "";
-  public skill_bonus_type: string = "";
-}
 
 export class RowBuffSummary {
   public [BuffTypeKeyEnum.SKILL_DMG_ADDITION]: string = "";
@@ -57,6 +46,24 @@ export class RowBuffSummary {
     });
     return keys;
   }
+
+  public getRowBuffs(): Array<RowBuff> {
+    const buffs: Array<RowBuff> = [];
+    const keys = this.getKeys();
+    keys.forEach((key: string) => {
+      const type = BuffTypeEnum[key.toUpperCase() as keyof typeof BuffTypeEnum];
+      const value = getNumber((this as any)[key]).toString();
+      const buff = new RowBuff();
+      buff.category = RowBuffCategoryEnum.MANUAL;
+      buff.source = RowBuffCategoryEnum.MANUAL;
+      buff.type = type;
+      buff.value = value;
+      buff.stack = "1";
+      buff.updateId();
+      buffs.push(buff);
+    });
+    return buffs;
+  }
 }
 
 export class RowBuffs {
@@ -64,6 +71,10 @@ export class RowBuffs {
   public manual: RowBuffSummary = new RowBuffSummary();
   // buffs + manual
   public summary: RowBuffSummary = new RowBuffSummary();
+
+  public getRowBuffs(): Array<RowBuff> {
+    return [...this.summary.getRowBuffs()];
+  }
 
   public updateSummary() {
     this.summary.reset();

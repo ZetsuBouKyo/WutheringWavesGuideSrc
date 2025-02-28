@@ -98,9 +98,9 @@ export const useResonatorStore = defineStore("resonator", {
       const elementSrc = await this.getElementSrcByNo(no);
       return elementSrc;
     },
-    async getSkillItems(name: string): Promise<any> {
+    async getDamageSkillItems(name: string): Promise<any> {
       const info = await this.getInfoByName(name);
-      return info.getSkillItems();
+      return info.getDamageSkillItems();
     },
   },
 });

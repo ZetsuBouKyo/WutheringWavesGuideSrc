@@ -19,6 +19,9 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     RowAutoFillEcho: typeof import('./components/RowAutoFillEcho.vue')['default']
     RowBuffResult: typeof import('./components/RowBuffResult.vue')['default']
+    RowDetailedDamage: typeof import('./components/RowDetailedDamage.vue')['default']
+    RowDetailedDamageNumber: typeof import('./components/RowDetailedDamageNumber.vue')['default']
+    RowDetailedDamageNumbers: typeof import('./components/RowDetailedDamageNumbers.vue')['default']
     RowEcho: typeof import('./components/RowEcho.vue')['default']
     RowEchoResult: typeof import('./components/RowEchoResult.vue')['default']
     RowManualBuff: typeof import('./components/RowManualBuff.vue')['default']
@@ -28,6 +31,7 @@ declare module 'vue' {
     RowResonatorResult: typeof import('./components/RowResonatorResult.vue')['default']
     RowWeapon: typeof import('./components/RowWeapon.vue')['default']
     RowWeaponResult: typeof import('./components/RowWeaponResult.vue')['default']
+    SimpleCalculatorResult: typeof import('./components/SimpleCalculatorResult.vue')['default']
     TeamTier: typeof import('./components/TeamTier.vue')['default']
   }
 }

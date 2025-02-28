@@ -3,6 +3,7 @@ export const SkillAttrEnum = {
   ATK: "攻擊",
   DEF: "防禦",
 } as const;
+export type TSkillAttrEnum = (typeof SkillAttrEnum)[keyof typeof SkillAttrEnum] | string;
 
 export const SkillTypeEnum = {
   NORMAL_ATTACK: "常態攻擊",
@@ -11,3 +12,4 @@ export const SkillTypeEnum = {
   RESONANCE_LIBERATION: "共鳴解放",
   INTRO_SKILL: "變奏技能",
 } as const;
+export type TSkillTypeEnum = (typeof SkillTypeEnum)[keyof typeof SkillTypeEnum] | string;

@@ -2,31 +2,30 @@ import { AffixPolicyEnum } from "@/types/affix";
 import { ElementBonusEnum, SkillBonusEnum, AbbrSkillBonusEnum, type TAbbrBonusEnum, StatBuffEnum } from "@/types/buff";
 import { SkillAttrEnum } from "@/types/skill";
 
-import { getAffixLabelByKey, getFixedMainAffixes, getMainAffixes } from "./echo";
-import { RowEcho } from "./row/echo";
-import { StatBuff } from "./buff";
+import { getAffixLabelByKey, getFixedMainAffixes, getMainAffixes } from "@/ww/echo";
+import { StatBuff } from "@/ww/buff";
+
+import { RowResonator } from "@/ww/row/resonator";
+import { RowWeapon } from "@/ww/row/weapon";
+import { RowEcho } from "@/ww/row/echo";
+import { RowEchoes } from "@/ww/row/echoes";
 
 export class RowAutoFillEchoes {
-  public resonator: any;
-  public weapon: any;
-  public echoes: Array<RowEcho>;
-  public sonatas: Array<string>;
-  public affixPolicy: string;
+  public resonator: RowResonator;
+  public weapon: RowWeapon;
+  public echoes: RowEchoes;
 
-  constructor(resonator: any, weapon: any, echoes: Array<RowEcho>, sonatas: Array<string>, affixPolicy: string) {
+  constructor(resonator: RowResonator, weapon: RowWeapon, echoes: RowEchoes) {
     this.resonator = resonator;
     this.weapon = weapon;
     this.echoes = echoes;
-    this.sonatas = sonatas;
-    this.affixPolicy = affixPolicy;
-
-    if (echoes.length !== 5) {
+    if (echoes.echoes.length !== 5) {
       throw new Error("`echoStores` length must be exactly 5");
     }
   }
 
   private getBaseAbbr(): TAbbrBonusEnum {
-    const baseAttr = this.resonator.data.base_attr;
+    const baseAttr = this.echoes.base_attr;
     let abbr: TAbbrBonusEnum;
     switch (baseAttr) {
       case SkillAttrEnum.HP:
@@ -44,8 +43,8 @@ export class RowAutoFillEchoes {
   }
 
   private getCritAttr(): TAbbrBonusEnum {
-    const critRate = parseFloat(this.weapon.data.stat_bonus.crit_rate);
-    const critDmg = parseFloat(this.weapon.data.stat_bonus.crit_dmg);
+    const critRate = parseFloat(this.weapon.stat_bonus.crit_rate);
+    const critDmg = parseFloat(this.weapon.stat_bonus.crit_dmg);
     if (!critRate && critDmg) {
       return AbbrSkillBonusEnum.CRIT_RATE;
     }
@@ -56,7 +55,7 @@ export class RowAutoFillEchoes {
   }
 
   private updateSubAffixesWithAffixes151(echo: RowEcho) {
-    const baseAttr = this.resonator.data.base_attr;
+    const baseAttr = this.echoes.base_attr;
     switch (baseAttr) {
       case SkillAttrEnum.HP:
         echo.sub_affix.hp = "270";
@@ -82,7 +81,7 @@ export class RowAutoFillEchoes {
   }
 
   private updateSubAffixesWithAffixes20Small(echo: RowEcho) {
-    const baseAttr = this.resonator.data.base_attr;
+    const baseAttr = this.echoes.base_attr;
     switch (baseAttr) {
       case SkillAttrEnum.HP:
         echo.sub_affix.hp = "450";
@@ -103,7 +102,7 @@ export class RowAutoFillEchoes {
   }
 
   private updateSubAffixesWithAffixes20SkillBonus(echo: RowEcho) {
-    const baseAttr = this.resonator.data.base_attr;
+    const baseAttr = this.echoes.base_attr;
     switch (baseAttr) {
       case SkillAttrEnum.HP:
         echo.sub_affix.hp_p = "0.09";
@@ -119,7 +118,7 @@ export class RowAutoFillEchoes {
     echo.sub_affix.crit_rate = "0.084";
     echo.sub_affix.crit_dmg = "0.168";
 
-    const mainSkillBonus = this.resonator.data.main_skill_bonus;
+    const mainSkillBonus = this.echoes.main_skill_bonus;
     switch (mainSkillBonus) {
       case SkillBonusEnum.SKILL:
         echo.sub_affix.bonus_resonance_skill = "0.09";
@@ -139,21 +138,13 @@ export class RowAutoFillEchoes {
   }
 
   private updateBase() {
-    this.echoes.forEach((echo: RowEcho, i: number) => {
+    this.echoes.echoes.forEach((echo: RowEcho, i: number) => {
       // Reset
       echo.resetMainAffix();
       echo.resetSubAffix();
 
-      // Sonata
-      if (this.sonatas.length > 0) {
-        if (this.sonatas.length !== 5) {
-          throw new Error("`sonatas` length must be exactly 5");
-        }
-        echo.sonata = this.sonatas[i];
-      }
-
       // Sub affixes
-      switch (this.affixPolicy) {
+      switch (this.echoes.policy) {
         case AffixPolicyEnum.AFFIXES_15_1:
           this.updateSubAffixesWithAffixes151(echo);
           break;
@@ -305,17 +296,17 @@ export class RowAutoFillEchoes {
     abbr4: TAbbrBonusEnum = "",
     abbr5: TAbbrBonusEnum = "",
   ) {
-    if (!this.affixPolicy || this.echoes.length === 0) {
+    if (!this.echoes.policy || this.echoes.echoes.length === 0) {
       return;
     }
     if (!abbr1) {
       abbr1 = this.getCritAttr();
     }
     if (!abbr2) {
-      abbr2 = this.resonator.data.element_zh_tw;
+      abbr2 = this.resonator.element_zh_tw;
     }
     if (!abbr3) {
-      abbr3 = this.resonator.data.element_zh_tw;
+      abbr3 = this.resonator.element_zh_tw;
     }
     if (!abbr4) {
       abbr4 = this.getBaseAbbr();
@@ -325,20 +316,20 @@ export class RowAutoFillEchoes {
     }
 
     this.updateBase();
-    this.updateCost4MainAffixes(this.echoes[0], abbr1);
-    this.updateCost3MainAffixes(this.echoes[1], abbr2);
-    this.updateCost3MainAffixes(this.echoes[2], abbr3);
-    this.updateCost1MainAffixes(this.echoes[3], abbr4);
-    this.updateCost1MainAffixes(this.echoes[4], abbr5);
+    this.updateCost4MainAffixes(this.echoes.echoes[0], abbr1);
+    this.updateCost3MainAffixes(this.echoes.echoes[1], abbr2);
+    this.updateCost3MainAffixes(this.echoes.echoes[2], abbr3);
+    this.updateCost1MainAffixes(this.echoes.echoes[3], abbr4);
+    this.updateCost1MainAffixes(this.echoes.echoes[4], abbr5);
   }
 
   public update43311With2Elem() {
-    const attr = this.resonator.data.base_attr;
-    const element = this.resonator.data.element_zh_tw;
+    const attr = this.echoes.base_attr;
+    const element = this.resonator.element_zh_tw;
   }
 
   public update43311With1Elem1Attr() {
-    const element = this.resonator.data.element_zh_tw;
+    const element = this.resonator.element_zh_tw;
   }
 
   public update43311With2Attr() {}
@@ -346,7 +337,7 @@ export class RowAutoFillEchoes {
   public update43311With2EnergyRegen() {}
 
   public update43311With1EnergyRegen1Elem() {
-    const element = this.resonator.data.element_zh_tw;
+    const element = this.resonator.element_zh_tw;
   }
 
   public update43311With1EnergyRegen1Attr() {}

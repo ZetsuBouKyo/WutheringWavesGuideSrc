@@ -85,6 +85,7 @@ export function getNumber(a: any): number {
   }
   switch (typeof a) {
     case "string":
+      a = a.replace(/,/g, "");
       if (a.includes("%")) {
         n = parseFloat(a) / 100;
       } else {
