@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
 import { type ICalculatedTemplate, type ICalculatedTemplateComparison } from "@/types/calculateTemplate";
 import { TierEnum, type TTierEnum } from "@/types/tier";
 
-import { useResonatorStore } from "./resonator";
+import { useResonatorStore, spoilerNames } from "@/stores/resonator";
 
 import { getKeyByValue } from "@/ww/utils";
 
@@ -104,15 +104,25 @@ export const useCalculatedTemplateStore = defineStore("calculatedTemplate", {
         return error;
       }
     },
-    getNames(): Array<string> {
+    getNames(spoiler: any = false): Array<string> {
       const s: Set<string> = new Set([]);
       for (const template of this.data.templates) {
         for (const name of template.echo_comparison) {
           s.add(name);
         }
       }
-      const arr = Array.from(s);
-      return arr;
+      const names = Array.from(s);
+      if (spoiler === true) {
+        return names;
+      }
+      const censoredNames: Array<string> = [];
+      names.forEach((name: string) => {
+        if (spoilerNames.includes(name)) {
+          return;
+        }
+        censoredNames.push(name);
+      });
+      return censoredNames;
     },
     getTemplateIdsByNo(no: string): Array<string> {
       const resonatorStore = useResonatorStore();

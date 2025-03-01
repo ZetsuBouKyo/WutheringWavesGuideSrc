@@ -153,6 +153,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
 
 import { useRowResonatorStore } from '@/stores/calculation/resonator';
 import { useRowWeaponStore } from '@/stores/calculation/weapon';
@@ -163,6 +164,13 @@ import { getResonatorBaseAttrs } from '@/ww/resonator';
 import { RowAutoFillEchoes } from "@/ww/echoes"
 import { getSkillBonusType } from '@/ww/buff';
 
+const route = useRoute();
+let spoiler: any = route.query.spoiler
+if (spoiler === "true" || spoiler === true) {
+  spoiler = true
+} else {
+  spoiler = false
+}
 
 const props = defineProps({
   id: {
@@ -170,13 +178,12 @@ const props = defineProps({
     required: true
   },
 });
-
 const id = props.id
 
 const { t } = useI18n()
 
 const resonatorStore = useResonatorStore()
-const resonatorNames = resonatorStore.getNames()
+const resonatorNames = resonatorStore.getNames(spoiler)
 const resonatorLevels = resonatorStore.getLevels()
 const resonatorChains = resonatorStore.getChains()
 const resonatorSkillLevels = resonatorStore.getSkillLevels()

@@ -19,6 +19,7 @@
 
 <script lang="ts" setup>
 import { onMounted } from 'vue';
+import { useRoute } from 'vue-router'
 
 import { useResonatorStore } from '@/stores/resonator';
 import { useCalculatedTemplateStore } from '@/stores/calculateTemplate';
@@ -30,6 +31,14 @@ interface IResonator {
   iconSrc: string
 }
 
+const route = useRoute();
+let spoiler: any = route.query.spoiler
+if (spoiler === "true" || spoiler === true) {
+  spoiler = true
+} else {
+  spoiler = false
+}
+
 const resonatorStore = useResonatorStore()
 const calculatedTemplateStore = useCalculatedTemplateStore()
 
@@ -37,7 +46,7 @@ const resonators = reactive<Array<IResonator>>([])
 
 onMounted(async () => {
   await calculatedTemplateStore.init()
-  const names = calculatedTemplateStore.getNames()
+  const names = calculatedTemplateStore.getNames(spoiler)
   names.forEach(async (name: string) => {
     const no = resonatorStore.getNoByName(name)
     const elementSrc = await resonatorStore.getElementSrcByNo(no)

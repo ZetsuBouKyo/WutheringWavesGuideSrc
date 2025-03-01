@@ -38,11 +38,24 @@ const name2no: { [name: string]: string } = {
   洛可可: "1606",
 };
 
+export const spoilerNames = ["布蘭特"];
+
 export const useResonatorStore = defineStore("resonator", {
   state: () => ({}),
   actions: {
-    getNames(): Array<string> {
-      return Object.keys(name2no);
+    getNames(spoiler: any = false): Array<string> {
+      const names: Array<string> = Object.keys(name2no);
+      if (spoiler === true) {
+        return names;
+      }
+      const censoredNames: Array<string> = [];
+      names.forEach((name: string) => {
+        if (spoilerNames.includes(name)) {
+          return;
+        }
+        censoredNames.push(name);
+      });
+      return censoredNames;
     },
     getChains(): Array<string> {
       return new Array("1", "2", "3", "4", "5", "6");

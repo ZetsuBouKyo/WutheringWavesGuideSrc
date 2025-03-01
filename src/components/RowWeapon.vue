@@ -17,10 +17,19 @@
 
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
 
 import { useRowWeaponStore } from '@/stores/calculation/weapon';
 
 import { useWeaponStore } from '@/stores/weapon';
+
+const route = useRoute();
+let spoiler: any = route.query.spoiler
+if (spoiler === "true" || spoiler === true) {
+  spoiler = true
+} else {
+  spoiler = false
+}
 
 const props = defineProps({
   id: {
@@ -28,13 +37,12 @@ const props = defineProps({
     required: true
   },
 });
-
 const id = props.id
 
 const { t } = useI18n()
 
 const weaponStore = useWeaponStore()
-const weaponNames = weaponStore.getNames()
+const weaponNames = weaponStore.getNames(spoiler)
 const weaponTunes = weaponStore.getTunes()
 
 const weapon = useRowWeaponStore(id)

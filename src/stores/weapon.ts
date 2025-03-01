@@ -94,11 +94,24 @@ const name2no: { [name: string]: string } = {
 
 const nos = Object.values(name2no);
 
+const spoilerNames: Array<string> = ["不滅航路"];
+
 export const useWeaponStore = defineStore("weapon", {
   state: () => ({}),
   actions: {
-    getNames(): Array<string> {
-      return Object.keys(name2no);
+    getNames(spoiler: any = false): Array<string> {
+      const names: Array<string> = Object.keys(name2no);
+      if (spoiler === true) {
+        return names;
+      }
+      const censoredNames: Array<string> = [];
+      names.forEach((name: string) => {
+        if (spoilerNames.includes(name)) {
+          return;
+        }
+        censoredNames.push(name);
+      });
+      return censoredNames;
     },
     getTunes(): Array<string> {
       return new Array("1", "2", "3", "4", "5");
