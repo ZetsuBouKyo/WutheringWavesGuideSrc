@@ -48,6 +48,9 @@ export class RowCalculationResultRegions {
 
 export class RowCalculationResult {
   public regions: RowCalculationResultRegions = new RowCalculationResultRegions();
+  public damage_no_crit: number = 0;
+  public damage_crit: number = 0;
+  public damage: number = 0;
 }
 
 export class RowCalculation {
@@ -281,10 +284,74 @@ export class RowCalculation {
     });
   }
 
+  private sumRegion(rows: Array<RowBuff>): number {
+    let n: number = 0;
+    rows.forEach((row: RowBuff) => {
+      const value = getNumber(row.value) * getNumber(row.stack);
+      n += value;
+    });
+    return n;
+  }
+
   public calculate() {
     this.updateId();
+    this.reset();
     const rows = this.getRowBuffs();
     this.updateRegions(rows);
-    console.log(this.result.regions);
+
+    // Base attr
+    const attrB = this.sumRegion(this.result.regions.base_attr);
+    const attrP = this.sumRegion(this.result.regions.base_attr_p);
+    const attrA = this.sumRegion(this.result.regions.base_attr_a);
+    const attr = attrB * (1 + attrP) + attrA;
+
+    // Skill
+    const skill = this.sumRegion(this.result.regions.skill_dmg_addition);
+
+    // Magnifier
+    const magnifierR = this.sumRegion(this.result.regions.magnifier);
+    const magnifier = 1 + magnifierR;
+
+    // Amplifier
+    const amplifierR = this.sumRegion(this.result.regions.amplifier);
+    const amplifier = 1 + amplifierR;
+
+    // Bonus
+    const bonusR = this.sumRegion(this.result.regions.bonus);
+    const bonus = 1 + bonusR;
+
+    // Crit
+    const critDmg = this.sumRegion(this.result.regions.crit_dmg);
+    let critRate = this.sumRegion(this.result.regions.crit_rate);
+    if (critRate >= 1) {
+      critRate = 1;
+    }
+
+    // Def
+    const resonatorLevel = getNumber(this.data.resonator.level);
+    const monsterLevel = getNumber(this.data.monster.level);
+    const ignoreDef = this.sumRegion(this.result.regions.ignore_def);
+    const def = (800 + 8 * resonatorLevel) / (800 + 8 * resonatorLevel + (792 + 8 * monsterLevel) * (1 - ignoreDef));
+
+    // Res
+    const monsterFinalRes = this.getFinalMonsterRes();
+    let res: number;
+    if (monsterFinalRes < 0) {
+      res = 1 - monsterFinalRes / 2;
+    } else if (monsterFinalRes >= 0.8) {
+      res = 1 / (1 + 5 * monsterFinalRes);
+    } else {
+      res = 1 - monsterFinalRes;
+    }
+
+    const damageNoCrit = attr * skill * magnifier * amplifier * bonus * def * res;
+    const damageCrit = damageNoCrit * critDmg;
+    const damage = damageCrit * critRate + damageNoCrit * (1 - critRate);
+
+    this.result.damage = damage;
+    this.result.damage_crit = damageCrit;
+    this.result.damage_no_crit = damageNoCrit;
+
+    console.log(this);
   }
 }

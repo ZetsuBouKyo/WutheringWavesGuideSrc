@@ -55,6 +55,7 @@ const i18n = createI18n({
         detailed_damage: "詳細傷害",
         calculated_damage: "計算傷害",
         calculated_crit_damage: "計算暴擊傷害",
+        calculate_expected_damage: "計算期望傷害",
         action: "動作",
         skill_bonus_type: "技能加成種類",
         hits: "段數",

@@ -3,6 +3,8 @@
     <div class="d-flex flex-row mb-2">
       <span>{{ $t('general.detailed_damage') }}</span>
     </div>
+    <v-data-table class="table mb-2" :items="damages" disable-sort hide-default-footer :items-per-page="2">
+    </v-data-table>
     <v-data-table class="table" disable-sort hide-default-footer :items-per-page="8" :key="calculation.id">
       <tbody>
         <tr>
@@ -128,9 +130,9 @@
                   </v-tooltip>
                   <span>)</span>
                   <span>)</span>
-                  <div v-if="calculation.result.regions.reduce_res.length > 0" class="d-flex flex-row">
+                  <div v-if="calculation.result.regions.ignore_def.length > 0" class="d-flex flex-row">
                     <span>×</span>
-                    <RowDetailedDamageNumbers :rows="calculation.result.regions.reduce_res" :is1="true"
+                    <RowDetailedDamageNumbers :rows="calculation.result.regions.ignore_def" :is1="true"
                       :operator="'–'" />
                   </div>
                   <span>)</span>
@@ -144,12 +146,17 @@
           <td class="w-100 text-grey-darken-1">
             <div v-if="calculation.getFinalMonsterRes() < 0.8 && calculation.getFinalMonsterRes() >= 0"
               class="d-flex flex-row">
+              <span>×</span>
+              <span>(</span>
               <span>1</span>
               <span>–</span>
               <RowDetailedDamageNumbers v-if="calculation.result.regions.reduce_res.length > 0"
                 :rows="calculation.result.regions.reduce_res" :operator="'–'" />
+              <span>)</span>
             </div>
             <div v-else-if="calculation.getFinalMonsterRes() < 0" class="d-flex flex-row align-center">
+              <span>×</span>
+              <span>(</span>
               <span>1</span>
               <span>–</span>
               <div class="frac">
@@ -164,6 +171,7 @@
                   </div>
                 </span>
               </div>
+              <span>)</span>
             </div>
           </td>
         </tr>
@@ -173,8 +181,10 @@
 </template>
 
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n'
+
 import { RowCalculation } from '@/ww/row';
-import { Tooltip } from 'vuetify/directives';
+import { toNumberString } from '@/ww/utils';
 
 const props = defineProps({
   calculation: {
@@ -184,6 +194,17 @@ const props = defineProps({
 });
 
 const calculation = props.calculation
+
+
+const { t } = useI18n()
+
+const damages = [
+  {
+    [t('general.calculated_damage')]: toNumberString(calculation.result.damage_no_crit),
+    [t('general.calculated_crit_damage')]: toNumberString(parseFloat(calculation.result.damage_crit)),
+    [t('general.calculate_expected_damage')]: toNumberString(parseFloat(calculation.result.damage)),
+  }
+]
 </script>
 
 <style scoped lang="sass">
