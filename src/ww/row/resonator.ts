@@ -55,7 +55,7 @@ export class RowResonator {
       case SkillAttrEnum.ATK:
       default:
         value = getNumber(this.atk).toString();
-        source = this.skill.base_attr;
+        source = SkillAttrEnum.ATK;
         break;
     }
     if (this.name) {
