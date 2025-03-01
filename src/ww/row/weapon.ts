@@ -78,6 +78,9 @@ export class RowWeapon {
       }
     });
     const last: string = levels.at(-1);
+    if (!last) {
+      return levels;
+    }
     if (last.includes("+")) {
       levels.pop();
     }
@@ -98,8 +101,12 @@ export class RowWeapon {
 
     const no = weaponStore.getNoByName(name);
     this.no = no;
+    if (!this.no) {
+      return;
+    }
 
     const info = new WeaponInfo(await weaponStore.getInfoByNo(no));
+
     this._info = info;
     this.star = info.star;
     this.type = info.type;

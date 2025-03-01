@@ -92,6 +92,8 @@ const name2no: { [name: string]: string } = {
   虛飾的華爾茲: "21050094",
 };
 
+const nos = Object.values(name2no);
+
 export const useWeaponStore = defineStore("weapon", {
   state: () => ({}),
   actions: {
@@ -110,8 +112,11 @@ export const useWeaponStore = defineStore("weapon", {
     async getInfoByNo(no: string): Promise<any> {
       try {
         const req = mande(`/data/weapons/${no}/info.json`);
-        const info: any = await req.get();
-        return info;
+        if (nos.includes(no)) {
+          const info: any = await req.get();
+          return info;
+        }
+        return undefined;
       } catch (error) {
         return error;
       }
