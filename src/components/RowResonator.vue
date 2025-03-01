@@ -155,10 +155,14 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import { useRowResonatorStore } from '@/stores/calculation/resonator';
+import { useRowWeaponStore } from '@/stores/calculation/weapon';
+import { useRowEchoesStore } from '@/stores/calculation/echoes';
 import { useResonatorStore } from '@/stores/resonator';
 
-import { getSkillBonusType } from '@/ww/buff';
 import { getResonatorBaseAttrs } from '@/ww/resonator';
+import { RowAutoFillEchoes } from "@/ww/echoes"
+import { getSkillBonusType } from '@/ww/buff';
+
 
 const props = defineProps({
   id: {
@@ -187,6 +191,8 @@ function checkResonatorName(name: string) {
   return t('general.error')
 }
 
+const echoes = useRowEchoesStore(id)
+const weapon = useRowWeaponStore(id)
 async function updateResonator() {
   await resonator.updateByName()
   const name = resonator.data.name
@@ -196,6 +202,9 @@ async function updateResonator() {
     return
   }
   resonatorSkillItems.value = await resonatorStore.getDamageSkillItems(name)
+
+  const auto = new RowAutoFillEchoes(resonator.data, weapon.data, echoes.data)
+  auto.update43311()
 }
 
 async function updateResonatorSkill() {
