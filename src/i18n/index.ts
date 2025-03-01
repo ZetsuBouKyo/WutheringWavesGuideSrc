@@ -28,6 +28,7 @@ const i18n = createI18n({
         result: "計算結果",
       },
       general: {
+        basic_info: "基本資料",
         ignore_def: "忽視防禦",
         reduce_res: "抗性降低",
         fixed_value: "固定數值",
@@ -177,6 +178,7 @@ const i18n = createI18n({
           docs: "文件",
           resonator: "共鳴者",
           tiers: "Tiers",
+          tool: "工具",
         },
       },
       resonators: {

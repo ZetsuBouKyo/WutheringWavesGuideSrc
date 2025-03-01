@@ -1,6 +1,6 @@
 <template>
   <Explorer>
-    <v-container class="nav d-flex flex-columnmx-auto pl-8">
+    <v-container class="nav d-flex flex-columnmx-auto pa-1">
       <div class="d-flex flex-row w-100">
         <v-tabs class="d-flex flex-row align-center" align-tabs="start" color="blue-accent-1" v-model="tab">
           <v-tab value="resonator">{{ $t('general.resonator') }}</v-tab>
@@ -162,12 +162,12 @@ async function calculate() {
 <style scoped lang="sass">
 .nav
   z-index: 999
-  margin-top: 60px
+  margin-top: 64px
   background: rgb(var(--v-theme-background))
   position: fixed
   left: 50%
   transform: translateX(-50%)
 .window
-  margin-top: 140px
-  margin-bottom: 60px
+  margin-top: 120px
+  margin-bottom: 64px
 </style>
