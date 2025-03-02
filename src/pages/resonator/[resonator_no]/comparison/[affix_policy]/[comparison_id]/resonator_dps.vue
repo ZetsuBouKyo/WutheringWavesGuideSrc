@@ -9,7 +9,7 @@ import { useI18n } from 'vue-i18n'
 import { reactive } from 'vue'
 
 import { useResonatorStore } from '@/stores/resonator'
-import { useCalculatedTemplateStore } from '@/stores/calculateTemplate'
+import { useCalculatedTemplateStore } from '@/stores/calculatedTemplate'
 import { useDamageAnalysisStore } from '@/stores/damageAnalysis'
 
 const { t } = useI18n()

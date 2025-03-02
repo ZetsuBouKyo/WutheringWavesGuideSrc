@@ -22,7 +22,7 @@ import { onMounted } from 'vue';
 import { useRoute } from 'vue-router'
 
 import { useResonatorStore } from '@/stores/resonator';
-import { useCalculatedTemplateStore } from '@/stores/calculateTemplate';
+import { useCalculatedTemplateStore } from '@/stores/calculatedTemplate';
 
 interface IResonator {
   no: string

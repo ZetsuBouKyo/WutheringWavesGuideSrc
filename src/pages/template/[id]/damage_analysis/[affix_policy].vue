@@ -601,7 +601,7 @@ import { useI18n } from 'vue-i18n'
 import { BuffTypeEnum } from '@/types/buff'
 import { SkillAttrEnum } from '@/types/skill'
 
-import { useCalculatedTemplateStore } from '@/stores/calculateTemplate'
+import { useCalculatedTemplateStore } from '@/stores/calculatedTemplate'
 import { useDamageAnalysisStore } from '@/stores/damageAnalysis'
 import { useResonatorStore } from '@/stores/resonator'
 

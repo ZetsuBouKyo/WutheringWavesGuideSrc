@@ -8,7 +8,7 @@ import { reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import { useResonatorStore } from '@/stores/resonator'
-import { useCalculatedTemplateStore } from '@/stores/calculateTemplate'
+import { useCalculatedTemplateStore } from '@/stores/calculatedTemplate'
 
 
 const { t } = useI18n()

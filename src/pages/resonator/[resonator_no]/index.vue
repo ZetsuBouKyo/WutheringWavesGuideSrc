@@ -88,7 +88,7 @@ import { useGoTo } from 'vuetify'
 import { useRoute } from 'vue-router'
 
 import { useResonatorStore } from '@/stores/resonator'
-import { useCalculatedTemplateStore } from '@/stores/calculateTemplate'
+import { useCalculatedTemplateStore } from '@/stores/calculatedTemplate'
 
 import { jumpToSection } from "@/ww/utils"
 

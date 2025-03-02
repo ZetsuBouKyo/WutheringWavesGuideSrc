@@ -103,7 +103,7 @@ import { useI18n } from 'vue-i18n'
 
 import { useResonatorStore } from '@/stores/resonator';
 import { useTemplateStore } from '@/stores/template';
-import { useCalculatedTemplateStore } from '@/stores/calculateTemplate';
+import { useCalculatedTemplateStore } from '@/stores/calculatedTemplate';
 
 import { jumpToSection } from '@/ww/utils';
 

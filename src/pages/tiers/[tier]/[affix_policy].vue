@@ -7,7 +7,7 @@ import { useI18n } from 'vue-i18n'
 
 import { type TTierEnum } from '@/types/tier';
 
-import { useCalculatedTemplateStore } from '@/stores/calculateTemplate';
+import { useCalculatedTemplateStore } from '@/stores/calculatedTemplate';
 
 const { t } = useI18n()
 
