@@ -135,6 +135,13 @@ export class RowResonator {
   }
 
   public updateSkillDmg(skill: any) {
+    // Echo skill
+    if (skill.dmg) {
+      this.skill.dmg = skill.dmg;
+      return;
+    }
+
+    // Resonator skill
     const skill_type = this.skill.type;
     let level;
     switch (skill_type) {
@@ -173,9 +180,13 @@ export class RowResonator {
     this.skill.id = skill.id;
     this.skill.type = skill.skill_type;
     this.skill.base_attr = skill.base_attr;
-    this.skill.elment_zh_tw = skill.element;
-    this.skill.bonus_types.push(skill.element);
-    this.skill.bonus_types.push(skill.bonus_type);
+    if (skill.element) {
+      this.skill.elment_zh_tw = skill.element;
+      this.skill.bonus_types.push(skill.element);
+    }
+    if (skill.bonus_type) {
+      this.skill.bonus_types.push(skill.bonus_type);
+    }
     if (skill.coordinated) {
       this.skill.bonus_types.push(SkillBonusEnum.COORDINATED_ATTACK);
     }

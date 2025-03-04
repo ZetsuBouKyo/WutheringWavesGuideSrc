@@ -21,7 +21,7 @@
         :label="$t('general.resonator_skill_id')" :rules="[checkResonatorSkill]"
         :disabled="resonatorSkillItems.length === 0" @update:modelValue="updateResonatorSkill">
         <template v-slot:item="{ props, item }">
-          <v-tooltip location="top">
+          <v-tooltip location="top" :disabled="!item.value.tooltip">
             <div v-html="item.value.tooltip"></div>
             <template v-slot:activator="{ props: tooltipProps }">
               <v-list-item v-bind="{ ...props, ...tooltipProps }"></v-list-item>

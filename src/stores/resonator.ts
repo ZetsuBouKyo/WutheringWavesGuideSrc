@@ -4,6 +4,8 @@ import { defineStore } from "pinia";
 import { getKeyByValue } from "@/ww/utils";
 import { ResonatorInfo } from "@/ww/resonator";
 
+import echoSkills from "@/assets/data/echo/skills.json";
+
 const name2no: { [name: string]: string } = {
   散華: "1102",
   白芷: "1103",
@@ -39,6 +41,14 @@ const name2no: { [name: string]: string } = {
 };
 
 export const spoilerNames = ["布蘭特"];
+
+export function getEchoDamageSkillItems(): Array<any> {
+  const items: Array<any> = [];
+  echoSkills.forEach((skill: any) => {
+    items.push({ title: skill.id, value: skill });
+  });
+  return items;
+}
 
 export const useResonatorStore = defineStore("resonator", {
   state: () => ({}),
@@ -113,7 +123,7 @@ export const useResonatorStore = defineStore("resonator", {
     },
     async getDamageSkillItems(name: string): Promise<any> {
       const info = await this.getInfoByName(name);
-      return info.getDamageSkillItems();
+      return [...info.getDamageSkillItems(), ...getEchoDamageSkillItems()];
     },
   },
 });
