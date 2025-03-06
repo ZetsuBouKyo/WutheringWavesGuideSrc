@@ -94,7 +94,7 @@ const name2no: { [name: string]: string } = {
 
 const nos = Object.values(name2no);
 
-const spoilerNames: Array<string> = ["不滅航路"];
+const spoilerNames: Array<string> = [];
 
 export const useWeaponStore = defineStore("weapon", {
   state: () => ({}),

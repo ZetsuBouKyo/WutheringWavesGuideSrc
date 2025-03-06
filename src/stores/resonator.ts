@@ -40,7 +40,7 @@ const name2no: { [name: string]: string } = {
   洛可可: "1606",
 };
 
-export const spoilerNames = ["布蘭特"];
+export const spoilerNames: Array<string> = [];
 
 export function getEchoDamageSkillItems(): Array<any> {
   const items: Array<any> = [];
