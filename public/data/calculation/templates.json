@@ -4,928 +4,1320 @@
             "hashed_id": "f2f07fc9",
             "id": "[腦測]+3漂泊者·湮滅(男)+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-2套A",
             "is_tier": true,
-            "echo_comparison": ["漂泊者·湮滅(男)"]
+            "echo_comparison": [
+                "漂泊者·湮滅(男)"
+            ]
         },
         {
             "hashed_id": "204f3290",
             "id": "[理論]+0椿+1裁春,+6散華+1千古洑流,+0維里奈+1奇幻變奏-暖機",
             "is_tier": true,
-            "echo_comparison": ["散華"]
+            "echo_comparison": [
+                "散華"
+            ]
         },
         {
             "hashed_id": "d2ab5eb8",
             "id": "[腦測]+6秋水+1死與舞,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-暖機",
             "is_tier": true,
-            "echo_comparison": ["秋水"]
+            "echo_comparison": [
+                "秋水"
+            ]
         },
         {
             "hashed_id": "1d95fa8d",
             "id": "[腦測]+6秋水+1停駐之煙,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-暖機",
             "is_tier": true,
-            "echo_comparison": ["秋水"]
+            "echo_comparison": [
+                "秋水"
+            ]
         },
         {
             "hashed_id": "0c91a705",
             "id": "[腦測]+6秋水+1停駐之煙",
-            "echo_comparison": ["秋水"]
+            "echo_comparison": [
+                "秋水"
+            ]
         },
         {
             "hashed_id": "9f5aa48f",
             "id": "[腦測]+6熾霞+1死與舞,+6散華+1赫奕流明,+0維里奈+1奇幻變奏",
             "is_tier": true,
-            "echo_comparison": ["熾霞"]
+            "echo_comparison": [
+                "熾霞"
+            ]
         },
         {
             "hashed_id": "5591211a",
             "id": "[腦測]+6熾霞+1停駐之煙,+6散華+1赫奕流明,+0維里奈+1奇幻變奏",
             "is_tier": true,
-            "echo_comparison": ["熾霞"]
+            "echo_comparison": [
+                "熾霞"
+            ]
         },
         {
             "hashed_id": "136e6882",
             "id": "[腦測]+6熾霞+1無眠烈火,+6散華+1赫奕流明,+0維里奈+1奇幻變奏",
             "is_tier": true,
-            "echo_comparison": ["熾霞"]
+            "echo_comparison": [
+                "熾霞"
+            ]
         },
         {
             "hashed_id": "a16e3a81",
             "id": "[腦測]+6熾霞+1奔雷,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-0層",
             "is_tier": true,
-            "echo_comparison": ["熾霞"]
+            "echo_comparison": [
+                "熾霞"
+            ]
         },
         {
             "hashed_id": "ea4c3c07",
             "id": "[腦測]+6熾霞+1悖論噴流,+6散華+1赫奕流明,+0維里奈+1奇幻變奏",
             "is_tier": true,
-            "echo_comparison": ["熾霞"]
+            "echo_comparison": [
+                "熾霞"
+            ]
         },
         {
             "hashed_id": "6dc01bbc",
             "id": "[腦測]+1凌陽+1諸方玄樞,+0長離+1赫奕流明,+0維里奈+1奇幻變奏",
             "is_tier": true,
-            "echo_comparison": ["凌陽", "長離"]
+            "echo_comparison": [
+                "凌陽",
+                "長離"
+            ]
         },
         {
             "hashed_id": "85ad2c86",
             "id": "[理論]+1凌陽+1擎淵怒濤,+0折枝+1奇幻變奏,+0維里奈+1奇幻變奏-4AE",
-            "echo_comparison": ["凌陽", "折枝"]
+            "echo_comparison": [
+                "凌陽",
+                "折枝"
+            ]
         },
         {
             "hashed_id": "363ad04f",
             "id": "[理論]+1凌陽+1擎淵怒濤,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-4AE",
             "is_tier": true,
-            "echo_comparison": ["凌陽"]
+            "echo_comparison": [
+                "凌陽"
+            ]
         },
         {
             "hashed_id": "9afab2f9",
             "id": "[理論]+1凌陽+1諸方玄樞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-4AE",
             "is_tier": true,
-            "echo_comparison": ["凌陽"]
+            "echo_comparison": [
+                "凌陽"
+            ]
         },
         {
             "hashed_id": "0a77b414",
             "id": "[理論]+1凌陽+1諸方玄樞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-4AE-凌冽",
             "is_tier": true,
-            "echo_comparison": ["凌陽"]
+            "echo_comparison": [
+                "凌陽"
+            ]
         },
         {
             "hashed_id": "09a3c848",
             "id": "[理論]+1凌陽+1擎淵怒濤,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-4AE",
             "is_tier": true,
-            "echo_comparison": ["凌陽"]
+            "echo_comparison": [
+                "凌陽"
+            ]
         },
         {
             "hashed_id": "fa6c3551",
             "id": "[理論]+1凌陽+1諸方玄樞,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-3AE",
             "is_tier": true,
-            "echo_comparison": ["凌陽"]
+            "echo_comparison": [
+                "凌陽"
+            ]
         },
         {
             "hashed_id": "f3103c08",
             "id": "[理論]+1凌陽+1諸方玄樞,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-4AE",
             "is_tier": true,
-            "echo_comparison": ["凌陽"]
+            "echo_comparison": [
+                "凌陽"
+            ]
         },
         {
             "hashed_id": "b759d664",
             "id": "[理論]+1凌陽+1諸方玄樞,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-5AE",
             "is_tier": true,
-            "echo_comparison": ["凌陽"]
+            "echo_comparison": [
+                "凌陽"
+            ]
         },
         {
             "hashed_id": "286ffd80",
             "id": "[理論]+1凌陽+1金掌,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-4AE",
             "is_tier": true,
-            "echo_comparison": ["凌陽"]
+            "echo_comparison": [
+                "凌陽"
+            ]
         },
         {
             "hashed_id": "b9798368",
             "id": "[理論]+1凌陽+1駭行,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-4AE-0鐵甲",
             "is_tier": true,
-            "echo_comparison": ["凌陽"]
+            "echo_comparison": [
+                "凌陽"
+            ]
         },
         {
             "hashed_id": "ae0131ca",
             "id": "[理論]+1凌陽+1駭行,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-4AE-3鐵甲",
             "is_tier": true,
-            "echo_comparison": ["凌陽"]
+            "echo_comparison": [
+                "凌陽"
+            ]
         },
         {
             "hashed_id": "aa91800d",
             "id": "[腦測]+0安可+1掣傀之手,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-3套",
             "is_tier": true,
-            "echo_comparison": ["安可"]
+            "echo_comparison": [
+                "安可"
+            ]
         },
         {
             "hashed_id": "8a7d7a88",
             "id": "[腦測]+0安可+1瓊枝冰綃,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-2套",
             "is_tier": true,
-            "echo_comparison": ["安可"]
+            "echo_comparison": [
+                "安可"
+            ]
         },
         {
             "hashed_id": "1f95f879",
             "id": "[腦測]+0安可+1瓊枝冰綃,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-3套",
             "is_tier": true,
-            "echo_comparison": ["安可"]
+            "echo_comparison": [
+                "安可"
+            ]
         },
         {
             "hashed_id": "3ecd9972",
             "id": "[腦測]+0安可+1漪瀾浮錄,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-3套",
             "is_tier": true,
-            "echo_comparison": ["安可"]
+            "echo_comparison": [
+                "安可"
+            ]
         },
         {
             "hashed_id": "f4918846",
             "id": "[腦測]+0安可+1清音,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-3套",
             "is_tier": true,
-            "echo_comparison": ["安可"]
+            "echo_comparison": [
+                "安可"
+            ]
         },
         {
             "hashed_id": "bfd82188",
             "id": "[腦測]+0卡卡羅+1蒼鱗千嶂,+0吟霖+1掣傀之手,+0維里奈+1奇幻變奏-暖機-2死告",
             "is_tier": true,
-            "echo_comparison": ["卡卡羅"]
+            "echo_comparison": [
+                "卡卡羅"
+            ]
         },
         {
             "hashed_id": "f7d79bc4",
             "id": "[腦測]+0卡卡羅+1蒼鱗千嶂,+0吟霖+1掣傀之手,+0維里奈+1奇幻變奏-暖機-3死告",
             "is_tier": true,
-            "echo_comparison": ["卡卡羅"]
+            "echo_comparison": [
+                "卡卡羅"
+            ]
         },
         {
             "hashed_id": "23ca2cfd",
             "id": "[腦測]+0卡卡羅+1蒼鱗千嶂,+0吟霖+1掣傀之手,+0維里奈+1奇幻變奏-暖機-3死告-無3EA",
             "is_tier": true,
-            "echo_comparison": ["卡卡羅"]
+            "echo_comparison": [
+                "卡卡羅"
+            ]
         },
         {
             "hashed_id": "e3d57ea8",
             "id": "[腦測]+0忌炎+1蒼鱗千嶂,+6莫特斐+1停駐之煙,+0維里奈+1奇幻變奏-5套2E",
             "is_tier": true,
-            "echo_comparison": ["忌炎", "莫特斐"]
+            "echo_comparison": [
+                "忌炎",
+                "莫特斐"
+            ]
         },
         {
             "hashed_id": "8896f6f7",
             "id": "[腦測]+2忌炎+1蒼鱗千嶂,+6莫特斐+1停駐之煙,+0維里奈+1奇幻變奏-5套2E",
             "is_2_1_tier": true,
-            "echo_comparison": ["忌炎"]
+            "echo_comparison": [
+                "忌炎"
+            ]
         },
         {
             "hashed_id": "c5f470d0",
             "id": "[腦測]+3忌炎+1蒼鱗千嶂,+6莫特斐+1停駐之煙,+0維里奈+1奇幻變奏-5套2E",
             "is_3_1_tier": true,
-            "echo_comparison": ["忌炎"]
+            "echo_comparison": [
+                "忌炎"
+            ]
         },
         {
             "hashed_id": "b2e55f5f",
             "id": "[腦測]+4忌炎+1蒼鱗千嶂,+6莫特斐+1停駐之煙,+0維里奈+1奇幻變奏-5套2E",
             "is_4_1_tier": true,
-            "echo_comparison": ["忌炎"]
+            "echo_comparison": [
+                "忌炎"
+            ]
         },
         {
             "hashed_id": "3a51f2da",
             "id": "[腦測]+5忌炎+1蒼鱗千嶂,+6莫特斐+1停駐之煙,+0維里奈+1奇幻變奏-5套2E",
             "is_5_1_tier": true,
-            "echo_comparison": ["忌炎"]
+            "echo_comparison": [
+                "忌炎"
+            ]
         },
         {
             "hashed_id": "dc28ab06",
             "id": "[腦測]+6忌炎+1蒼鱗千嶂,+6莫特斐+1停駐之煙,+0維里奈+1奇幻變奏-5套2E",
             "is_6_1_tier": true,
-            "echo_comparison": ["忌炎"]
+            "echo_comparison": [
+                "忌炎"
+            ]
         },
         {
             "hashed_id": "3dd87a29",
             "id": "[腦測]+6忌炎+5蒼鱗千嶂,+6莫特斐+1停駐之煙,+0維里奈+1奇幻變奏-5套2E",
             "is_6_5_tier": true,
-            "echo_comparison": ["忌炎"]
+            "echo_comparison": [
+                "忌炎"
+            ]
         },
         {
             "hashed_id": "776d3d42",
             "id": "[腦測]+0今汐+1時和歲稔,+0淵武+1源能臂鎧·測肆,+0維里奈+1奇幻變奏",
             "is_tier": true,
-            "echo_comparison": ["今汐", "淵武"]
+            "echo_comparison": [
+                "今汐",
+                "淵武"
+            ]
         },
         {
             "hashed_id": "fcf44c8f",
             "id": "[腦測]+0今汐+1時和歲稔,+6莫特斐+1停駐之煙,+0鑒心+1諸方玄樞-2m",
             "is_tier": true,
-            "echo_comparison": ["今汐", "莫特斐", "鑒心"]
+            "echo_comparison": [
+                "今汐",
+                "莫特斐",
+                "鑒心"
+            ]
         },
         {
             "hashed_id": "c6be6d12",
             "id": "[腦測]+0今汐+1時和歲稔,+6莫特斐+1停駐之煙,+0鑒心+1擎淵怒濤-2m",
             "is_tier": true,
-            "echo_comparison": ["鑒心"]
+            "echo_comparison": [
+                "鑒心"
+            ]
         },
         {
             "hashed_id": "9d534e72",
             "id": "[腦測]+0今汐+1時和歲稔,+6莫特斐+1停駐之煙,+0鑒心+1金掌-2m",
             "is_tier": true,
-            "echo_comparison": ["鑒心"]
+            "echo_comparison": [
+                "鑒心"
+            ]
         },
         {
             "hashed_id": "6f2bcef2",
             "id": "[理論]+0今汐+1時和歲稔,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏",
             "is_tier": true,
-            "echo_comparison": ["今汐"]
+            "echo_comparison": [
+                "今汐"
+            ]
         },
         {
             "hashed_id": "5ecbc7f3",
             "id": "[腦測]+0今汐+1時和歲稔,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-25s雙噴-開局R",
             "is_tier": true,
-            "echo_comparison": ["今汐"]
+            "echo_comparison": [
+                "今汐"
+            ]
         },
         {
             "hashed_id": "f85334a7",
             "id": "[腦測]+0今汐+1東落,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-25s雙噴",
             "is_tier": true,
-            "echo_comparison": ["今汐"]
+            "echo_comparison": [
+                "今汐"
+            ]
         },
         {
             "hashed_id": "c1d6c0f4",
             "id": "[腦測]+0今汐+1紋秋,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-25s雙噴-0層",
             "is_tier": true,
-            "echo_comparison": ["今汐"]
+            "echo_comparison": [
+                "今汐"
+            ]
         },
         {
             "hashed_id": "7fed37b9",
             "id": "[腦測]+0今汐+1浩境粼光,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-25s雙噴",
             "is_tier": true,
-            "echo_comparison": ["今汐"]
+            "echo_comparison": [
+                "今汐"
+            ]
         },
         {
             "hashed_id": "e4a030b5",
             "id": "[腦測]+0今汐+1蒼鱗千嶂,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-25s雙噴",
             "is_tier": true,
-            "echo_comparison": ["今汐"]
+            "echo_comparison": [
+                "今汐"
+            ]
         },
         {
             "hashed_id": "95d12a26",
             "id": "[腦測]+0今汐+1時和歲稔,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-25s雙噴",
             "is_tier": true,
-            "echo_comparison": ["今汐", "折枝"]
+            "echo_comparison": [
+                "今汐",
+                "折枝"
+            ]
         },
         {
             "hashed_id": "c2ca99c7",
             "id": "[腦測]+1今汐+1時和歲稔,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-25s雙噴",
             "is_1_1_tier": true,
-            "echo_comparison": ["今汐"]
+            "echo_comparison": [
+                "今汐"
+            ]
         },
         {
             "hashed_id": "6664d12f",
             "id": "[腦測]+2今汐+1時和歲稔,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-25s雙噴",
             "is_2_1_tier": true,
-            "echo_comparison": ["今汐"]
+            "echo_comparison": [
+                "今汐"
+            ]
         },
         {
             "hashed_id": "a533c843",
             "id": "[腦測]+3今汐+1時和歲稔,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-25s雙噴",
             "is_3_1_tier": true,
-            "echo_comparison": ["今汐"]
+            "echo_comparison": [
+                "今汐"
+            ]
         },
         {
             "hashed_id": "c0418327",
             "id": "[腦測]+4今汐+1時和歲稔,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-25s雙噴",
             "is_4_1_tier": true,
-            "echo_comparison": ["今汐"]
+            "echo_comparison": [
+                "今汐"
+            ]
         },
         {
             "hashed_id": "6dd56e6e",
             "id": "[腦測]+5今汐+1時和歲稔,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-25s雙噴",
             "is_5_1_tier": true,
-            "echo_comparison": ["今汐"]
+            "echo_comparison": [
+                "今汐"
+            ]
         },
         {
             "hashed_id": "c8ceeb9b",
             "id": "[腦測]+6今汐+1時和歲稔,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-25s雙噴",
             "is_6_1_tier": true,
-            "echo_comparison": ["今汐"]
+            "echo_comparison": [
+                "今汐"
+            ]
         },
         {
             "hashed_id": "d93b3df6",
             "id": "[腦測]+6今汐+5時和歲稔,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-25s雙噴",
             "is_6_5_tier": true,
-            "echo_comparison": ["今汐"]
+            "echo_comparison": [
+                "今汐"
+            ]
         },
         {
             "hashed_id": "91a22df4",
             "id": "[競速]+0今汐+1時和歲稔,+0長離+1赫奕流明,+0守岸人+1星序協響",
-            "echo_comparison": ["今汐", "長離", "守岸人"]
+            "echo_comparison": [
+                "今汐",
+                "長離",
+                "守岸人"
+            ]
         },
         {
             "hashed_id": "a7fc877a",
             "id": "[腦測]+0長離+1赫奕流明,+6散華+1千古洑流,+0維里奈+1奇幻變奏",
             "is_tier": true,
-            "echo_comparison": ["長離"]
+            "echo_comparison": [
+                "長離"
+            ]
         },
         {
             "hashed_id": "32408f3e",
             "id": "[腦測]+0長離+1赫奕流明,+6散華+1千古洑流,+0維里奈+1奇幻變奏-長軸",
             "is_tier": true,
-            "echo_comparison": ["長離", "散華"]
+            "echo_comparison": [
+                "長離",
+                "散華"
+            ]
         },
         {
             "hashed_id": "70e2dccf",
             "id": "[腦測]+1長離+1赫奕流明,+6散華+1千古洑流,+0維里奈+1奇幻變奏-長軸",
             "is_1_1_tier": true,
-            "echo_comparison": ["長離"]
+            "echo_comparison": [
+                "長離"
+            ]
         },
         {
             "hashed_id": "4a98c61a",
             "id": "[腦測]+2長離+1赫奕流明,+6散華+1千古洑流,+0維里奈+1奇幻變奏-長軸",
             "is_2_1_tier": true,
-            "echo_comparison": ["長離"]
+            "echo_comparison": [
+                "長離"
+            ]
         },
         {
             "hashed_id": "6e5cbb41",
             "id": "[腦測]+3長離+1赫奕流明,+6散華+1千古洑流,+0維里奈+1奇幻變奏-長軸",
             "is_3_1_tier": true,
-            "echo_comparison": ["長離"]
+            "echo_comparison": [
+                "長離"
+            ]
         },
         {
             "hashed_id": "03086a7d",
             "id": "[腦測]+4長離+1赫奕流明,+6散華+1千古洑流,+0維里奈+1奇幻變奏-長軸",
             "is_4_1_tier": true,
-            "echo_comparison": ["長離"]
+            "echo_comparison": [
+                "長離"
+            ]
         },
         {
             "hashed_id": "13ece22b",
             "id": "[腦測]+5長離+1赫奕流明,+6散華+1千古洑流,+0維里奈+1奇幻變奏-長軸",
             "is_5_1_tier": true,
-            "echo_comparison": ["長離"]
+            "echo_comparison": [
+                "長離"
+            ]
         },
         {
             "hashed_id": "721b5eed",
             "id": "[腦測]+6長離+1赫奕流明,+6散華+1千古洑流,+0維里奈+1奇幻變奏-長軸",
             "is_6_1_tier": true,
-            "echo_comparison": ["長離"]
+            "echo_comparison": [
+                "長離"
+            ]
         },
         {
             "hashed_id": "76f425b0",
             "id": "[腦測]+6長離+5赫奕流明,+6散華+1千古洑流,+0維里奈+1奇幻變奏-長軸",
             "is_6_5_tier": true,
-            "echo_comparison": ["長離"]
+            "echo_comparison": [
+                "長離"
+            ]
         },
         {
             "hashed_id": "fccd1005",
             "id": "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸",
-            "echo_comparison": ["長離", "布蘭特"]
+            "echo_comparison": [
+                "長離",
+                "布蘭特"
+            ]
         },
         {
             "hashed_id": "75d95db1",
             "id": "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸-250共效",
-            "echo_comparison": ["長離", "布蘭特"]
+            "echo_comparison": [
+                "長離",
+                "布蘭特"
+            ]
         },
         {
             "hashed_id": "eed92fd7",
             "id": "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸-249共效",
-            "echo_comparison": ["長離", "布蘭特"]
+            "echo_comparison": [
+                "長離",
+                "布蘭特"
+            ]
         },
         {
             "hashed_id": "1c432fa8",
             "id": "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸-220共效",
-            "echo_comparison": ["長離", "布蘭特"]
+            "echo_comparison": [
+                "長離",
+                "布蘭特"
+            ]
         },
         {
             "hashed_id": "fca9c227",
             "id": "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸-200共效",
-            "echo_comparison": ["長離", "布蘭特"]
+            "echo_comparison": [
+                "長離",
+                "布蘭特"
+            ]
         },
         {
             "hashed_id": "6f7df67f",
             "id": "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸-輕雲",
-            "echo_comparison": ["長離", "布蘭特"]
+            "echo_comparison": [
+                "長離",
+                "布蘭特"
+            ]
         },
         {
             "hashed_id": "59bcb438",
             "id": "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸-輕雲-200共效",
-            "echo_comparison": ["長離", "布蘭特"]
+            "echo_comparison": [
+                "長離",
+                "布蘭特"
+            ]
         },
         {
             "hashed_id": "cb28de0d",
             "id": "[腦測]+0折枝+1瓊枝冰綃,+6散華+1赫奕流明,+0維里奈+1奇幻變奏",
             "is_tier": true,
-            "echo_comparison": ["折枝"]
+            "echo_comparison": [
+                "折枝"
+            ]
         },
         {
             "hashed_id": "96ae494b",
             "id": "[腦測]+1折枝+1瓊枝冰綃,+6散華+1赫奕流明,+0維里奈+1奇幻變奏",
             "is_1_1_tier": true,
-            "echo_comparison": ["折枝"]
+            "echo_comparison": [
+                "折枝"
+            ]
         },
         {
             "hashed_id": "8e1bf310",
             "id": "[腦測]+2折枝+1瓊枝冰綃,+6散華+1赫奕流明,+0維里奈+1奇幻變奏",
             "is_2_1_tier": true,
-            "echo_comparison": ["折枝"]
+            "echo_comparison": [
+                "折枝"
+            ]
         },
         {
             "hashed_id": "c13593a0",
             "id": "[腦測]+3折枝+1瓊枝冰綃,+6散華+1赫奕流明,+0維里奈+1奇幻變奏",
             "is_3_1_tier": true,
-            "echo_comparison": ["折枝"]
+            "echo_comparison": [
+                "折枝"
+            ]
         },
         {
             "hashed_id": "cfe04ca7",
             "id": "[腦測]+4折枝+1瓊枝冰綃,+6散華+1赫奕流明,+0維里奈+1奇幻變奏",
             "is_4_1_tier": true,
-            "echo_comparison": ["折枝"]
+            "echo_comparison": [
+                "折枝"
+            ]
         },
         {
             "hashed_id": "d62d4a4a",
             "id": "[腦測]+5折枝+1瓊枝冰綃,+6散華+1赫奕流明,+0維里奈+1奇幻變奏",
             "is_5_1_tier": true,
-            "echo_comparison": ["折枝"]
+            "echo_comparison": [
+                "折枝"
+            ]
         },
         {
             "hashed_id": "90928a0d",
             "id": "[腦測]+6折枝+1瓊枝冰綃,+6散華+1赫奕流明,+0維里奈+1奇幻變奏",
             "is_6_1_tier": true,
-            "echo_comparison": ["折枝"]
+            "echo_comparison": [
+                "折枝"
+            ]
         },
         {
             "hashed_id": "7de4e084",
             "id": "[腦測]+6折枝+5瓊枝冰綃,+6散華+1赫奕流明,+0維里奈+1奇幻變奏",
             "is_6_5_tier": true,
-            "echo_comparison": ["折枝"]
+            "echo_comparison": [
+                "折枝"
+            ]
         },
         {
             "hashed_id": "53181344",
             "id": "[腦測]+0相里要+1諸方玄樞,+0鑒心+1擎淵怒濤,+0維里奈+1奇幻變奏",
             "is_tier": true,
-            "echo_comparison": ["相里要", "鑒心"]
+            "echo_comparison": [
+                "相里要",
+                "鑒心"
+            ]
         },
         {
             "hashed_id": "116c9ecc",
             "id": "[腦測]+0相里要+1諸方玄樞,+0長離+1赫奕流明,+0維里奈+1奇幻變奏-長軸",
             "is_tier": true,
-            "echo_comparison": ["相里要", "長離"]
+            "echo_comparison": [
+                "相里要",
+                "長離"
+            ]
         },
         {
             "hashed_id": "66f1b469",
             "id": "[腦測]+0相里要+1諸方玄樞,+0吟霖+1掣傀之手,+0維里奈+1奇幻變奏-暖機-3套-徹空",
             "is_tier": true,
-            "echo_comparison": ["相里要", "吟霖"]
+            "echo_comparison": [
+                "相里要",
+                "吟霖"
+            ]
         },
         {
             "hashed_id": "b8701f5f",
             "id": "[腦測]+1相里要+1諸方玄樞,+0吟霖+1掣傀之手,+0維里奈+1奇幻變奏-暖機-3套-徹空",
             "is_1_1_tier": true,
-            "echo_comparison": ["相里要"]
+            "echo_comparison": [
+                "相里要"
+            ]
         },
         {
             "hashed_id": "4d1b8e4c",
             "id": "[腦測]+2相里要+1諸方玄樞,+0吟霖+1掣傀之手,+0維里奈+1奇幻變奏-暖機-3套-徹空",
             "is_2_1_tier": true,
-            "echo_comparison": ["相里要"]
+            "echo_comparison": [
+                "相里要"
+            ]
         },
         {
             "hashed_id": "29e8670a",
             "id": "[腦測]+3相里要+1諸方玄樞,+0吟霖+1掣傀之手,+0維里奈+1奇幻變奏-暖機-3套-徹空",
             "is_3_1_tier": true,
-            "echo_comparison": ["相里要"]
+            "echo_comparison": [
+                "相里要"
+            ]
         },
         {
             "hashed_id": "435a518d",
             "id": "[腦測]+4相里要+1諸方玄樞,+0吟霖+1掣傀之手,+0維里奈+1奇幻變奏-暖機-3套-徹空",
             "is_4_1_tier": true,
-            "echo_comparison": ["相里要"]
+            "echo_comparison": [
+                "相里要"
+            ]
         },
         {
             "hashed_id": "b0c5445f",
             "id": "[腦測]+5相里要+1諸方玄樞,+0吟霖+1掣傀之手,+0維里奈+1奇幻變奏-暖機-3套-徹空",
             "is_5_1_tier": true,
-            "echo_comparison": ["相里要"]
+            "echo_comparison": [
+                "相里要"
+            ]
         },
         {
             "hashed_id": "f020f0ae",
             "id": "[腦測]+6相里要+1諸方玄樞,+0吟霖+1掣傀之手,+0維里奈+1奇幻變奏-暖機-3套-徹空",
             "is_6_1_tier": true,
-            "echo_comparison": ["相里要"]
+            "echo_comparison": [
+                "相里要"
+            ]
         },
         {
             "hashed_id": "187a6715",
             "id": "[腦測]+6相里要+5諸方玄樞,+0吟霖+1掣傀之手,+0維里奈+1奇幻變奏-暖機-3套-徹空",
             "is_6_5_tier": true,
-            "echo_comparison": ["相里要"]
+            "echo_comparison": [
+                "相里要"
+            ]
         },
         {
             "hashed_id": "28d31177",
             "id": "[腦測]+0相里要+1金掌,+0吟霖+1掣傀之手,+0維里奈+1奇幻變奏-暖機-3套-徹空",
             "is_tier": true,
-            "echo_comparison": ["相里要"]
+            "echo_comparison": [
+                "相里要"
+            ]
         },
         {
             "hashed_id": "d41c599b",
             "id": "[腦測]+0守岸人+1星序協響-洞悉傷害-隱世",
-            "echo_comparison": ["守岸人"]
+            "echo_comparison": [
+                "守岸人"
+            ]
         },
         {
             "hashed_id": "23dd21d3",
             "id": "[腦測]+0守岸人+1星序協響-洞悉傷害-浮星",
-            "echo_comparison": ["守岸人"]
+            "echo_comparison": [
+                "守岸人"
+            ]
         },
         {
             "hashed_id": "829cedbd",
             "id": "[腦測]+6守岸人+1星序協響-洞悉傷害-隱世",
-            "echo_comparison": ["守岸人"]
+            "echo_comparison": [
+                "守岸人"
+            ]
         },
         {
             "hashed_id": "e99fe95c",
             "id": "[腦測]+6守岸人+1星序協響-洞悉傷害-浮星",
-            "echo_comparison": ["守岸人"]
+            "echo_comparison": [
+                "守岸人"
+            ]
         },
         {
             "hashed_id": "b2e345a9",
             "id": "[腦測]+0椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-25s-無延奏",
             "is_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "600d993f",
             "id": "[腦測]+1椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-25s-無延奏",
             "is_1_1_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "9853488a",
             "id": "[腦測]+2椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-25s-無延奏",
             "is_2_1_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "83789619",
             "id": "[腦測]+3椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-25s-無延奏",
             "is_3_1_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "f6a43716",
             "id": "[腦測]+4椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-25s-無延奏",
             "is_4_1_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "ed679ccc",
             "id": "[腦測]+5椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-25s-無延奏",
             "is_5_1_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "eb0897bc",
             "id": "[腦測]+6椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-25s-無延奏",
             "is_6_1_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "87a62ba9",
             "id": "[腦測]+6椿+5裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-25s-無延奏",
             "is_6_5_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "46c4b83f",
             "id": "[腦測]+0椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-30s-延奏",
             "is_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "e69ce533",
             "id": "[理論]+0椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-暖機",
             "is_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "6dc1792f",
             "id": "[理論]+1椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-暖機",
             "is_1_1_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "8af2bc9b",
             "id": "[理論]+2椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-暖機",
             "is_2_1_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "a88350c5",
             "id": "[理論]+3椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-暖機",
             "is_3_1_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "be6700c8",
             "id": "[理論]+4椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-暖機",
             "is_4_1_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "be853ef2",
             "id": "[理論]+5椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-暖機",
             "is_5_1_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "20f5ddd0",
             "id": "[理論]+6椿+1裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-暖機",
             "is_6_1_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "10fd1bdd",
             "id": "[理論]+6椿+5裁春,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-暖機",
             "is_6_5_tier": true,
-            "echo_comparison": ["椿"]
+            "echo_comparison": [
+                "椿"
+            ]
         },
         {
             "hashed_id": "a436949b",
             "id": "[腦測]+0珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-凝夜白霜",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "32516a1b",
             "id": "[腦測]+0珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "8f69a13c",
             "id": "[腦測]+1珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏",
             "is_1_1_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "623afd99",
             "id": "[腦測]+2珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏",
             "is_2_1_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "993407e7",
             "id": "[腦測]+3珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏",
             "is_3_1_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "0fc8d21b",
             "id": "[腦測]+4珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏",
             "is_4_1_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "b4e08c0b",
             "id": "[腦測]+5珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏",
             "is_5_1_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "e38aa0c6",
             "id": "[腦測]+6珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏",
             "is_6_1_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "4900e6ce",
             "id": "[腦測]+6珂萊塔+5死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏",
             "is_6_5_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "e0d27ab7",
             "id": "[腦測]+0珂萊塔+1停駐之煙,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "01cd5155",
             "id": "[腦測]+0珂萊塔+1奔雷,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "2335a186",
             "id": "[腦測]+0珂萊塔+1無眠烈火,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "07e2b155",
             "id": "[腦測]+0珂萊塔+1死與舞,+0折枝+1奇幻變奏,+0維里奈+1奇幻變奏-EE起手",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔", "折枝"]
+            "echo_comparison": [
+                "珂萊塔",
+                "折枝"
+            ]
         },
         {
             "hashed_id": "79462478",
             "id": "[腦測]+0珂萊塔+1死與舞,+0折枝+1清音,+0維里奈+1奇幻變奏-EE起手",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔", "折枝"]
+            "echo_comparison": [
+                "珂萊塔",
+                "折枝"
+            ]
         },
         {
             "hashed_id": "00125742",
             "id": "[腦測]+0珂萊塔+1死與舞,+0折枝+1漪瀾浮錄,+0維里奈+1奇幻變奏-EE起手",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔", "折枝"]
+            "echo_comparison": [
+                "珂萊塔",
+                "折枝"
+            ]
         },
         {
             "hashed_id": "82176157",
             "id": "[腦測]+0珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-EE起手",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔", "折枝"]
+            "echo_comparison": [
+                "珂萊塔",
+                "折枝"
+            ]
         },
         {
             "hashed_id": "8f19bbdb",
             "id": "[腦測]+0珂萊塔+5死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-EE起手",
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "0f6dfc5f",
             "id": "[腦測]+1珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-EE起手",
             "is_1_1_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "5e0323ba",
             "id": "[腦測]+2珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-EE起手",
             "is_2_1_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "1347b2f5",
             "id": "[腦測]+3珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-EE起手",
             "is_3_1_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "40ce9ad6",
             "id": "[腦測]+4珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-EE起手",
             "is_4_1_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "7bd12109",
             "id": "[腦測]+5珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-EE起手",
             "is_5_1_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "aa6c4c34",
             "id": "[腦測]+6珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-EE起手",
             "is_6_1_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "a2c9fffd",
             "id": "[腦測]+6珂萊塔+5死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-EE起手",
             "is_6_5_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "e189b8e9",
             "id": "[腦測]+0珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-EE起手-凝夜白霜",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "ad964556",
             "id": "[腦測]+0珂萊塔+1死與舞,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-EE起手-高天-100暴",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔", "折枝"]
+            "echo_comparison": [
+                "珂萊塔",
+                "折枝"
+            ]
         },
         {
             "hashed_id": "0ea1d24f",
             "id": "[腦測]+0珂萊塔+1停駐之煙,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-EE起手",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "72f1ec92",
             "id": "[腦測]+0珂萊塔+1無眠烈火,+0折枝+1瓊枝冰綃,+0維里奈+1奇幻變奏-EE起手",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔"]
+            "echo_comparison": [
+                "珂萊塔"
+            ]
         },
         {
             "hashed_id": "e09e276c",
             "id": "[腦測]+0珂萊塔+1死與舞,+0桃祈+1永夜長明,+0維里奈+1奇幻變奏-3盾-攻擊",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔", "桃祈"]
+            "echo_comparison": [
+                "珂萊塔",
+                "桃祈"
+            ]
         },
         {
             "hashed_id": "28d002a2",
             "id": "[腦測]+0珂萊塔+1死與舞,+0桃祈+1永夜長明,+0維里奈+1奇幻變奏-3盾-防禦",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔", "桃祈"]
+            "echo_comparison": [
+                "珂萊塔",
+                "桃祈"
+            ]
         },
         {
             "hashed_id": "f2249df1",
             "id": "[腦測]+0珂萊塔+1死與舞,+0長離+1赫奕流明,+0維里奈+1奇幻變奏-長軸",
             "is_tier": true,
-            "echo_comparison": ["珂萊塔", "長離"]
+            "echo_comparison": [
+                "珂萊塔",
+                "長離"
+            ]
         },
         {
             "hashed_id": "6c164dc7",
             "id": "[腦測]+0菲比+1和光回唱,+6莫特斐+1停駐之煙,+6漂泊者·衍射(男)+1千古洑流-不含光躁傷害-此間永駐之光",
             "is_tier": true,
-            "echo_comparison": ["菲比", "莫特斐", "漂泊者·衍射(男)"]
+            "echo_comparison": [
+                "菲比",
+                "莫特斐",
+                "漂泊者·衍射(男)"
+            ]
         },
         {
             "hashed_id": "9eb40f6f",
             "id": "[腦測]+1菲比+1和光回唱,+6莫特斐+1停駐之煙,+6漂泊者·衍射(男)+1千古洑流-不含光躁傷害-此間永駐之光",
             "is_1_1_tier": true,
-            "echo_comparison": ["菲比"]
+            "echo_comparison": [
+                "菲比"
+            ]
         },
         {
             "hashed_id": "86ae252a",
             "id": "[腦測]+2菲比+1和光回唱,+6莫特斐+1停駐之煙,+6漂泊者·衍射(男)+1千古洑流-不含光躁傷害-此間永駐之光",
             "is_2_1_tier": true,
-            "echo_comparison": ["菲比"]
+            "echo_comparison": [
+                "菲比"
+            ]
         },
         {
             "hashed_id": "1e830bb2",
             "id": "[腦測]+3菲比+1和光回唱,+6莫特斐+1停駐之煙,+6漂泊者·衍射(男)+1千古洑流-不含光躁傷害-此間永駐之光",
             "is_3_1_tier": true,
-            "echo_comparison": ["菲比"]
+            "echo_comparison": [
+                "菲比"
+            ]
         },
         {
             "hashed_id": "e7fd73d8",
             "id": "[腦測]+4菲比+1和光回唱,+6莫特斐+1停駐之煙,+6漂泊者·衍射(男)+1千古洑流-不含光躁傷害-此間永駐之光",
             "is_4_1_tier": true,
-            "echo_comparison": ["菲比"]
+            "echo_comparison": [
+                "菲比"
+            ]
         },
         {
             "hashed_id": "89baee6a",
             "id": "[腦測]+5菲比+1和光回唱,+6莫特斐+1停駐之煙,+6漂泊者·衍射(男)+1千古洑流-不含光躁傷害-此間永駐之光",
             "is_5_1_tier": true,
-            "echo_comparison": ["菲比"]
+            "echo_comparison": [
+                "菲比"
+            ]
         },
         {
             "hashed_id": "537a9ca3",
             "id": "[腦測]+6菲比+1和光回唱,+6莫特斐+1停駐之煙,+6漂泊者·衍射(男)+1千古洑流-不含光躁傷害-此間永駐之光",
             "is_6_1_tier": true,
-            "echo_comparison": ["菲比"]
+            "echo_comparison": [
+                "菲比"
+            ]
         },
         {
             "hashed_id": "ae53dbc4",
             "id": "[腦測]+6菲比+5和光回唱,+6莫特斐+1停駐之煙,+6漂泊者·衍射(男)+1千古洑流-不含光躁傷害-此間永駐之光",
             "is_6_5_tier": true,
-            "echo_comparison": ["菲比"]
+            "echo_comparison": [
+                "菲比"
+            ]
         },
         {
             "hashed_id": "a1211cba",
             "id": "[腦測]+0菲比+1漪瀾浮錄,+6莫特斐+1停駐之煙,+6漂泊者·衍射(男)+1千古洑流-不含光躁傷害-此間永駐之光",
             "is_tier": true,
-            "echo_comparison": ["菲比"]
+            "echo_comparison": [
+                "菲比"
+            ]
         },
         {
             "hashed_id": "97191718",
             "id": "[腦測]+0菲比+1掣傀之手,+6莫特斐+1停駐之煙,+6漂泊者·衍射(男)+1千古洑流-不含光躁傷害-此間永駐之光-武器0層",
             "is_tier": true,
-            "echo_comparison": ["菲比"]
+            "echo_comparison": [
+                "菲比"
+            ]
         },
         {
             "hashed_id": "1ff62acd",
             "id": "[腦測]+0菲比+1瓊枝冰綃,+6莫特斐+1停駐之煙,+6漂泊者·衍射(男)+1千古洑流-不含光躁傷害-此間永駐之光-武器0層",
             "is_tier": true,
-            "echo_comparison": ["菲比"]
+            "echo_comparison": [
+                "菲比"
+            ]
         },
         {
             "hashed_id": "983eb204",
             "id": "[腦測]+0菲比+1和光回唱,+6莫特斐+1停駐之煙,+6漂泊者·衍射(男)+1千古洑流-不含光躁傷害-浮星祛暗",
             "is_tier": true,
-            "echo_comparison": ["菲比"]
+            "echo_comparison": [
+                "菲比"
+            ]
         },
         {
             "hashed_id": "6f6bbcfa",
             "id": "[腦測]+0菲比+1今州守望,+6莫特斐+1停駐之煙,+6漂泊者·衍射(男)+1千古洑流-不含光躁傷害-此間永駐之光",
             "is_tier": true,
-            "echo_comparison": ["菲比"]
+            "echo_comparison": [
+                "菲比"
+            ]
         },
         {
             "hashed_id": "06e55c83",
             "id": "[腦測]+0菲比+1清音,+6莫特斐+1停駐之煙,+6漂泊者·衍射(男)+1千古洑流-不含光躁傷害-此間永駐之光",
             "is_tier": true,
-            "echo_comparison": ["菲比"]
+            "echo_comparison": [
+                "菲比"
+            ]
+        },
+        {
+            "hashed_id": "1bc5596e",
+            "id": "[腦測]+0布蘭特+1不滅航路,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-無懼-200共效",
+            "is_tier": true,
+            "echo_comparison": [
+                "布蘭特"
+            ]
+        },
+        {
+            "hashed_id": "11f2daf8",
+            "id": "[腦測]+0布蘭特+1不滅航路,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-熔山-200共效",
+            "is_tier": true,
+            "echo_comparison": [
+                "布蘭特"
+            ]
+        },
+        {
+            "hashed_id": "c4e816d9",
+            "id": "[腦測]+0布蘭特+1不滅航路,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-無懼-250共效",
+            "is_tier": true,
+            "echo_comparison": [
+                "布蘭特"
+            ]
+        },
+        {
+            "hashed_id": "fa0ded4f",
+            "id": "[腦測]+0布蘭特+1不滅航路,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-熔山-250共效",
+            "is_tier": true,
+            "echo_comparison": [
+                "布蘭特"
+            ]
+        },
+        {
+            "hashed_id": "8f142994",
+            "id": "[腦測]+0布蘭特+1不滅航路,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-無懼-280共效",
+            "is_tier": true,
+            "echo_comparison": [
+                "布蘭特"
+            ]
+        },
+        {
+            "hashed_id": "db36fd60",
+            "id": "[腦測]+0布蘭特+1不滅航路,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-熔山-280共效",
+            "is_tier": true,
+            "echo_comparison": [
+                "布蘭特"
+            ]
         }
     ],
     "comparisons": {
@@ -1364,24 +1756,15 @@
         ],
         "布蘭特": [
             {
-                "id": "d7cb4d0c",
-                "title": "無懼浪濤之勇 vs 輕雲出月",
+                "id": "ff10e0c5",
+                "title": "主C 共鳴效率比較",
                 "template_ids": [
-                    "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸",
-                    "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸-輕雲"
-                ]
-            },
-            {
-                "id": "f3ed2ca1",
-                "title": "共鳴效率比較",
-                "template_ids": [
-                    "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸",
-                    "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸-250共效",
-                    "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸-249共效",
-                    "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸-220共效",
-                    "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸-200共效",
-                    "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸-輕雲",
-                    "[內鬼]+0長離+1赫奕流明,+0布蘭特+1不滅航路,+0維里奈+1奇幻變奏-長軸-輕雲-200共效"
+                    "[腦測]+0布蘭特+1不滅航路,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-無懼-200共效",
+                    "[腦測]+0布蘭特+1不滅航路,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-無懼-250共效",
+                    "[腦測]+0布蘭特+1不滅航路,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-無懼-280共效",
+                    "[腦測]+0布蘭特+1不滅航路,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-熔山-200共效",
+                    "[腦測]+0布蘭特+1不滅航路,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-熔山-250共效",
+                    "[腦測]+0布蘭特+1不滅航路,+6散華+1赫奕流明,+0維里奈+1奇幻變奏-熔山-280共效"
                 ]
             }
         ],
