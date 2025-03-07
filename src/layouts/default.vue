@@ -9,7 +9,7 @@
       <v-tab to="/docs">{{ $t('nav.tab.docs') }}</v-tab>
       <v-tab to="/resonator">{{ $t('nav.tab.resonator') }}</v-tab>
       <v-tab to="/tiers">{{ $t('nav.tab.tiers') }}</v-tab>
-      <v-tab to="/calculation/simple">{{ $t('nav.tab.tool') }}</v-tab>
+      <v-tab to="/tool/simple_calculator">{{ $t('nav.tab.tool') }}</v-tab>
     </v-tabs>
   </v-main>
   <router-view class="view" />

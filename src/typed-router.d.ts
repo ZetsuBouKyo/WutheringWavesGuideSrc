@@ -19,10 +19,6 @@ declare module 'vue-router/auto-routes' {
    */
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
-    '/calculation/': RouteRecordInfo<'/calculation/', '/calculation', Record<never, never>, Record<never, never>>,
-    '/calculation/rotation': RouteRecordInfo<'/calculation/rotation', '/calculation/rotation', Record<never, never>, Record<never, never>>,
-    '/calculation/simple': RouteRecordInfo<'/calculation/simple', '/calculation/simple', Record<never, never>, Record<never, never>>,
-    '/calculation/template': RouteRecordInfo<'/calculation/template', '/calculation/template', Record<never, never>, Record<never, never>>,
     '/resonator/': RouteRecordInfo<'/resonator/', '/resonator', Record<never, never>, Record<never, never>>,
     '/resonator/[resonator_no]/': RouteRecordInfo<'/resonator/[resonator_no]/', '/resonator/:resonator_no', { resonator_no: ParamValue<true> }, { resonator_no: ParamValue<false> }>,
     '/resonator/[resonator_no]/comparison/[affix_policy]/[comparison_id]/resonator_dps': RouteRecordInfo<'/resonator/[resonator_no]/comparison/[affix_policy]/[comparison_id]/resonator_dps', '/resonator/:resonator_no/comparison/:affix_policy/:comparison_id/resonator_dps', { resonator_no: ParamValue<true>, affix_policy: ParamValue<true>, comparison_id: ParamValue<true> }, { resonator_no: ParamValue<false>, affix_policy: ParamValue<false>, comparison_id: ParamValue<false> }>,
@@ -32,5 +28,9 @@ declare module 'vue-router/auto-routes' {
     '/template/[id]/echo_comparison/[affix_policy]/[resonator_no]': RouteRecordInfo<'/template/[id]/echo_comparison/[affix_policy]/[resonator_no]', '/template/:id/echo_comparison/:affix_policy/:resonator_no', { id: ParamValue<true>, affix_policy: ParamValue<true>, resonator_no: ParamValue<true> }, { id: ParamValue<false>, affix_policy: ParamValue<false>, resonator_no: ParamValue<false> }>,
     '/tiers/': RouteRecordInfo<'/tiers/', '/tiers', Record<never, never>, Record<never, never>>,
     '/tiers/[tier]/[affix_policy]': RouteRecordInfo<'/tiers/[tier]/[affix_policy]', '/tiers/:tier/:affix_policy', { tier: ParamValue<true>, affix_policy: ParamValue<true> }, { tier: ParamValue<false>, affix_policy: ParamValue<false> }>,
+    '/tool/': RouteRecordInfo<'/tool/', '/tool', Record<never, never>, Record<never, never>>,
+    '/tool/rotation_builder': RouteRecordInfo<'/tool/rotation_builder', '/tool/rotation_builder', Record<never, never>, Record<never, never>>,
+    '/tool/simple_calculator': RouteRecordInfo<'/tool/simple_calculator', '/tool/simple_calculator', Record<never, never>, Record<never, never>>,
+    '/tool/template_calculator': RouteRecordInfo<'/tool/template_calculator', '/tool/template_calculator', Record<never, never>, Record<never, never>>,
   }
 }
