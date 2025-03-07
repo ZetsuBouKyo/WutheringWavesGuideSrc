@@ -1,10 +1,10 @@
 <template>
-  <div class="d-flex flex-column mx-1 w-100">
+  <div class="d-flex flex-column w-100">
     <div class="d-flex flex-row mb-2">
       <span>{{ $t('general.resonator') }}</span>
     </div>
     <div class="d-flex flex-column mb-2 bg-blue-grey-darken-4 overflow-auto w-100">
-      <div class="d-flex flex-row align-center mt-1 mx-1 text-truncate">
+      <div class="d-flex flex-row align-center mx-1 mt-1 text-truncate">
         <div class="bg-grey-darken-4 d-flex flex-row align-center pa-2 mr-1">
           <img class="title mr-4" :src="resonatorStore.getIconSrcByName(resonator.name)" />
           <h3>{{ $t(resonator.name) }}</h3>

@@ -78,6 +78,13 @@ export async function saveDomToImage(ref: any, fname: string) {
   }
 }
 
+export function saveJson(data: any, fname: string = "data") {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 4) as BlobPart], { type: "application/json" }));
+  a.download = `${fname}.json`;
+  a.click();
+}
+
 export function getNumber(a: any): number {
   let n: number = 0;
   if (!a) {

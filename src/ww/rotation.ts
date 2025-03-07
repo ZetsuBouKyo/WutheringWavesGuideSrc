@@ -2,13 +2,16 @@ import { useResonatorStore } from "@/stores/resonator";
 
 const ActionIcons: any = {
   普攻: "/assets/actions/left_click.svg",
-  普攻xN: "/assets/actions/left_click.svg",
+  // 普攻xN: "/assets/actions/left_click.svg",
   空中攻擊: "/assets/actions/left_click.svg",
   重擊: "/assets/actions/hold_left_click.svg",
   空中重擊: "/assets/actions/hold_left_click.svg",
   共鳴技能: "/assets/actions/e.svg",
   共鳴解放: "/assets/actions/r.svg",
   聲骸: "/assets/actions/q.svg",
+  長按共鳴技能: "/assets/actions/hold_e.svg",
+  長按共鳴解放: "/assets/actions/hold_r.svg",
+  長按聲骸: "/assets/actions/hold_q.svg",
   延奏: "/assets/actions/num.svg",
   變奏: "",
   入場: "/assets/actions/num.svg",
@@ -106,4 +109,8 @@ export function getRotation(rows: Array<IRotationRow>): Array<ResonatorRotation>
   rotation.push(currentRotation);
 
   return rotation;
+}
+
+export function getActions(): Array<string> {
+  return Object.keys(ActionIcons);
 }

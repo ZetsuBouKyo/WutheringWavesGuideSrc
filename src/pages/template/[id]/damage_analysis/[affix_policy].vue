@@ -41,7 +41,7 @@
           <h2 id="team_damage_distribution">{{ $t('template.damage_analysis.team_damage_distribution') }}</h2>
         </v-row>
         <div class="d-flex flex-column my-1 mb-4">
-          <v-container class="bg-blue-grey-darken-4 mx-1">
+          <v-container class="bg-blue-grey-darken-4">
             <div class="d-flex flex-column bg-blue-grey-darken-4">
               <v-row class="ma-1 text-truncate">
                 <span class="team-damage-distribution-header">{{ $t('general.template_id') }}: </span>
@@ -110,7 +110,7 @@
           <h2 id="buff_damage_distribution">{{ $t('template.damage_analysis.buff_damage_distribution') }}</h2>
         </v-row>
         <div class="d-flex flex-column my-1 mb-4">
-          <v-container class="bg-blue-grey-darken-4 mx-1">
+          <v-container class="bg-blue-grey-darken-4">
             <div class="d-flex flex-column bg-blue-grey-darken-4 text-truncate">
               <v-row class="ma-1 text-truncate">
                 <span class="team-damage-distribution-header">{{ $t('general.template_id') }}: </span>
@@ -183,7 +183,7 @@
               $t('template.damage_analysis.skill_damage_distribution') }}</h4>
           </v-row>
           <div class="d-flex flex-column my-1 mb-4 w-100">
-            <v-container class="bg-blue-grey-darken-4 mx-1">
+            <v-container class="bg-blue-grey-darken-4">
               <div class="d-flex flex-column bg-blue-grey-darken-4 text-truncate">
                 <v-row class="ma-1 text-truncate">
                   <span class="team-damage-distribution-header">{{ $t('general.template_id') }}: </span>
@@ -251,7 +251,7 @@
               $t('template.damage_analysis.skill_type_damage_distribution') }}</h4>
           </v-row>
           <div class="d-flex flex-column my-1 mb-4 w-100">
-            <v-container class="bg-blue-grey-darken-4 mx-1">
+            <v-container class="bg-blue-grey-darken-4">
               <div class="d-flex flex-column bg-blue-grey-darken-4 text-truncate">
                 <v-row class="ma-1 text-truncate">
                   <span class="team-damage-distribution-header">{{ $t('general.template_id') }}: </span>
@@ -315,7 +315,7 @@
               $t('template.damage_analysis.skill_bonus_damage_distribution') }}</h4>
           </v-row>
           <div class="d-flex flex-column my-1 mb-4 w-100">
-            <v-container class="bg-blue-grey-darken-4 mx-1">
+            <v-container class="bg-blue-grey-darken-4">
               <div class="d-flex flex-column bg-blue-grey-darken-4 text-truncate">
                 <v-row class="ma-1 text-truncate">
                   <span class="team-damage-distribution-header">{{ $t('general.template_id') }}: </span>
@@ -388,7 +388,7 @@
         </v-row>
         <div v-if="damageAnalysis.calculated_rows.length > 0" class="d-flex flex-column my-1 mb-4 w-100"
           :key="damageAnalysis.calculated_rows.length">
-          <v-container class="bg-blue-grey-darken-4 mx-1">
+          <v-container class="bg-blue-grey-darken-4">
             <div class="d-flex flex-column bg-blue-grey-darken-4 text-truncate">
               <v-row class="ma-1 text-truncate">
                 <span class="team-damage-distribution-header">{{ $t('general.template_id') }}: </span>
@@ -491,11 +491,11 @@
           </v-row>
           <div v-for="(calculatedRow, i) in damageAnalysis.calculated_rows" :id="`calculated_row${i}`"
             class="d-flex flex-column my-1">
-            <v-row class="my-1 align-center">
+            <div class="d-flex flex-row my-1 align-center">
               <img class="resonator-icon mr-4" :src="resonatorStore.getIconSrcByName(calculatedRow.resonator_name)" />
               <span class="mr-4">{{ $t(calculatedRow.resonator_name) }}</span>
               <span>{{ $t("general.nth_row", { n: i + 1 }) }}</span>
-              <div class="d-flex flex-row ml-auto mr-2">
+              <div class="d-flex flex-row ml-auto">
                 <v-btn v-if="rotationIndices.includes(i.toString())" class="mr-2"
                   v-on:click="jumpToSection(goTo, `#rotation${i}`)">
                   {{ $t('general.back_to', { to: $t('general.rotation') }) }}
@@ -504,18 +504,18 @@
                   {{ $t('general.back_to', { to: $t('template.damage_analysis.rotation_damage') }) }}
                 </v-btn>
               </div>
-            </v-row>
+            </div>
             <v-row class="my-1">
               <h4>{{ $t("general.skill") }}</h4>
             </v-row>
-            <v-data-table class="table ma-1" :items="calculatedRowToSkillTable(calculatedRow)" disable-sort
+            <v-data-table class="table my-1" :items="calculatedRowToSkillTable(calculatedRow)" disable-sort
               hide-default-footer :items-per-page="2">
             </v-data-table>
             <div v-if="calculatedRow.damage" class="d-flex flex-column">
               <v-row class="my-1">
                 <h4>{{ $t("general.damage") }}</h4>
               </v-row>
-              <v-data-table class="table ma-1" :items="calculatedRowToDamageTable(calculatedRow)" disable-sort
+              <v-data-table class="table my-1" :items="calculatedRowToDamageTable(calculatedRow)" disable-sort
                 hide-default-footer :items-per-page="2">
               </v-data-table>
             </div>
@@ -523,7 +523,7 @@
               <v-row class="my-1">
                 <h4>{{ $t("general.buff") }}</h4>
               </v-row>
-              <v-data-table class="table ma-1" :items="calculatedRowToBuffTable(calculatedRow)" disable-sort
+              <v-data-table class="table my-1" :items="calculatedRowToBuffTable(calculatedRow)" disable-sort
                 hide-default-footer :items-per-page="22">
               </v-data-table>
             </div>
@@ -531,7 +531,7 @@
               <v-row class="my-1">
                 <h4>{{ $t("general.calculation") }}</h4>
               </v-row>
-              <v-data-table class="table ma-1" disable-sort hide-default-footer :items-per-page="8">
+              <v-data-table class="table my-1" disable-sort hide-default-footer :items-per-page="8">
                 <tbody>
                   <tr>
                     <td>{{ $t("calculation.region.attr") }}</td>

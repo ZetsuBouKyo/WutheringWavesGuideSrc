@@ -1,8 +1,21 @@
 <template>
-  <div class="d-flex flex-column mx-1 w-100">
-    <v-btn class="ml-auto mb-2" v-on:click="saveImage">{{ $t('general.download_image')
-      }}</v-btn>
-    <div ref="rotationDom" class="d-flex flex-column bg-grey-darken-4 w-100">
+  <div v-if="rotation.length > 0" class="d-flex flex-column w-100">
+    <div class="d-flex flex-row mb-2">
+      <v-tooltip location="bottom" :text="$t('rotation.width')">
+        <template v-slot:activator="{ props }">
+          <div class="d-flex flex-row ml-auto mr-2" v-bind="props">
+            <v-text-field v-model="width" width="200px" :label="$t('general.output_image_width')" variant="outlined"
+              density="compact" hide-details />
+          </div>
+        </template>
+      </v-tooltip>
+      <div class="d-flex flex-row">
+        <v-btn class="ml-auto" v-on:click="saveImage">
+          {{ $t('general.download_image') }}
+        </v-btn>
+      </div>
+    </div>
+    <div ref="rotationDom" class="d-flex flex-column bg-grey-darken-4" :style="`width: ${width};`">
       <div v-for="resonatorRotation in rotation" class="d-flex flex-row justify-start py-2 w-100">
         <div class="d-flex flex-row px-4 my-2">
           <img class="resonator" :src="resonatorRotation.resonatorSrc" />
@@ -53,7 +66,7 @@ import { ref } from "vue";
 import { useGoTo } from 'vuetify'
 import { useI18n } from 'vue-i18n'
 
-import { jumpToSection, saveDomToImage } from "@/ww/utils"
+import { jumpToSection, saveDomToImage, saveJson } from "@/ww/utils"
 
 const goTo = useGoTo()
 const { t } = useI18n()
@@ -73,6 +86,7 @@ const jump = props.jump
 
 const rotationDom = ref<HTMLElement | null>(null);
 const imageFname = t('general.rotation')
+const width = ref<string>("100%")
 
 async function saveImage() {
   await saveDomToImage(rotationDom, imageFname)
@@ -90,4 +104,6 @@ async function saveImage() {
 .comment
   height: 24px
   font-size: 0.75rem
+.width
+  width: 200px
 </style>

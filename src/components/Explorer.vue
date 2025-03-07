@@ -6,6 +6,7 @@
       <v-tabs class="ml-8" align-tabs="start" color="blue-accent-1">
         <v-tab to="/calculation/simple">{{ $t('calculation.tab.simple') }}</v-tab>
         <v-tab to="/calculation/template">{{ $t('calculation.tab.template') }}</v-tab>
+        <v-tab to="/calculation/rotation">{{ $t('calculation.tab.rotation') }}</v-tab>
       </v-tabs>
     </v-row>
   </v-main>
@@ -20,7 +21,4 @@
 .nav
   z-index: 999
   background: rgb(var(--v-theme-background))
-.view
-  margin-top: var(--ww-calc-nav-height)
-  margin-bottom: 60px
 </style>

@@ -3,12 +3,12 @@
 
 <svg
    width="20.000008mm"
-   height="19.999998mm"
-   viewBox="0 0 20.000008 19.999997"
+   height="19.99999mm"
+   viewBox="0 0 20.000008 19.99999"
    version="1.1"
    id="svg1"
    xml:space="preserve"
-   sodipodi:docname="hold_e.svg"
+   sodipodi:docname="hold_q.svg"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="16.884754"
-     inkscape:cx="44.477995"
-     inkscape:cy="48.949484"
+     inkscape:zoom="23.878657"
+     inkscape:cx="37.816197"
+     inkscape:cy="37.795258"
      inkscape:window-width="3840"
      inkscape:window-height="2066"
      inkscape:window-x="-11"
@@ -34,18 +34,18 @@
      inkscape:current-layer="svg1" /><defs
      id="defs1" /><rect
      style="fill:#ffffff;fill-opacity:1;stroke:#f0f0f0;stroke-width:0.640281;stroke-opacity:1"
-     id="rect2"
+     id="rect176"
      width="19.359718"
      height="19.359718"
-     x="0.32012546"
-     y="0.32014427"
+     x="0.32015666"
+     y="0.32013732"
      rx="4.8399296" /><text
      xml:space="preserve"
      style="font-size:11.952px;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.640281;stroke-opacity:1"
-     x="5.9702797"
-     y="14.344842"
-     id="text4"><tspan
-       id="tspan4"
+     x="5.2058005"
+     y="13.288538"
+     id="text176"><tspan
+       id="tspan176"
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.640281;stroke-opacity:1"
-       x="5.9702797"
-       y="14.344842">E</tspan></text></svg>
+       x="5.2058005"
+       y="13.288538">Q</tspan></text></svg>
