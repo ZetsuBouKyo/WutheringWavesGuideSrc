@@ -17,10 +17,10 @@
       <span>{{ $t('general.main_affix') }}</span>
     </div>
     <div class="d-flex flex-row">
-      <v-select class="mr-6" v-model="echo._main_affix_item" :items="mainAffixKeys"
+      <v-select class="mr-6 w-50" v-model="echo._main_affix_item" :items="mainAffixKeys"
         :label="$t(getAffixLabelByKey(echo._main_affix_item.value))" :key="echo._main_affix_item.value"
         @update:modelValue="updateEchoMainAffix"></v-select>
-      <v-text-field v-model="echo.main_affix[echo._main_affix_item.value]"
+      <v-text-field class="w-50" v-model="echo.main_affix[echo._main_affix_item.value]"
         :label="$t(getAffixLabelByKey(echo._main_affix_item.value))" :key="echo.main_affix[echo._main_affix_item.value]"
         @update:modelValue="echoes.resetPolicy"></v-text-field>
     </div>
