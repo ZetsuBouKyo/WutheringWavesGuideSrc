@@ -4,7 +4,7 @@ import monsters from "@/assets/data/monsters.json";
 
 const m = monsters as Array<any>;
 
-export const useMonsterStore = defineStore("template", {
+export const useMonsterStore = defineStore("monster", {
   state: () => ({
     //
   }),
