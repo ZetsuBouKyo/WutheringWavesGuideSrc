@@ -1,9 +1,8 @@
 import { AffixPolicyEnum } from "@/types/affix";
-import { ElementBonusEnum, SkillBonusEnum, AbbrSkillBonusEnum, type TAbbrBonusEnum, StatBuffEnum } from "@/types/buff";
+import { ElementBonusEnum, SkillBonusEnum, AbbrSkillBonusEnum, type TAbbrBonusEnum } from "@/types/buff";
 import { SkillAttrEnum } from "@/types/skill";
 
 import { getAffixLabelByKey, getFixedMainAffixes, getMainAffixes } from "@/ww/echo";
-import { StatBuff } from "@/ww/buff";
 
 import { RowResonator } from "@/ww/row/resonator";
 import { RowWeapon } from "@/ww/row/weapon";
@@ -175,7 +174,7 @@ export class RowAutoFillEchoes {
     };
   }
 
-  private updateCost4MainAffixes(echo: RowEcho, abbr: TAbbrBonusEnum) {
+  private updateCost4Echo(echo: RowEcho, abbr: TAbbrBonusEnum) {
     const cost = "4";
     echo.cost = cost;
 
@@ -211,7 +210,7 @@ export class RowAutoFillEchoes {
     }
   }
 
-  private updateCost3MainAffixes(echo: RowEcho, abbr: TAbbrBonusEnum) {
+  private updateCost3Echo(echo: RowEcho, abbr: TAbbrBonusEnum) {
     const cost = "3";
     echo.cost = cost;
 
@@ -264,7 +263,7 @@ export class RowAutoFillEchoes {
     }
   }
 
-  private updateCost1MainAffixes(echo: RowEcho, abbr: TAbbrBonusEnum) {
+  private updateCost1Echo(echo: RowEcho, abbr: TAbbrBonusEnum) {
     const cost = "1";
     echo.cost = cost;
 
@@ -289,6 +288,55 @@ export class RowAutoFillEchoes {
     }
   }
 
+  public updateEcho(i: number, cost: string, abbr: TAbbrBonusEnum) {
+    cost = cost.toString();
+    switch (cost) {
+      case "4":
+        if (!abbr) {
+          abbr = this.getCritAttr();
+        }
+        this.updateCost4Echo(this.echoes.echoes[i], abbr);
+        break;
+      case "3":
+        if (!abbr) {
+          abbr = this.resonator.element_zh_tw;
+        }
+        this.updateCost3Echo(this.echoes.echoes[i], abbr);
+        break;
+      case "1":
+        if (!abbr) {
+          abbr = this.getBaseAbbr();
+        }
+        this.updateCost1Echo(this.echoes.echoes[i], abbr);
+        break;
+      default:
+        return;
+    }
+  }
+
+  public update(
+    cost1: string,
+    cost2: string,
+    cost3: string,
+    cost4: string,
+    cost5: string,
+    abbr1: TAbbrBonusEnum,
+    abbr2: TAbbrBonusEnum,
+    abbr3: TAbbrBonusEnum,
+    abbr4: TAbbrBonusEnum,
+    abbr5: TAbbrBonusEnum,
+  ) {
+    if (!this.echoes.policy || this.echoes.echoes.length === 0) {
+      return;
+    }
+    this.updateBase();
+    this.updateEcho(0, cost1, abbr1);
+    this.updateEcho(1, cost2, abbr2);
+    this.updateEcho(2, cost3, abbr3);
+    this.updateEcho(3, cost4, abbr4);
+    this.updateEcho(4, cost5, abbr5);
+  }
+
   public update43311(
     abbr1: TAbbrBonusEnum = "",
     abbr2: TAbbrBonusEnum = "",
@@ -296,31 +344,7 @@ export class RowAutoFillEchoes {
     abbr4: TAbbrBonusEnum = "",
     abbr5: TAbbrBonusEnum = "",
   ) {
-    if (!this.echoes.policy || this.echoes.echoes.length === 0) {
-      return;
-    }
-    if (!abbr1) {
-      abbr1 = this.getCritAttr();
-    }
-    if (!abbr2) {
-      abbr2 = this.resonator.element_zh_tw;
-    }
-    if (!abbr3) {
-      abbr3 = this.resonator.element_zh_tw;
-    }
-    if (!abbr4) {
-      abbr4 = this.getBaseAbbr();
-    }
-    if (!abbr5) {
-      abbr5 = this.getBaseAbbr();
-    }
-
-    this.updateBase();
-    this.updateCost4MainAffixes(this.echoes.echoes[0], abbr1);
-    this.updateCost3MainAffixes(this.echoes.echoes[1], abbr2);
-    this.updateCost3MainAffixes(this.echoes.echoes[2], abbr3);
-    this.updateCost1MainAffixes(this.echoes.echoes[3], abbr4);
-    this.updateCost1MainAffixes(this.echoes.echoes[4], abbr5);
+    this.update("4", "3", "3", "1", "1", abbr1, abbr2, abbr3, abbr4, abbr5);
   }
 
   public update43311With2Elem() {
