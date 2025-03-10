@@ -4,6 +4,8 @@ import echoes from "@/assets/data/echo/infos.json";
 import sonatas from "@/assets/data/echo/sonatas.json";
 import sub_affixes from "@/assets/data/echo/sub_affixes.json";
 
+import { AbbrBonusEnum } from "@/types/buff";
+
 const sonataNames = Object.keys(sonatas);
 
 const echoesForCalculation: Array<any> = [
@@ -25,6 +27,20 @@ export const useEchoStore = defineStore("echo", {
     //
   }),
   actions: {
+    getEchoItemForCalculationByName(name: string): any {
+      for (const echo of echoesForCalculation) {
+        if (echo.name === name) {
+          return { title: name, value: echo };
+        }
+      }
+      return { title: name, value: undefined };
+    },
+    getEchoNames(): Array<string> {
+      const e = echoesForCalculation.map((value: any, _, __) => {
+        return value.name;
+      });
+      return e;
+    },
     getEchoItemsForCalculation(): Array<any> {
       const e = echoesForCalculation.map((value: any, _, __) => {
         return { title: value.name, value: value };
@@ -41,8 +57,14 @@ export const useEchoStore = defineStore("echo", {
       }
       return values;
     },
+    getCosts(): Array<string> {
+      return ["4", "3", "1"];
+    },
     getSonataNames(): Array<string> {
       return sonataNames;
+    },
+    getAbbrs(): Array<string> {
+      return Object.values(AbbrBonusEnum);
     },
   },
 });

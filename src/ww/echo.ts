@@ -1,6 +1,7 @@
 import fixed_main_affixes from "@/assets/data/echo/fixed_main_affixes.json";
 import main_affixes from "@/assets/data/echo/main_affixes.json";
 
+import { AbbrBonusEnum, type TAbbrBonusEnum } from "@/types/buff";
 import { StatBuffZhTwEnum, type TStatBuffEnum } from "@/types/buff";
 
 const fixedMainAffixes = fixed_main_affixes as { [cost: string]: { [buff: string]: string } };

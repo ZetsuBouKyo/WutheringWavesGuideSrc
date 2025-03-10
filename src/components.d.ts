@@ -33,5 +33,9 @@ declare module 'vue' {
     RowWeaponResult: typeof import('./components/RowWeaponResult.vue')['default']
     SimpleCalculatorResult: typeof import('./components/SimpleCalculatorResult.vue')['default']
     TeamTier: typeof import('./components/TeamTier.vue')['default']
+    TemplateAutoFillEcho: typeof import('./components/TemplateAutoFillEcho.vue')['default']
+    TemplateBasicInfo: typeof import('./components/TemplateBasicInfo.vue')['default']
+    TemplateEcho: typeof import('./components/TemplateEcho.vue')['default']
+    TemplateResonator: typeof import('./components/TemplateResonator.vue')['default']
   }
 }

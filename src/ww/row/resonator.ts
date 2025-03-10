@@ -26,6 +26,7 @@ export class RowResonator {
   public hp: string = "";
   public atk: string = "";
   public def: string = "";
+  public energy_regen: string = "";
   public normal_attack_lv: string = "10";
   public resonance_skill_lv: string = "10";
   public forte_circuit_lv: string = "10";

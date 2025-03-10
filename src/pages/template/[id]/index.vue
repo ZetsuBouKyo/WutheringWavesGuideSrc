@@ -102,7 +102,7 @@ import { useGoTo } from 'vuetify'
 import { useI18n } from 'vue-i18n'
 
 import { useResonatorStore } from '@/stores/resonator';
-import { useTemplateStore } from '@/stores/template';
+import { useTemplatesStore } from '@/stores/template';
 import { useCalculatedTemplateStore } from '@/stores/calculatedTemplate';
 
 import { jumpToSection } from '@/ww/utils';
@@ -116,7 +116,7 @@ const hashedTemplateId = (route.params as { id: string }).id
 
 const calculatedTemplateStore = useCalculatedTemplateStore()
 const resonatorStore = useResonatorStore()
-const templateStore = useTemplateStore()
+const templateStore = useTemplatesStore()
 
 
 const resonatorNames = ref<Array<string>>([])

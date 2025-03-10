@@ -5,7 +5,7 @@ import { RowResonator } from "@/ww/row/resonator";
 import { RowWeapon } from "@/ww/row/weapon";
 import { RowEchoes } from "@/ww/row/echoes";
 import { RowBuff } from "@/ww/row/buff";
-import { RowBuffs, RowBuffSummary } from "@/ww/row/buffs";
+import { RowBuffs } from "@/ww/row/buffs";
 import { RowMonster } from "@/ww/row/monster";
 
 import { getNumber, md5 } from "@/ww/utils";
@@ -58,7 +58,13 @@ export class RowCalculation {
   public data: RowCalculationData = new RowCalculationData();
   public result: RowCalculationResult = new RowCalculationResult();
 
-  constructor(resonator: RowResonator, weapon: RowWeapon, echoes: RowEchoes, buffs: RowBuffs, monster: RowMonster) {
+  constructor(
+    resonator: RowResonator = new RowResonator(),
+    weapon: RowWeapon = new RowWeapon(),
+    echoes: RowEchoes = new RowEchoes(),
+    buffs: RowBuffs = new RowBuffs(),
+    monster: RowMonster = new RowMonster(),
+  ) {
     this.data.resonator = resonator;
     this.data.weapon = weapon;
     this.data.echoes = echoes;
