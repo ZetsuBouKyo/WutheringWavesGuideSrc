@@ -1,20 +1,24 @@
 <template>
   <div class="d-flex flex-column w-100">
-    <div class="d-flex flex-row">
-      <v-text-field v-model="monster.data.name" :label="$t('general.name')" readonly>
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="monster.data.name" :label="$t('general.name')" variant="outlined" density="compact"
+        hide-details readonly>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="monster.data.level" :label="$t('general.level')" readonly>
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="monster.data.level" :label="$t('general.level')" variant="outlined" density="compact"
+        hide-details readonly>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="monster.data.def" :label="$t('general.def')" readonly>
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="monster.data.def" :label="$t('general.def')" variant="outlined" density="compact"
+        hide-details readonly>
       </v-text-field>
     </div>
     <div v-for="key in ResEnum" class="d-flex flex-row" :key="key">
-      <div v-if="monster[key]" class="d-flex flex-column w-100">
-        <v-text-field v-model="monster[key]" :label="$t(`general.${key}`)" readonly>
+      <div v-if="monster[key]" class="d-flex flex-column w-100 mb-4">
+        <v-text-field v-model="monster[key]" :label="$t(`general.${key}`)" variant="outlined" density="compact"
+          hide-details readonly>
         </v-text-field>
       </div>
     </div>

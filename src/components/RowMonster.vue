@@ -1,8 +1,9 @@
 <template>
   <div class="d-flex flex-column w-100">
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-select v-model="monster.data.name" :items="monsterItems" :label="$t('general.name')"
-        @update:modelValue="updateRowMonsterByItem"></v-select>
+        @update:modelValue="updateRowMonsterByItem" variant="outlined" density="compact" hide-details>
+      </v-select>
     </div>
   </div>
 </template>

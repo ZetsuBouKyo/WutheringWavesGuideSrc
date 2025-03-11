@@ -1,16 +1,19 @@
 <template>
   <div class="d-flex flex-column w-100">
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-combobox v-model="weapon.data.name" :items="weaponNames" :label="$t('general.name')" :rules="[checkWeaponName]"
-        @update:modelValue="weapon.updateRowWeaponByName()"></v-combobox>
+        @update:modelValue="weapon.updateRowWeaponByName()" variant="outlined" density="compact" hide-details>
+      </v-combobox>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-select v-model="weapon.data.level" :items="weapon.data.getLevels()" :label="$t('general.level')"
-        @update:modelValue="weapon.updateRowWeaponByName()"></v-select>
+        @update:modelValue="weapon.updateRowWeaponByName()" variant="outlined" density="compact" hide-details>
+      </v-select>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-select v-model="weapon.data.tune" :items="weaponTunes" :label="$t('general.tune')"
-        @update:modelValue="weapon.updateRowWeaponByName()"></v-select>
+        @update:modelValue="weapon.updateRowWeaponByName()" variant="outlined" density="compact" hide-details>
+      </v-select>
     </div>
   </div>
 </template>

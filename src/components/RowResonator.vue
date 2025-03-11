@@ -1,25 +1,30 @@
 <template>
   <div class="d-flex flex-column w-100">
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-combobox v-model="resonator.data.name" :items="resonatorNames" :label="$t('general.name')"
-        :rules="[checkResonatorName]" @update:modelValue="updateResonator"></v-combobox>
+        :rules="[checkResonatorName]" @update:modelValue="updateResonator" variant="outlined" density="compact"
+        hide-details>
+      </v-combobox>
     </div>
-    <div class="d-flex flex-row">
-      <v-select v-model="resonator.data.level" :items="resonatorLevels" :label="$t('general.level')">
+    <div class="d-flex flex-row mb-4">
+      <v-select v-model="resonator.data.level" :items="resonatorLevels" :label="$t('general.level')" variant="outlined"
+        density="compact" hide-details>
       </v-select>
     </div>
-    <div class="d-flex flex-row">
-      <v-select v-model="resonator.data.chain" :items="resonatorChains"
-        :label="$t('general.resonator_chain')"></v-select>
+    <div class="d-flex flex-row mb-4">
+      <v-select v-model="resonator.data.chain" :items="resonatorChains" :label="$t('general.resonator_chain')"
+        variant="outlined" density="compact" hide-details>
+      </v-select>
     </div>
     <!-- Skill -->
-    <div class="d-flex flex-row mb-2">
+    <div class="d-flex flex-row mb-4">
       <span>{{ $t('general.skill') }}</span>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-combobox v-bind="props" v-model="resonator.data._skill_item" :items="resonatorSkillItems"
         :label="$t('general.resonator_skill_id')" :rules="[checkResonatorSkill]"
-        :disabled="resonatorSkillItems.length === 0" @update:modelValue="updateResonatorSkill">
+        :disabled="resonatorSkillItems.length === 0" @update:modelValue="updateResonatorSkill" variant="outlined"
+        density="compact" hide-details>
         <template v-slot:item="{ props, item }">
           <v-tooltip location="top" :disabled="!item.value.tooltip">
             <div v-html="item.value.tooltip"></div>
@@ -30,121 +35,151 @@
         </template>
       </v-combobox>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.skill.dmg" :label="$t('general.skill_damage_ratio')"></v-text-field>
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.skill.dmg" :label="$t('general.skill_damage_ratio')" variant="outlined"
+        density="compact" hide-details>
+      </v-text-field>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-select v-model="resonator.data.skill.base_attr" :items="getResonatorBaseAttrs()"
-        :label="$t('general.base_attr')"></v-select>
+        :label="$t('general.base_attr')" variant="outlined" density="compact" hide-details>
+      </v-select>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-select v-model="resonator.data.skill.bonus_types" :items="getSkillBonusType()"
-        :label="$t('general.skill_bonus_type')" chips multiple></v-select>
+        :label="$t('general.skill_bonus_type')" chips multiple variant="outlined" density="compact" hide-details>
+      </v-select>
     </div>
     <!-- Skill level -->
-    <div class="d-flex flex-row mb-2">
+    <div class="d-flex flex-row mb-4">
       <span>{{ $t('general.skill_level') }}</span>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-select v-model="resonator.data.normal_attack_lv" :items="resonatorSkillLevels"
-        :label="$t('general.resonator_skills.normal_attack')" @update:modelValue="updateResonatorSkill"></v-select>
+        :label="$t('general.resonator_skills.normal_attack')" @update:modelValue="updateResonatorSkill"
+        variant="outlined" density="compact" hide-details>
+      </v-select>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-select v-model="resonator.data.resonance_skill_lv" :items="resonatorSkillLevels"
-        :label="$t('general.resonator_skills.resonance_skill')" @update:modelValue="updateResonatorSkill"></v-select>
+        :label="$t('general.resonator_skills.resonance_skill')" @update:modelValue="updateResonatorSkill"
+        variant="outlined" density="compact" hide-details>
+      </v-select>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-select v-model="resonator.data.forte_circuit_lv" :items="resonatorSkillLevels"
-        :label="$t('general.resonator_skills.forte_circuit')" @update:modelValue="updateResonatorSkill"></v-select>
+        :label="$t('general.resonator_skills.forte_circuit')" @update:modelValue="updateResonatorSkill"
+        variant="outlined" density="compact" hide-details>
+      </v-select>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-select v-model="resonator.data.resonance_liberation_lv" :items="resonatorSkillLevels"
-        :label="$t('general.resonator_skills.resonance_liberation')"
-        @update:modelValue="updateResonatorSkill"></v-select>
+        :label="$t('general.resonator_skills.resonance_liberation')" @update:modelValue="updateResonatorSkill"
+        variant="outlined" density="compact" hide-details>
+      </v-select>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-select v-model="resonator.data.intro_skill_lv" :items="resonatorSkillLevels"
-        :label="$t('general.resonator_skills.intro_skill')" @update:modelValue="updateResonatorSkill"></v-select>
+        :label="$t('general.resonator_skills.intro_skill')" @update:modelValue="updateResonatorSkill" variant="outlined"
+        density="compact" hide-details>
+      </v-select>
     </div>
-    <div class="d-flex flex-row">
-      <v-checkbox v-model="resonator.data.inherent_skill_1" :label="$t('general.resonator_skills.inherent_skill_1')">
+    <div class="d-flex flex-row mb-4">
+      <v-checkbox v-model="resonator.data.inherent_skill_1" :label="$t('general.resonator_skills.inherent_skill_1')"
+        variant="outlined" density="compact" hide-details>
       </v-checkbox>
     </div>
-    <div class="d-flex flex-row">
-      <v-checkbox v-model="resonator.data.inherent_skill_2" :label="$t('general.resonator_skills.inherent_skill_2')">
+    <div class="d-flex flex-row mb-4">
+      <v-checkbox v-model="resonator.data.inherent_skill_2" :label="$t('general.resonator_skills.inherent_skill_2')"
+        variant="outlined" density="compact" hide-details>
       </v-checkbox>
     </div>
-    <div class="d-flex flex-row mb-2">
+    <div class="d-flex flex-row mb-4">
       <span>{{ $t('general.stat_bonus') }}</span>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.hp_p" :label="$t('general.hp_p')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.hp_p" :label="$t('general.hp_p')" variant="outlined"
+        density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.atk_p" :label="$t('general.atk_p')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.atk_p" :label="$t('general.atk_p')" variant="outlined"
+        density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.def_p" :label="$t('general.def_p')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.def_p" :label="$t('general.def_p')" variant="outlined"
+        density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.crit_rate" :label="$t('general.crit_rate')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.crit_rate" :label="$t('general.crit_rate')" variant="outlined"
+        density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.crit_dmg" :label="$t('general.crit_dmg')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.crit_dmg" :label="$t('general.crit_dmg')" variant="outlined"
+        density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-text-field v-model="resonator.data.stat_bonus.bonus_resonance_skill"
-        :label="$t('general.bonus_resonance_skill')">
+        :label="$t('general.bonus_resonance_skill')" variant="outlined" density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.bonus_basic_attack" :label="$t('general.bonus_basic_attack')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.bonus_basic_attack" :label="$t('general.bonus_basic_attack')"
+        variant="outlined" density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.bonus_heavy_attack" :label="$t('general.bonus_heavy_attack')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.bonus_heavy_attack" :label="$t('general.bonus_heavy_attack')"
+        variant="outlined" density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-row mb-4">
       <v-text-field v-model="resonator.data.stat_bonus.bonus_resonance_liberation"
-        :label="$t('general.bonus_resonance_liberation')">
+        :label="$t('general.bonus_resonance_liberation')" variant="outlined" density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.bonus_healing" :label="$t('general.bonus_healing')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.bonus_healing" :label="$t('general.bonus_healing')"
+        variant="outlined" density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.bonus_physics" :label="$t('general.bonus_physics')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.bonus_physics" :label="$t('general.bonus_physics')"
+        variant="outlined" density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.bonus_glacio" :label="$t('general.bonus_glacio')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.bonus_glacio" :label="$t('general.bonus_glacio')"
+        variant="outlined" density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.bonus_fusion" :label="$t('general.bonus_fusion')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.bonus_fusion" :label="$t('general.bonus_fusion')"
+        variant="outlined" density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.bonus_electro" :label="$t('general.bonus_electro')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.bonus_electro" :label="$t('general.bonus_electro')"
+        variant="outlined" density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.bonus_aero" :label="$t('general.bonus_aero')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.bonus_aero" :label="$t('general.bonus_aero')" variant="outlined"
+        density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.bonus_spectro" :label="$t('general.bonus_spectro')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.bonus_spectro" :label="$t('general.bonus_spectro')"
+        variant="outlined" density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row">
-      <v-text-field v-model="resonator.data.stat_bonus.bonus_havoc" :label="$t('general.bonus_havoc')">
+    <div class="d-flex flex-row mb-4">
+      <v-text-field v-model="resonator.data.stat_bonus.bonus_havoc" :label="$t('general.bonus_havoc')"
+        variant="outlined" density="compact" hide-details>
       </v-text-field>
     </div>
   </div>
