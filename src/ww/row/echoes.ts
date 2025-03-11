@@ -1,11 +1,15 @@
+import i18n from "@/i18n";
+
+import { AffixPolicyEnum } from "@/types/affix";
 import { BuffTypeEnum, ElementBonusEnum, SkillBonusEnum, RowBuffCategoryEnum, RowBuffSourceEnum } from "@/types/buff";
 import { EchoNameEnum } from "@/types/echo";
 import { SonataEnum } from "@/types/sonata";
 
-import { StatBuff } from "@/ww/buff";
-
 import { RowEcho } from "@/ww/row/echo";
 import { RowBuff } from "@/ww/row/buff";
+
+import { StatBuff } from "@/ww/buff";
+
 export class RowEchoesSummary {
   public name1: string = "";
   public sonatas: Array<string> = [];
@@ -249,6 +253,18 @@ export class RowEchoes {
     return buffs;
   }
 
+  public getEchoPolicyItems(): Array<{ title: string; value: string }> {
+    return [
+      // @ts-ignore
+      { title: i18n.global.t(`general.${AffixPolicyEnum.AFFIXES_15_1}`), value: AffixPolicyEnum.AFFIXES_15_1 },
+      { title: i18n.global.t(`general.${AffixPolicyEnum.AFFIXES_20_SMALL}`), value: AffixPolicyEnum.AFFIXES_20_SMALL },
+      {
+        title: i18n.global.t(`general.${AffixPolicyEnum.AFFIXES_20_SKILL_BONUS}`),
+        value: AffixPolicyEnum.AFFIXES_20_SKILL_BONUS,
+      },
+    ];
+  }
+
   public resetPolicy() {
     this.policy = "";
   }
@@ -263,6 +279,24 @@ export class RowEchoes {
 
   public getEcho(i: number): RowEcho {
     return this.echoes[i];
+  }
+
+  public updateEchoByCost(i: number, item: string) {
+    this.resetPolicy();
+    const echo = this.getEcho(i);
+    echo.updateByCost(item);
+  }
+
+  public updateEchoByEchoItem(i: number, item: { title: string; value: any }) {
+    this.resetPolicy();
+    const echo = this.getEcho(i);
+    echo.updateByEchoItem(item);
+  }
+
+  public updateEchoMainAffix(i: number, item: string) {
+    this.resetPolicy();
+    const echo = this.getEcho(i);
+    echo.updateMainAffix(item);
   }
 
   public updateSummaryByEchoes() {

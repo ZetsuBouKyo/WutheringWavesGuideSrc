@@ -177,6 +177,7 @@ export class RowAutoFillEchoes {
   private updateCost4Echo(echo: RowEcho, abbr: TAbbrBonusEnum) {
     const cost = "4";
     echo.cost = cost;
+    echo.updateMainAffixKeysByCost();
 
     this.updateFixedMainAffix(echo, cost);
     const mainAffixes = getMainAffixes(cost);
@@ -213,6 +214,7 @@ export class RowAutoFillEchoes {
   private updateCost3Echo(echo: RowEcho, abbr: TAbbrBonusEnum) {
     const cost = "3";
     echo.cost = cost;
+    echo.updateMainAffixKeysByCost();
 
     this.updateFixedMainAffix(echo, cost);
     const mainAffixes = getMainAffixes(cost);
@@ -266,6 +268,7 @@ export class RowAutoFillEchoes {
   private updateCost1Echo(echo: RowEcho, abbr: TAbbrBonusEnum) {
     const cost = "1";
     echo.cost = cost;
+    echo.updateMainAffixKeysByCost();
 
     this.updateFixedMainAffix(echo, cost);
     const mainAffixes = getMainAffixes(cost);
@@ -365,4 +368,9 @@ export class RowAutoFillEchoes {
   }
 
   public update43311With1EnergyRegen1Attr() {}
+}
+
+export function updateEchoesWith43311(resonator: RowResonator, weapon: RowWeapon, echoes: RowEchoes) {
+  const auto = new RowAutoFillEchoes(resonator, weapon, echoes);
+  auto.update43311();
 }

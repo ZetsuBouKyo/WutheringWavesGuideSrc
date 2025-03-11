@@ -1,6 +1,8 @@
 import { StatBuffEnum } from "@/types/buff";
 import { StatBuff } from "@/ww/buff";
-import { getFixedMainAffixes } from "@/ww/echo";
+import { getAffixLabelByKey, getFixedMainAffixes, getMainAffixes } from "@/ww/echo";
+
+import { useEchoStore } from "@/stores/echo";
 
 export class RowEcho {
   public no: string = "";
@@ -11,7 +13,9 @@ export class RowEcho {
   public sub_affix: StatBuff = new StatBuff();
   public _fixed_main_affix_key: string = "";
   public _main_affix_item: { title: string; value: any } = { title: "", value: undefined };
+  public _main_affix_items: Array<{ title: string; value: any }> = [];
   public _item: { title: string; value: any } = { title: "", value: undefined };
+  public _sonatas: Array<string> = this.getSonataNames();
 
   reset() {
     this.cost = "";
@@ -30,16 +34,40 @@ export class RowEcho {
     this.sub_affix = new StatBuff();
   }
 
-  updateByEchoItem(item: { title: string; value: any }) {
-    if (!item || !item.title || !item.value) {
+  getCosts(): Array<string> {
+    const echoStore = useEchoStore();
+    const costs = echoStore.getCosts();
+    return costs;
+  }
+
+  getEchoItems() {
+    const echoStore = useEchoStore();
+    const echoItems = echoStore.getEchoItemsForCalculation();
+    return echoItems;
+  }
+
+  getSonataNames() {
+    const echoStore = useEchoStore();
+    const sonatas = echoStore.getSonataNames();
+    return sonatas;
+  }
+
+  getSubAffixKeys(): Array<string> {
+    const echoStore = useEchoStore();
+    const keys = echoStore.getSubAffixKeys();
+    return keys;
+  }
+
+  updateByCost(cost: string) {
+    if (!cost) {
       return;
     }
-    this.resetMainAffix();
-    this.resetSubAffix();
-    this.sonata = "";
+    this.cost = cost;
 
-    this.name = item.value.name;
-    this.cost = item.value.cost;
+    // Main affix items
+    this.updateMainAffixKeysByCost();
+
+    this.resetMainAffix();
     switch (this.cost) {
       case "4":
       case "3":
@@ -58,5 +86,52 @@ export class RowEcho {
       title: "",
       value: undefined,
     };
+  }
+
+  updateByEchoItem(item: { title: string; value: { name: string; cost: string; sonatas: Array<string> } | undefined }) {
+    if (!item || !item.title || !item.value) {
+      return;
+    }
+
+    this.name = item.value.name;
+
+    // Sonata items
+    if (item.value.sonatas && item.value.sonatas.length > 0) {
+      this._sonatas = item.value.sonatas;
+    } else {
+      this._sonatas = this.getSonataNames();
+    }
+
+    this.sonata = "";
+    if (this._sonatas.length === 1) {
+      this.sonata = this._sonatas[0];
+    }
+
+    this._item = item;
+    this.updateByCost(item.value.cost);
+  }
+
+  updateMainAffix(item: string) {
+    const cost = this.cost;
+    if (!item || !cost) {
+      return;
+    }
+    this._main_affix_item = {
+      title: getAffixLabelByKey(item),
+      value: item,
+    };
+    const mainAffixes = getMainAffixes(cost);
+    (this.main_affix as any)[item] = mainAffixes[item];
+  }
+
+  updateMainAffixKeysByCost() {
+    const cost = this.cost;
+    if (!cost) {
+      return;
+    }
+    const mainAffixes = getMainAffixes(cost);
+    this._main_affix_items = Object.keys(mainAffixes).map((value: any, _, __) => {
+      return { title: getAffixLabelByKey(value), value: value };
+    });
   }
 }

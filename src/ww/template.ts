@@ -171,7 +171,7 @@ export class Template {
     this.calculation.resonators[i].echoes.main_skill_bonus = this.resonators[i].resonator_skill_bonus;
     this.calculation.resonators[i].echoes.echoes[0].name = this.resonators[i].resonator_echo_1;
     const echoItem1 = echoStore.getEchoItemForCalculationByName(this.resonators[i].resonator_echo_1);
-    this.calculation.resonators[i].echoes.echoes[0]._item = echoItem1;
+    this.calculation.resonators[i].echoes.echoes[0].updateByEchoItem(echoItem1);
 
     this.calculation.resonators[i].echoes.echoes[0].sonata = this.resonators[i].resonator_echo_sonata_1;
     this.calculation.resonators[i].echoes.echoes[1].sonata = this.resonators[i].resonator_echo_sonata_2;
@@ -179,21 +179,18 @@ export class Template {
     this.calculation.resonators[i].echoes.echoes[3].sonata = this.resonators[i].resonator_echo_sonata_4;
     this.calculation.resonators[i].echoes.echoes[4].sonata = this.resonators[i].resonator_echo_sonata_5;
 
-    this.calculation.resonators[i].echoes.echoes[0].cost = this.resonators[i].resonator_echo_cost_1;
-    if (!this.calculation.resonators[i].echoes.echoes[0].cost) {
-      if (echoItem1.value && echoItem1.value.cost) {
-        this.calculation.resonators[i].echoes.echoes[0].cost = echoItem1.value.cost;
-      }
+    if (this.resonators[i].resonator_echo_cost_1) {
+      this.calculation.resonators[i].echoes.echoes[0].cost = this.resonators[i].resonator_echo_cost_1;
     }
     this.calculation.resonators[i].echoes.echoes[1].cost = this.resonators[i].resonator_echo_cost_2;
     this.calculation.resonators[i].echoes.echoes[2].cost = this.resonators[i].resonator_echo_cost_3;
     this.calculation.resonators[i].echoes.echoes[3].cost = this.resonators[i].resonator_echo_cost_4;
     this.calculation.resonators[i].echoes.echoes[4].cost = this.resonators[i].resonator_echo_cost_5;
     const cost1 = this.calculation.resonators[i].echoes.echoes[0].cost;
-    const cost2 = this.calculation.resonators[i].echoes.echoes[1].cost;
-    const cost3 = this.calculation.resonators[i].echoes.echoes[2].cost;
-    const cost4 = this.calculation.resonators[i].echoes.echoes[3].cost;
-    const cost5 = this.calculation.resonators[i].echoes.echoes[4].cost;
+    let cost2 = this.calculation.resonators[i].echoes.echoes[1].cost;
+    let cost3 = this.calculation.resonators[i].echoes.echoes[2].cost;
+    let cost4 = this.calculation.resonators[i].echoes.echoes[3].cost;
+    let cost5 = this.calculation.resonators[i].echoes.echoes[4].cost;
 
     const abbr1 = this.resonators[i].resonator_echo_affix_1;
     const abbr2 = this.resonators[i].resonator_echo_affix_2;
@@ -211,6 +208,12 @@ export class Template {
         this.calculation.resonators[i].echoes,
       );
 
+      if (!cost2 && !cost3 && !cost4 && !cost5) {
+        cost2 = "3";
+        cost3 = "3";
+        cost4 = "1";
+        cost5 = "1";
+      }
       auto.update(cost1, cost2, cost3, cost4, cost5, abbr1, abbr2, abbr3, abbr4, abbr5);
     }
   }

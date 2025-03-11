@@ -27,7 +27,10 @@ export const useEchoStore = defineStore("echo", {
     //
   }),
   actions: {
-    getEchoItemForCalculationByName(name: string): any {
+    getEchoItemForCalculationByName(name: string): {
+      title: string;
+      value: { name: string; cost: string; sonatas: Array<string> } | undefined;
+    } {
       for (const echo of echoesForCalculation) {
         if (echo.name === name) {
           return { title: name, value: echo };

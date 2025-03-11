@@ -18,8 +18,20 @@ export const useRowEchoesStore = (id: string) => {
       getSummary() {
         return this.data.summary;
       },
+      getEchoPolicyItems() {
+        return this.data.getEchoPolicyItems();
+      },
       updateSummaryByEchoes() {
         this.data.updateSummaryByEchoes();
+      },
+      updateEchoByCost(i: number, item: string) {
+        this.data.updateEchoByCost(i, item);
+      },
+      updateEchoByEchoItem(i: number, item: { title: string; value: any }) {
+        this.data.updateEchoByEchoItem(i, item);
+      },
+      updateEchoMainAffix(i: number, item: string) {
+        this.data.updateEchoMainAffix(i, item);
       },
     },
   });
