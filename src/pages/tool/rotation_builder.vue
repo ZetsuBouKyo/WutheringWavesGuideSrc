@@ -77,7 +77,7 @@
           <v-file-input max-width="200" min-width="200" :label="$t('general.load_file')" class="mr-2" accept=".json"
             variant="outlined" density="compact" @change="loadData">
           </v-file-input>
-          <v-btn v-if="countSelectedRows() > 0" class="mr-2" v-on:click="deleteRows">
+          <v-btn v-if="countSelectedRows() > 0" class="mr-2" v-on:click="deleteRows; currentIndex = undefined">
             {{ $t('general.delete') }}
           </v-btn>
           <v-btn v-if="currentIndex !== undefined" class="mr-2" v-on:click="insertAboveDialog = true">
