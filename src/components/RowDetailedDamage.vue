@@ -198,9 +198,9 @@ const calculation = props.calculation
 const { t } = useI18n()
 
 const damageHeaders = [
-  { title: t('general.calculated_damage'), key: 'damage_no_crit', width: "33%" },
-  { title: t('general.calculated_crit_damage'), key: 'damage_crit', width: "33%" },
-  { title: t('general.calculate_expected_damage'), key: 'damage', width: "33%" },
+  { title: t('general.calculated_damage'), key: 'damage_no_crit_str', width: "33%" },
+  { title: t('general.calculated_crit_damage'), key: 'damage_crit_str', width: "33%" },
+  { title: t('general.calculate_expected_damage'), key: 'damage_str', width: "33%" },
 ]
 </script>
 

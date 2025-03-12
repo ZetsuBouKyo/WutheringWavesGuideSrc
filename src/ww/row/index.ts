@@ -51,6 +51,10 @@ export class RowCalculationResult {
   public damage_no_crit: number = 0;
   public damage_crit: number = 0;
   public damage: number = 0;
+
+  public damage_no_crit_str: string = toNumberString(0);
+  public damage_crit_str: string = toNumberString(0);
+  public damage_str: string = toNumberString(0);
 }
 
 export class RowCalculation {
@@ -356,5 +360,9 @@ export class RowCalculation {
     this.result.damage = getNumber(toNumberString(damage));
     this.result.damage_crit = getNumber(toNumberString(damageCrit));
     this.result.damage_no_crit = getNumber(toNumberString(damageNoCrit));
+
+    this.result.damage_str = toNumberString(damage);
+    this.result.damage_crit_str = toNumberString(damageCrit);
+    this.result.damage_no_crit_str = toNumberString(damageNoCrit);
   }
 }
