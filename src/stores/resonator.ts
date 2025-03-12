@@ -50,6 +50,14 @@ export function getEchoDamageSkillItems(): Array<any> {
   return items;
 }
 
+export function getEchoDamageSkillItem(id: string): any {
+  for (const skill of echoSkills) {
+    if (id === skill.id) {
+      return { title: skill.id, value: skill };
+    }
+  }
+}
+
 export const useResonatorStore = defineStore("resonator", {
   state: () => ({}),
   actions: {

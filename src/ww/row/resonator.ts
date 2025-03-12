@@ -1,4 +1,4 @@
-import { useResonatorStore } from "@/stores/resonator";
+import { useResonatorStore, getEchoDamageSkillItem } from "@/stores/resonator";
 
 import { BaseTypeEnum, BuffTypeEnum, RowBuffCategoryEnum, SkillBonusEnum, type TElementBonusEnum } from "@/types/buff";
 import { SkillAttrEnum, SkillTypeEnum, type TSkillAttrEnum, type TSkillTypeEnum } from "@/types/skill";
@@ -6,7 +6,7 @@ import { SkillAttrEnum, SkillTypeEnum, type TSkillAttrEnum, type TSkillTypeEnum 
 import { StatBuff } from "@/ww/buff";
 import { RowBuff } from "@/ww/row/buff";
 import { getNumber } from "@/ww/utils";
-import type { ResonatorInfo } from "../resonator";
+import type { ResonatorInfo } from "@/ww/resonator";
 
 export class RowResonatorSkill {
   public id: string = "";
@@ -240,7 +240,10 @@ export class RowResonator {
   }
 
   public updateSkillById(id: string) {
-    const item = this._info?.getDamageSkillItemById(id);
+    let item = this._info?.getDamageSkillItemById(id);
+    if (!item) {
+      item = getEchoDamageSkillItem(id);
+    }
     if (!item) {
       return;
     }
