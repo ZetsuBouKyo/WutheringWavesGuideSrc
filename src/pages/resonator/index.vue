@@ -59,7 +59,6 @@ onMounted(async () => {
     }
     resonators.push(resonator)
     resonators.sort((resonatorA: any, resonatorB: any) => {
-      console.log(resonatorA, resonatorB)
       const noA = parseFloat(resonatorA.no)
       const noB = parseFloat(resonatorB.no)
       if (!noA || !noB) {
