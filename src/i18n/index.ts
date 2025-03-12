@@ -29,6 +29,8 @@ const i18n = createI18n({
         result: "計算結果",
       },
       general: {
+        damage_analysis: "傷害分析",
+        table: "表單",
         cancel_selection: "取消選取",
         id: "ID",
         real_dmg_no_crit: "實際無暴擊傷害",

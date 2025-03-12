@@ -3,7 +3,8 @@
     <div class="d-flex flex-row mb-2">
       <span>{{ $t('general.detailed_damage') }}</span>
     </div>
-    <v-data-table class="table mb-2" :items="damages" disable-sort hide-default-footer :items-per-page="2">
+    <v-data-table class="table mb-2" :items="[calculation.result]" :headers="damageHeaders" disable-sort
+      hide-default-footer :items-per-page="2">
     </v-data-table>
     <v-data-table class="table" disable-sort hide-default-footer :items-per-page="8" :key="calculation.id">
       <tbody>
@@ -184,7 +185,6 @@
 import { useI18n } from 'vue-i18n'
 
 import { RowCalculation } from '@/ww/row';
-import { toNumberString } from '@/ww/utils';
 
 const props = defineProps({
   calculation: {
@@ -195,15 +195,12 @@ const props = defineProps({
 
 const calculation = props.calculation
 
-
 const { t } = useI18n()
 
-const damages = [
-  {
-    [t('general.calculated_damage')]: toNumberString(calculation.result.damage_no_crit),
-    [t('general.calculated_crit_damage')]: toNumberString(parseFloat(calculation.result.damage_crit)),
-    [t('general.calculate_expected_damage')]: toNumberString(parseFloat(calculation.result.damage)),
-  }
+const damageHeaders = [
+  { title: t('general.calculated_damage'), key: 'damage_no_crit', width: "33%" },
+  { title: t('general.calculated_crit_damage'), key: 'damage_crit', width: "33%" },
+  { title: t('general.calculate_expected_damage'), key: 'damage', width: "33%" },
 ]
 </script>
 
