@@ -12,8 +12,21 @@ export class WeaponInfo {
   };
   public attrs: Array<{ lv: string; atk: string; [stat_bonus: string]: string }> = [];
 
-  constructor(info: any) {
-    Object.assign(this, info);
+  constructor(info: any = {}) {
+    if (info && Object.keys(info).length > 0) {
+      Object.assign(this, info);
+    }
+  }
+
+  public duplicate(): WeaponInfo {
+    const info = new WeaponInfo();
+    info.no = this.no;
+    info.name = this.name;
+    info.star = this.star;
+    info.type = this.type;
+    info.passive = JSON.parse(JSON.stringify(this.passive));
+    info.attrs = JSON.parse(JSON.stringify(this.attrs));
+    return info;
   }
 
   public getMaxLevel(): string {

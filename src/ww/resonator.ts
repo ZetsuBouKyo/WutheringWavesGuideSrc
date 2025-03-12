@@ -16,8 +16,29 @@ export class ResonatorInfo {
   public skills: Array<any> = [];
   public skill_infos: any = {};
 
-  constructor(info: any) {
-    Object.assign(this, info);
+  constructor(info: any = {}) {
+    if (Object.keys(info).length > 0) {
+      Object.assign(this, info);
+    }
+  }
+
+  public duplicate(): ResonatorInfo {
+    const info = new ResonatorInfo();
+    info.no = this.no;
+    info.name = this.name;
+    info.rank = this.rank;
+    info.is_permanent = this.is_permanent;
+    if (this.stat_bonus.duplicate !== undefined) {
+      info.stat_bonus = this.stat_bonus.duplicate();
+    } else {
+      info.stat_bonus = JSON.parse(JSON.stringify(this.stat_bonus));
+    }
+    info.element_zh_tw = this.element_zh_tw;
+    info.element_en = this.element_en;
+    info.attrs = JSON.parse(JSON.stringify(this.attrs));
+    info.skills = JSON.parse(JSON.stringify(this.skills));
+    info.skill_infos = JSON.parse(JSON.stringify(this.skill_infos));
+    return info;
   }
 
   public getHp(level: string): string {
@@ -91,6 +112,17 @@ export class ResonatorInfo {
       }
     });
     return items;
+  }
+
+  public getDamageSkillItemById(id: string): { title: string; value: any } | undefined {
+    const skills = this.skills;
+    for (const skill of skills) {
+      if (skill.type === "Damage" && skill.id && skill.id === id) {
+        const skillType = skill.skill_type;
+        skill.tooltip = this.getHtmlInfoBySkillType(skillType);
+        return { title: skill.id, value: skill };
+      }
+    }
   }
 }
 

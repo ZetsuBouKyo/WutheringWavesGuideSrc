@@ -69,21 +69,8 @@ export class RowBuffSummary {
 export class RowBuffs {
   public buffs: Array<RowBuff> = [];
   public manual: RowBuffSummary = new RowBuffSummary();
-  // buffs + manual
-  public summary: RowBuffSummary = new RowBuffSummary();
 
   public getRowBuffs(): Array<RowBuff> {
-    return [...this.summary.getRowBuffs()];
-  }
-
-  public updateSummary() {
-    this.summary.reset();
-    const keys = this.manual.getKeys();
-    keys.forEach((key: TBuffTypeEnum) => {
-      const manualValue = getNumber((this.manual as any)[key]);
-      let summaryValue: any = getNumber((this.summary as any)[key]) + manualValue;
-      summaryValue = getNumber(summaryValue).toString();
-      (this.summary as any)[key] = summaryValue;
-    });
+    return [...this.buffs, ...this.manual.getRowBuffs()];
   }
 }

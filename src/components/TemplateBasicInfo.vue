@@ -1,9 +1,9 @@
 <template>
   <div class="d-flex flex-column w-100">
     <div class="d-flex flex-row w-100 align-center mb-4">
-      <v-autocomplete v-model="template.data.id" max-width="1080px" :items="templatesStore.getTemplateItems()"
-        :label="$t('general.template_id')" @update:modelValue="updateTemplateByTemplateIdItem" variant="outlined"
-        density="compact" hide-details focused>
+      <v-autocomplete class="mr-6" v-model="template.data.id" max-width="1080px"
+        :items="templatesStore.getTemplateItems()" :label="$t('general.template_id')"
+        @update:modelValue="updateTemplateByTemplateIdItem" variant="outlined" density="compact" hide-details focused>
       </v-autocomplete>
       <v-btn class="ml-auto" v-on:click="template.initTemplateByHashedId()">
         {{ $t('general.load_built_in_template') }}

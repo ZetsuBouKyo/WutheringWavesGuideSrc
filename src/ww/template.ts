@@ -1,14 +1,17 @@
 import { AffixPolicyEnum } from "@/types/affix";
 
-import { getRotation } from "@/ww/rotation";
+import { useEchoStore } from "@/stores/echo";
+
+import { RowCalculation } from "@/ww/row";
 import { RowResonator } from "@/ww/row/resonator";
 import { RowWeapon } from "@/ww/row/weapon";
 import { RowEchoes } from "@/ww/row/echoes";
 import { RowMonster } from "@/ww/row/monster";
-
-import { useEchoStore } from "@/stores/echo";
+import { RowBuff } from "@/ww/row/buff";
+import { RowBuffs } from "@/ww/row/buffs";
 
 import { RowAutoFillEchoes } from "@/ww/echoes";
+import { getRotation } from "@/ww/rotation";
 
 export class TemplateResonator {
   public resonator_name: string = "";
@@ -54,11 +57,22 @@ export class TemplateRowBuff {
   public stack: string = "";
   public duration: string = "";
 
+  // UI
+  public id: number = 0;
+  public selected: boolean = false;
+
   constructor(buff: any = {}) {
     if (Object.keys(buff).length === 0) {
       return;
     }
     Object.assign(this, buff);
+  }
+
+  public isEmpty(): boolean {
+    if (this.name || this.type || this.value || this.stack || this.duration) {
+      return false;
+    }
+    return true;
   }
 }
 
@@ -70,14 +84,23 @@ export class TemplateRow {
   public action: string = "";
   public skill_id: string = "";
   public skill_bonus_type: string = "";
-  public hit: string = "";
-  public buffs: Array<TemplateRowBuff> = [];
+  public hit: string = "1";
+  public buffs: Array<TemplateRowBuff> = [new TemplateRowBuff()];
   public resonating_spin_concerto_regen: string = "";
   public accumulated_resonating_spin_concerto_regen: string = "";
   public time_start: string = "";
   public time_end: string = "";
   public cumulative_time: string = "";
   public comment: string = "";
+
+  // UI
+  public id: number = 0;
+  public selected: boolean = false;
+  public skill_ids: Array<any> = [];
+  public row_buffs: Array<RowBuff> = [];
+
+  // Calculation
+  public calculation: RowCalculation = new RowCalculation();
 
   constructor(row: any = {}) {
     if (Object.keys(row).length === 0) {
@@ -87,10 +110,48 @@ export class TemplateRow {
     Object.assign(this, data);
     if (buffs.length > 0) {
       this.buffs = [];
-      buffs.forEach((buff: any) => {
-        this.buffs.push(new TemplateRowBuff(buff));
+      buffs.forEach((buff: any, i: number) => {
+        const b = new TemplateRowBuff(buff);
+        b.id = i;
+        this.buffs.push(b);
       });
     }
+  }
+
+  public areBuffs(): boolean {
+    for (const buff of this.buffs) {
+      if (!buff.isEmpty()) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public calculate(
+    resonator: RowResonator,
+    weapon: RowWeapon,
+    echoes: RowEchoes,
+    buffs: RowBuffs,
+    monster: RowMonster,
+  ) {
+    this.calculation.data.resonator = resonator;
+    this.calculation.data.weapon = weapon;
+    this.calculation.data.echoes = echoes;
+    this.calculation.data.monster = monster;
+
+    // Buffs
+    this.calculation.data.buffs = buffs;
+    this.buffs.forEach((buff) => {
+      const newBuff = new RowBuff();
+      newBuff.id = buff.name;
+      newBuff.type = buff.type;
+      newBuff.value = buff.value;
+      newBuff.stack = buff.stack;
+      newBuff.duration = buff.duration;
+
+      this.calculation.data.buffs.buffs.push(newBuff);
+    });
+    this.calculation.calculate();
   }
 }
 
@@ -121,7 +182,7 @@ export class Template {
   public monster_id: string = "";
   public description: string = "";
   public resonators: Array<TemplateResonator> = [];
-  public rows: Array<any> = [];
+  public rows: Array<TemplateRow> = [];
 
   public calculation: TemplateCalculation = new TemplateCalculation();
 
@@ -225,6 +286,34 @@ export class Template {
     });
   }
 
+  public getRowResonator(resonatorName: string): RowResonator | undefined {
+    for (const resonator of this.calculation.resonators) {
+      if (resonatorName === resonator.resonator.name) {
+        return resonator.resonator;
+      }
+    }
+  }
+
+  public getRowWeapon(resonatorName: string): RowWeapon | undefined {
+    for (const resonator of this.calculation.resonators) {
+      if (resonatorName === resonator.resonator.name) {
+        return resonator.weapon;
+      }
+    }
+  }
+
+  public getRowEchoes(resonatorName: string): RowEchoes | undefined {
+    for (const resonator of this.calculation.resonators) {
+      if (resonatorName === resonator.resonator.name) {
+        return resonator.echoes;
+      }
+    }
+  }
+
+  public getRowMonster(): RowMonster {
+    return this.calculation.monster;
+  }
+
   public getResonatorEcho1(resonatorName: string): string {
     for (const resonator of this.resonators) {
       if (resonatorName === resonator.resonator_name) {
@@ -272,5 +361,48 @@ export class Template {
 
     this.resonators[i].resonator_weapon_name = this.calculation.resonators[i].weapon.name;
     this.resonators[i].resonator_weapon_rank = this.calculation.resonators[i].weapon.tune;
+  }
+
+  public async calculateRow(i: number) {
+    if (this.rows.length <= i) {
+      return;
+    }
+    const row = this.rows[i];
+
+    // Resonator
+    const name = row.resonator_name;
+    if (!name) {
+      return;
+    }
+    let resonator = this.getRowResonator(name);
+    if (!resonator) {
+      return;
+    }
+    resonator = resonator.duplicate();
+    resonator.updateSkillById(row.skill_id);
+
+    // Weapon
+    let weapon = this.getRowWeapon(name);
+    if (!weapon) {
+      return;
+    }
+    weapon = weapon.duplicate();
+
+    // Echoes
+    let echoes = this.getRowEchoes(name);
+    if (!echoes) {
+      return;
+    }
+    echoes = echoes.duplicate();
+
+    // Buffs
+    const buffs = new RowBuffs();
+
+    // Monster
+    const monster = new RowMonster();
+    const monsterId = this.monster_id;
+    monster.updateByName(monsterId);
+
+    row.calculate(resonator, weapon, echoes, buffs, monster);
   }
 }

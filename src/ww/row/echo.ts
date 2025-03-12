@@ -17,48 +17,63 @@ export class RowEcho {
   public _item: { title: string; value: any } = { title: "", value: undefined };
   public _sonatas: Array<string> = this.getSonataNames();
 
-  reset() {
+  public duplicate(): RowEcho {
+    const e = new RowEcho();
+    e.no = this.no;
+    e.name = this.name;
+    e.sonata = this.sonata;
+    e.main_affix = this.main_affix.duplicate();
+    e.sub_affix = this.sub_affix.duplicate();
+    e._fixed_main_affix_key = this._fixed_main_affix_key;
+    e._main_affix_item = JSON.parse(JSON.stringify(this._main_affix_item));
+    e._main_affix_items = JSON.parse(JSON.stringify(this._main_affix_items));
+    e._item = JSON.parse(JSON.stringify(this._item));
+    e._sonatas = JSON.parse(JSON.stringify(this._sonatas));
+    return e;
+  }
+
+  public reset() {
     this.cost = "";
     this._item = { title: "", value: undefined };
     this.resetMainAffix();
     this.resetSubAffix();
   }
 
-  resetMainAffix() {
+  public resetMainAffix() {
     this.main_affix = new StatBuff();
     this._fixed_main_affix_key = "";
     this._main_affix_item = { title: "", value: undefined };
   }
 
-  resetSubAffix() {
+  public resetSubAffix() {
     this.sub_affix = new StatBuff();
   }
 
-  getCosts(): Array<string> {
+  public getCosts(): Array<string> {
     const echoStore = useEchoStore();
     const costs = echoStore.getCosts();
     return costs;
   }
 
-  getEchoItems() {
+  public getEchoItems() {
     const echoStore = useEchoStore();
     const echoItems = echoStore.getEchoItemsForCalculation();
     return echoItems;
   }
 
-  getSonataNames() {
+  public getSonataNames() {
     const echoStore = useEchoStore();
     const sonatas = echoStore.getSonataNames();
     return sonatas;
   }
 
-  getSubAffixKeys(): Array<string> {
+  public getSubAffixKeys(): Array<string> {
     const echoStore = useEchoStore();
     const keys = echoStore.getSubAffixKeys();
     return keys;
   }
 
-  updateByCost(cost: string) {
+  public updateByCost(cost: string) {
     if (!cost) {
       return;
     }
@@ -88,7 +103,10 @@ export class RowEcho {
     };
   }
 
-  updateByEchoItem(item: { title: string; value: { name: string; cost: string; sonatas: Array<string> } | undefined }) {
+  public updateByEchoItem(item: {
+    title: string;
+    value: { name: string; cost: string; sonatas: Array<string> } | undefined;
+  }) {
     if (!item || !item.title || !item.value) {
       return;
     }
@@ -111,7 +129,7 @@ export class RowEcho {
     this.updateByCost(item.value.cost);
   }
 
-  updateMainAffix(item: string) {
+  public updateMainAffix(item: string) {
     const cost = this.cost;
     if (!item || !cost) {
       return;
@@ -124,7 +142,7 @@ export class RowEcho {
     (this.main_affix as any)[item] = mainAffixes[item];
   }
 
-  updateMainAffixKeysByCost() {
+  public updateMainAffixKeysByCost() {
     const cost = this.cost;
     if (!cost) {
       return;

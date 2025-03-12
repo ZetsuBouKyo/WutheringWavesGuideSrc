@@ -66,7 +66,7 @@ export class ResonatorRotation {
   }
 }
 
-export function getRotation(rows: Array<IRotationRow>): Array<ResonatorRotation> {
+export function getRotation(rows: Array<IRotationRow | any>): Array<ResonatorRotation> {
   let currentRotation = new ResonatorRotation("");
   const rotation: Array<ResonatorRotation> = [];
   let c = 1;

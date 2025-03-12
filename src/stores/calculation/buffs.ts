@@ -8,11 +8,7 @@ export const useRowBuffsStore = (id: string) => {
     state: (): any => ({
       data: new RowBuffs(),
     }),
-    actions: {
-      updateSummary() {
-        this.data.updateSummary();
-      },
-    },
+    actions: {},
   });
   return new store();
 };

@@ -7,7 +7,7 @@ import {
 } from "@/types/buff";
 
 export class RowBuff {
-  public id: string = "";
+  public id: string = ""; // TODO: id -> name?
   public category: TRowBuffCategoryEnum = "";
   public source: string = ""; // e.g. "漂泊者·衍射(男)-固有技能1", "擎淵怒濤-1諧振", "鳴鐘之龜", "凝夜白霜"
   public suffix: string = "";

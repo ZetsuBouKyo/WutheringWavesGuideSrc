@@ -17,6 +17,16 @@ export class RowEchoesSummary {
   public main_affix: StatBuff = new StatBuff();
   public sub_affix: StatBuff = new StatBuff();
 
+  public duplicate(): RowEchoesSummary {
+    const s = new RowEchoesSummary();
+    s.name1 = this.name1;
+    s.sonatas = JSON.parse(JSON.stringify(this.sonatas));
+    s.total_cost = this.total_cost;
+    s.main_affix = this.main_affix.duplicate();
+    s.sub_affix = this.sub_affix.duplicate();
+    return s;
+  }
+
   public getRowBuffs(): Array<RowBuff> {
     const mainBuffs = this.main_affix.getRowBuffs(`${RowBuffCategoryEnum.ECHO}-${RowBuffSourceEnum.MAIN_AFFIX}`);
     const subBuffs = this.sub_affix.getRowBuffs(`${RowBuffCategoryEnum.ECHO}-${RowBuffSourceEnum.SUB_AFFIX}`);
@@ -33,6 +43,17 @@ export class RowEchoes {
 
   constructor() {
     this.echoes = Array.from({ length: 5 }, (_, __) => new RowEcho());
+  }
+
+  public duplicate(): RowEchoes {
+    const echoes = new RowEchoes();
+    echoes.policy = this.policy;
+    echoes.base_attr = this.base_attr;
+    this.echoes.forEach((echo, i) => {
+      echoes.echoes[i] = echo.duplicate();
+    });
+    echoes.summary = this.summary.duplicate();
+    return echoes;
   }
 
   public getRowBuffs(): Array<RowBuff> {

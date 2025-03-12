@@ -21,6 +21,23 @@ export class RowWeapon {
   public passive_stat_bonus: StatBuff = new StatBuff();
   public _info: WeaponInfo | undefined = undefined;
 
+  public duplicate(): RowWeapon {
+    const w = new RowWeapon();
+    w.no = this.no;
+    w.name = this.name;
+    w.star = this.star;
+    w.type = this.type;
+    w.level = this.level;
+    w.tune = this.tune;
+    w.atk = this.atk;
+    w.stat_bonus = this.stat_bonus.duplicate();
+    w.passive_stat_bonus = this.passive_stat_bonus.duplicate();
+    if (this._info !== undefined) {
+      w._info = this._info.duplicate();
+    }
+    return w;
+  }
+
   public getBaseAttrs(): Array<RowBuff> {
     const buffs: Array<RowBuff> = [];
     const buff = new RowBuff();

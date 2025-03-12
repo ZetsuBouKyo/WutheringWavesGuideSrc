@@ -15,5 +15,12 @@ export const useMonsterStore = defineStore("monster", {
       });
       return items;
     },
+    getMonsterItemByName(name: string): any {
+      for (const monster of m) {
+        if (monster.name === name) {
+          return { title: monster.name, value: monster };
+        }
+      }
+    },
   },
 });

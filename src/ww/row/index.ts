@@ -8,7 +8,7 @@ import { RowBuff } from "@/ww/row/buff";
 import { RowBuffs } from "@/ww/row/buffs";
 import { RowMonster } from "@/ww/row/monster";
 
-import { getNumber, md5 } from "@/ww/utils";
+import { getNumber, md5, toNumberString } from "@/ww/utils";
 
 export class RowCalculationData {
   public resonator: RowResonator = new RowResonator();
@@ -104,7 +104,6 @@ export class RowCalculation {
 
   public getRowBuffs(): Array<RowBuff> {
     this.data.echoes.updateSummaryByEchoes();
-    this.data.buffs.updateSummary();
 
     let baseResonatorRowBuffs: Array<RowBuff> = this.data.resonator.getBaseAttrs();
     let baseWeaponBuffs: Array<RowBuff> = [];
@@ -354,10 +353,8 @@ export class RowCalculation {
     const damageCrit = damageNoCrit * critDmg;
     const damage = damageCrit * critRate + damageNoCrit * (1 - critRate);
 
-    this.result.damage = damage;
-    this.result.damage_crit = damageCrit;
-    this.result.damage_no_crit = damageNoCrit;
-
-    console.log(this);
+    this.result.damage = getNumber(toNumberString(damage));
+    this.result.damage_crit = getNumber(toNumberString(damageCrit));
+    this.result.damage_no_crit = getNumber(toNumberString(damageNoCrit));
   }
 }

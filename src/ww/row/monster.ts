@@ -1,3 +1,4 @@
+import { useMonsterStore } from "@/stores/monster";
 export class RowMonster {
   public name: string = "";
   public level: string = "";
@@ -27,5 +28,14 @@ export class RowMonster {
     this.res_aero = monster.res_aero;
     this.res_spectro = monster.res_spectro;
     this.res_havoc = monster.res_havoc;
+  }
+
+  public updateByName(name: string) {
+    const monsterStore = useMonsterStore();
+    const monsterItem = monsterStore.getMonsterItemByName(name);
+    if (!monsterItem) {
+      return;
+    }
+    this.updateByMonsterItem(monsterItem.value);
   }
 }

@@ -6,7 +6,7 @@ import { Template } from "@/ww/template";
 export const useTemplateStore = (id: string) => {
   const storeId: string = `template-${id}`;
   const store: any = defineStore(storeId, {
-    state: () => ({
+    state: (): { data: Template } => ({
       data: new Template(),
     }),
     actions: {
@@ -30,6 +30,9 @@ export const useTemplateStore = (id: string) => {
       },
       updateResonatorByCalculation(i: number) {
         this.data.updateResonatorByCalculation(i);
+      },
+      calculateRow(i: number) {
+        this.data.calculateRow(i);
       },
     },
   });

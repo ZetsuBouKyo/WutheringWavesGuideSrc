@@ -38,6 +38,36 @@ export class StatBuff {
 
   constructor() {}
 
+  public duplicate(): StatBuff {
+    const s = new StatBuff();
+
+    s[StatBuffEnum.CRIT_RATE] = this[StatBuffEnum.CRIT_RATE];
+    s[StatBuffEnum.CRIT_DMG] = this[StatBuffEnum.CRIT_DMG];
+
+    s[StatBuffEnum.HP] = this[StatBuffEnum.HP];
+    s[StatBuffEnum.HP_P] = this[StatBuffEnum.HP_P];
+    s[StatBuffEnum.ATK] = this[StatBuffEnum.ATK];
+    s[StatBuffEnum.ATK_P] = this[StatBuffEnum.ATK_P];
+    s[StatBuffEnum.DEF] = this[StatBuffEnum.DEF];
+    s[StatBuffEnum.DEF_P] = this[StatBuffEnum.DEF_P];
+    s[StatBuffEnum.ENERGY_REGEN] = this[StatBuffEnum.ENERGY_REGEN];
+
+    s[StatBuffEnum.BONUS_PHYSICS] = this[StatBuffEnum.BONUS_PHYSICS];
+    s[StatBuffEnum.BONUS_GLACIO] = this[StatBuffEnum.BONUS_GLACIO];
+    s[StatBuffEnum.BONUS_FUSION] = this[StatBuffEnum.BONUS_FUSION];
+    s[StatBuffEnum.BONUS_ELECTRO] = this[StatBuffEnum.BONUS_ELECTRO];
+    s[StatBuffEnum.BONUS_AERO] = this[StatBuffEnum.BONUS_AERO];
+    s[StatBuffEnum.BONUS_SPECTRO] = this[StatBuffEnum.BONUS_SPECTRO];
+    s[StatBuffEnum.BONUS_HAVOC] = this[StatBuffEnum.BONUS_HAVOC];
+
+    s[StatBuffEnum.BONUS_RESONANCE_SKILL] = this[StatBuffEnum.BONUS_RESONANCE_SKILL];
+    s[StatBuffEnum.BONUS_BASIC_ATTACK] = this[StatBuffEnum.BONUS_BASIC_ATTACK];
+    s[StatBuffEnum.BONUS_HEAVY_ATTACK] = this[StatBuffEnum.BONUS_HEAVY_ATTACK];
+    s[StatBuffEnum.BONUS_RESONANCE_LIBERATION] = this[StatBuffEnum.BONUS_RESONANCE_LIBERATION];
+    s[StatBuffEnum.BONUS_HEALING] = this[StatBuffEnum.BONUS_HEALING];
+    return s;
+  }
+
   public addStatBuff(buff: StatBuff) {
     const buffKeys = Object.values(StatBuffEnum);
     buffKeys.forEach((key: TStatBuffEnum) => {
@@ -176,4 +206,8 @@ export function getSkillBonusType(): Array<string> {
     SkillBonusEnum.ECHO,
     SkillBonusEnum.COORDINATED_ATTACK,
   ];
+}
+
+export function getBuffTypes(): Array<string> {
+  return Object.values(BuffTypeEnum);
 }

@@ -14,7 +14,7 @@
     </v-container>
     <v-container>
       <v-tabs-window class="window mx-auto" v-model="tab">
-        <v-tabs-window-item value="template">
+        <v-tabs-window-item value="template" :key="`${template.data.id}`">
           <v-container class="base-nav d-flex flex-columnmx-auto pa-1">
             <div class="d-flex flex-row w-100">
               <v-tabs class="d-flex flex-row align-center" align-tabs="start" color="blue-accent-1"
@@ -32,7 +32,7 @@
             </v-tabs-window-item>
             <v-tabs-window-item value="rotation">
               <div class="sub-tab d-flex flex-column w-100">
-                施工中
+                <TemplateRotation :id="id" />
               </div>
             </v-tabs-window-item>
           </v-tabs-window>

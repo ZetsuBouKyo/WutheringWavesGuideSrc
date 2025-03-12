@@ -6,6 +6,7 @@ import { SkillAttrEnum, SkillTypeEnum, type TSkillAttrEnum, type TSkillTypeEnum 
 import { StatBuff } from "@/ww/buff";
 import { RowBuff } from "@/ww/row/buff";
 import { getNumber } from "@/ww/utils";
+import type { ResonatorInfo } from "../resonator";
 
 export class RowResonatorSkill {
   public id: string = "";
@@ -14,6 +15,17 @@ export class RowResonatorSkill {
   public bonus_types: Array<string> = [];
   public elment_zh_tw: TElementBonusEnum = "";
   public dmg: string = "";
+
+  public duplicate(): RowResonatorSkill {
+    const s = new RowResonatorSkill();
+    s.id = this.id;
+    s.type = this.type;
+    s.base_attr = this.base_attr;
+    s.bonus_types = this.bonus_types;
+    s.elment_zh_tw = this.elment_zh_tw;
+    s.dmg = this.dmg;
+    return s;
+  }
 }
 
 export class RowResonator {
@@ -37,6 +49,38 @@ export class RowResonator {
   public stat_bonus: StatBuff = new StatBuff();
   public skill: RowResonatorSkill = new RowResonatorSkill();
   public _skill_item: { title: string; value: RowResonatorSkill | undefined } = { title: "", value: undefined };
+  public _info: ResonatorInfo | undefined = undefined;
+
+  public duplicate(): RowResonator {
+    const r = new RowResonator();
+    r.id = this.id;
+    r.no = this.no;
+    r.name = this.name;
+    r.element_zh_tw = this.element_zh_tw;
+    r.level = this.level;
+    r.chain = this.chain;
+    r.hp = this.hp;
+    r.atk = this.atk;
+    r.def = this.def;
+    r.energy_regen = this.energy_regen;
+    r.normal_attack_lv = this.normal_attack_lv;
+    r.resonance_skill_lv = this.resonance_skill_lv;
+    r.forte_circuit_lv = this.forte_circuit_lv;
+    r.resonance_liberation_lv = this.resonance_liberation_lv;
+    r.intro_skill_lv = this.intro_skill_lv;
+    r.inherent_skill_1 = this.inherent_skill_1;
+    r.inherent_skill_2 = this.inherent_skill_2;
+    r.stat_bonus = this.stat_bonus.duplicate();
+    r.skill = this.skill.duplicate();
+    r._skill_item = { title: this._skill_item.title, value: undefined };
+    if (this._skill_item.value !== undefined) {
+      r._skill_item.value = this._skill_item.value.duplicate();
+    }
+    if (this._info !== undefined) {
+      r._info = this._info.duplicate();
+    }
+    return r;
+  }
 
   public getBaseAttrs(): Array<RowBuff> {
     const buffs: Array<RowBuff> = [];
@@ -119,6 +163,7 @@ export class RowResonator {
     this.no = no;
 
     const info = await resonatorStore.getInfoByName(name);
+    this._info = info;
     this.element_zh_tw = info.element_zh_tw;
 
     // Base attr
@@ -192,5 +237,13 @@ export class RowResonator {
       this.skill.bonus_types.push(SkillBonusEnum.COORDINATED_ATTACK);
     }
     this.updateSkillDmg(skill);
+  }
+
+  public updateSkillById(id: string) {
+    const item = this._info?.getDamageSkillItemById(id);
+    if (!item) {
+      return;
+    }
+    this.updateSkill(item.value);
   }
 }
