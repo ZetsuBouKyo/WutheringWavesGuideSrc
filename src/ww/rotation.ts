@@ -106,7 +106,9 @@ export function getRotation(rows: Array<IRotationRow>): Array<ResonatorRotation>
     currentRotation.actions.push(action);
   });
 
-  rotation.push(currentRotation);
+  if (currentRotation.resonatorName && currentRotation.resonatorSrc) {
+    rotation.push(currentRotation);
+  }
 
   return rotation;
 }
