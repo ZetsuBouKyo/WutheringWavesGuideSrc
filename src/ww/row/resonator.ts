@@ -11,6 +11,7 @@ import type { ResonatorInfo } from "@/ww/resonator";
 export class RowResonatorSkill {
   public id: string = "";
   public type: TSkillTypeEnum = "";
+  public level: string = "";
   public base_attr: TSkillAttrEnum = "";
   public bonus_types: Array<string> = [];
   public elment_zh_tw: TElementBonusEnum = "";
@@ -209,6 +210,7 @@ export class RowResonator {
       default:
         level = "10";
     }
+    this.skill.level = level;
     this.skill.dmg = skill[`lv${level}`];
   }
 
