@@ -34,7 +34,7 @@ export class RowResonator {
   public name: string = "";
   public element_zh_tw: string = "";
   public level: string = "90";
-  public chain: string = "1";
+  public chain: string = "0";
   public hp: string = "";
   public atk: string = "";
   public def: string = "";

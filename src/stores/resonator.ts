@@ -76,7 +76,7 @@ export const useResonatorStore = defineStore("resonator", {
       return censoredNames;
     },
     getChains(): Array<string> {
-      return new Array("1", "2", "3", "4", "5", "6");
+      return new Array("0", "1", "2", "3", "4", "5", "6");
     },
     getLevels(): Array<string> {
       return new Array("1", "20", "20+", "40", "40+", "50", "50+", "60", "60+", "70", "70+", "80", "80+", "90");
