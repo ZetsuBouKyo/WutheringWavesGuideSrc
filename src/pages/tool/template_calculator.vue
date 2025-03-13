@@ -107,7 +107,6 @@ import { useTemplateStore } from '@/stores/calculation/template';
 import { useResonatorStore } from '@/stores/resonator';
 import { useMonsterStore } from '@/stores/monster';
 import { useTemplatesStore } from '@/stores/template'
-import TemplateResonator from '@/components/TemplateResonator.vue';
 
 const route = useRoute();
 let id: any = route.query.id
