@@ -47,19 +47,62 @@ export class RowCalculationResultRegions {
 }
 
 export class RowCalculationResult {
-  public regions: RowCalculationResultRegions = new RowCalculationResultRegions();
-  public damage_no_crit: number = 0;
-  public damage_crit: number = 0;
-  public damage: number = 0;
-
-  public damage_no_crit_str: string = toNumberString(0);
-  public damage_crit_str: string = toNumberString(0);
-  public damage_str: string = toNumberString(0);
+  public labels: Array<any> = [];
+  public resonator_name: string = "";
+  public skill_id: string = "";
+  public resonator_level: string = "";
+  public resonator_skill_level: string = "";
+  public resonator_skill_element: string = "";
+  public resonator_skill_base_attr: string = "";
+  public resonator_skill_type: string = "";
+  public resonator_skill_type_bonus: string = "";
+  public resonator_skill_bonus_types: Array<string> = []; // New
+  public resonator_skill_dmg: string = "";
+  public resonator_skill_dmg_addition: string = "";
+  public echo_element: string = "";
+  public echo_skill_base_attr: string = "";
+  public echo_skill_dmg: string = "";
+  public damage_no_crit: string = "";
+  public damage_crit: string = "";
+  public damage: string = "";
+  public result_element: string = "";
+  public result_bonus_type: string = "";
+  public result_bonus_types: string = "";
+  public result_skill_base_attribute: string = "";
+  public result_skill_dmg: string = "";
+  public result_skill_hit: string = "1";
+  public result_hp: string = "";
+  public result_hp_addition: string = "";
+  public result_hp_p: string = "";
+  public result_atk: string = "";
+  public result_atk_addition: string = "";
+  public result_atk_p: string = "";
+  public result_def: string = "";
+  public result_def_addition: string = "";
+  public result_def_p: string = "";
+  public result_crit_rate: string = "";
+  public result_crit_dmg: string = "";
+  public result_magnifier: string = "";
+  public result_amplifier: string = "";
+  public result_bonus: string = "";
+  public result_ignore_def: string = "";
+  public result_reduce_res: string = "";
+  public monster_level: string = "";
+  public monster_def: string = "";
+  public monster_res: string = "";
+  public hits: string = "";
+  public real_dmg_no_crit: string = "";
+  public real_dmg_crit: string = "";
+  public action: string = "";
+  public time_start: string = "";
+  public time_end: string = "";
+  public buffs: Array<any> = [];
 }
 
 export class RowCalculation {
   public id: string = "";
   public data: RowCalculationData = new RowCalculationData();
+  public regions: RowCalculationResultRegions = new RowCalculationResultRegions();
   public result: RowCalculationResult = new RowCalculationResult();
 
   constructor(
@@ -77,7 +120,7 @@ export class RowCalculation {
   }
 
   public reset() {
-    this.result.regions.reset();
+    this.regions.reset();
   }
 
   public getBaseRowBuffs(): Array<RowBuff> {
@@ -178,7 +221,7 @@ export class RowCalculation {
   }
 
   public getFinalMonsterRes(): number {
-    const buffs = this.result.regions.reduce_res;
+    const buffs = this.regions.reduce_res;
     let res: number | undefined;
     buffs.forEach((buff: RowBuff, i: number) => {
       const value = getNumber(buff.value) * getNumber(buff.stack);
@@ -218,20 +261,20 @@ export class RowCalculation {
       const type = row.type;
       switch (type) {
         case BaseTypeEnum.ATTR:
-          this.result.regions.base_attr.push(row);
+          this.regions.base_attr.push(row);
           break;
         case BuffTypeEnum.SKILL_DMG_ADDITION:
-          this.result.regions.skill_dmg_addition.push(row);
+          this.regions.skill_dmg_addition.push(row);
           break;
         case BuffTypeEnum.MAGNIFIER:
-          this.result.regions.magnifier.push(row);
+          this.regions.magnifier.push(row);
           break;
         case BuffTypeEnum.AMPLIFIER:
-          this.result.regions.amplifier.push(row);
+          this.regions.amplifier.push(row);
           break;
         case BuffTypeEnum.BONUS:
           if (!row.element && !row.skill_bonus_type) {
-            this.result.regions.bonus.push(row);
+            this.regions.bonus.push(row);
             break;
           }
           if (row.element && row.skill_bonus_type) {
@@ -241,51 +284,51 @@ export class RowCalculation {
             this.data.resonator.skill.bonus_types.includes(row.element) ||
             this.data.resonator.skill.bonus_types.includes(row.skill_bonus_type)
           ) {
-            this.result.regions.bonus.push(row);
+            this.regions.bonus.push(row);
             break;
           }
           break;
         case BuffTypeEnum.HP_P:
           if (baseAttr === SkillAttrEnum.HP) {
-            this.result.regions.base_attr_p.push(row);
+            this.regions.base_attr_p.push(row);
           }
           break;
         case BuffTypeEnum.HP:
           if (baseAttr === SkillAttrEnum.HP) {
-            this.result.regions.base_attr_a.push(row);
+            this.regions.base_attr_a.push(row);
           }
           break;
         case BuffTypeEnum.ATK_P:
           if (baseAttr === SkillAttrEnum.ATK) {
-            this.result.regions.base_attr_p.push(row);
+            this.regions.base_attr_p.push(row);
           }
           break;
         case BuffTypeEnum.ATK:
           if (baseAttr === SkillAttrEnum.ATK) {
-            this.result.regions.base_attr_a.push(row);
+            this.regions.base_attr_a.push(row);
           }
           break;
         case BuffTypeEnum.DEF_P:
           if (baseAttr === SkillAttrEnum.DEF) {
-            this.result.regions.base_attr_p.push(row);
+            this.regions.base_attr_p.push(row);
           }
           break;
         case BuffTypeEnum.DEF:
           if (baseAttr === SkillAttrEnum.DEF) {
-            this.result.regions.base_attr_a.push(row);
+            this.regions.base_attr_a.push(row);
           }
           break;
         case BuffTypeEnum.CRIT_RATE:
-          this.result.regions.crit_rate.push(row);
+          this.regions.crit_rate.push(row);
           break;
         case BuffTypeEnum.CRIT_DMG:
-          this.result.regions.crit_dmg.push(row);
+          this.regions.crit_dmg.push(row);
           break;
         case BuffTypeEnum.IGNORE_DEF:
-          this.result.regions.ignore_def.push(row);
+          this.regions.ignore_def.push(row);
           break;
         case BuffTypeEnum.REDUCE_RES:
-          this.result.regions.reduce_res.push(row);
+          this.regions.reduce_res.push(row);
           break;
         default:
           break;
@@ -309,29 +352,29 @@ export class RowCalculation {
     this.updateRegions(rows);
 
     // Base attr
-    const attrB = this.sumRegion(this.result.regions.base_attr);
-    const attrP = this.sumRegion(this.result.regions.base_attr_p);
-    const attrA = this.sumRegion(this.result.regions.base_attr_a);
+    const attrB = this.sumRegion(this.regions.base_attr);
+    const attrP = this.sumRegion(this.regions.base_attr_p);
+    const attrA = this.sumRegion(this.regions.base_attr_a);
     const attr = attrB * (1 + attrP) + attrA;
 
     // Skill
-    const skill = this.sumRegion(this.result.regions.skill_dmg_addition);
+    const skill = this.sumRegion(this.regions.skill_dmg_addition);
 
     // Magnifier
-    const magnifierR = this.sumRegion(this.result.regions.magnifier);
+    const magnifierR = this.sumRegion(this.regions.magnifier);
     const magnifier = 1 + magnifierR;
 
     // Amplifier
-    const amplifierR = this.sumRegion(this.result.regions.amplifier);
+    const amplifierR = this.sumRegion(this.regions.amplifier);
     const amplifier = 1 + amplifierR;
 
     // Bonus
-    const bonusR = this.sumRegion(this.result.regions.bonus);
+    const bonusR = this.sumRegion(this.regions.bonus);
     const bonus = 1 + bonusR;
 
     // Crit
-    const critDmg = this.sumRegion(this.result.regions.crit_dmg);
-    let critRate = this.sumRegion(this.result.regions.crit_rate);
+    const critDmg = this.sumRegion(this.regions.crit_dmg);
+    let critRate = this.sumRegion(this.regions.crit_rate);
     if (critRate >= 1) {
       critRate = 1;
     }
@@ -339,7 +382,7 @@ export class RowCalculation {
     // Def
     const resonatorLevel = getNumber(this.data.resonator.level);
     const monsterLevel = getNumber(this.data.monster.level);
-    const ignoreDef = this.sumRegion(this.result.regions.ignore_def);
+    const ignoreDef = this.sumRegion(this.regions.ignore_def);
     const def = (800 + 8 * resonatorLevel) / (800 + 8 * resonatorLevel + (792 + 8 * monsterLevel) * (1 - ignoreDef));
 
     // Res
@@ -357,12 +400,19 @@ export class RowCalculation {
     const damageCrit = damageNoCrit * critDmg;
     const damage = damageCrit * critRate + damageNoCrit * (1 - critRate);
 
-    this.result.damage = getNumber(toNumberString(damage));
-    this.result.damage_crit = getNumber(toNumberString(damageCrit));
-    this.result.damage_no_crit = getNumber(toNumberString(damageNoCrit));
-
-    this.result.damage_str = toNumberString(damage);
-    this.result.damage_crit_str = toNumberString(damageCrit);
-    this.result.damage_no_crit_str = toNumberString(damageNoCrit);
+    // Results
+    this.result.resonator_name = this.data.resonator.name;
+    this.result.skill_id = this.data.resonator.skill.id;
+    this.result.resonator_level = this.data.resonator.level;
+    this.result.resonator_skill_level = this.data.resonator.skill.level;
+    this.result.resonator_skill_element = this.data.resonator.skill.elment_zh_tw;
+    this.result.resonator_skill_base_attr = this.data.resonator.skill.base_attr;
+    this.result.resonator_skill_type = this.data.resonator.skill.type;
+    // this.result.resonator_skill_type_bonus; // TODO: deprecated
+    this.result.resonator_skill_bonus_types = this.data.resonator.skill.bonus_types;
+    this.result.resonator_skill_dmg = this.data.resonator.skill.dmg;
+    this.result.damage = toNumberString(damage);
+    this.result.damage_crit = toNumberString(damageCrit);
+    this.result.damage_no_crit = toNumberString(damageNoCrit);
   }
 }

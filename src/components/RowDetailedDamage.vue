@@ -13,22 +13,22 @@
           <td class="w-100 text-grey-darken-1">
             <div class="w-100 d-flex flex-row">
               <span
-                v-if="(calculation.result.regions.base_attr.length + calculation.result.regions.base_attr_p.length + calculation.result.regions.base_attr_a.length) > 1">
+                v-if="(calculation.regions.base_attr.length + calculation.regions.base_attr_p.length + calculation.regions.base_attr_a.length) > 1">
                 (
               </span>
-              <RowDetailedDamageNumbers :rows="calculation.result.regions.base_attr" />
-              <div class="d-flex flex-row" v-if="calculation.result.regions.base_attr_p.length > 0">
+              <RowDetailedDamageNumbers :rows="calculation.regions.base_attr" />
+              <div class="d-flex flex-row" v-if="calculation.regions.base_attr_p.length > 0">
                 <span>×</span>
                 <span>(</span>
                 <span>1</span>
                 <span>+</span>
-                <RowDetailedDamageNumbers :rows="calculation.result.regions.base_attr_p" />
+                <RowDetailedDamageNumbers :rows="calculation.regions.base_attr_p" />
                 <span>)</span>
               </div>
-              <span v-if="calculation.result.regions.base_attr_a.length > 0">+</span>
-              <RowDetailedDamageNumbers :rows="calculation.result.regions.base_attr_a" />
+              <span v-if="calculation.regions.base_attr_a.length > 0">+</span>
+              <RowDetailedDamageNumbers :rows="calculation.regions.base_attr_a" />
               <span
-                v-if="(calculation.result.regions.base_attr.length + calculation.result.regions.base_attr_p.length + calculation.result.regions.base_attr_a.length) > 1">
+                v-if="(calculation.regions.base_attr.length + calculation.regions.base_attr_p.length + calculation.regions.base_attr_a.length) > 1">
                 )
               </span>
             </div>
@@ -39,7 +39,7 @@
           <td class="w-100 text-grey-darken-1">
             <div class="w-100 d-flex flex-row">
               <span>×</span>
-              <RowDetailedDamageNumbers :rows="calculation.result.regions.skill_dmg_addition" />
+              <RowDetailedDamageNumbers :rows="calculation.regions.skill_dmg_addition" />
             </div>
           </td>
         </tr>
@@ -48,8 +48,8 @@
           <td class="w-100 text-grey-darken-1">
             <div class="w-100 d-flex flex-row">
               <span>×</span>
-              <RowDetailedDamageNumbers v-if="calculation.result.regions.magnifier.length > 0"
-                :rows="calculation.result.regions.magnifier" :is1="true" />
+              <RowDetailedDamageNumbers v-if="calculation.regions.magnifier.length > 0"
+                :rows="calculation.regions.magnifier" :is1="true" />
               <span v-else>1</span>
             </div>
           </td>
@@ -59,8 +59,8 @@
           <td class="w-100 text-grey-darken-1">
             <div class="w-100 d-flex flex-row">
               <span>×</span>
-              <RowDetailedDamageNumbers v-if="calculation.result.regions.amplifier.length > 0"
-                :rows="calculation.result.regions.amplifier" :is1="true" />
+              <RowDetailedDamageNumbers v-if="calculation.regions.amplifier.length > 0"
+                :rows="calculation.regions.amplifier" :is1="true" />
               <span v-else>1</span>
             </div>
           </td>
@@ -70,8 +70,8 @@
           <td class="w-100 text-grey-darken-1">
             <div class="w-100 d-flex flex-row">
               <span>×</span>
-              <RowDetailedDamageNumbers v-if="calculation.result.regions.bonus.length > 0"
-                :rows="calculation.result.regions.bonus" :is1="true" />
+              <RowDetailedDamageNumbers v-if="calculation.regions.bonus.length > 0" :rows="calculation.regions.bonus"
+                :is1="true" />
               <span v-else>1</span>
             </div>
           </td>
@@ -81,8 +81,8 @@
           <td class="w-100 text-grey-darken-1">
             <div class="w-100 d-flex flex-row">
               <span>×</span>
-              <RowDetailedDamageNumbers v-if="calculation.result.regions.crit_dmg.length > 0"
-                :rows="calculation.result.regions.crit_dmg" />
+              <RowDetailedDamageNumbers v-if="calculation.regions.crit_dmg.length > 0"
+                :rows="calculation.regions.crit_dmg" />
               <span v-else>1.5</span>
             </div>
           </td>
@@ -131,10 +131,9 @@
                   </v-tooltip>
                   <span>)</span>
                   <span>)</span>
-                  <div v-if="calculation.result.regions.ignore_def.length > 0" class="d-flex flex-row">
+                  <div v-if="calculation.regions.ignore_def.length > 0" class="d-flex flex-row">
                     <span>×</span>
-                    <RowDetailedDamageNumbers :rows="calculation.result.regions.ignore_def" :is1="true"
-                      :operator="'–'" />
+                    <RowDetailedDamageNumbers :rows="calculation.regions.ignore_def" :is1="true" :operator="'–'" />
                   </div>
                   <span>)</span>
                 </div>
@@ -151,8 +150,8 @@
               <span>(</span>
               <span>1</span>
               <span>–</span>
-              <RowDetailedDamageNumbers v-if="calculation.result.regions.reduce_res.length > 0"
-                :rows="calculation.result.regions.reduce_res" :operator="'–'" />
+              <RowDetailedDamageNumbers v-if="calculation.regions.reduce_res.length > 0"
+                :rows="calculation.regions.reduce_res" :operator="'–'" />
               <span>)</span>
             </div>
             <div v-else-if="calculation.getFinalMonsterRes() < 0" class="d-flex flex-row align-center">
@@ -198,9 +197,9 @@ const calculation = props.calculation
 const { t } = useI18n()
 
 const damageHeaders = [
-  { title: t('general.calculated_damage'), key: 'damage_no_crit_str', width: "33%" },
-  { title: t('general.calculated_crit_damage'), key: 'damage_crit_str', width: "33%" },
-  { title: t('general.calculate_expected_damage'), key: 'damage_str', width: "33%" },
+  { title: t('general.calculated_damage'), key: 'damage_no_crit', width: "33%" },
+  { title: t('general.calculated_crit_damage'), key: 'damage_crit', width: "33%" },
+  { title: t('general.calculate_expected_damage'), key: 'damage', width: "33%" },
 ]
 </script>
 

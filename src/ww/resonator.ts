@@ -3,6 +3,80 @@ import { SkillAttrEnum, SkillTypeEnum, type TSkillTypeEnum } from "@/types/skill
 
 import { StatBuff } from "./buff";
 
+export class ResonatorModel {
+  public resonator_src: string = "";
+  public element: string = "";
+  public element_src: string = "";
+  public element_en: string = "";
+  public name: string = "";
+  public chain: string = "";
+  public weapon_name: string = "";
+  public weapon_rank: string = "";
+  public weapon_level: string = "";
+  public level: string = "";
+  public hp: string = "";
+  public attack: string = "";
+  public defense: string = "";
+  public crit_rate: string = "";
+  public crit_dmg: string = "";
+  public energy_regen: string = "";
+  public resonance_skill_dmg_bonus: string = "";
+  public basic_attack_dmg_bonus: string = "";
+  public heavy_attack_dmg_bonus: string = "";
+  public resonance_liberation_dmg_bonus: string = "";
+  public healing_bonus: string = "";
+  public physical_dmg_bonus: string = "";
+  public glacio_dmg_bonus: string = "";
+  public fusion_dmg_bonus: string = "";
+  public electro_dmg_bonus: string = "";
+  public aero_dmg_bonus: string = "";
+  public spectro_dmg_bonus: string = "";
+  public havoc_dmg_bonus: string = "";
+  public physical_dmg_res: string = "";
+  public glacio_dmg_res: string = "";
+  public fusion_dmg_res: string = "";
+  public electro_dmg_res: string = "";
+  public aero_dmg_res: string = "";
+  public spectro_dmg_res: string = "";
+  public havoc_dmg_res: string = "";
+  public normal_attack_lv: string = "";
+  public resonance_skill_lv: string = "";
+  public resonance_liberation_lv: string = "";
+  public forte_circuit_lv: string = "";
+  public intro_skill_lv: string = "";
+  public inherent_skill_1: string = "";
+  public inherent_skill_2: string = "";
+  public echo_hp: string = "";
+  public echo_hp_p: string = "";
+  public echo_atk: string = "";
+  public echo_atk_p: string = "";
+  public echo_def: string = "";
+  public echo_def_p: string = "";
+  public echo_crit_rate: string = "";
+  public echo_crit_dmg: string = "";
+  public echo_energy_regen: string = "";
+  public echo_sonata_1: string = "";
+  public echo_sonata_2: string = "";
+  public echo_sonata_3: string = "";
+  public echo_sonata_4: string = "";
+  public echo_sonata_5: string = "";
+  public echo_resonance_skill_dmg_bonus: string = "";
+  public echo_basic_attack_dmg_bonus: string = "";
+  public echo_heavy_attack_dmg_bonus: string = "";
+  public echo_resonance_liberation_dmg_bonus: string = "";
+  public echo_healing_bonus: string = "";
+  public echo_glacio_dmg_bonus: string = "";
+  public echo_fusion_dmg_bonus: string = "";
+  public echo_electro_dmg_bonus: string = "";
+  public echo_aero_dmg_bonus: string = "";
+  public echo_spectro_dmg_bonus: string = "";
+  public echo_havoc_dmg_bonus: string = "";
+}
+
+export class ResonatorModels {
+  [id: string]: ResonatorModel;
+}
+
 export class ResonatorInfo {
   public no: string = "";
   public name: string = "";

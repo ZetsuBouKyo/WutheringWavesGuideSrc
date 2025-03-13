@@ -1,5 +1,6 @@
-import { getNestedValue, toNumberString, toPercentageString, md5 } from "./utils";
-import { Template } from "./template";
+import { getNestedValue, toNumberString, toPercentageString, md5 } from "@/ww/utils";
+import { Template } from "@/ww/template";
+import { RowCalculationResult } from "@/ww/row";
 
 import { useResonatorStore } from "@/stores/resonator";
 
@@ -23,15 +24,51 @@ function sortBars(barhA: any, barhB: any) {
   return damageB - damageA;
 }
 
-export class TeamDamageDistribution {
-  public template_id: any;
-  public duration_1: any;
-  public duration_2: any;
-  public damage: any;
-  public resonators: any;
+export class ResonatorDamageDistribution {
+  public resonator_id: string = "";
+  public resonator_name: string = "";
+  public basic: string = "";
+  public heavy: string = "";
+  public skill: string = "";
+  public liberation: string = "";
+  public intro: string = "";
+  public outro: string = "";
+  public echo: string = "";
+  public coordinated_attack: string = "";
+  public none: string = "";
+  public normal_attack: string = "";
+  public resonance_skill: string = "";
+  public resonance_liberation: string = "";
+  public intro_skill: string = "";
+  public forte_circuit: string = "";
+  public outro_skill: string = "";
+  public damage: string = "";
+  public damage_no_crit: string = "";
+  public damage_crit: string = "";
+  public skills: {
+    [id: string]: {
+      id: string;
+      name: string;
+      type: string;
+      damage: string;
+    };
+  } = {};
+}
 
-  constructor(distribution: any) {
-    Object.assign(this, distribution);
+export class TeamDamageDistribution {
+  public template_id: string = "";
+  public monster_id: string = "";
+  public duration_1: string = "";
+  public duration_2: string = "";
+  public damage: string = "";
+  public damage_no_crit: string = "";
+  public damage_crit: string = "";
+  public resonators: { [id: string]: ResonatorDamageDistribution } = {};
+
+  constructor(distribution: any = {}) {
+    if (distribution && Object.keys(distribution).length > 0) {
+      Object.assign(this, distribution);
+    }
   }
 
   public getHashedTemplateID(): string {
@@ -129,7 +166,7 @@ export class TeamDamageDistribution {
   public getResonatorMaxDPS(resonatorName: string): number {
     const d = this.getResonatorDamage(resonatorName);
     if (this.duration_1 && this.duration_2 && d) {
-      return d / this.duration_1;
+      return d / parseFloat(this.duration_1);
     }
     return 0;
   }
@@ -161,7 +198,7 @@ export class TeamDamageDistribution {
   }
 
   public getResonatorSkillBars(resonatorName: string): Array<IBar> {
-    const duration = this.duration_1;
+    const duration = parseFloat(this.duration_1);
     const resonatorDamageDistribution = this.resonators[resonatorName];
     const baseDamage = parseFloat(resonatorDamageDistribution.damage);
     const skills = resonatorDamageDistribution.skills;
@@ -189,7 +226,7 @@ export class TeamDamageDistribution {
   }
 
   public getResonatorSkillTypeBars(resonatorName: string): Array<IBar> {
-    const resonatorDamageDistribution = this.resonators[resonatorName];
+    const resonatorDamageDistribution: ResonatorDamageDistribution = this.resonators[resonatorName];
     const baseDamage = parseFloat(resonatorDamageDistribution.damage);
     const skillTypes = [
       "normal_attack",
@@ -201,7 +238,7 @@ export class TeamDamageDistribution {
     ];
     const bars: Array<IBar> = [];
     skillTypes.forEach((t: string) => {
-      const damage = parseFloat(resonatorDamageDistribution[t]);
+      const damage = parseFloat((resonatorDamageDistribution as any)[t]);
       const p = damage / baseDamage;
       const bar = {
         text: t,
@@ -231,7 +268,7 @@ export class TeamDamageDistribution {
     ];
     const bars: Array<IBar> = [];
     skillBonuses.forEach((b: string) => {
-      const damage = parseFloat(resonatorDamageDistribution[b]);
+      const damage = parseFloat((resonatorDamageDistribution as any)[b]);
       const p = damage / baseDamage;
       const bar = {
         text: b,
@@ -246,12 +283,15 @@ export class TeamDamageDistribution {
   }
 }
 
+// TODO: Refactor
 export class TeamDamageDistributionsWithBuffs {
   private _data: any;
 
-  constructor(distribution: any) {
-    Object.assign(this, distribution);
-    this._data = distribution;
+  constructor(distribution: any = {}) {
+    if (distribution && Object.keys(distribution).length > 0) {
+      Object.assign(this, distribution);
+      this._data = distribution;
+    }
   }
 
   public getBars(baseDamage: number, baseDPS: number): Array<IBar> {
@@ -279,18 +319,20 @@ export class TeamDamageDistributionsWithBuffs {
 }
 
 export class DamageAnalysis {
-  public affixPolicy: string;
-  public resonator_template: any;
-  public damage_distribution: any;
-  public damage_distributions_with_buffs: any;
-  public calculated_rows: any;
+  public affixPolicy: string = "";
+  public resonator_template: Template = new Template();
+  public damage_distribution: TeamDamageDistribution = new TeamDamageDistribution();
+  public damage_distributions_with_buffs: TeamDamageDistributionsWithBuffs = new TeamDamageDistributionsWithBuffs();
+  public calculated_rows: Array<RowCalculationResult> = [];
 
-  constructor(analysis: any, affixPolicy: string) {
-    Object.assign(this, analysis);
-    this.affixPolicy = affixPolicy;
-    this.resonator_template = new Template(this.resonator_template);
-    this.damage_distribution = new TeamDamageDistribution(this.damage_distribution);
-    this.damage_distributions_with_buffs = new TeamDamageDistributionsWithBuffs(this.damage_distributions_with_buffs);
+  constructor(analysis: any = {}, affixPolicy: string = "") {
+    if (analysis && Object.keys(analysis).length > 0) {
+      Object.assign(this, analysis);
+      this.affixPolicy = affixPolicy;
+      this.resonator_template = new Template(this.resonator_template);
+      this.damage_distribution = new TeamDamageDistribution(this.damage_distribution);
+      this.damage_distributions_with_buffs = new TeamDamageDistributionsWithBuffs(this.damage_distributions_with_buffs);
+    }
   }
 
   public getTeamDamageDistribution(): TeamDamageDistribution {
