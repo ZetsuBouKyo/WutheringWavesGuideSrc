@@ -8,8 +8,8 @@
         <span>{{ $t('general.resonator') }}</span>
       </div>
       <div class="d-flex flex-row mb-4">
-        <v-select v-model="resonator.level" :items="resonatorLevels" :label="$t('general.level')" variant="outlined"
-          density="compact" hide-details>
+        <v-select v-model="resonator.level" :items="resonatorLevels" :label="$t('general.level')"
+          @update:modelValue="resonator.updateByLevel" variant="outlined" density="compact" hide-details>
         </v-select>
       </div>
       <div class="d-flex flex-row mb-4">

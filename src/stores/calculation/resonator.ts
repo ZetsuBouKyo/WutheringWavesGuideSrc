@@ -18,6 +18,9 @@ export const useRowResonatorStore = (id: string) => {
       async updateByName() {
         await this.data.updateByName();
       },
+      async updateByLevel(level: string = "") {
+        await this.data.updateByLevel(level);
+      },
       updateSkillDmg(skill: any) {
         this.data.updateSkillDmg(skill);
       },

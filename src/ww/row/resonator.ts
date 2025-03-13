@@ -178,6 +178,28 @@ export class RowResonator {
     return buffs;
   }
 
+  public async updateByLevel(level: string = "") {
+    if (!level) {
+      level = this.level;
+    } else {
+      this.level = level;
+    }
+    if (!level) {
+      return;
+    }
+    if (!this.name) {
+      return;
+    }
+    if (!this._info?.attrs.length) {
+      const resonatorStore = useResonatorStore();
+      const info = await resonatorStore.getInfoByName(this.name);
+      this._info = info;
+    }
+    this.hp = this._info.getHp(level);
+    this.atk = this._info.getAtk(level);
+    this.def = this._info.getDef(level);
+  }
+
   public async updateByName() {
     const resonatorStore = useResonatorStore();
 
@@ -198,10 +220,7 @@ export class RowResonator {
     this.element_zh_tw = info.element_zh_tw;
 
     // Base attr
-    const level = this.level;
-    this.hp = info.getHp(level);
-    this.atk = info.getAtk(level);
-    this.def = info.getDef(level);
+    this.updateByLevel();
 
     // Stat bonus
     const stat_bonus = info.stat_bonus;
