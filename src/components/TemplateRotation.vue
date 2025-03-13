@@ -165,7 +165,7 @@
             <v-btn class="mr-2" v-on:click="insertBottomDialog = true">
               {{ $t('general.insert_bottom') }}
             </v-btn>
-            <v-btn v-on:click="calculate">
+            <v-btn v-on:click="template.calculate()">
               {{ $t('general.calculate') }}
             </v-btn>
           </div>
@@ -265,20 +265,20 @@
                 width="180px" density="compact" hide-details>
               </v-text-field>
             </template>
-            <template v-slot:item.calculation.result.damage_no_crit_str="{ item }">
-              <v-text-field class="result" v-model="item.calculation.result.damage_no_crit_str"
+            <template v-slot:item.calculation.result.damage_no_crit="{ item }">
+              <v-text-field class="result" v-model="item.calculation.result.damage_no_crit"
                 :label="$t('general.calculated_damage')" variant="outlined" width="180px" density="compact" hide-details
                 readonly>
               </v-text-field>
             </template>
-            <template v-slot:item.calculation.result.damage_crit_str="{ item }">
-              <v-text-field class="result" v-model="item.calculation.result.damage_crit_str"
+            <template v-slot:item.calculation.result.damage_crit="{ item }">
+              <v-text-field class="result" v-model="item.calculation.result.damage_crit"
                 :label="$t('general.calculated_crit_damage')" variant="outlined" width="180px" density="compact"
                 hide-details readonly>
               </v-text-field>
             </template>
-            <template v-slot:item.calculation.result.damage_str="{ item }">
-              <v-text-field class="result" v-model="item.calculation.result.damage_str"
+            <template v-slot:item.calculation.result.damage="{ item }">
+              <v-text-field class="result" v-model="item.calculation.result.damage"
                 :label="$t('general.calculate_expected_damage')" variant="outlined" width="180px" density="compact"
                 hide-details readonly>
               </v-text-field>
@@ -396,9 +396,9 @@ const headers = [
   { title: t('general.time_end'), key: 'time_end' },
   { title: t('general.real_dmg_no_crit'), key: 'real_dmg_no_crit' },
   { title: t('general.real_dmg_crit'), key: 'real_dmg_crit' },
-  { title: t('general.calculated_damage'), key: 'calculation.result.damage_no_crit_str' },
-  { title: t('general.calculated_crit_damage'), key: 'calculation.result.damage_crit_str' },
-  { title: t('general.calculate_expected_damage'), key: 'calculation.result.damage_str' },
+  { title: t('general.calculated_damage'), key: 'calculation.result.damage_no_crit' },
+  { title: t('general.calculated_crit_damage'), key: 'calculation.result.damage_crit' },
+  { title: t('general.calculate_expected_damage'), key: 'calculation.result.damage' },
 ]
 
 const template = useTemplateStore(id)
@@ -540,12 +540,6 @@ function updatePage(items: any) {
     const row = item.raw
     currentRows.value.push(row)
   })
-}
-
-function calculate() {
-  for (let i = 0; i < templateRows.value.length; i++) {
-    template.calculateRow(i)
-  }
 }
 
 watch(() => { return JSON.stringify(templateRows.value) }, () => {

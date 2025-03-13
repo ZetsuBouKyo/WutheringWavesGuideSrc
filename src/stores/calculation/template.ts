@@ -34,6 +34,9 @@ export const useTemplateStore = (id: string) => {
       calculateRow(i: number) {
         this.data.calculateRow(i);
       },
+      calculate() {
+        this.data.calculate();
+      },
     },
   });
   return new store();

@@ -103,7 +103,7 @@ export class TemplateRow {
   public calculation: RowCalculation = new RowCalculation();
 
   constructor(row: any = {}) {
-    if (Object.keys(row).length === 0) {
+    if (row && Object.keys(row).length === 0) {
       return;
     }
     const { buffs, ...data } = row;
@@ -167,7 +167,7 @@ export class TemplateCalculation {
     new TemplateCalculationResonator(),
     new TemplateCalculationResonator(),
   ];
-  public monster: RowMonster = new RowMonster();
+  public monster: RowMonster = new RowMonster(); // TODO: deprecate?
 }
 
 export class Template {
@@ -281,7 +281,7 @@ export class Template {
 
   public async init() {
     // Resonators
-    this.resonators.forEach(async (resonator, i) => {
+    this.resonators.forEach(async (_, i) => {
       await this.initResonator(i);
     });
   }
@@ -404,5 +404,11 @@ export class Template {
     monster.updateByName(monsterId);
 
     row.calculate(resonator, weapon, echoes, buffs, monster);
+  }
+
+  public async calculate() {
+    for (let i = 0; i < this.rows.length; i++) {
+      this.calculateRow(i);
+    }
   }
 }
