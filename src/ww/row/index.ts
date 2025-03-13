@@ -1,3 +1,5 @@
+import Decimal from "decimal.js";
+
 import { BaseTypeEnum, BuffTypeEnum, ElementBonusEnum, RowBuffCategoryEnum } from "@/types/buff";
 import { SkillAttrEnum } from "@/types/skill";
 
@@ -220,21 +222,23 @@ export class RowCalculation {
     return getNumber(res);
   }
 
-  public getFinalMonsterRes(): number {
+  public getFinalMonsterRes(): Decimal {
     const buffs = this.regions.reduce_res;
-    let res: number | undefined;
+    let res: Decimal = new Decimal(0);
     buffs.forEach((buff: RowBuff, i: number) => {
-      const value = getNumber(buff.value) * getNumber(buff.stack);
+      const v = new Decimal(getNumber(buff.value));
+      const s = new Decimal(getNumber(buff.stack));
+      const value = v.times(s);
       if (i === 0) {
         res = value;
       } else {
         if (!res) {
-          res = getNumber(res);
+          res = new Decimal(getNumber(res));
         }
-        res -= value;
+        res = res.minus(value);
       }
     });
-    return getNumber(res);
+    return res;
   }
 
   public getMonsterResRowBuffs(): Array<RowBuff> {
@@ -336,11 +340,12 @@ export class RowCalculation {
     });
   }
 
-  private sumRegion(rows: Array<RowBuff>): number {
-    let n: number = 0;
+  private sumRegion(rows: Array<RowBuff>): Decimal {
+    let n: Decimal = new Decimal(0);
     rows.forEach((row: RowBuff) => {
-      const value = getNumber(row.value) * getNumber(row.stack);
-      n += value;
+      const v = new Decimal(getNumber(row.value));
+      const s = new Decimal(getNumber(row.stack));
+      n = n.plus(v.times(s));
     });
     return n;
   }
@@ -355,50 +360,57 @@ export class RowCalculation {
     const attrB = this.sumRegion(this.regions.base_attr);
     const attrP = this.sumRegion(this.regions.base_attr_p);
     const attrA = this.sumRegion(this.regions.base_attr_a);
-    const attr = attrB * (1 + attrP) + attrA;
+    const attr = attrB.times(attrP.plus(new Decimal(1))).plus(attrA);
 
     // Skill
     const skill = this.sumRegion(this.regions.skill_dmg_addition);
 
     // Magnifier
     const magnifierR = this.sumRegion(this.regions.magnifier);
-    const magnifier = 1 + magnifierR;
+    const magnifier = magnifierR.plus(new Decimal(1));
 
     // Amplifier
     const amplifierR = this.sumRegion(this.regions.amplifier);
-    const amplifier = 1 + amplifierR;
+    const amplifier = amplifierR.plus(new Decimal(1));
 
     // Bonus
     const bonusR = this.sumRegion(this.regions.bonus);
-    const bonus = 1 + bonusR;
+    const bonus = bonusR.plus(new Decimal(1));
 
     // Crit
     const critDmg = this.sumRegion(this.regions.crit_dmg);
     let critRate = this.sumRegion(this.regions.crit_rate);
-    if (critRate >= 1) {
-      critRate = 1;
+    if (critRate.gte(new Decimal(1))) {
+      critRate = new Decimal(1);
     }
 
     // Def
-    const resonatorLevel = getNumber(this.data.resonator.level);
-    const monsterLevel = getNumber(this.data.monster.level);
+    const resonatorLevel = new Decimal(getNumber(this.data.resonator.level));
+    const monsterLevel = new Decimal(getNumber(this.data.monster.level));
     const ignoreDef = this.sumRegion(this.regions.ignore_def);
-    const def = (800 + 8 * resonatorLevel) / (800 + 8 * resonatorLevel + (792 + 8 * monsterLevel) * (1 - ignoreDef));
-
+    const def = resonatorLevel
+      .times(new Decimal(8))
+      .plus(new Decimal(800))
+      .dividedBy(
+        resonatorLevel
+          .times(new Decimal(8))
+          .plus(new Decimal(800))
+          .plus(monsterLevel.times(new Decimal(8)).plus(new Decimal(792)).times(new Decimal(1).minus(ignoreDef))),
+      );
     // Res
     const monsterFinalRes = this.getFinalMonsterRes();
-    let res: number;
-    if (monsterFinalRes < 0) {
-      res = 1 - monsterFinalRes / 2;
-    } else if (monsterFinalRes >= 0.8) {
-      res = 1 / (1 + 5 * monsterFinalRes);
+    let res: Decimal;
+    if (monsterFinalRes.lt(new Decimal(0))) {
+      res = new Decimal(1).minus(monsterFinalRes.dividedBy(new Decimal(2)));
+    } else if (monsterFinalRes.gte(new Decimal(0.8))) {
+      res = new Decimal(1).dividedBy(monsterFinalRes.times(new Decimal(5)).plus(new Decimal(1)));
     } else {
-      res = 1 - monsterFinalRes;
+      res = new Decimal(1).minus(monsterFinalRes);
     }
 
-    const damageNoCrit = attr * skill * magnifier * amplifier * bonus * def * res;
-    const damageCrit = damageNoCrit * critDmg;
-    const damage = damageCrit * critRate + damageNoCrit * (1 - critRate);
+    const damageNoCrit = attr.times(skill).times(magnifier).times(amplifier).times(bonus).times(def).times(res);
+    const damageCrit = damageNoCrit.times(critDmg);
+    const damage = damageCrit.times(critRate).plus(new Decimal(1).minus(critRate).times(damageNoCrit));
 
     // Results
     this.result.resonator_name = this.data.resonator.name;
@@ -411,8 +423,12 @@ export class RowCalculation {
     // this.result.resonator_skill_type_bonus; // TODO: deprecated
     this.result.resonator_skill_bonus_types = this.data.resonator.skill.bonus_types;
     this.result.resonator_skill_dmg = this.data.resonator.skill.dmg;
-    this.result.damage = toNumberString(damage);
-    this.result.damage_crit = toNumberString(damageCrit);
-    this.result.damage_no_crit = toNumberString(damageNoCrit);
+    if (this.regions.skill_dmg_addition.length > 1) {
+      let skill_dmg_addition = this.sumRegion(this.regions.skill_dmg_addition.slice(1));
+      this.result.resonator_skill_dmg_addition = skill_dmg_addition.toString();
+    }
+    this.result.damage = toNumberString(damage.toNumber());
+    this.result.damage_crit = toNumberString(damageCrit.toNumber());
+    this.result.damage_no_crit = toNumberString(damageNoCrit.toNumber());
   }
 }
