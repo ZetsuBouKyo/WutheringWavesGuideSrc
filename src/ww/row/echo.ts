@@ -108,6 +108,9 @@ export class RowEcho {
     value: { name: string; cost: string; sonatas: Array<string> } | undefined;
   }) {
     if (!item || !item.title || !item.value) {
+      item = this._item;
+    }
+    if (!item || !item.title || !item.value) {
       return;
     }
 
