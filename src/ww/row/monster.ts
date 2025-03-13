@@ -12,6 +12,17 @@ export class RowMonster {
   public res_havoc: string = "";
   public _item: { title: string; value: any } = { title: "", value: undefined };
 
+  constructor(monster: any = {}) {
+    if (!monster || Object.keys(monster).length === 0) {
+      return;
+    }
+    Object.assign(this, monster);
+  }
+
+  public getJson(): object {
+    return JSON.parse(JSON.stringify(this));
+  }
+
   public updateByMonsterItem(item: any) {
     if (!item) {
       return;

@@ -10,6 +10,12 @@
           <v-tab value="result">{{ $t('calculation.result') }}</v-tab>
         </v-tabs>
         <div class="d-flex flex-row align-center ml-auto">
+          <v-file-input class="mr-2" max-width="100%" min-width="200" :label="$t('general.load_file')" accept=".json"
+            @change="loadData" variant="outlined" density="compact" hide-details>
+          </v-file-input>
+          <v-btn class="mr-2" v-on:click="saveToJson">
+            {{ $t('general.download_json') }}
+          </v-btn>
           <v-btn v-on:click="calculate">
             {{ $t('general.calculate') }}
           </v-btn>
@@ -135,6 +141,7 @@ import { useRowMonsterStore } from '@/stores/calculation/monster';
 import { useMonsterStore } from '@/stores/monster';
 
 import { RowCalculation } from '@/ww/row';
+import { saveJson, loadJsonByEvent } from '@/ww/utils';
 
 const id = "simple"
 
@@ -149,6 +156,53 @@ const calculation = ref<RowCalculation | undefined>(undefined)
 const monsterStore = useMonsterStore()
 const monsterItems = monsterStore.getMonsterItems()
 monster.updateByMonsterItem(monsterItems[1].value)
+
+function saveToJson() {
+  const data = {
+    resonator: resonator.getJson(),
+    weapon: weapon.getJson(),
+    echoes: echoes.getJson(),
+    buffs: buffs.getJson(),
+    monster: monster.getJson()
+  }
+  let fname = ""
+  const name = resonator.data?.name
+  const skill = resonator.data?.skill?.id
+  if (name) {
+    fname = name
+  }
+  if (skill) {
+    fname = `${fname}-${skill}`
+  }
+  if (fname) {
+    saveJson(data, fname)
+  } else {
+    saveJson(data)
+  }
+}
+
+function loadData(event: Event) {
+  const input = event.target as HTMLInputElement;
+  if (!input.files || input.files.length === 0) {
+    return [undefined, undefined];
+  }
+  const file = input.files[0];
+  const reader = new FileReader();
+  let data;
+  reader.onload = (e) => {
+    try {
+      data = JSON.parse(e.target?.result as string);
+      resonator.loadJson(data.resonator)
+      weapon.loadJson(data.weapon)
+      echoes.loadJson(data.echoes)
+      buffs.loadJson(data.buffs)
+      monster.loadJson(data.monster)
+    } catch (error) {
+      console.error("Invalid JSON file", error);
+    }
+  };
+  reader.readAsText(file);
+};
 
 async function calculate() {
   tab.value = "result"

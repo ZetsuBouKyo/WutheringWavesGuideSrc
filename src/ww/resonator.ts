@@ -91,9 +91,10 @@ export class ResonatorInfo {
   public skill_infos: any = {};
 
   constructor(info: any = {}) {
-    if (Object.keys(info).length > 0) {
-      Object.assign(this, info);
+    if (!info || Object.keys(info).length === 0) {
+      return;
     }
+    Object.assign(this, info);
   }
 
   public duplicate(): ResonatorInfo {

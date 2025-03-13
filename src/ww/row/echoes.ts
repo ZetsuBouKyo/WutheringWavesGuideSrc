@@ -17,6 +17,17 @@ export class RowEchoesSummary {
   public main_affix: StatBuff = new StatBuff();
   public sub_affix: StatBuff = new StatBuff();
 
+  constructor(summary: any = {}) {
+    if (!summary || Object.keys(summary).length === 0) {
+      return;
+    }
+    const { main_affix, sub_affix, ...data } = summary;
+    Object.assign(this, data);
+
+    this.main_affix = new StatBuff(main_affix);
+    this.sub_affix = new StatBuff(sub_affix);
+  }
+
   public duplicate(): RowEchoesSummary {
     const s = new RowEchoesSummary();
     s.name1 = this.name1;
@@ -41,8 +52,19 @@ export class RowEchoes {
   public echoes: Array<RowEcho> = [];
   public summary: RowEchoesSummary = new RowEchoesSummary();
 
-  constructor() {
-    this.echoes = Array.from({ length: 5 }, (_, __) => new RowEcho());
+  constructor(raw: any = {}) {
+    if (!raw || Object.keys(raw).length === 0) {
+      this.echoes = Array.from({ length: 5 }, (_, __) => new RowEcho());
+      return;
+    }
+    const { echoes, summary, ...data } = raw;
+    Object.assign(this, data);
+
+    this.echoes = [];
+    echoes.forEach((echo: any) => {
+      this.echoes.push(new RowEcho(echo));
+    });
+    this.summary = new RowEchoesSummary(summary);
   }
 
   public duplicate(): RowEchoes {
@@ -54,6 +76,10 @@ export class RowEchoes {
     });
     echoes.summary = this.summary.duplicate();
     return echoes;
+  }
+
+  public getJson(): object {
+    return JSON.parse(JSON.stringify(this));
   }
 
   public getRowBuffs(): Array<RowBuff> {

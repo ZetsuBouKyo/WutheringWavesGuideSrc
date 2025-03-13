@@ -17,6 +17,17 @@ export class RowEcho {
   public _item: { title: string; value: any } = { title: "", value: undefined };
   public _sonatas: Array<string> = this.getSonataNames();
 
+  constructor(echo: any = {}) {
+    if (!echo || Object.keys(echo).length === 0) {
+      return;
+    }
+    const { main_affix, sub_affix, ...data } = echo;
+    Object.assign(this, data);
+
+    this.main_affix = new StatBuff(main_affix);
+    this.sub_affix = new StatBuff(sub_affix);
+  }
+
   public duplicate(): RowEcho {
     const e = new RowEcho();
     e.no = this.no;

@@ -5,12 +5,15 @@ import { RowEchoes } from "@/ww/row/echoes";
 export const useRowEchoesStore = (id: string) => {
   const storeId: string = `row-echoes-${id}`;
   const store: any = defineStore(storeId, {
-    state: (): any => ({
+    state: (): { data: RowEchoes } => ({
       data: new RowEchoes(),
     }),
     actions: {
       resetPolicy() {
         this.data.resetPolicy();
+      },
+      getJson() {
+        return this.data.getJson();
       },
       getEcho(i: number) {
         return this.data.getEcho(i);
@@ -20,6 +23,9 @@ export const useRowEchoesStore = (id: string) => {
       },
       getEchoPolicyItems() {
         return this.data.getEchoPolicyItems();
+      },
+      loadJson(data: any) {
+        this.data = new RowEchoes(data);
       },
       updateSummaryByEchoes() {
         this.data.updateSummaryByEchoes();

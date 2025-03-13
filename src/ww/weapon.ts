@@ -13,9 +13,10 @@ export class WeaponInfo {
   public attrs: Array<{ lv: string; atk: string; [stat_bonus: string]: string }> = [];
 
   constructor(info: any = {}) {
-    if (info && Object.keys(info).length > 0) {
-      Object.assign(this, info);
+    if (!info || Object.keys(info).length === 0) {
+      return;
     }
+    Object.assign(this, info);
   }
 
   public duplicate(): WeaponInfo {

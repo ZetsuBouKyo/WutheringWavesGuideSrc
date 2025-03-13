@@ -6,7 +6,7 @@ import { SkillAttrEnum, SkillTypeEnum, type TSkillAttrEnum, type TSkillTypeEnum 
 import { StatBuff } from "@/ww/buff";
 import { RowBuff } from "@/ww/row/buff";
 import { getNumber } from "@/ww/utils";
-import type { ResonatorInfo } from "@/ww/resonator";
+import { ResonatorInfo } from "@/ww/resonator";
 
 export class RowResonatorSkill {
   public id: string = "";
@@ -17,10 +17,18 @@ export class RowResonatorSkill {
   public elment_zh_tw: TElementBonusEnum = "";
   public dmg: string = "";
 
+  constructor(skill: any = {}) {
+    if (!skill || Object.keys(skill).length === 0) {
+      return;
+    }
+    Object.assign(this, skill);
+  }
+
   public duplicate(): RowResonatorSkill {
     const s = new RowResonatorSkill();
     s.id = this.id;
     s.type = this.type;
+    s.level = this.level;
     s.base_attr = this.base_attr;
     s.bonus_types = this.bonus_types;
     s.elment_zh_tw = this.elment_zh_tw;
@@ -50,7 +58,25 @@ export class RowResonator {
   public stat_bonus: StatBuff = new StatBuff();
   public skill: RowResonatorSkill = new RowResonatorSkill();
   public _skill_item: { title: string; value: RowResonatorSkill | undefined } = { title: "", value: undefined };
-  public _info: ResonatorInfo | undefined = undefined;
+  public _info: ResonatorInfo | undefined = undefined; // TODO: refactor
+
+  constructor(resonator: any = {}) {
+    if (!resonator || Object.keys(resonator).length === 0) {
+      return;
+    }
+    const { stat_bonus, skill, _skill_item, _info, ...data } = resonator;
+    Object.assign(this, data);
+
+    this.stat_bonus = new StatBuff(stat_bonus);
+    this.skill = new RowResonatorSkill(skill);
+    if (resonator._skill_item.title) {
+      this._skill_item.title = resonator._skill_item.title;
+    }
+    if (resonator._skill_item.value) {
+      this._skill_item.value = new RowResonatorSkill(resonator._skill_item.value);
+    }
+    this._info = new ResonatorInfo(_info);
+  }
 
   public duplicate(): RowResonator {
     const r = new RowResonator();
@@ -81,6 +107,10 @@ export class RowResonator {
       r._info = this._info.duplicate();
     }
     return r;
+  }
+
+  public getJson(): object {
+    return JSON.parse(JSON.stringify(this));
   }
 
   public getBaseAttrs(): Array<RowBuff> {

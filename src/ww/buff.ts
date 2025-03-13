@@ -36,7 +36,12 @@ export class StatBuff {
   public [StatBuffEnum.BONUS_RESONANCE_LIBERATION]: string = "";
   public [StatBuffEnum.BONUS_HEALING]: string = "";
 
-  constructor() {}
+  constructor(buff: any = {}) {
+    if (!buff || Object.keys(buff).length === 0) {
+      return;
+    }
+    Object.assign(this, buff);
+  }
 
   public duplicate(): StatBuff {
     const s = new StatBuff();

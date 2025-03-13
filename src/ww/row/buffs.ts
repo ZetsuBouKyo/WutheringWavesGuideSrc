@@ -19,6 +19,13 @@ export class RowBuffSummary {
   public [BuffTypeKeyEnum.IGNORE_DEF]: string = "";
   public [BuffTypeKeyEnum.REDUCE_RES]: string = "";
 
+  constructor(summary: any = {}) {
+    if (!summary || Object.keys(summary).length === 0) {
+      return;
+    }
+    Object.assign(this, summary);
+  }
+
   public reset() {
     this[BuffTypeKeyEnum.SKILL_DMG_ADDITION] = "";
     this[BuffTypeKeyEnum.MAGNIFIER] = "";
@@ -69,6 +76,20 @@ export class RowBuffSummary {
 export class RowBuffs {
   public buffs: Array<RowBuff> = [];
   public manual: RowBuffSummary = new RowBuffSummary();
+
+  constructor(buffs: any = {}) {
+    if (!buffs || Object.keys(buffs).length === 0) {
+      return;
+    }
+    const { manual, ...data } = buffs;
+    Object.assign(this, data);
+
+    this.manual = new RowBuffSummary(manual);
+  }
+
+  public getJson(): object {
+    return JSON.parse(JSON.stringify(this));
+  }
 
   public getRowBuffs(): Array<RowBuff> {
     return [...this.buffs, ...this.manual.getRowBuffs()];

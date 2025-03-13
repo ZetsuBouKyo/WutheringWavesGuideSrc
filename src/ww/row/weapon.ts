@@ -21,6 +21,18 @@ export class RowWeapon {
   public passive_stat_bonus: StatBuff = new StatBuff();
   public _info: WeaponInfo | undefined = undefined;
 
+  constructor(weapon: any = {}) {
+    if (!weapon || Object.keys(weapon).length === 0) {
+      return;
+    }
+    const { stat_bonus, passive_stat_bonus, _info, ...data } = weapon;
+    Object.assign(this, data);
+
+    this.stat_bonus = new StatBuff(stat_bonus);
+    this.passive_stat_bonus = new StatBuff(passive_stat_bonus);
+    this._info = new WeaponInfo(_info);
+  }
+
   public duplicate(): RowWeapon {
     const w = new RowWeapon();
     w.no = this.no;
@@ -36,6 +48,10 @@ export class RowWeapon {
       w._info = this._info.duplicate();
     }
     return w;
+  }
+
+  public getJson(): object {
+    return JSON.parse(JSON.stringify(this));
   }
 
   public getBaseAttrs(): Array<RowBuff> {
