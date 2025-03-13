@@ -103,7 +103,7 @@ export class TemplateRow {
   public calculation: RowCalculation = new RowCalculation();
 
   constructor(row: any = {}) {
-    if (row && Object.keys(row).length === 0) {
+    if (!row || Object.keys(row).length === 0) {
       return;
     }
     const { buffs, ...data } = row;

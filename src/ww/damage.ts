@@ -66,9 +66,10 @@ export class TeamDamageDistribution {
   public resonators: { [id: string]: ResonatorDamageDistribution } = {};
 
   constructor(distribution: any = {}) {
-    if (distribution && Object.keys(distribution).length > 0) {
-      Object.assign(this, distribution);
+    if (!distribution || Object.keys(distribution).length === 0) {
+      return;
     }
+    Object.assign(this, distribution);
   }
 
   public getHashedTemplateID(): string {
@@ -288,10 +289,11 @@ export class TeamDamageDistributionsWithBuffs {
   private _data: any;
 
   constructor(distribution: any = {}) {
-    if (distribution && Object.keys(distribution).length > 0) {
-      Object.assign(this, distribution);
-      this._data = distribution;
+    if (!distribution || Object.keys(distribution).length === 0) {
+      return;
     }
+    Object.assign(this, distribution);
+    this._data = distribution;
   }
 
   public getBars(baseDamage: number, baseDPS: number): Array<IBar> {
@@ -326,13 +328,14 @@ export class DamageAnalysis {
   public calculated_rows: Array<RowCalculationResult> = [];
 
   constructor(analysis: any = {}, affixPolicy: string = "") {
-    if (analysis && Object.keys(analysis).length > 0) {
-      Object.assign(this, analysis);
-      this.affixPolicy = affixPolicy;
-      this.resonator_template = new Template(this.resonator_template);
-      this.damage_distribution = new TeamDamageDistribution(this.damage_distribution);
-      this.damage_distributions_with_buffs = new TeamDamageDistributionsWithBuffs(this.damage_distributions_with_buffs);
+    if (!analysis || Object.keys(analysis).length === 0) {
+      return;
     }
+    Object.assign(this, analysis);
+    this.affixPolicy = affixPolicy;
+    this.resonator_template = new Template(this.resonator_template);
+    this.damage_distribution = new TeamDamageDistribution(this.damage_distribution);
+    this.damage_distributions_with_buffs = new TeamDamageDistributionsWithBuffs(this.damage_distributions_with_buffs);
   }
 
   public getTeamDamageDistribution(): TeamDamageDistribution {
