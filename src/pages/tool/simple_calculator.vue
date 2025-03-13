@@ -141,7 +141,7 @@ import { useRowMonsterStore } from '@/stores/calculation/monster';
 import { useMonsterStore } from '@/stores/monster';
 
 import { RowCalculation } from '@/ww/row';
-import { saveJson, loadJsonByEvent } from '@/ww/utils';
+import { saveJson } from '@/ww/utils';
 
 const id = "simple"
 
