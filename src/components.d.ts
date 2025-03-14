@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./components/AppFooter.vue')['default']
+    DamageAnalysis: typeof import('./components/DamageAnalysis.vue')['default']
     Doc: typeof import('./components/Doc.vue')['default']
     DocHeaders: typeof import('./components/DocHeaders.vue')['default']
     Explorer: typeof import('./components/Explorer.vue')['default']
@@ -34,6 +35,7 @@ declare module 'vue' {
     TeamTier: typeof import('./components/TeamTier.vue')['default']
     TemplateAutoFillEcho: typeof import('./components/TemplateAutoFillEcho.vue')['default']
     TemplateBasicInfo: typeof import('./components/TemplateBasicInfo.vue')['default']
+    TemplateDamageAnalysis: typeof import('./components/TemplateDamageAnalysis.vue')['default']
     TemplateEcho: typeof import('./components/TemplateEcho.vue')['default']
     TemplateResonator: typeof import('./components/TemplateResonator.vue')['default']
     TemplateRotation: typeof import('./components/TemplateRotation.vue')['default']

@@ -1,13 +1,14 @@
 import { SkillBonusEnum } from "@/types/buff";
+import { ElementEnum } from "@/types/element";
 import { SkillAttrEnum, SkillTypeEnum, type TSkillTypeEnum } from "@/types/skill";
 
 import { StatBuff } from "./buff";
 
 export class ResonatorModel {
-  public resonator_src: string = "";
+  public resonator_src: string = ""; // TODO: deprecated
   public element: string = "";
-  public element_src: string = "";
-  public element_en: string = "";
+  public element_src: string = ""; // TODO: deprecated
+  public element_en: string = ""; // TODO: deprecated
   public name: string = "";
   public chain: string = "";
   public weapon_name: string = "";
@@ -46,6 +47,7 @@ export class ResonatorModel {
   public intro_skill_lv: string = "";
   public inherent_skill_1: string = "";
   public inherent_skill_2: string = "";
+  public echo1: string = "";
   public echo_hp: string = "";
   public echo_hp_p: string = "";
   public echo_atk: string = "";
@@ -71,10 +73,45 @@ export class ResonatorModel {
   public echo_aero_dmg_bonus: string = "";
   public echo_spectro_dmg_bonus: string = "";
   public echo_havoc_dmg_bonus: string = "";
+
+  constructor(model: any = {}) {
+    if (!model || Object.keys(model).length === 0) {
+      return;
+    }
+    Object.assign(this, model);
+  }
+
+  public getElementSrc(): string {
+    switch (this.element) {
+      case ElementEnum.GLACIO:
+        return "/assets/elements/glacio.png";
+      case ElementEnum.FUSION:
+        return "/assets/elements/fusion.png";
+      case ElementEnum.ELECTRO:
+        return "/assets/elements/electro.png";
+      case ElementEnum.AERO:
+        return "/assets/elements/aero.png";
+      case ElementEnum.SPECTRO:
+        return "/assets/elements/spectro.png";
+      case ElementEnum.HAVOC:
+        return "/assets/elements/havoc.png";
+      default:
+        return "";
+    }
+  }
 }
 
 export class ResonatorModels {
-  [id: string]: ResonatorModel;
+  [resonatorId: string]: ResonatorModel;
+
+  constructor(models: any = {}) {
+    if (!models || Object.keys(models).length === 0) {
+      return;
+    }
+    Object.keys(models).forEach((key: string) => {
+      this[key] = new ResonatorModel(models[key]);
+    });
+  }
 }
 
 export class ResonatorInfo {

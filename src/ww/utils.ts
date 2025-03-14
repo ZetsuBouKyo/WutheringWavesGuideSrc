@@ -1,3 +1,4 @@
+import Decimal from "decimal.js";
 import domtoimage from "dom-to-image-more";
 import MD5 from "crypto-js/md5";
 
@@ -16,17 +17,42 @@ export function mapValueToValue(modules: any, key1: string, key2: string): any {
   );
 }
 
-export function toNumberString(number: number, digits: number = 2): string {
+export function toNumberString(number: string | number | Decimal | undefined, digits: number = 2): string {
+  if (number instanceof Decimal) {
+    number = number.toNumber();
+  }
   if (!number) {
     return "";
+  }
+  if (typeof number === "string") {
+    number = getNumber(number);
   }
   const s = number.toLocaleString("en-US", { minimumFractionDigits: digits, maximumFractionDigits: digits });
   return s;
 }
 
-export function toPercentageString(number: number): string {
-  const s = number.toLocaleString(undefined, { style: "percent", minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  return s;
+export function toPercentageString(number: string | number | Decimal | undefined, digits: number = 2): string {
+  if (typeof number === "string") {
+    number = getNumber(number);
+  }
+  if (number instanceof Decimal) {
+    number = number.toNumber();
+  }
+  if (number === undefined) {
+    number = 0;
+  }
+
+  if (digits >= 0) {
+    const s = number.toLocaleString(undefined, {
+      style: "percent",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    return s;
+  } else {
+    const d = new Decimal(number).times(new Decimal(100)).toString();
+    return `${d}%`;
+  }
 }
 
 export function jumpToSection(goTo: any, id: string) {
@@ -115,4 +141,11 @@ export function getNumber(a: any): number {
   }
   n = Number(n.toFixed(6).toString());
   return n;
+}
+
+export function getDecimal(n: any): Decimal {
+  if (n instanceof Decimal) {
+    return n;
+  }
+  return new Decimal(getNumber(n));
 }

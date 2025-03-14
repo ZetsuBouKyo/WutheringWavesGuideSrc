@@ -1,7 +1,16 @@
+import Decimal from "decimal.js";
 import i18n from "@/i18n";
 
 import { AffixPolicyEnum } from "@/types/affix";
-import { BuffTypeEnum, ElementBonusEnum, SkillBonusEnum, RowBuffCategoryEnum, RowBuffSourceEnum } from "@/types/buff";
+import {
+  BuffTypeEnum,
+  ElementBonusEnum,
+  SkillBonusEnum,
+  RowBuffCategoryEnum,
+  RowBuffSourceEnum,
+  type TStatBuffEnum,
+  StatBuffEnum,
+} from "@/types/buff";
 import { EchoNameEnum } from "@/types/echo";
 import { SonataEnum } from "@/types/sonata";
 
@@ -9,6 +18,7 @@ import { RowEcho } from "@/ww/row/echo";
 import { RowBuff } from "@/ww/row/buff";
 
 import { StatBuff } from "@/ww/buff";
+import { getDecimal, getNumber } from "@/ww/utils";
 
 export class RowEchoesSummary {
   public name1: string = "";
@@ -16,6 +26,7 @@ export class RowEchoesSummary {
   public total_cost: number = 0;
   public main_affix: StatBuff = new StatBuff();
   public sub_affix: StatBuff = new StatBuff();
+  public stat_bonus: StatBuff = new StatBuff(); // Main slot and sonata 2/2
 
   constructor(summary: any = {}) {
     if (!summary || Object.keys(summary).length === 0) {
@@ -42,6 +53,11 @@ export class RowEchoesSummary {
     const mainBuffs = this.main_affix.getRowBuffs(`${RowBuffCategoryEnum.ECHO}-${RowBuffSourceEnum.MAIN_AFFIX}`);
     const subBuffs = this.sub_affix.getRowBuffs(`${RowBuffCategoryEnum.ECHO}-${RowBuffSourceEnum.SUB_AFFIX}`);
     return [...mainBuffs, ...subBuffs];
+  }
+
+  public getStat(s: TStatBuffEnum): string {
+    const e = getDecimal(this.main_affix[s]).plus(getDecimal(this.sub_affix[s])).plus(getDecimal(this.stat_bonus[s]));
+    return e.toString();
   }
 }
 
@@ -76,6 +92,14 @@ export class RowEchoes {
     });
     echoes.summary = this.summary.duplicate();
     return echoes;
+  }
+
+  public getId(): string {
+    let s = "";
+    this.echoes.forEach((echo) => {
+      s = `${s}${echo.getId()}`;
+    });
+    return s;
   }
 
   public getJson(): object {
@@ -268,6 +292,22 @@ export class RowEchoes {
       buffs.push(buff);
     }
 
+    if (counter[SonataEnum.REJUVENATING_GLOW] >= 2) {
+      const buff = this.getSonataRowBuff(
+        SonataEnum.REJUVENATING_GLOW,
+        BuffTypeEnum.BONUS,
+        "",
+        SkillBonusEnum.HEALING,
+        "0.1",
+      );
+      buffs.push(buff);
+    }
+
+    if (counter[SonataEnum.MOONLIT_CLOUDS] >= 2) {
+      const buff = this.getSonataRowBuff(SonataEnum.MOONLIT_CLOUDS, BuffTypeEnum.ENERGY_REGEN, "", "", "0.1");
+      buffs.push(buff);
+    }
+
     if (counter[SonataEnum.LINGERING_TUNES] >= 2) {
       const buff = this.getSonataRowBuff(SonataEnum.LINGERING_TUNES, BuffTypeEnum.ATK_P, "", "", "0.1");
       buffs.push(buff);
@@ -305,6 +345,16 @@ export class RowEchoes {
       );
       buffs.push(buff);
     }
+
+    if (counter[SonataEnum.EMPYREAN_ANTHEM] >= 2) {
+      const buff = this.getSonataRowBuff(SonataEnum.EMPYREAN_ANTHEM, BuffTypeEnum.ENERGY_REGEN, "", "", "0.1");
+      buffs.push(buff);
+    }
+
+    if (counter[SonataEnum.TIDEBREAKING_COURAGE] >= 2) {
+      const buff = this.getSonataRowBuff(SonataEnum.TIDEBREAKING_COURAGE, BuffTypeEnum.ENERGY_REGEN, "", "", "0.1");
+      buffs.push(buff);
+    }
     return buffs;
   }
 
@@ -330,6 +380,7 @@ export class RowEchoes {
     this.summary.total_cost = 0;
     this.summary.main_affix = new StatBuff();
     this.summary.sub_affix = new StatBuff();
+    this.summary.stat_bonus = new StatBuff();
   }
 
   public getEcho(i: number): RowEcho {
@@ -368,6 +419,68 @@ export class RowEchoes {
       }
       this.summary.main_affix.addStatBuff(echo.main_affix);
       this.summary.sub_affix.addStatBuff(echo.sub_affix);
+    });
+
+    const buffs = [...this.getPassiveSkillRowBuffs(), ...this.getSonataRowBuffs()];
+    buffs.forEach((buff) => {
+      const type = buff.type;
+      const value: Decimal = getDecimal(buff.stack).times(getDecimal(buff.value));
+      let key;
+      switch (type) {
+        case BuffTypeEnum.BONUS:
+          const element = buff.element;
+          switch (element) {
+            case ElementBonusEnum.GLACIO:
+              key = StatBuffEnum.BONUS_GLACIO;
+              break;
+            case ElementBonusEnum.FUSION:
+              key = StatBuffEnum.BONUS_FUSION;
+              break;
+            case ElementBonusEnum.ELECTRO:
+              key = StatBuffEnum.BONUS_ELECTRO;
+              break;
+            case ElementBonusEnum.AERO:
+              key = StatBuffEnum.BONUS_AERO;
+              break;
+            case ElementBonusEnum.SPECTRO:
+              key = StatBuffEnum.BONUS_SPECTRO;
+              break;
+            case ElementBonusEnum.HAVOC:
+              key = StatBuffEnum.BONUS_HAVOC;
+              break;
+            default:
+              break;
+          }
+          const skill_bonus_type = buff.skill_bonus_type;
+          switch (skill_bonus_type) {
+            case SkillBonusEnum.BASIC:
+              key = StatBuffEnum.BONUS_BASIC_ATTACK;
+              break;
+            case SkillBonusEnum.HEAVY:
+              key = StatBuffEnum.BONUS_HEAVY_ATTACK;
+              break;
+            case SkillBonusEnum.SKILL:
+              key = StatBuffEnum.BONUS_RESONANCE_SKILL;
+              break;
+            case SkillBonusEnum.LIBERATION:
+              key = StatBuffEnum.BONUS_RESONANCE_LIBERATION;
+              break;
+            case SkillBonusEnum.HEALING:
+              key = StatBuffEnum.BONUS_HEALING;
+              break;
+            default:
+              break;
+          }
+          break;
+        case BuffTypeEnum.ENERGY_REGEN:
+          key = StatBuffEnum.ENERGY_REGEN;
+          break;
+        default:
+          break;
+      }
+      if (key) {
+        this.summary.stat_bonus.addByKey(key, value);
+      }
     });
   }
 }

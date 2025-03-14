@@ -1,3 +1,5 @@
+import { ElementEnum } from "./element";
+
 export const BaseTypeEnum = {
   ATTR: "基礎屬性",
 } as const;
@@ -34,17 +36,11 @@ export const BuffTypeEnum = {
   CRIT_DMG: "暴擊傷害",
   IGNORE_DEF: "忽視防禦",
   REDUCE_RES: "抗性降低",
+  ENERGY_REGEN: "共鳴效率",
 } as const;
 export type TBuffTypeEnum = (typeof BuffTypeEnum)[keyof typeof BuffTypeEnum] | string;
 
-export const ElementBonusEnum = {
-  GLACIO: "冷凝",
-  FUSION: "熱熔",
-  ELECTRO: "導電",
-  AERO: "氣動",
-  SPECTRO: "衍射",
-  HAVOC: "湮滅",
-} as const;
+export const ElementBonusEnum = ElementEnum;
 export type TElementBonusEnum = (typeof ElementBonusEnum)[keyof typeof ElementBonusEnum] | string;
 
 export const SkillBonusEnum = {
@@ -56,6 +52,7 @@ export const SkillBonusEnum = {
   OUTRO: "延奏",
   ECHO: "聲骸",
   COORDINATED_ATTACK: "協同攻擊",
+  HEALING: "治療",
   NONE: "無",
 } as const;
 export type TSkillBonusEnum = (typeof SkillBonusEnum)[keyof typeof SkillBonusEnum] | string;
@@ -129,7 +126,7 @@ export const StatBuffEnum = {
   BONUS_RESONANCE_LIBERATION: "bonus_resonance_liberation",
   BONUS_HEALING: "bonus_healing",
 } as const;
-export type TStatBuffEnum = (typeof StatBuffEnum)[keyof typeof StatBuffEnum] | string;
+export type TStatBuffEnum = (typeof StatBuffEnum)[keyof typeof StatBuffEnum];
 
 export const StatBuffZhTwEnum = {
   CRIT_RATE: "暴擊",

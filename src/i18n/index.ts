@@ -7,6 +7,7 @@ const i18n = createI18n({
   globalInjection: true,
   locale: "zh_TW",
   fallbackLocale: "zh_TW",
+  missingWarn: false,
   messages: {
     zh_TW: {
       "": "",
@@ -29,6 +30,7 @@ const i18n = createI18n({
         result: "計算結果",
       },
       general: {
+        analyze: "分析",
         damage_analysis: "傷害分析",
         table: "表單",
         cancel_selection: "取消選取",

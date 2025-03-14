@@ -19,10 +19,10 @@ export function getAffixLabelByKey(key: string): string {
   return "";
 }
 
-export function getFixedMainAffixes(cost: string): { [buff: TStatBuffEnum]: string } {
+export function getFixedMainAffixes(cost: string): { [buff: TStatBuffEnum | string]: string } {
   return fixedMainAffixes[cost];
 }
 
-export function getMainAffixes(cost: string): { [buff: TStatBuffEnum]: string } {
+export function getMainAffixes(cost: string): { [buff: TStatBuffEnum | string]: string } {
   return mainAffixes[cost];
 }

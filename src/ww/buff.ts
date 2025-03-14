@@ -1,3 +1,5 @@
+import Decimal from "decimal.js";
+
 import {
   BuffTypeEnum,
   ElementBonusEnum,
@@ -7,7 +9,7 @@ import {
   type TStatBuffEnum,
 } from "@/types/buff";
 
-import { getNumber } from "@/ww/utils";
+import { getDecimal, getNumber } from "@/ww/utils";
 import { RowBuff } from "@/ww/row/buff";
 
 export class StatBuff {
@@ -76,10 +78,17 @@ export class StatBuff {
   public addStatBuff(buff: StatBuff) {
     const buffKeys = Object.values(StatBuffEnum);
     buffKeys.forEach((key: TStatBuffEnum) => {
-      const oldValue = getNumber((this as any)[key]);
-      const newValue = getNumber((buff as any)[key]);
-      (this as any)[key] = getNumber(oldValue + newValue).toString();
+      const oldValue = getDecimal(this[key]);
+      const newValue = getDecimal(buff[key]);
+      (this as any)[key] = oldValue.plus(newValue).toString();
     });
+  }
+
+  public addByKey(key: TStatBuffEnum, value: string | number | Decimal) {
+    if (this[key] === undefined) {
+      return;
+    }
+    this[key] = getDecimal(this[key]).plus(getDecimal(value)).toString();
   }
 
   public getKeys(): Array<string> {

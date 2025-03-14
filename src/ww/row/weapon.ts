@@ -50,6 +50,10 @@ export class RowWeapon {
     return w;
   }
 
+  public getId(): string {
+    return `+${this.tune}${this.name}`;
+  }
+
   public getJson(): object {
     return JSON.parse(JSON.stringify(this));
   }

@@ -1,4 +1,4 @@
-import { StatBuffEnum } from "@/types/buff";
+import { StatBuffEnum, type TAbbrBonusEnum } from "@/types/buff";
 import { StatBuff } from "@/ww/buff";
 import { getAffixLabelByKey, getFixedMainAffixes, getMainAffixes } from "@/ww/echo";
 
@@ -9,6 +9,7 @@ export class RowEcho {
   public name: string = "";
   public sonata: string = "";
   public cost: string = "";
+  public abbr: TAbbrBonusEnum = "";
   public main_affix: StatBuff = new StatBuff();
   public sub_affix: StatBuff = new StatBuff();
   public _fixed_main_affix_key: string = "";
@@ -58,6 +59,10 @@ export class RowEcho {
 
   public resetSubAffix() {
     this.sub_affix = new StatBuff();
+  }
+
+  public getId(): string {
+    return `${this.cost}${this.abbr}`;
   }
 
   public getCosts(): Array<string> {

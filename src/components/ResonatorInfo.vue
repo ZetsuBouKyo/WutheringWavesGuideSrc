@@ -8,7 +8,7 @@
         <div class="bg-grey-darken-4 d-flex flex-row align-center pa-2 mr-1">
           <img class="title mr-4" :src="resonatorStore.getIconSrcByName(resonator.name)" />
           <h3>{{ $t(resonator.name) }}</h3>
-          <img class="title" :src="resonator.elementSrc" />
+          <img class="title" :src="resonator.getElementSrc()" />
           <h3 class="mr-4">{{ $t(resonator.element) }}</h3>
         </div>
         <div class="bg-grey-darken-4 d-flex flex-row pa-2 mr-1">
@@ -54,11 +54,12 @@ import { useI18n } from 'vue-i18n'
 
 import { useResonatorStore } from "@/stores/resonator";
 
+import { ResonatorModel } from "@/ww/resonator";
 import { toNumberString, toPercentageString } from "@/ww/utils";
 
 const props = defineProps({
   resonator: {
-    type: Object as PropType<any>,
+    type: Object as PropType<ResonatorModel>,
     default: {}
   }
 });

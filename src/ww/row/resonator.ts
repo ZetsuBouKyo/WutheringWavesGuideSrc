@@ -16,6 +16,7 @@ export class RowResonatorSkill {
   public bonus_types: Array<string> = [];
   public elment_zh_tw: TElementBonusEnum = "";
   public dmg: string = "";
+  public hit: string = "1";
 
   constructor(skill: any = {}) {
     if (!skill || Object.keys(skill).length === 0) {
@@ -47,7 +48,7 @@ export class RowResonator {
   public hp: string = "";
   public atk: string = "";
   public def: string = "";
-  public energy_regen: string = "";
+  public energy_regen: string = "100.00%";
   public normal_attack_lv: string = "10";
   public resonance_skill_lv: string = "10";
   public forte_circuit_lv: string = "10";
@@ -107,6 +108,10 @@ export class RowResonator {
       r._info = this._info.duplicate();
     }
     return r;
+  }
+
+  public getId(): string {
+    return `+${this.chain}${this.name}`;
   }
 
   public getJson(): object {

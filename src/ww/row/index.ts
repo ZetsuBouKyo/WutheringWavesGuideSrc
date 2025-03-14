@@ -57,19 +57,18 @@ export class RowCalculationResult {
   public resonator_skill_element: string = "";
   public resonator_skill_base_attr: string = "";
   public resonator_skill_type: string = "";
-  public resonator_skill_type_bonus: string = "";
-  public resonator_skill_bonus_types: Array<string> = []; // New
+  public resonator_skill_type_bonus: string = ""; // TODO: deprecated
   public resonator_skill_dmg: string = "";
   public resonator_skill_dmg_addition: string = "";
-  public echo_element: string = "";
-  public echo_skill_base_attr: string = "";
-  public echo_skill_dmg: string = "";
+  public echo_element: string = ""; // TODO: deprecated
+  public echo_skill_base_attr: string = ""; // TODO: deprecated
+  public echo_skill_dmg: string = ""; // TODO: deprecated
   public damage_no_crit: string = "";
   public damage_crit: string = "";
   public damage: string = "";
   public result_element: string = "";
-  public result_bonus_type: string = "";
-  public result_bonus_types: string = "";
+  public result_bonus_type: string = ""; // TODO: deprecated
+  public result_bonus_types: Array<string> = [];
   public result_skill_base_attribute: string = "";
   public result_skill_dmg: string = "";
   public result_skill_hit: string = "1";
@@ -387,6 +386,7 @@ export class RowCalculation {
     // Def
     const resonatorLevel = new Decimal(getNumber(this.data.resonator.level));
     const monsterLevel = new Decimal(getNumber(this.data.monster.level));
+    const monsterDef = monsterLevel.times(new Decimal(8)).plus(new Decimal(792));
     const ignoreDef = this.sumRegion(this.regions.ignore_def);
     const def = resonatorLevel
       .times(new Decimal(8))
@@ -395,10 +395,11 @@ export class RowCalculation {
         resonatorLevel
           .times(new Decimal(8))
           .plus(new Decimal(800))
-          .plus(monsterLevel.times(new Decimal(8)).plus(new Decimal(792)).times(new Decimal(1).minus(ignoreDef))),
+          .plus(monsterDef.times(new Decimal(1).minus(ignoreDef))),
       );
     // Res
     const monsterFinalRes = this.getFinalMonsterRes();
+    const reduceRes = new Decimal(this.getMonsterRes()).minus(monsterFinalRes);
     let res: Decimal;
     if (monsterFinalRes.lt(new Decimal(0))) {
       res = new Decimal(1).minus(monsterFinalRes.dividedBy(new Decimal(2)));
@@ -408,7 +409,17 @@ export class RowCalculation {
       res = new Decimal(1).minus(monsterFinalRes);
     }
 
-    const damageNoCrit = attr.times(skill).times(magnifier).times(amplifier).times(bonus).times(def).times(res);
+    // Hit
+    const hit = new Decimal(this.data.resonator.skill.hit);
+
+    const damageNoCrit = attr
+      .times(skill)
+      .times(magnifier)
+      .times(amplifier)
+      .times(bonus)
+      .times(def)
+      .times(res)
+      .times(hit);
     const damageCrit = damageNoCrit.times(critDmg);
     const damage = damageCrit.times(critRate).plus(new Decimal(1).minus(critRate).times(damageNoCrit));
 
@@ -420,15 +431,48 @@ export class RowCalculation {
     this.result.resonator_skill_element = this.data.resonator.skill.elment_zh_tw;
     this.result.resonator_skill_base_attr = this.data.resonator.skill.base_attr;
     this.result.resonator_skill_type = this.data.resonator.skill.type;
-    // this.result.resonator_skill_type_bonus; // TODO: deprecated
-    this.result.resonator_skill_bonus_types = this.data.resonator.skill.bonus_types;
     this.result.resonator_skill_dmg = this.data.resonator.skill.dmg;
     if (this.regions.skill_dmg_addition.length > 1) {
       let skill_dmg_addition = this.sumRegion(this.regions.skill_dmg_addition.slice(1));
       this.result.resonator_skill_dmg_addition = skill_dmg_addition.toString();
     }
-    this.result.damage = toNumberString(damage.toNumber());
-    this.result.damage_crit = toNumberString(damageCrit.toNumber());
-    this.result.damage_no_crit = toNumberString(damageNoCrit.toNumber());
+    this.result.damage = toNumberString(damage);
+    this.result.damage_crit = toNumberString(damageCrit);
+    this.result.damage_no_crit = toNumberString(damageNoCrit);
+    this.result.result_element = this.data.resonator.skill.elment_zh_tw;
+    this.result.result_bonus_types = this.data.resonator.skill.bonus_types;
+    this.result.result_skill_base_attribute = this.data.resonator.skill.base_attr;
+    this.result.result_skill_dmg = this.data.resonator.skill.dmg;
+    this.result.result_skill_hit = this.data.resonator.skill.hit;
+    switch (this.data.resonator.skill.base_attr) {
+      case SkillAttrEnum.HP:
+        this.result.result_hp = toNumberString(attrB);
+        this.result.result_hp_addition = toNumberString(attrA);
+        this.result.result_hp_p = toNumberString(attrP);
+        break;
+      case SkillAttrEnum.DEF:
+        this.result.result_def = toNumberString(attrB);
+        this.result.result_def_addition = toNumberString(attrA);
+        this.result.result_def_p = toNumberString(attrP);
+        break;
+      case SkillAttrEnum.ATK:
+      default:
+        this.result.result_atk = toNumberString(attrB);
+        this.result.result_atk_addition = toNumberString(attrA);
+        this.result.result_atk_p = toNumberString(attrP);
+        break;
+    }
+    this.result.result_crit_rate = toNumberString(critRate);
+    this.result.result_crit_dmg = toNumberString(critDmg);
+    this.result.result_magnifier = toNumberString(magnifierR);
+    this.result.result_amplifier = toNumberString(amplifierR);
+    this.result.result_bonus = toNumberString(bonusR);
+    this.result.result_ignore_def = toNumberString(ignoreDef);
+    this.result.result_reduce_res = toNumberString(reduceRes);
+    this.result.monster_level = this.data.monster.level;
+    this.result.monster_def = toNumberString(monsterDef);
+    this.result.monster_res = toNumberString(this.getMonsterRes());
+    this.result.hits = this.data.resonator.skill.hit;
+    this.result.action;
   }
 }

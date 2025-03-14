@@ -1,4 +1,7 @@
+import Decimal from "decimal.js";
+
 import { AffixPolicyEnum } from "@/types/affix";
+import { StatBuffEnum, type TStatBuffEnum } from "@/types/buff";
 
 import { useEchoStore } from "@/stores/echo";
 
@@ -12,6 +15,7 @@ import { RowBuffs } from "@/ww/row/buffs";
 
 import { RowAutoFillEchoes } from "@/ww/echoes";
 import { getRotation } from "@/ww/rotation";
+import { getDecimal, toNumberString, toPercentageString } from "@/ww/utils";
 
 export class TemplateResonator {
   public resonator_name: string = "";
@@ -134,10 +138,20 @@ export class TemplateRow {
     buffs: RowBuffs,
     monster: RowMonster,
   ) {
+    this.calculation = new RowCalculation();
     this.calculation.data.resonator = resonator;
     this.calculation.data.weapon = weapon;
     this.calculation.data.echoes = echoes;
     this.calculation.data.monster = monster;
+    if (this.hit !== "" || this.hit !== undefined) {
+      this.calculation.data.resonator.skill.hit = this.hit;
+    }
+    this.calculation.result.real_dmg_no_crit = this.real_dmg_no_crit;
+    this.calculation.result.real_dmg_crit = this.real_dmg_crit;
+    this.calculation.result.action = this.action;
+    this.calculation.result.time_start = this.time_start;
+    this.calculation.result.time_end = this.time_end;
+    this.calculation.result.buffs = this.buffs;
 
     // Buffs
     this.calculation.data.buffs = buffs;
@@ -151,6 +165,7 @@ export class TemplateRow {
 
       this.calculation.data.buffs.buffs.push(newBuff);
     });
+
     this.calculation.calculate();
   }
 }
@@ -159,6 +174,94 @@ export class TemplateCalculationResonator {
   public resonator: RowResonator = new RowResonator();
   public weapon: RowWeapon = new RowWeapon();
   public echoes: RowEchoes = new RowEchoes();
+
+  public getId(): string {
+    let s = "";
+
+    const policy = this.echoes.policy;
+    if (policy) {
+      s = `[${policy}]`;
+    }
+
+    const r = this.resonator.getId();
+    if (r) {
+      s = `${s} ${r}`;
+    }
+
+    const w = this.weapon.getId();
+    if (w) {
+      s = `${s}${w}`;
+    }
+
+    const e = this.echoes.getId();
+    if (e) {
+      s = `${s} ${e}`;
+    }
+
+    return s;
+  }
+
+  public getHp(): string {
+    const r = getDecimal(this.resonator.hp);
+    const p = getDecimal(this.getStat(StatBuffEnum.HP_P));
+    const e = getDecimal(this.echoes.summary.getStat(StatBuffEnum.HP));
+    return toNumberString(r.times(p.plus(getDecimal(1))).plus(e));
+  }
+
+  public getAtk(): string {
+    const r = getDecimal(this.resonator.atk);
+    const w = getDecimal(this.weapon.atk);
+    const p = getDecimal(this.getStat(StatBuffEnum.ATK_P));
+    const e = getDecimal(this.echoes.summary.getStat(StatBuffEnum.ATK));
+    return toNumberString(
+      r
+        .plus(w)
+        .times(p.plus(getDecimal(1)))
+        .plus(e),
+    );
+  }
+
+  public getDef(): string {
+    const r = getDecimal(this.resonator.def);
+    const p = getDecimal(this.getStat(StatBuffEnum.DEF_P));
+    const e = getDecimal(this.echoes.summary.getStat(StatBuffEnum.DEF));
+    return toNumberString(r.times(p.plus(getDecimal(1))).plus(e));
+  }
+
+  public getCritRate(): string {
+    let crit_rate = getDecimal(this.getStat(StatBuffEnum.CRIT_RATE));
+    crit_rate = crit_rate.plus(new Decimal(0.05));
+    if (crit_rate.gte(new Decimal(1))) {
+      crit_rate = new Decimal(1);
+    }
+    return toPercentageString(crit_rate);
+  }
+
+  public getCritDmg(): string {
+    let crit_dmg = getDecimal(this.getStat(StatBuffEnum.CRIT_DMG));
+    crit_dmg = crit_dmg.plus(getDecimal(1.5));
+    return toPercentageString(crit_dmg);
+  }
+
+  public getStat(s: TStatBuffEnum): string {
+    const r = getDecimal(this.resonator.stat_bonus[s]);
+    const w = getDecimal(this.weapon.stat_bonus[s]).plus(getDecimal(this.weapon.passive_stat_bonus[s]));
+    const e = getDecimal(this.echoes.summary.main_affix[s])
+      .plus(getDecimal(this.echoes.summary.sub_affix[s]))
+      .plus(getDecimal(this.echoes.summary.stat_bonus[s]));
+    return r.plus(w).plus(e).toString();
+  }
+
+  public getEnergyRegen(): string {
+    const r = getDecimal(this.resonator.stat_bonus[StatBuffEnum.ENERGY_REGEN]);
+    const w = getDecimal(this.weapon.stat_bonus[StatBuffEnum.ENERGY_REGEN]).plus(
+      getDecimal(this.weapon.passive_stat_bonus[StatBuffEnum.ENERGY_REGEN]),
+    );
+    const e = getDecimal(this.echoes.summary.main_affix[StatBuffEnum.ENERGY_REGEN])
+      .plus(getDecimal(this.echoes.summary.sub_affix[StatBuffEnum.ENERGY_REGEN]))
+      .plus(getDecimal(this.echoes.summary.stat_bonus[StatBuffEnum.ENERGY_REGEN]));
+    return toPercentageString(r.plus(w).plus(e).plus(new Decimal(1)));
+  }
 }
 
 export class TemplateCalculation {
@@ -185,6 +288,7 @@ export class Template {
   public rows: Array<TemplateRow> = [];
 
   public calculation: TemplateCalculation = new TemplateCalculation();
+  public calculated: boolean = false;
 
   constructor(template: any = {}) {
     if (Object.keys(template).length === 0) {
@@ -407,6 +511,7 @@ export class Template {
   }
 
   public async calculate() {
+    this.calculated = true;
     for (let i = 0; i < this.rows.length; i++) {
       this.calculateRow(i);
     }

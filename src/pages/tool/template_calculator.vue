@@ -8,7 +8,7 @@
             <v-tab v-if="resonator.resonator_name" :value="resonator.resonator_name">{{
               $t(resonator.resonator_name) }}</v-tab>
           </template>
-          <v-tab value="result">{{ $t('calculation.result') }}</v-tab>
+          <v-tab value="damage_analysis">{{ $t('general.damage_analysis') }}</v-tab>
         </v-tabs>
       </div>
     </v-container>
@@ -79,14 +79,9 @@
             </v-tabs-window>
           </v-tabs-window-item>
         </template>
-        <v-tabs-window-item value="result" :key="`${template.data.id}-result`">
+        <v-tabs-window-item value="damage_analysis" :key="`${template.data.id}-damage-analysis`">
           <div class="tab d-flex flex-column w-100">
-            <div class="d-flex flex-row align-center ml-auto">
-              <v-btn v-on:click="calculate">
-                {{ $t('general.calculate') }}
-              </v-btn>
-            </div>
-            結果，施工中
+            <TemplateDamageAnalysis :id="id" />
           </div>
         </v-tabs-window-item>
       </v-tabs-window>
@@ -107,6 +102,8 @@ import { useTemplateStore } from '@/stores/calculation/template';
 import { useResonatorStore } from '@/stores/resonator';
 import { useMonsterStore } from '@/stores/monster';
 import { useTemplatesStore } from '@/stores/template'
+
+import { DamageAnalysis } from '@/ww/damage';
 
 const route = useRoute();
 let id: any = route.query.id
@@ -134,8 +131,8 @@ const templateTab = ref<string>("basic_info")
 const resonatorTab = ref<any>([{ tab: "", subTab: "resonator" }, { tab: "", subTab: "resonator" }, { tab: "", subTab: "resonator" }])
 
 async function calculate() {
-  tab.value = "result"
-  resonatorTab.value[0].tab = "漂泊者·衍射(男)"
+  const damageAnalysis = new DamageAnalysis()
+  damageAnalysis.calculateByTemplate(template.data)
 }
 
 </script>

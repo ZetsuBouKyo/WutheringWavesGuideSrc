@@ -1,8 +1,13 @@
-import { getNestedValue, toNumberString, toPercentageString, md5 } from "@/ww/utils";
-import { Template } from "@/ww/template";
-import { RowCalculationResult } from "@/ww/row";
+import Decimal from "decimal.js";
+
+import { StatBuffEnum } from "@/types/buff";
 
 import { useResonatorStore } from "@/stores/resonator";
+
+import { Template, TemplateCalculationResonator } from "@/ww/template";
+import { RowCalculationResult } from "@/ww/row";
+import { ResonatorModel, ResonatorModels } from "@/ww/resonator";
+import { getNestedValue, toNumberString, toPercentageString, md5 } from "@/ww/utils";
 
 export interface IBar {
   text: string;
@@ -22,6 +27,95 @@ function sortBars(barhA: any, barhB: any) {
     return 0;
   }
   return damageB - damageA;
+}
+
+function getResonatorModel(resonator: TemplateCalculationResonator): ResonatorModel {
+  const resonatorModel = new ResonatorModel();
+  resonatorModel.element = resonator.resonator.element_zh_tw;
+  resonatorModel.name = resonator.resonator.name;
+  resonatorModel.chain = resonator.resonator.chain;
+  resonatorModel.weapon_name = resonator.weapon.name;
+  resonatorModel.weapon_rank = resonator.weapon.tune;
+  resonatorModel.weapon_level = resonator.weapon.level;
+  resonatorModel.level = resonator.resonator.level;
+  resonatorModel.hp = resonator.getHp();
+  resonatorModel.attack = resonator.getAtk();
+  resonatorModel.defense = resonator.getDef();
+  resonatorModel.crit_rate = resonator.getCritRate();
+  resonatorModel.crit_dmg = resonator.getCritDmg();
+  resonatorModel.energy_regen = resonator.getEnergyRegen();
+  resonatorModel.resonance_skill_dmg_bonus = toPercentageString(resonator.getStat(StatBuffEnum.BONUS_RESONANCE_SKILL));
+  resonatorModel.basic_attack_dmg_bonus = toPercentageString(resonator.getStat(StatBuffEnum.BONUS_BASIC_ATTACK));
+  resonatorModel.heavy_attack_dmg_bonus = toPercentageString(resonator.getStat(StatBuffEnum.BONUS_HEAVY_ATTACK));
+  resonatorModel.resonance_liberation_dmg_bonus = toPercentageString(
+    resonator.getStat(StatBuffEnum.BONUS_RESONANCE_LIBERATION),
+  );
+  resonatorModel.healing_bonus = toPercentageString(resonator.getStat(StatBuffEnum.BONUS_HEALING));
+  resonatorModel.physical_dmg_bonus = toPercentageString(resonator.getStat(StatBuffEnum.BONUS_PHYSICS));
+  resonatorModel.glacio_dmg_bonus = toPercentageString(resonator.getStat(StatBuffEnum.BONUS_GLACIO));
+  resonatorModel.fusion_dmg_bonus = toPercentageString(resonator.getStat(StatBuffEnum.BONUS_FUSION));
+  resonatorModel.electro_dmg_bonus = toPercentageString(resonator.getStat(StatBuffEnum.BONUS_ELECTRO));
+  resonatorModel.aero_dmg_bonus = toPercentageString(resonator.getStat(StatBuffEnum.BONUS_AERO));
+  resonatorModel.spectro_dmg_bonus = toPercentageString(resonator.getStat(StatBuffEnum.BONUS_SPECTRO));
+  resonatorModel.havoc_dmg_bonus = toPercentageString(resonator.getStat(StatBuffEnum.BONUS_HAVOC));
+  resonatorModel.physical_dmg_res = toPercentageString(0);
+  resonatorModel.glacio_dmg_res = toPercentageString(0);
+  resonatorModel.fusion_dmg_res = toPercentageString(0);
+  resonatorModel.electro_dmg_res = toPercentageString(0);
+  resonatorModel.aero_dmg_res = toPercentageString(0);
+  resonatorModel.spectro_dmg_res = toPercentageString(0);
+  resonatorModel.havoc_dmg_res = toPercentageString(0);
+  resonatorModel.normal_attack_lv = resonator.resonator.normal_attack_lv;
+  resonatorModel.resonance_skill_lv = resonator.resonator.resonance_skill_lv;
+  resonatorModel.resonance_liberation_lv = resonator.resonator.resonance_liberation_lv;
+  resonatorModel.forte_circuit_lv = resonator.resonator.forte_circuit_lv;
+  resonatorModel.intro_skill_lv = resonator.resonator.intro_skill_lv;
+  resonatorModel.inherent_skill_1 = resonator.resonator.inherent_skill_1 ? "✓" : "x";
+  resonatorModel.inherent_skill_2 = resonator.resonator.inherent_skill_2 ? "✓" : "x";
+
+  resonatorModel.echo_hp = toNumberString(resonator.echoes.summary.getStat(StatBuffEnum.HP));
+  resonatorModel.echo_hp_p = toPercentageString(resonator.echoes.summary.getStat(StatBuffEnum.HP_P));
+  resonatorModel.echo_atk = toNumberString(resonator.echoes.summary.getStat(StatBuffEnum.ATK));
+  resonatorModel.echo_atk_p = toPercentageString(resonator.echoes.summary.getStat(StatBuffEnum.ATK_P));
+  resonatorModel.echo_def = toNumberString(resonator.echoes.summary.getStat(StatBuffEnum.DEF));
+  resonatorModel.echo_def_p = toPercentageString(resonator.echoes.summary.getStat(StatBuffEnum.DEF_P));
+
+  resonatorModel.echo_crit_rate = toPercentageString(resonator.echoes.summary.getStat(StatBuffEnum.CRIT_RATE));
+  resonatorModel.echo_crit_dmg = toPercentageString(resonator.echoes.summary.getStat(StatBuffEnum.CRIT_DMG));
+  resonatorModel.echo_energy_regen = toPercentageString(resonator.echoes.summary.getStat(StatBuffEnum.ENERGY_REGEN));
+  resonatorModel.echo_sonata_1 = resonator.echoes.echoes[0].sonata;
+  resonatorModel.echo_sonata_2 = resonator.echoes.echoes[1].sonata;
+  resonatorModel.echo_sonata_3 = resonator.echoes.echoes[2].sonata;
+  resonatorModel.echo_sonata_4 = resonator.echoes.echoes[3].sonata;
+  resonatorModel.echo_sonata_5 = resonator.echoes.echoes[4].sonata;
+  resonatorModel.echo_resonance_skill_dmg_bonus = toPercentageString(
+    resonator.echoes.summary.getStat(StatBuffEnum.BONUS_RESONANCE_SKILL),
+  );
+  resonatorModel.echo_basic_attack_dmg_bonus = toPercentageString(
+    resonator.echoes.summary.getStat(StatBuffEnum.BONUS_BASIC_ATTACK),
+  );
+  resonatorModel.echo_heavy_attack_dmg_bonus = toPercentageString(
+    resonator.echoes.summary.getStat(StatBuffEnum.BONUS_HEAVY_ATTACK),
+  );
+  resonatorModel.echo_resonance_liberation_dmg_bonus = toPercentageString(
+    resonator.echoes.summary.getStat(StatBuffEnum.BONUS_RESONANCE_LIBERATION),
+  );
+  resonatorModel.echo_healing_bonus = toPercentageString(resonator.echoes.summary.getStat(StatBuffEnum.BONUS_HEALING));
+  resonatorModel.echo_glacio_dmg_bonus = toPercentageString(
+    resonator.echoes.summary.getStat(StatBuffEnum.BONUS_GLACIO),
+  );
+  resonatorModel.echo_fusion_dmg_bonus = toPercentageString(
+    resonator.echoes.summary.getStat(StatBuffEnum.BONUS_FUSION),
+  );
+  resonatorModel.echo_electro_dmg_bonus = toPercentageString(
+    resonator.echoes.summary.getStat(StatBuffEnum.BONUS_ELECTRO),
+  );
+  resonatorModel.echo_aero_dmg_bonus = toPercentageString(resonator.echoes.summary.getStat(StatBuffEnum.BONUS_AERO));
+  resonatorModel.echo_spectro_dmg_bonus = toPercentageString(
+    resonator.echoes.summary.getStat(StatBuffEnum.BONUS_SPECTRO),
+  );
+  resonatorModel.echo_havoc_dmg_bonus = toPercentageString(resonator.echoes.summary.getStat(StatBuffEnum.BONUS_HAVOC));
+  return resonatorModel;
 }
 
 export class ResonatorDamageDistribution {
@@ -78,10 +172,10 @@ export class TeamDamageDistribution {
 
   public getMaxTeamDPS(): number {
     if (this.duration_1 && this.duration_2 && this.damage) {
-      const t1 = parseFloat(this.duration_1);
-      const d = parseFloat(this.damage);
-      const dps2 = d / t1;
-      return dps2;
+      const t1 = new Decimal(this.duration_1);
+      const d = new Decimal(this.damage);
+      const dps = d.dividedBy(t1);
+      return dps.toNumber();
     }
     return 0;
   }
@@ -155,8 +249,11 @@ export class TeamDamageDistribution {
   }
 
   public getResonatorDamage(resonatorName: string): number {
-    const d = parseFloat(this.resonators[resonatorName].damage);
-    return d;
+    const d = this.resonators[resonatorName]?.damage;
+    if (!d) {
+      return 0;
+    }
+    return parseFloat(d);
   }
 
   public getResonatorDamageString(resonatorName: string): string {
@@ -199,12 +296,16 @@ export class TeamDamageDistribution {
   }
 
   public getResonatorSkillBars(resonatorName: string): Array<IBar> {
-    const duration = parseFloat(this.duration_1);
+    const bars: Array<IBar> = [];
     const resonatorDamageDistribution = this.resonators[resonatorName];
+    if (resonatorDamageDistribution?.damage === undefined) {
+      return bars;
+    }
+
+    const duration = parseFloat(this.duration_1);
     const baseDamage = parseFloat(resonatorDamageDistribution.damage);
     const skills = resonatorDamageDistribution.skills;
     const skillKeys = Object.keys(skills);
-    const bars: Array<IBar> = [];
     skillKeys.forEach((key: string) => {
       const skill = skills[key];
       const damage = parseFloat(skill.damage);
@@ -227,7 +328,12 @@ export class TeamDamageDistribution {
   }
 
   public getResonatorSkillTypeBars(resonatorName: string): Array<IBar> {
+    const bars: Array<IBar> = [];
     const resonatorDamageDistribution: ResonatorDamageDistribution = this.resonators[resonatorName];
+    if (resonatorDamageDistribution?.damage === undefined) {
+      return bars;
+    }
+
     const baseDamage = parseFloat(resonatorDamageDistribution.damage);
     const skillTypes = [
       "normal_attack",
@@ -237,7 +343,6 @@ export class TeamDamageDistribution {
       "intro_skill",
       "outro_skill",
     ];
-    const bars: Array<IBar> = [];
     skillTypes.forEach((t: string) => {
       const damage = parseFloat((resonatorDamageDistribution as any)[t]);
       const p = damage / baseDamage;
@@ -254,7 +359,12 @@ export class TeamDamageDistribution {
   }
 
   public getResonatorSkillBonusBars(resonatorName: string): Array<IBar> {
+    const bars: Array<IBar> = [];
     const resonatorDamageDistribution = this.resonators[resonatorName];
+    if (resonatorDamageDistribution?.damage === undefined) {
+      return bars;
+    }
+
     const baseDamage = parseFloat(resonatorDamageDistribution.damage);
     const skillBonuses = [
       "basic",
@@ -267,7 +377,6 @@ export class TeamDamageDistribution {
       "coordinated_attack",
       "none",
     ];
-    const bars: Array<IBar> = [];
     skillBonuses.forEach((b: string) => {
       const damage = parseFloat((resonatorDamageDistribution as any)[b]);
       const p = damage / baseDamage;
@@ -286,7 +395,7 @@ export class TeamDamageDistribution {
 
 // TODO: Refactor
 export class TeamDamageDistributionsWithBuffs {
-  private _data: any;
+  private _data: Array<any> = [];
 
   constructor(distribution: any = {}) {
     if (!distribution || Object.keys(distribution).length === 0) {
@@ -298,6 +407,9 @@ export class TeamDamageDistributionsWithBuffs {
 
   public getBars(baseDamage: number, baseDPS: number): Array<IBar> {
     const bars: Array<IBar> = [];
+    if (this._data.length === 0) {
+      return [];
+    }
     this._data.forEach((t: any) => {
       const buffName = t[0];
       const damageDistribution = new TeamDamageDistribution(t[1]);
@@ -323,6 +435,7 @@ export class TeamDamageDistributionsWithBuffs {
 export class DamageAnalysis {
   public affixPolicy: string = "";
   public resonator_template: Template = new Template();
+  public resonator_models: ResonatorModels = new ResonatorModels();
   public damage_distribution: TeamDamageDistribution = new TeamDamageDistribution();
   public damage_distributions_with_buffs: TeamDamageDistributionsWithBuffs = new TeamDamageDistributionsWithBuffs();
   public calculated_rows: Array<RowCalculationResult> = [];
@@ -331,11 +444,14 @@ export class DamageAnalysis {
     if (!analysis || Object.keys(analysis).length === 0) {
       return;
     }
-    Object.assign(this, analysis);
+    const { resonator_template, resonator_models, damage_distribution, damage_distributions_with_buffs, ...data } =
+      analysis;
+    Object.assign(this, data);
     this.affixPolicy = affixPolicy;
-    this.resonator_template = new Template(this.resonator_template);
-    this.damage_distribution = new TeamDamageDistribution(this.damage_distribution);
-    this.damage_distributions_with_buffs = new TeamDamageDistributionsWithBuffs(this.damage_distributions_with_buffs);
+    this.resonator_template = new Template(resonator_template);
+    this.resonator_models = new ResonatorModels(resonator_models);
+    this.damage_distribution = new TeamDamageDistribution(damage_distribution);
+    this.damage_distributions_with_buffs = new TeamDamageDistributionsWithBuffs(damage_distributions_with_buffs);
   }
 
   public getTeamDamageDistribution(): TeamDamageDistribution {
@@ -347,6 +463,14 @@ export class DamageAnalysis {
     const resonatorName = resonatorStore.getNameByNo(resonatorNo);
     const resonatorDamageAnalysis = getNestedValue(this, `damage_distribution.resonators.${resonatorName}`);
     return resonatorDamageAnalysis;
+  }
+
+  public getResonatorModelByName(name: string): ResonatorModel | undefined {
+    for (const model of Object.values(this.resonator_models)) {
+      if (model?.name === name) {
+        return model;
+      }
+    }
   }
 
   public getCalculatedRowBars(): Array<IBar> {
@@ -394,5 +518,24 @@ export class DamageAnalysis {
       bars.push(bar);
     });
     return bars;
+  }
+
+  public calculateByTemplate(template: Template) {
+    this.resonator_template = template;
+    this.resonator_template.calculate();
+
+    // Resonator models
+    this.resonator_models = new ResonatorModels();
+    template.calculation.resonators.forEach((resonator) => {
+      const name = resonator.resonator.name;
+      resonator.echoes.updateSummaryByEchoes();
+      const resonatorModel = getResonatorModel(resonator);
+      resonatorModel.echo1 = this.resonator_template.getResonatorEcho1(name);
+
+      const id = resonator.getId();
+      this.resonator_models[id] = resonatorModel;
+    });
+
+    console.log(JSON.parse(JSON.stringify(this)));
   }
 }
