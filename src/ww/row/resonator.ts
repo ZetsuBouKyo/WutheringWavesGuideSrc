@@ -36,12 +36,17 @@ export class RowResonatorSkill {
     s.dmg = this.dmg;
     return s;
   }
+
+  public getBonusTypesString(): string {
+    return this.bonus_types.join(", ");
+  }
 }
 
 export class RowResonator {
   public id: string = "";
   public no: string = "";
   public name: string = "";
+  public element_en: string = "";
   public element_zh_tw: string = "";
   public level: string = "90";
   public chain: string = "0";
@@ -222,6 +227,7 @@ export class RowResonator {
 
     const info = await resonatorStore.getInfoByName(name);
     this._info = info;
+    this.element_en = info.element_en;
     this.element_zh_tw = info.element_zh_tw;
 
     // Base attr

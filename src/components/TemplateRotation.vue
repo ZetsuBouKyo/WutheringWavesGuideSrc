@@ -1,18 +1,19 @@
 <template>
   <div class="d-flex flex-column w-100">
-    <v-dialog v-if="currentIndex !== undefined" v-model="insertAboveDialog" width="auto">
+    <!-- Row dialog -->
+    <v-dialog v-if="currentIndex !== undefined" v-model="rowsInsertAboveDialog" width="auto">
       <v-card min-width="400" :title="$t('general.insert_above_at_n', { n: currentIndex + 1 })">
         <v-container>
           <div class="d-flex flex-column">
-            <v-text-field class="mb-4" v-model="insertAboveRow" :label="$t('general.row')" placeholder="0"
+            <v-text-field class="mb-4" v-model="rowsInsertAboveRow" :label="$t('general.row')" placeholder="0"
               variant="outlined" density="compact" hide-details>
             </v-text-field>
             <div class="d-flex flex-row ml-auto">
-              <v-btn class="mr-2" v-on:click="insertAboveDialog = false">
+              <v-btn class="mr-2" v-on:click="rowsInsertAboveDialog = false">
                 {{ $t('general.cancel') }}
               </v-btn>
               <v-btn
-                v-on:click="insertAbove(templateRows, currentIndex, insertAboveRow); insertAboveDialog = false; insertAboveRow = undefined">
+                v-on:click="insertAbove(templateRows, currentIndex, rowsInsertAboveRow, 'row'); rowsInsertAboveDialog = false; rowsInsertAboveRow = undefined">
                 {{ $t('general.confirm') }}
               </v-btn>
             </div>
@@ -20,19 +21,19 @@
         </v-container>
       </v-card>
     </v-dialog>
-    <v-dialog v-if="currentIndex !== undefined" v-model="insertBelowDialog" width="auto">
+    <v-dialog v-if="currentIndex !== undefined" v-model="rowsInsertBelowDialog" width="auto">
       <v-card min-width="400" :title="$t('general.insert_below_at_n', { n: currentIndex + 1 })">
         <v-container>
           <div class="d-flex flex-column">
-            <v-text-field class="mb-4" v-model="insertBelowRow" :label="$t('general.row')" placeholder="0"
+            <v-text-field class="mb-4" v-model="rowsInsertBelowRow" :label="$t('general.row')" placeholder="0"
               variant="outlined" density="compact" hide-details>
             </v-text-field>
             <div class="d-flex flex-row ml-auto">
-              <v-btn class="mr-2" v-on:click="insertBelowDialog = false">
+              <v-btn class="mr-2" v-on:click="rowsInsertBelowDialog = false">
                 {{ $t('general.cancel') }}
               </v-btn>
               <v-btn
-                v-on:click="insertBelow(templateRows, currentIndex, insertBelowRow); insertBelowDialog = false; insertBelowRow = undefined">
+                v-on:click="insertBelow(templateRows, currentIndex, rowsInsertBelowRow, 'row'); rowsInsertBelowDialog = false; rowsInsertBelowRow = undefined">
                 {{ $t('general.confirm') }}
               </v-btn>
             </div>
@@ -40,19 +41,100 @@
         </v-container>
       </v-card>
     </v-dialog>
-    <v-dialog v-model="insertBottomDialog" width="auto">
+    <v-dialog v-model="rowsInsertBottomDialog" width="auto">
       <v-card min-width="400" :title="$t('general.insert_bottom')">
         <v-container>
           <div class="d-flex flex-column">
-            <v-text-field class="mb-4" v-model="insertBottomRow" :label="$t('general.row')" placeholder="0"
+            <v-text-field class="mb-4" v-model="rowsInsertBottomRow" :label="$t('general.row')" placeholder="0"
               variant="outlined" density="compact" hide-details>
             </v-text-field>
             <div class="d-flex flex-row ml-auto">
-              <v-btn class="mr-2" v-on:click="insertBottomDialog = false">
+              <v-btn class="mr-2" v-on:click="rowsInsertBottomDialog = false">
                 {{ $t('general.cancel') }}
               </v-btn>
               <v-btn
-                v-on:click="insertBottom(templateRows, insertBottomRow); insertBottomDialog = false; insertBottomRow = undefined">
+                v-on:click="insertBottom(templateRows, rowsInsertBottomRow, 'row'); rowsInsertBottomDialog = false; rowsInsertBottomRow = undefined">
+                {{ $t('general.confirm') }}
+              </v-btn>
+            </div>
+          </div>
+        </v-container>
+      </v-card>
+    </v-dialog>
+    <v-dialog v-if="commentId !== undefined" v-model="commentDialog" width="auto">
+      <v-card min-width="1280" :title="$t('general.nth_row_comment', { n: commentId + 1 })">
+        <v-container>
+          <div class="d-flex flex-column">
+            <v-textarea class="mb-4" v-model="templateRows[commentId].comment" variant="outlined" density="compact"
+              hide-details />
+            <div class="d-flex flex-row ml-auto">
+              <v-btn class="mr-2" v-on:click="commentDialog = false;">
+                {{ $t('general.cancel') }}
+              </v-btn>
+              <v-btn v-on:click="editComment">
+                {{ $t('general.confirm') }}
+              </v-btn>
+            </div>
+          </div>
+        </v-container>
+      </v-card>
+    </v-dialog>
+    <!-- Buff dialog -->
+    <v-dialog v-if="buffId !== undefined && currentBuffIndex !== undefined" v-model="buffsInsertAboveDialog"
+      width="auto">
+      <v-card min-width="400" :title="$t('general.insert_above_at_n', { n: currentBuffIndex + 1 })">
+        <v-container>
+          <div class="d-flex flex-column">
+            <v-text-field class="mb-4" v-model="buffsInsertAboveRow" :label="$t('general.row')" placeholder="0"
+              variant="outlined" density="compact" hide-details>
+            </v-text-field>
+            <div class="d-flex flex-row ml-auto">
+              <v-btn class="mr-2" v-on:click="buffsInsertAboveDialog = false">
+                {{ $t('general.cancel') }}
+              </v-btn>
+              <v-btn
+                v-on:click="insertAbove(templateRows[buffId].buffs, currentBuffIndex, buffsInsertAboveRow, 'buff'); buffsInsertAboveDialog = false; buffsInsertAboveRow = undefined">
+                {{ $t('general.confirm') }}
+              </v-btn>
+            </div>
+          </div>
+        </v-container>
+      </v-card>
+    </v-dialog>
+    <v-dialog v-if="buffId !== undefined && currentBuffIndex !== undefined" v-model="buffsInsertBelowDialog"
+      width="auto">
+      <v-card min-width="400" :title="$t('general.insert_below_at_n', { n: currentBuffIndex + 1 })">
+        <v-container>
+          <div class="d-flex flex-column">
+            <v-text-field class="mb-4" v-model="buffsInsertBelowRow" :label="$t('general.row')" placeholder="0"
+              variant="outlined" density="compact" hide-details>
+            </v-text-field>
+            <div class="d-flex flex-row ml-auto">
+              <v-btn class="mr-2" v-on:click="buffsInsertBelowDialog = false">
+                {{ $t('general.cancel') }}
+              </v-btn>
+              <v-btn
+                v-on:click="insertBelow(templateRows[buffId].buffs, currentBuffIndex, buffsInsertBelowRow, 'buff'); buffsInsertBelowDialog = false; buffsInsertBelowRow = undefined">
+                {{ $t('general.confirm') }}
+              </v-btn>
+            </div>
+          </div>
+        </v-container>
+      </v-card>
+    </v-dialog>
+    <v-dialog v-if="buffId !== undefined" v-model="buffsInsertBottomDialog" width="auto">
+      <v-card min-width="400" :title="$t('general.insert_bottom')">
+        <v-container>
+          <div class="d-flex flex-column">
+            <v-text-field class="mb-4" v-model="buffsInsertBottomRow" :label="$t('general.row')" placeholder="0"
+              variant="outlined" density="compact" hide-details>
+            </v-text-field>
+            <div class="d-flex flex-row ml-auto">
+              <v-btn class="mr-2" v-on:click="buffsInsertBottomDialog = false">
+                {{ $t('general.cancel') }}
+              </v-btn>
+              <v-btn
+                v-on:click="insertBottom(templateRows[buffId].buffs, buffsInsertBottomRow, 'buff'); buffsInsertBottomDialog = false; buffsInsertBottomRow = undefined">
                 {{ $t('general.confirm') }}
               </v-btn>
             </div>
@@ -64,18 +146,36 @@
       <v-card min-width="1280" :title="$t('general.nth_buff', { n: buffId + 1 })">
         <v-container>
           <div class="d-flex flex-column">
-            <div class="d-flex flex-row mb-2">
-
+            <div class="d-flex flex-row mb-2 ml-auto">
+              <div v-if="countSelectedRows(templateRows[buffId].buffs) > 0" class="d-flex flex-row w-100">
+                <v-btn color="red" class="mr-2"
+                  v-on:click="deleteRows(templateRows[buffId].buffs); currentBuffIndex = undefined">
+                  {{ $t('general.delete') }}
+                </v-btn>
+                <v-btn class="mr-2"
+                  v-on:click="cancelSelection(templateRows[buffId].buffs); currentBuffIndex = undefined">
+                  {{ $t('general.cancel_selection') }}
+                </v-btn>
+              </div>
+              <v-btn v-if="currentBuffIndex !== undefined" class="mr-2" v-on:click="buffsInsertAboveDialog = true">
+                {{ $t('general.insert_above') }}
+              </v-btn>
+              <v-btn v-if="currentBuffIndex !== undefined" class="mr-2" v-on:click="buffsInsertBelowDialog = true">
+                {{ $t('general.insert_below') }}
+              </v-btn>
+              <v-btn v-on:click="buffsInsertBottomDialog = true">
+                {{ $t('general.insert_bottom') }}
+              </v-btn>
             </div>
             <v-data-table class="table mb-2" :headers="buffsHeaders" :items="templateRows[buffId].buffs"
-              items-per-page="10" show-select v-model:selected="selectedItems" disable-sort>
+              items-per-page="10" show-select v-model:selected="selectedBuffItems" disable-sort>
               <template v-slot:header.data-table-select>
                 <!-- <v-checkbox-btn v-model="allSelected" color="primary" @update:model-value="selectAll()"
                   variant="outlined" density="compact" hide-details>
                 </v-checkbox-btn> -->
               </template>
               <template v-slot:item.data-table-select="{ item }">
-                <v-checkbox-btn v-model="item.selected" @update:model-value="selectRow(item)" variant="outlined"
+                <v-checkbox-btn v-model="item.selected" @update:model-value="selectRow(item, 'buff')" variant="outlined"
                   density="compact" hide-details>
                 </v-checkbox-btn>
               </template>
@@ -87,8 +187,8 @@
               <template v-slot:item.name="{ item }">
                 <v-tooltip location="bottom" :text="item.name">
                   <template v-slot:activator="{ props }">
-                    <v-autocomplete v-bind="props" v-model="item.name" :items="buffs" item-value="title"
-                      variant="outlined" width="300px" density="compact" hide-details>
+                    <v-combobox v-bind="props" v-model="item.name" :items="buffs" item-value="title" variant="outlined"
+                      width="300px" density="compact" hide-details>
                       <template v-slot:item="{ props, item }">
                         <v-tooltip location="end">
                           <div>comment</div>
@@ -97,7 +197,7 @@
                           </template>
                         </v-tooltip>
                       </template>
-                    </v-autocomplete>
+                    </v-combobox>
                   </template>
                 </v-tooltip>
               </template>
@@ -126,24 +226,6 @@
         </v-container>
       </v-card>
     </v-dialog>
-    <v-dialog v-if="commentId !== undefined" v-model="commentDialog" width="auto">
-      <v-card min-width="1280" :title="$t('general.nth_row_comment', { n: commentId + 1 })">
-        <v-container>
-          <div class="d-flex flex-column">
-            <v-textarea class="mb-4" v-model="templateRows[commentId].comment" variant="outlined" density="compact"
-              hide-details />
-            <div class="d-flex flex-row ml-auto">
-              <v-btn class="mr-2" v-on:click="commentDialog = false;">
-                {{ $t('general.cancel') }}
-              </v-btn>
-              <v-btn v-on:click="editComment">
-                {{ $t('general.confirm') }}
-              </v-btn>
-            </div>
-          </div>
-        </v-container>
-      </v-card>
-    </v-dialog>
     <v-container class="mb-12">
       <div class="d-flex flex-column">
         <div class="d-flex flex-column w-100">
@@ -156,13 +238,13 @@
                 {{ $t('general.cancel_selection') }}
               </v-btn>
             </div>
-            <v-btn v-if="currentIndex !== undefined" class="mr-2" v-on:click="insertAboveDialog = true">
+            <v-btn v-if="currentIndex !== undefined" class="mr-2" v-on:click="rowsInsertAboveDialog = true">
               {{ $t('general.insert_above') }}
             </v-btn>
-            <v-btn v-if="currentIndex !== undefined" class="mr-2" v-on:click="insertBelowDialog = true">
+            <v-btn v-if="currentIndex !== undefined" class="mr-2" v-on:click="rowsInsertBelowDialog = true">
               {{ $t('general.insert_below') }}
             </v-btn>
-            <v-btn class="mr-2" v-on:click="insertBottomDialog = true">
+            <v-btn class="mr-2" v-on:click="rowsInsertBottomDialog = true">
               {{ $t('general.insert_bottom') }}
             </v-btn>
             <v-btn v-on:click="template.calculate()">
@@ -177,7 +259,7 @@
             </v-checkbox-btn> -->
             </template>
             <template v-slot:item.data-table-select="{ item }">
-              <v-checkbox-btn v-model="item.selected" @update:model-value="selectRow(item)" variant="outlined"
+              <v-checkbox-btn v-model="item.selected" @update:model-value="selectRow(item, 'row')" variant="outlined"
                 density="compact" hide-details>
               </v-checkbox-btn>
             </template>
@@ -289,7 +371,7 @@
           <div class="d-flex flex-row mb-4">
             <h2>{{ t('general.rotation') }}</h2>
           </div>
-          <Rotation class="mb-4" :rotation="r" :key="JSON.stringify(templateRows)" />
+          <Rotation class="mb-4" :rotation="r" />
         </div>
         <div v-if="templateRows.length > 0" class="d-flex flex-column w-100">
           <div class="d-flex flex-row mb-4">
@@ -305,7 +387,7 @@
                   {{ $t('general.back_to', { to: $t('general.table') }) }}
                 </v-btn>
               </div>
-              <RowDetailedDamage class="mb-4" :calculation="row.calculation" :key="row.calculation.id" />
+              <RowDetailedDamage class="mb-4" :calculation="row.calculation" :key="row?.calculation?.id" />
             </div>
           </div>
         </div>
@@ -360,18 +442,29 @@ const selectedItems = ref([]);
 const allSelected = ref<boolean>(false)
 const r = ref<Array<any>>([])
 
-const insertAboveDialog = ref<boolean>(false)
-const insertAboveRow = ref<number | undefined>(undefined)
+const rowsInsertAboveDialog = ref<boolean>(false)
+const rowsInsertAboveRow = ref<number | undefined>(undefined)
 
-const insertBelowDialog = ref<boolean>(false)
-const insertBelowRow = ref<number | undefined>(undefined)
+const rowsInsertBelowDialog = ref<boolean>(false)
+const rowsInsertBelowRow = ref<number | undefined>(undefined)
 
-const insertBottomDialog = ref<boolean>(false)
-const insertBottomRow = ref<number | undefined>(undefined)
+const rowsInsertBottomDialog = ref<boolean>(false)
+const rowsInsertBottomRow = ref<number | undefined>(undefined)
 
+const buffsInsertAboveDialog = ref<boolean>(false)
+const buffsInsertAboveRow = ref<number | undefined>(undefined)
+
+const buffsInsertBelowDialog = ref<boolean>(false)
+const buffsInsertBelowRow = ref<number | undefined>(undefined)
+
+const buffsInsertBottomDialog = ref<boolean>(false)
+const buffsInsertBottomRow = ref<number | undefined>(undefined)
+
+const currentBuffIndex = ref<number | undefined>(undefined)
+const selectedBuffItems = ref([]);
 const buffDialog = ref<boolean>(false)
 const buffId = ref<number | undefined>(undefined)
-const buffs = ref<Array<any>>(["123"])
+const buffs = ref<Array<any>>([])
 const buffsHeaders = [
   { title: t('general.row'), key: 'id' },
   { title: t('general.name'), key: 'name' },
@@ -447,15 +540,30 @@ function countSelectedRows(rows: Array<{ selected: boolean, [key: string]: any }
   return i
 }
 
-function selectRow(row: { id: number, selected: boolean, [key: string]: any }) {
+function selectRow(row: { id: number, selected: boolean, [key: string]: any }, index: 'row' | 'buff'
+) {
   const selected: boolean = row.selected
-  if (selected) {
-    currentIndex.value = row.id
+  switch (index) {
+    case 'row':
+      if (selected) {
+        currentIndex.value = row.id
+      }
+      if (!selected && row.id === currentIndex.value) {
+        currentIndex.value = undefined
+      }
+      allSelected.value = false
+      break
+    case 'buff':
+      if (selected) {
+        currentBuffIndex.value = row.id
+      }
+      if (!selected && row.id === currentBuffIndex.value) {
+        currentBuffIndex.value = undefined
+      }
+      break
+    default:
+      break
   }
-  if (!selected && row.id === currentIndex.value) {
-    currentIndex.value = undefined
-  }
-  allSelected.value = false
 }
 
 function editComment() {
@@ -474,7 +582,7 @@ function cancelSelection(rows: Array<{ selected: boolean, [key: string]: any }>)
   })
 }
 
-function _insert(rows: Array<{ id: number, [key: string]: any }>, i: number, n: number | undefined) {
+function _insert(rows: Array<{ id: number, [key: string]: any }>, i: number, n: number | undefined, table: 'row' | 'buff') {
   i = Number(i)
   if (isNaN(i)) {
     return
@@ -485,25 +593,55 @@ function _insert(rows: Array<{ id: number, [key: string]: any }>, i: number, n: 
   }
 
   for (let j = 0; j < n; j++) {
-    const row = new TemplateRow()
-    rows.splice(i + j, 0, row)
-
+    let row
+    switch (table) {
+      case 'row':
+        row = new TemplateRow()
+        break
+      case 'buff':
+        row = new TemplateRowBuff()
+        break
+      default:
+        break
+    }
+    if (row) {
+      rows.splice(i + j, 0, row)
+    }
   }
   rearrange(rows)
 }
 
-function insertAbove(rows: Array<{ id: number, [key: string]: any }>, i: number, n: number | undefined) {
-  _insert(rows, i, n)
+function insertAbove(rows: Array<{ id: number, [key: string]: any }>, i: number, n: number | undefined, table: 'row' | 'buff') {
+  _insert(rows, i, n, table)
+  n = Number(n)
+  if (isNaN(n)) {
+    return
+  }
+
+  switch (table) {
+    case 'row':
+      if (currentIndex.value !== undefined) {
+        currentIndex.value += n
+      }
+      break
+    case 'buff':
+      if (currentBuffIndex.value !== undefined) {
+        currentBuffIndex.value += n
+      }
+      break
+    default:
+      break
+  }
 }
 
-function insertBelow(rows: Array<{ id: number, [key: string]: any }>, i: number, n: number | undefined) {
+function insertBelow(rows: Array<{ id: number, [key: string]: any }>, i: number, n: number | undefined, table: 'row' | 'buff') {
   i += 1
-  _insert(rows, i, n)
+  _insert(rows, i, n, table)
 }
 
-function insertBottom(rows: Array<{ id: number, [key: string]: any }>, n: number | undefined) {
+function insertBottom(rows: Array<{ id: number, [key: string]: any }>, n: number | undefined, table: 'row' | 'buff') {
   const i = rows.length
-  _insert(rows, i, n)
+  _insert(rows, i, n, table)
 }
 
 function deleteRows(rows: any) {
@@ -554,10 +692,6 @@ watch(() => { return JSON.stringify(templateRows.value) }, () => {
   white-space: nowrap
 ::v-deep(.result input)
   color: yellow
-::v-deep(.table th)
-  padding: 0px 4px !important
-::v-deep(.table td)
-  padding: 0px 4px !important
 ::v-deep(.table .v-label)
   color: rgb(110,110,110)
 </style>

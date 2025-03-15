@@ -122,6 +122,12 @@ export class TemplateRow {
     }
   }
 
+  public duplicate(): TemplateRow {
+    const data = JSON.parse(JSON.stringify(this));
+    const row = new TemplateRow(data);
+    return row;
+  }
+
   public areBuffs(): boolean {
     for (const buff of this.buffs) {
       if (!buff.isEmpty()) {
@@ -137,36 +143,44 @@ export class TemplateRow {
     echoes: RowEchoes,
     buffs: RowBuffs,
     monster: RowMonster,
-  ) {
-    this.calculation = new RowCalculation();
-    this.calculation.data.resonator = resonator;
-    this.calculation.data.weapon = weapon;
-    this.calculation.data.echoes = echoes;
-    this.calculation.data.monster = monster;
+    ignoreBuffs: Array<string> = [],
+  ): RowCalculation {
+    const calculation = new RowCalculation();
+    calculation.data.resonator = resonator;
+    calculation.data.weapon = weapon;
+    calculation.data.echoes = echoes;
+    calculation.data.monster = monster;
     if (this.hit !== "" || this.hit !== undefined) {
-      this.calculation.data.resonator.skill.hit = this.hit;
+      calculation.data.resonator.skill.hit = this.hit;
     }
-    this.calculation.result.real_dmg_no_crit = this.real_dmg_no_crit;
-    this.calculation.result.real_dmg_crit = this.real_dmg_crit;
-    this.calculation.result.action = this.action;
-    this.calculation.result.time_start = this.time_start;
-    this.calculation.result.time_end = this.time_end;
-    this.calculation.result.buffs = this.buffs;
+    calculation.result.real_dmg_no_crit = this.real_dmg_no_crit;
+    calculation.result.real_dmg_crit = this.real_dmg_crit;
+    calculation.result.action = this.action;
+    calculation.result.time_start = this.time_start;
+    calculation.result.time_end = this.time_end;
+    calculation.result.buffs = this.buffs;
 
     // Buffs
-    this.calculation.data.buffs = buffs;
+    calculation.data.buffs = buffs;
     this.buffs.forEach((buff) => {
-      const newBuff = new RowBuff();
-      newBuff.id = buff.name;
-      newBuff.type = buff.type;
-      newBuff.value = buff.value;
-      newBuff.stack = buff.stack;
-      newBuff.duration = buff.duration;
+      const name = buff.name;
+      if (ignoreBuffs.includes(name)) {
+        return;
+      }
+      if (!buff.isEmpty()) {
+        const newBuff = new RowBuff();
+        newBuff.id = name;
+        newBuff.type = buff.type;
+        newBuff.value = buff.value;
+        newBuff.stack = buff.stack;
+        newBuff.duration = buff.duration;
 
-      this.calculation.data.buffs.buffs.push(newBuff);
+        calculation.data.buffs.buffs.push(newBuff);
+      }
     });
 
-    this.calculation.calculate();
+    calculation.calculate();
+    return calculation;
   }
 }
 
@@ -390,6 +404,21 @@ export class Template {
     });
   }
 
+  public getRowBuffNames(): Array<string> {
+    const s = new Set();
+    this.rows.forEach((row) => {
+      row.buffs.forEach((buff) => {
+        const name = buff.name;
+        if (!name) {
+          return;
+        }
+        s.add(name);
+      });
+    });
+    const names = Array.from(s) as Array<string>;
+    return names;
+  }
+
   public getRowResonator(resonatorName: string): RowResonator | undefined {
     for (const resonator of this.calculation.resonators) {
       if (resonatorName === resonator.resonator.name) {
@@ -429,10 +458,19 @@ export class Template {
 
   public getResonatorNames(): Array<string> {
     const resonatorNames: Array<string> = [];
-    this.resonators.forEach((resonator: any) => {
+    for (const resonator of this.resonators) {
       resonatorNames.push(resonator.resonator_name);
-    });
+    }
     return resonatorNames;
+  }
+
+  public getResonatorElementEn(name: string): string {
+    for (const resonator of this.calculation.resonators) {
+      if (resonator.resonator.name === name) {
+        return resonator.resonator.element_en;
+      }
+    }
+    return "";
   }
 
   public getRotation(): any {
@@ -453,21 +491,7 @@ export class Template {
     return indices;
   }
 
-  public async updateByResonatorName(i: number) {
-    await this.initResonator(i);
-  }
-
-  public updateResonatorByCalculation(i: number) {
-    this.resonators[i].resonator_chain = this.calculation.resonators[i].resonator.chain;
-    this.resonators[i].resonator_energy_regen = this.calculation.resonators[i].resonator.energy_regen;
-    this.resonators[i].resonator_inherent_skill_1 = this.calculation.resonators[i].resonator.inherent_skill_1;
-    this.resonators[i].resonator_inherent_skill_2 = this.calculation.resonators[i].resonator.inherent_skill_2;
-
-    this.resonators[i].resonator_weapon_name = this.calculation.resonators[i].weapon.name;
-    this.resonators[i].resonator_weapon_rank = this.calculation.resonators[i].weapon.tune;
-  }
-
-  public async calculateRow(i: number) {
+  public getRowCalculation(i: number, ignoreBuffs: Array<string> = []): RowCalculation | undefined {
     if (this.rows.length <= i) {
       return;
     }
@@ -507,7 +531,43 @@ export class Template {
     const monsterId = this.monster_id;
     monster.updateByName(monsterId);
 
-    row.calculate(resonator, weapon, echoes, buffs, monster);
+    const calculation = row.calculate(resonator, weapon, echoes, buffs, monster, ignoreBuffs);
+    return calculation;
+  }
+
+  public getCalculatedRows(ignoreBuffs: Array<string> = []): Array<TemplateRow> {
+    const rows: Array<TemplateRow> = [];
+    this.rows.forEach((row, i) => {
+      const newRow = row.duplicate();
+      const calculation = this.getRowCalculation(i, ignoreBuffs);
+      if (calculation) {
+        newRow.calculation = calculation;
+        rows.push(newRow);
+      }
+    });
+    return rows;
+  }
+
+  public async updateByResonatorName(i: number) {
+    await this.initResonator(i);
+  }
+
+  public updateResonatorByCalculation(i: number) {
+    this.resonators[i].resonator_chain = this.calculation.resonators[i].resonator.chain;
+    this.resonators[i].resonator_energy_regen = this.calculation.resonators[i].resonator.energy_regen;
+    this.resonators[i].resonator_inherent_skill_1 = this.calculation.resonators[i].resonator.inherent_skill_1;
+    this.resonators[i].resonator_inherent_skill_2 = this.calculation.resonators[i].resonator.inherent_skill_2;
+
+    this.resonators[i].resonator_weapon_name = this.calculation.resonators[i].weapon.name;
+    this.resonators[i].resonator_weapon_rank = this.calculation.resonators[i].weapon.tune;
+  }
+
+  public calculateRow(i: number) {
+    const calculation = this.getRowCalculation(i);
+    if (calculation === undefined) {
+      return;
+    }
+    this.rows[i].calculation = calculation;
   }
 
   public async calculate() {

@@ -1,13 +1,12 @@
-import Decimal from "decimal.js";
-
-import { StatBuffEnum } from "@/types/buff";
+import { SkillBonusEnum, StatBuffEnum } from "@/types/buff";
+import { SkillTypeEnum } from "@/types/skill";
 
 import { useResonatorStore } from "@/stores/resonator";
 
-import { Template, TemplateCalculationResonator } from "@/ww/template";
+import { Template, TemplateRow, TemplateCalculationResonator } from "@/ww/template";
 import { RowCalculationResult } from "@/ww/row";
 import { ResonatorModel, ResonatorModels } from "@/ww/resonator";
-import { getNestedValue, toNumberString, toPercentageString, md5 } from "@/ww/utils";
+import { getNestedValue, toNumberString, toPercentageString, md5, getDecimal, getNumber } from "@/ww/utils";
 
 export interface IBar {
   text: string;
@@ -147,6 +146,117 @@ export class ResonatorDamageDistribution {
       damage: string;
     };
   } = {};
+
+  public addRow(row: TemplateRow) {
+    const damage = row.calculation.result.damage;
+    const damage_no_crit = row.calculation.result.damage_no_crit;
+    const damage_crit = row.calculation.result.damage_crit;
+
+    this.damage = toNumberString(getDecimal(this.damage).plus(getDecimal(damage)));
+    this.damage_no_crit = toNumberString(getDecimal(this.damage_no_crit).plus(getDecimal(damage_no_crit)));
+    this.damage_crit = toNumberString(getDecimal(this.damage_crit).plus(getDecimal(damage_crit)));
+
+    const skill_type = row.calculation.result.resonator_skill_type;
+    switch (skill_type) {
+      case SkillTypeEnum.NORMAL_ATTACK:
+        this.normal_attack = toNumberString(getDecimal(damage).plus(getNumber(this.normal_attack)));
+        break;
+      case SkillTypeEnum.RESONANCE_SKILL:
+        this.resonance_skill = toNumberString(getDecimal(damage).plus(getNumber(this.resonance_skill)));
+        break;
+      case SkillTypeEnum.FORTE_CIRCUIT:
+        this.forte_circuit = toNumberString(getDecimal(damage).plus(getNumber(this.forte_circuit)));
+        break;
+      case SkillTypeEnum.RESONANCE_LIBERATION:
+        this.resonance_liberation = toNumberString(getDecimal(damage).plus(getNumber(this.resonance_liberation)));
+        break;
+      case SkillTypeEnum.INTRO_SKILL:
+        this.intro_skill = toNumberString(getDecimal(damage).plus(getNumber(this.intro_skill)));
+        break;
+      case SkillTypeEnum.OUTRO_SKILL:
+        this.outro_skill = toNumberString(getDecimal(damage).plus(getNumber(this.outro_skill)));
+        break;
+      default:
+        break;
+    }
+
+    const bonus_types = row.calculation.result.result_bonus_types;
+    bonus_types.forEach((bonus_type) => {
+      switch (bonus_type) {
+        case SkillBonusEnum.BASIC:
+          this.basic = toNumberString(getDecimal(damage).plus(getNumber(this.basic)));
+          break;
+        case SkillBonusEnum.HEAVY:
+          this.heavy = toNumberString(getDecimal(damage).plus(getNumber(this.heavy)));
+          break;
+        case SkillBonusEnum.SKILL:
+          this.skill = toNumberString(getDecimal(damage).plus(getNumber(this.skill)));
+          break;
+        case SkillBonusEnum.LIBERATION:
+          this.liberation = toNumberString(getDecimal(damage).plus(getNumber(this.liberation)));
+          break;
+        case SkillBonusEnum.INTRO:
+          this.intro = toNumberString(getDecimal(damage).plus(getNumber(this.intro)));
+          break;
+        case SkillBonusEnum.OUTRO:
+          this.outro = toNumberString(getDecimal(damage).plus(getNumber(this.outro)));
+          break;
+        case SkillBonusEnum.ECHO:
+          this.echo = toNumberString(getDecimal(damage).plus(getNumber(this.echo)));
+          break;
+        case SkillBonusEnum.COORDINATED_ATTACK:
+          this.coordinated_attack = toNumberString(getDecimal(damage).plus(getNumber(this.coordinated_attack)));
+          break;
+        case SkillBonusEnum.NONE:
+        case "":
+          this.none = toNumberString(getDecimal(damage).plus(getNumber(this.none)));
+        default:
+          break;
+      }
+    });
+
+    const skillId = row.skill_id;
+    if (skillId) {
+      if (this.skills[skillId] === undefined) {
+        this.skills[skillId] = {
+          id: skillId,
+          name: "",
+          type: skill_type,
+          damage: damage,
+        };
+      } else {
+        const lastDamage = this.skills[skillId].damage;
+        this.skills[skillId].damage = toNumberString(getDecimal(lastDamage).plus(getDecimal(damage)));
+      }
+    }
+  }
+
+  // def get_skill_damages(cls) -> List[TemplateResonatorSkillDamageDistributionModel]:
+  //   skills_dict: Dict[str, TemplateResonatorSkillDamageDistributionModel] = {}
+  //   for skill in cls.skills.values():
+  //       skill_id = skill.id
+  //       skill_name = skill_id
+  //       if "-" in skill_id:
+  //           skill_id_split: str = skill_id.split("-")
+  //           if skill_id_split[-1].isdigit():
+  //               skill_name_split = skill_id_split[:-1]
+  //               skill_name = "".join(skill_name_split)
+
+  //       if skills_dict.get(skill_name, None) is None:
+  //           skills_dict[skill_name] = TemplateResonatorSkillDamageDistributionModel(
+  //               name=skill_name, type=skill.type, damage=skill.damage
+  //           )
+  //       else:
+  //           skills_dict[skill_name].damage += skill.damage
+
+  //   skills: List[TemplateResonatorSkillDamageDistributionModel] = list(
+  //       skills_dict.values()
+  //   )
+  //   skills.sort(
+  //       key=lambda skill: skill.damage,
+  //       reverse=True,
+  //   )
+  //   return skills
 }
 
 export class TeamDamageDistribution {
@@ -157,7 +267,9 @@ export class TeamDamageDistribution {
   public damage: string = "";
   public damage_no_crit: string = "";
   public damage_crit: string = "";
-  public resonators: { [id: string]: ResonatorDamageDistribution } = {};
+  public resonators: { [name: string]: ResonatorDamageDistribution } = {};
+
+  public rows: Array<TemplateRow> = [];
 
   constructor(distribution: any = {}) {
     if (!distribution || Object.keys(distribution).length === 0) {
@@ -170,10 +282,22 @@ export class TeamDamageDistribution {
     return md5(this.template_id);
   }
 
+  public getJson(): object {
+    return JSON.parse(JSON.stringify(this));
+  }
+
+  public getRowCalculationResults(): Array<RowCalculationResult> {
+    const rows: Array<RowCalculationResult> = [];
+    this.rows.forEach((row) => {
+      rows.push(row.calculation.result);
+    });
+    return rows;
+  }
+
   public getMaxTeamDPS(): number {
     if (this.duration_1 && this.duration_2 && this.damage) {
-      const t1 = new Decimal(this.duration_1);
-      const d = new Decimal(this.damage);
+      const t1 = getDecimal(this.duration_1);
+      const d = getDecimal(this.damage);
       const dps = d.dividedBy(t1);
       return dps.toNumber();
     }
@@ -187,10 +311,10 @@ export class TeamDamageDistribution {
 
   public getMinTeamDPS(): number {
     if (this.duration_1 && this.duration_2 && this.damage) {
-      const t2 = parseFloat(this.duration_2);
-      const d = parseFloat(this.damage);
-      const dps1 = d / t2;
-      return dps1;
+      const t2 = getDecimal(this.duration_2);
+      const d = getDecimal(this.damage);
+      const dps = d.dividedBy(t2);
+      return dps.toNumber();
     }
     return 0;
   }
@@ -202,8 +326,8 @@ export class TeamDamageDistribution {
 
   public getTeamDPSString(): string {
     if (this.duration_1 && this.duration_2 && this.damage) {
-      const t1 = parseFloat(this.duration_1);
-      const t2 = parseFloat(this.duration_2);
+      const t1 = this.duration_1;
+      const t2 = this.duration_2;
       const dps1 = toNumberString(this.getMinTeamDPS());
       const dps2 = toNumberString(this.getMaxTeamDPS());
       return `${dps1} (${t2}s) ~ ${dps2} (${t1}s)`;
@@ -222,8 +346,8 @@ export class TeamDamageDistribution {
 
   public getTeamDamagePercentageString(baseDamage: number): string {
     if (this.damage) {
-      const d = parseFloat(this.damage);
-      const p = toPercentageString(d / baseDamage);
+      const d = getDecimal(this.damage);
+      const p = toPercentageString(d.dividedBy(getDecimal(baseDamage)));
       return p;
     }
     return "";
@@ -253,7 +377,7 @@ export class TeamDamageDistribution {
     if (!d) {
       return 0;
     }
-    return parseFloat(d);
+    return getDecimal(d).toNumber();
   }
 
   public getResonatorDamageString(resonatorName: string): string {
@@ -264,7 +388,7 @@ export class TeamDamageDistribution {
   public getResonatorMaxDPS(resonatorName: string): number {
     const d = this.getResonatorDamage(resonatorName);
     if (this.duration_1 && this.duration_2 && d) {
-      return d / parseFloat(this.duration_1);
+      return getDecimal(d).dividedBy(getDecimal(this.duration_1)).toNumber();
     }
     return 0;
   }
@@ -302,22 +426,22 @@ export class TeamDamageDistribution {
       return bars;
     }
 
-    const duration = parseFloat(this.duration_1);
-    const baseDamage = parseFloat(resonatorDamageDistribution.damage);
+    const duration = getDecimal(this.duration_1);
+    const baseDamage = getDecimal(resonatorDamageDistribution.damage);
     const skills = resonatorDamageDistribution.skills;
     const skillKeys = Object.keys(skills);
     skillKeys.forEach((key: string) => {
       const skill = skills[key];
-      const damage = parseFloat(skill.damage);
-      const dps = damage / duration;
-      const p = damage / baseDamage;
+      const damage = getDecimal(skill.damage);
+      const dps = damage.dividedBy(duration);
+      const p = damage.dividedBy(baseDamage);
       const bar = {
         text: key,
-        dps: dps,
+        dps: dps.toNumber(),
         dpsString: toNumberString(dps),
-        damage: damage,
+        damage: damage.toNumber(),
         damageString: toNumberString(damage),
-        percentage: p,
+        percentage: p.toNumber(),
         percentageString: toPercentageString(p),
         data: skill,
       };
@@ -334,7 +458,7 @@ export class TeamDamageDistribution {
       return bars;
     }
 
-    const baseDamage = parseFloat(resonatorDamageDistribution.damage);
+    const baseDamage = getDecimal(resonatorDamageDistribution.damage);
     const skillTypes = [
       "normal_attack",
       "resonance_skill",
@@ -344,13 +468,13 @@ export class TeamDamageDistribution {
       "outro_skill",
     ];
     skillTypes.forEach((t: string) => {
-      const damage = parseFloat((resonatorDamageDistribution as any)[t]);
-      const p = damage / baseDamage;
+      const damage = getDecimal((resonatorDamageDistribution as any)[t]);
+      const p = damage.dividedBy(baseDamage);
       const bar = {
         text: t,
-        damage: damage,
+        damage: damage.toNumber(),
         damageString: toNumberString(damage),
-        percentage: p,
+        percentage: p.toNumber(),
         percentageString: toPercentageString(p),
       };
       bars.push(bar);
@@ -365,7 +489,7 @@ export class TeamDamageDistribution {
       return bars;
     }
 
-    const baseDamage = parseFloat(resonatorDamageDistribution.damage);
+    const baseDamage = getDecimal(resonatorDamageDistribution.damage);
     const skillBonuses = [
       "basic",
       "heavy",
@@ -378,18 +502,53 @@ export class TeamDamageDistribution {
       "none",
     ];
     skillBonuses.forEach((b: string) => {
-      const damage = parseFloat((resonatorDamageDistribution as any)[b]);
-      const p = damage / baseDamage;
+      const damage = getDecimal((resonatorDamageDistribution as any)[b]);
+      const p = damage.dividedBy(baseDamage);
       const bar = {
         text: b,
-        damage: damage,
+        damage: damage.toNumber(),
         damageString: toNumberString(damage),
-        percentage: p,
+        percentage: p.toNumber(),
         percentageString: toPercentageString(p),
       };
       bars.push(bar);
     });
     return bars;
+  }
+
+  public updateByTemplate(template: Template, ignoreBuffs: Array<string> = []) {
+    this.template_id = template.id;
+    this.monster_id = template.monster_id;
+    this.duration_1 = template.duration_1;
+    this.duration_2 = template.duration_2;
+
+    this.resonators = {};
+    template.calculation.resonators.forEach((resonator) => {
+      const resonatorId = resonator.getId();
+      const resonatorName = resonator.resonator.name;
+      this.resonators[resonatorName] = new ResonatorDamageDistribution();
+      this.resonators[resonatorName].resonator_id = resonatorId;
+      this.resonators[resonatorName].resonator_name = resonatorName;
+    });
+
+    // Calculate the damage
+    const rows = template.getCalculatedRows(ignoreBuffs);
+    let damage = getDecimal(0);
+    let damage_no_crit = getDecimal(0);
+    let damage_crit = getDecimal(0);
+    rows.forEach((row) => {
+      const name = row.resonator_name;
+      const resonatorDamageDistribution = this.resonators[name];
+      resonatorDamageDistribution.addRow(row);
+
+      damage = damage.plus(getDecimal(row.calculation.result.damage));
+      damage_no_crit = damage_no_crit.plus(getDecimal(row.calculation.result.damage_no_crit));
+      damage_crit = damage_crit.plus(getDecimal(row.calculation.result.damage_crit));
+    });
+    this.damage = toNumberString(damage);
+    this.damage_no_crit = toNumberString(damage_no_crit);
+    this.damage_crit = toNumberString(damage_crit);
+    this.rows = rows;
   }
 }
 
@@ -407,22 +566,22 @@ export class TeamDamageDistributionsWithBuffs {
 
   public getBars(baseDamage: number, baseDPS: number): Array<IBar> {
     const bars: Array<IBar> = [];
-    if (this._data.length === 0) {
+    if (this._data.length === 0 || baseDamage === 0) {
       return [];
     }
     this._data.forEach((t: any) => {
       const buffName = t[0];
       const damageDistribution = new TeamDamageDistribution(t[1]);
-      const damage = baseDamage - parseFloat(damageDistribution.damage);
-      const p = damage / baseDamage;
-      const dps = baseDPS - damageDistribution.getMaxTeamDPS();
+      const damage = getDecimal(baseDamage).minus(getDecimal(damageDistribution.damage));
+      const p = damage.dividedBy(baseDamage);
+      const dps = getDecimal(baseDPS).minus(getDecimal(damageDistribution.getMaxTeamDPS()));
       const bar = {
         text: buffName,
-        dps: dps,
+        dps: dps.toNumber(),
         dpsString: toNumberString(dps),
-        damage: damage,
+        damage: damage.toNumber(),
         damageString: toNumberString(damage),
-        percentage: p,
+        percentage: p.toNumber(),
         percentageString: toPercentageString(p),
       };
       bars.push(bar);
@@ -438,7 +597,7 @@ export class DamageAnalysis {
   public resonator_models: ResonatorModels = new ResonatorModels();
   public damage_distribution: TeamDamageDistribution = new TeamDamageDistribution();
   public damage_distributions_with_buffs: TeamDamageDistributionsWithBuffs = new TeamDamageDistributionsWithBuffs();
-  public calculated_rows: Array<RowCalculationResult> = [];
+  public calculated_rows: Array<RowCalculationResult> = []; // TODO: deprecated
 
   constructor(analysis: any = {}, affixPolicy: string = "") {
     if (!analysis || Object.keys(analysis).length === 0) {
@@ -475,13 +634,18 @@ export class DamageAnalysis {
 
   public getCalculatedRowBars(): Array<IBar> {
     const maxTeamDps = this.damage_distribution.getMaxTeamDPS();
-    const calculatedRows = this.calculated_rows;
+
+    let calculatedRows = this.calculated_rows;
+    if (calculatedRows.length === 0) {
+      calculatedRows = this.damage_distribution.getRowCalculationResults();
+    }
+
     const bars: Array<IBar> = [];
     let baseDamage: number = 0;
     calculatedRows.forEach((calculatedRow: any) => {
       let damage = 0.0;
       if (calculatedRow.damage) {
-        damage = parseFloat(calculatedRow.damage);
+        damage = getDecimal(calculatedRow.damage).toNumber();
       }
       baseDamage = Math.max(baseDamage, damage);
     });
@@ -489,7 +653,7 @@ export class DamageAnalysis {
     calculatedRows.forEach((calculatedRow: any) => {
       let damage = 0.0;
       if (calculatedRow.damage) {
-        damage = parseFloat(calculatedRow.damage);
+        damage = getDecimal(calculatedRow.damage).toNumber();
       }
       const p = damage / baseDamage;
 
@@ -520,9 +684,14 @@ export class DamageAnalysis {
     return bars;
   }
 
+  public getDamageDistributionsWithBuffsBars(): Array<IBar> {
+    const baseTeamDamage = getDecimal(this.damage_distribution.damage).toNumber();
+    const baseTeamDPS = this.damage_distribution.getMaxTeamDPS();
+    return this.damage_distributions_with_buffs.getBars(baseTeamDamage, baseTeamDPS);
+  }
+
   public calculateByTemplate(template: Template) {
     this.resonator_template = template;
-    this.resonator_template.calculate();
 
     // Resonator models
     this.resonator_models = new ResonatorModels();
@@ -536,6 +705,18 @@ export class DamageAnalysis {
       this.resonator_models[id] = resonatorModel;
     });
 
-    console.log(JSON.parse(JSON.stringify(this)));
+    // Damage distribution
+    this.damage_distribution = new TeamDamageDistribution();
+    this.damage_distribution.updateByTemplate(this.resonator_template);
+
+    // Damage distributions with buffs
+    const damage_distributions_with_buffs: Array<any> = [];
+    const buffNames = this.resonator_template.getRowBuffNames();
+    buffNames.forEach((buffName) => {
+      const damageDistribution = new TeamDamageDistribution();
+      damageDistribution.updateByTemplate(this.resonator_template, [buffName]);
+      damage_distributions_with_buffs.push([buffName, damageDistribution.getJson()]);
+    });
+    this.damage_distributions_with_buffs = new TeamDamageDistributionsWithBuffs(damage_distributions_with_buffs);
   }
 }
