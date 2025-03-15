@@ -207,6 +207,10 @@ export class ResonatorInfo {
         title = `【${SkillTypeEnum.INTRO_SKILL}】${this.skill_infos.intro_skill.name}<br /><br />`;
         text = this.skill_infos.intro_skill.description.replace(/\n/g, "<br />");
         break;
+      case SkillTypeEnum.OUTRO_SKILL:
+        title = `【${SkillTypeEnum.OUTRO_SKILL}】${this.skill_infos.outro_skill.name}<br /><br />`;
+        text = this.skill_infos.outro_skill.description.replace(/\n/g, "<br />");
+        break;
       default:
         return "";
     }

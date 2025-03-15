@@ -11,5 +11,6 @@ export const SkillTypeEnum = {
   FORTE_CIRCUIT: "共鳴回路",
   RESONANCE_LIBERATION: "共鳴解放",
   INTRO_SKILL: "變奏技能",
+  OUTRO_SKILL: "延奏技能",
 } as const;
 export type TSkillTypeEnum = (typeof SkillTypeEnum)[keyof typeof SkillTypeEnum] | string;
