@@ -3,224 +3,224 @@
         "id": "五星 輝螢軍勢-1",
         "element": "冷凝",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "200.16%"
     },
     {
         "id": "五星 輝螢軍勢-2",
         "element": "冷凝",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "200.16%"
     },
     {
         "id": "五星 輝螢軍勢-3",
         "element": "冷凝",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "266.88%"
     },
     {
         "id": "五星 輝螢軍勢",
         "element": "冷凝",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "667.20%"
     },
     {
         "id": "五星 角-1",
         "element": "衍射",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "48.86%"
     },
     {
         "id": "五星 角-2",
         "element": "衍射",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "19.46%"
     },
     {
         "id": "五星 角-3",
         "element": "衍射",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "48.86%"
     },
     {
         "id": "五星 角-4",
         "element": "衍射",
         "base_attr": "攻擊",
-        "skill_type": "共鳴技能",
+        "bonus_type": "共鳴技能",
         "dmg": "16.00%"
     },
     {
         "id": "五星 角",
         "element": "衍射",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "243.44%"
     },
     {
         "id": "五星 角 光陰之祝",
         "element": "衍射",
         "base_attr": "攻擊",
-        "skill_type": "共鳴技能",
+        "bonus_type": "共鳴技能",
         "dmg": "240.00%"
     },
     {
         "id": "五星 燎照之騎-1",
         "element": "熱熔",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "242.40%"
     },
     {
         "id": "五星 燎照之騎-2",
         "element": "熱熔",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "282.80%"
     },
     {
         "id": "五星 燎照之騎-3",
         "element": "熱熔",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "282.80%"
     },
     {
         "id": "五星 飛廉之猩-1",
         "element": "氣動",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "231.84%"
     },
     {
         "id": "五星 飛廉之猩-2",
         "element": "氣動",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "283.36%"
     },
     {
         "id": "五星 聚械機偶-1",
         "element": "導電",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "48.64%"
     },
     {
         "id": "五星 聚械機偶-2",
         "element": "導電",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "320.00%"
     },
     {
         "id": "五星 聚械機偶-3",
         "element": "導電",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "160.00%"
     },
     {
         "id": "五星 雲閃之鱗-1",
         "element": "導電",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "132.61%"
     },
     {
         "id": "五星 雲閃之鱗-2",
         "element": "導電",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "189.44%"
     },
     {
         "id": "五星 雲閃之鱗-3",
         "element": "導電",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "31.57%"
     },
     {
         "id": "五星 朔雷之鱗-1",
         "element": "導電",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "102.48%"
     },
     {
         "id": "五星 朔雷之鱗-2",
         "element": "導電",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "175.68%"
     },
     {
         "id": "五星 無常凶鷺-1",
         "element": "湮滅",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "310.56%"
     },
     {
         "id": "五星 無常凶鷺-2",
         "element": "湮滅",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "55.73%"
     },
     {
         "id": "五星 鳴鐘之龜",
         "element": "冷凝",
         "base_attr": "防禦",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "145.92%"
     },
     {
         "id": "五星 無歸的謬誤-1",
         "element": "衍射",
         "base_attr": "生命",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "15.86%"
     },
     {
         "id": "五星 無歸的謬誤-2",
         "element": "衍射",
         "base_attr": "生命",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "1.58%"
     },
     {
         "id": "五星 無歸的謬誤-3",
         "element": "衍射",
         "base_attr": "生命",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "19.82%"
     },
     {
         "id": "五星 無妄者-1",
         "element": "湮滅",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "54.08%"
     },
     {
         "id": "五星 無妄者-2",
         "element": "湮滅",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "270.40%"
     },
     {
         "id": "五星 異構武裝-1",
         "element": "冷凝",
         "base_attr": "攻擊",
-        "skill_type": "聲骸",
+        "bonus_type": "聲骸",
         "dmg": "405.00%"
     }
 ]
