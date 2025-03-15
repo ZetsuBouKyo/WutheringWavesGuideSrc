@@ -99,12 +99,6 @@ import { ref } from 'vue'
 
 import { useTemplateStore } from '@/stores/calculation/template';
 
-import { useResonatorStore } from '@/stores/resonator';
-import { useMonsterStore } from '@/stores/monster';
-import { useTemplatesStore } from '@/stores/template'
-
-import { DamageAnalysis } from '@/ww/damage';
-
 const route = useRoute();
 let id: any = route.query.id
 if (!id) {
@@ -117,24 +111,10 @@ if (spoiler === "true" || spoiler === true) {
   spoiler = false
 }
 
-const resonatorStore = useResonatorStore()
-const resonatorNames = resonatorStore.getNames(spoiler)
-
-const templatesStore = useTemplatesStore()
 const template = useTemplateStore(id)
-
-const monsterStore = useMonsterStore()
-const monsterItems = monsterStore.getMonsterItems()
 
 const tab = ref<string>("")
 const templateTab = ref<string>("basic_info")
-const resonatorTab = ref<any>([{ tab: "", subTab: "resonator" }, { tab: "", subTab: "resonator" }, { tab: "", subTab: "resonator" }])
-
-async function calculate() {
-  const damageAnalysis = new DamageAnalysis()
-  damageAnalysis.calculateByTemplate(template.data)
-}
-
 </script>
 
 <style scoped lang="sass">
