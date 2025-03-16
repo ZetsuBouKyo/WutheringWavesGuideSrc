@@ -4,6 +4,7 @@ import { AffixPolicyEnum } from "@/types/affix";
 import { StatBuffEnum, type TStatBuffEnum } from "@/types/buff";
 
 import { useEchoStore } from "@/stores/echo";
+import { ResonatorBuffs, WeaponBuffs, EchoBuffs, SonataBuffs } from "@/stores/buff";
 
 import { RowCalculation } from "@/ww/row";
 import { RowResonator } from "@/ww/row/resonator";
@@ -64,9 +65,10 @@ export class TemplateRowBuff {
   // UI
   public id: number = 0;
   public selected: boolean = false;
+  public _item: { title: string; value: RowBuff | undefined } = { title: "", value: undefined };
 
   constructor(buff: any = {}) {
-    if (Object.keys(buff).length === 0) {
+    if (!buff || Object.keys(buff).length === 0) {
       return;
     }
     Object.assign(this, buff);
@@ -77,6 +79,14 @@ export class TemplateRowBuff {
       return false;
     }
     return true;
+  }
+
+  public updateByRowBuff(buff: { title: string; value: RowBuff } | any) {
+    console.log(buff);
+    this.name = buff.title;
+    this.type = buff.value?.type;
+    this.value = buff.value?.value;
+    this.duration = buff.value?.duration;
   }
 }
 
@@ -276,6 +286,57 @@ export class TemplateCalculationResonator {
       .plus(getDecimal(this.echoes.summary.stat_bonus[StatBuffEnum.ENERGY_REGEN]));
     return toPercentageString(r.plus(w).plus(e).plus(new Decimal(1)));
   }
+
+  public getBuffsForSelect(): Array<{ title: string; value: RowBuff }> {
+    // Resonator
+    const buffs: Array<{ title: string; value: RowBuff }> = [];
+    if (this.resonator.name) {
+      const resonatorBuffs = ResonatorBuffs.getBuffs(this.resonator.name);
+      resonatorBuffs.forEach((buff) => {
+        buffs.push({
+          title: buff.id,
+          value: buff,
+        });
+      });
+    }
+    // Weapon
+    if (this.weapon.name) {
+      const weaponBuffs = WeaponBuffs.getBuffs(this.weapon.name);
+      weaponBuffs.forEach((buff) => {
+        buffs.push({
+          title: buff.id,
+          value: buff,
+        });
+      });
+    }
+    // Echo
+    if (this.echoes.echoes[0].name) {
+      const echoBuffs = EchoBuffs.getBuffs(this.echoes.echoes[0].name);
+      echoBuffs.forEach((buff) => {
+        buffs.push({
+          title: buff.id,
+          value: buff,
+        });
+      });
+    }
+    // Sonata
+    const s = new Set(this.echoes.getSonatas());
+    const sonatas = Array.from(s);
+    sonatas.forEach((sonata) => {
+      if (!sonata) {
+        return;
+      }
+      const sonataBuffs = SonataBuffs.getBuffs(sonata);
+      sonataBuffs.forEach((buff) => {
+        buffs.push({
+          title: buff.id,
+          value: buff,
+        });
+      });
+    });
+
+    return buffs;
+  }
 }
 
 export class TemplateCalculation {
@@ -305,7 +366,7 @@ export class Template {
   public calculated: boolean = false;
 
   constructor(template: any = {}) {
-    if (Object.keys(template).length === 0) {
+    if (!template || Object.keys(template).length === 0) {
       this.resonators = [new TemplateResonator(), new TemplateResonator(), new TemplateResonator()];
       return;
     }
@@ -417,6 +478,17 @@ export class Template {
     });
     const names = Array.from(s) as Array<string>;
     return names;
+  }
+
+  public getRowBuffsForSelect(): Array<{ title: string; value: RowBuff }> {
+    // Resonators
+    let buffs: Array<{ title: string; value: RowBuff }> = [];
+    this.calculation.resonators.forEach((resonator) => {
+      const resonatorBuffs = resonator.getBuffsForSelect();
+      buffs = [...buffs, ...resonatorBuffs];
+    });
+
+    return buffs;
   }
 
   public getRowResonator(resonatorName: string): RowResonator | undefined {

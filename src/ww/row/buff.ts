@@ -19,6 +19,13 @@ export class RowBuff {
   public element: TElementBonusEnum = "";
   public skill_bonus_type: TSkillBonusEnum = "";
 
+  constructor(buff: any = {}) {
+    if (!buff || Object.keys(buff).length === 0) {
+      return;
+    }
+    Object.assign(this, buff);
+  }
+
   public getId(): string {
     let finalType = this.type;
     if (finalType) {
@@ -58,3 +65,26 @@ export class RowBuff {
     this.id = this.getId();
   }
 }
+
+export class RowResonatorBuff extends RowBuff {
+  public isName(name: string): boolean {
+    const sources = this.source.split("-");
+    if (sources[0] && sources[0] === name) {
+      return true;
+    }
+    return false;
+  }
+}
+
+export class RowWeaponBuff extends RowResonatorBuff {}
+
+export class RowEchoBuff extends RowBuff {
+  public isName(name: string): boolean {
+    if (this.source === name) {
+      return true;
+    }
+    return false;
+  }
+}
+
+export class RowSonataBuff extends RowEchoBuff {}

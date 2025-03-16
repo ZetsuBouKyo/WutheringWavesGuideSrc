@@ -187,6 +187,17 @@ export class RowEchoes {
     return buffs;
   }
 
+  public getSonatas(): Array<string> {
+    if (this.summary.sonatas.length > 0) {
+      return this.summary.sonatas;
+    }
+    const sonatas: Array<string> = [];
+    this.echoes.forEach((echo) => {
+      sonatas.push(echo.sonata);
+    });
+    return sonatas;
+  }
+
   private getSonataRowBuff(
     sonata: string,
     type: string,

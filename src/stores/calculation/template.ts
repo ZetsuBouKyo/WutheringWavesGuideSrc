@@ -25,6 +25,9 @@ export const useTemplateStore = (id: string) => {
         this.data = new Template(resp);
         await this.data.init();
       },
+      getRowBuffsForSelect() {
+        return this.data.getRowBuffsForSelect();
+      },
       async updateByResonatorName(i: number) {
         await this.data.updateByResonatorName(i);
       },

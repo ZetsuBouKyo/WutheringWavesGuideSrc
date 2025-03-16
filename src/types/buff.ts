@@ -160,12 +160,12 @@ export type TStatBuffZhTwEnum = (typeof StatBuffZhTwEnum)[keyof typeof StatBuffZ
 export const RowBuffCategoryEnum = {
   BASE: "基礎",
   ATTR: BaseTypeEnum.ATTR,
+  MONSTER: "怪物",
+  STAT: "屬性加成",
   RESONATOR: "共鳴者",
   WEAPON: "武器",
   ECHO: "聲骸",
-  MONSTER: "怪物",
   SONATA: "合鳴",
-  STAT: "屬性加成",
   // BUFF
   MANUAL: "手動",
 } as const;
