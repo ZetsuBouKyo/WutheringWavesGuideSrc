@@ -1,6 +1,7 @@
 import { SkillBonusEnum } from "@/types/buff";
 import { ElementEnum } from "@/types/element";
-import { SkillAttrEnum, SkillTypeEnum, type TSkillTypeEnum } from "@/types/skill";
+import { SkillAttrEnum } from "@/types/skill";
+import { ResonatorInfoEnum, type TResonatorInfoEnum } from "@/types/resonator";
 
 import { StatBuff } from "./buff";
 
@@ -183,33 +184,65 @@ export class ResonatorInfo {
     return "";
   }
 
-  public getHtmlInfoBySkillType(type: TSkillTypeEnum): string {
+  public getHtmlInfoBySkillType(type: TResonatorInfoEnum): string {
     let title: string = "";
     let text: string = "";
     switch (type) {
-      case SkillTypeEnum.NORMAL_ATTACK:
-        title = `【${SkillTypeEnum.NORMAL_ATTACK}】${this.skill_infos.normal_attack.name}<br /><br />`;
+      case ResonatorInfoEnum.NORMAL_ATTACK:
+        title = `【${ResonatorInfoEnum.NORMAL_ATTACK}】${this.skill_infos.normal_attack.name}<br /><br />`;
         text = this.skill_infos.normal_attack.description.replace(/\n/g, "<br />");
         break;
-      case SkillTypeEnum.RESONANCE_SKILL:
-        title = `【${SkillTypeEnum.RESONANCE_SKILL}】${this.skill_infos.resonance_skill.name}<br /><br />`;
+      case ResonatorInfoEnum.RESONANCE_SKILL:
+        title = `【${ResonatorInfoEnum.RESONANCE_SKILL}】${this.skill_infos.resonance_skill.name}<br /><br />`;
         text = this.skill_infos.resonance_skill.description.replace(/\n/g, "<br />");
         break;
-      case SkillTypeEnum.FORTE_CIRCUIT:
-        title = `【${SkillTypeEnum.FORTE_CIRCUIT}】${this.skill_infos.forte_circuit.name}<br /><br />`;
+      case ResonatorInfoEnum.FORTE_CIRCUIT:
+        title = `【${ResonatorInfoEnum.FORTE_CIRCUIT}】${this.skill_infos.forte_circuit.name}<br /><br />`;
         text = this.skill_infos.forte_circuit.description.replace(/\n/g, "<br />");
         break;
-      case SkillTypeEnum.RESONANCE_LIBERATION:
-        title = `【${SkillTypeEnum.RESONANCE_LIBERATION}】${this.skill_infos.resonance_liberation.name}<br /><br />`;
+      case ResonatorInfoEnum.RESONANCE_LIBERATION:
+        title = `【${ResonatorInfoEnum.RESONANCE_LIBERATION}】${this.skill_infos.resonance_liberation.name}<br /><br />`;
         text = this.skill_infos.resonance_liberation.description.replace(/\n/g, "<br />");
         break;
-      case SkillTypeEnum.INTRO_SKILL:
-        title = `【${SkillTypeEnum.INTRO_SKILL}】${this.skill_infos.intro_skill.name}<br /><br />`;
+      case ResonatorInfoEnum.INTRO_SKILL:
+        title = `【${ResonatorInfoEnum.INTRO_SKILL}】${this.skill_infos.intro_skill.name}<br /><br />`;
         text = this.skill_infos.intro_skill.description.replace(/\n/g, "<br />");
         break;
-      case SkillTypeEnum.OUTRO_SKILL:
-        title = `【${SkillTypeEnum.OUTRO_SKILL}】${this.skill_infos.outro_skill.name}<br /><br />`;
+      case ResonatorInfoEnum.OUTRO_SKILL:
+        title = `【${ResonatorInfoEnum.OUTRO_SKILL}】${this.skill_infos.outro_skill.name}<br /><br />`;
         text = this.skill_infos.outro_skill.description.replace(/\n/g, "<br />");
+        break;
+      case ResonatorInfoEnum.INHERENT_SKILL_1:
+        title = `【${ResonatorInfoEnum.INHERENT_SKILL_1}】${this.skill_infos.inherent_skill_1.name}<br /><br />`;
+        text = this.skill_infos.inherent_skill_1.description.replace(/\n/g, "<br />");
+        break;
+      case ResonatorInfoEnum.INHERENT_SKILL_2:
+        title = `【${ResonatorInfoEnum.INHERENT_SKILL_2}】${this.skill_infos.inherent_skill_2.name}<br /><br />`;
+        text = this.skill_infos.inherent_skill_2.description.replace(/\n/g, "<br />");
+        break;
+      case ResonatorInfoEnum.CHAIN1:
+        title = `【${ResonatorInfoEnum.CHAIN1}】${this.skill_infos.chain1.name}<br /><br />`;
+        text = this.skill_infos.chain1.description.replace(/\n/g, "<br />");
+        break;
+      case ResonatorInfoEnum.CHAIN2:
+        title = `【${ResonatorInfoEnum.CHAIN2}】${this.skill_infos.chain2.name}<br /><br />`;
+        text = this.skill_infos.chain2.description.replace(/\n/g, "<br />");
+        break;
+      case ResonatorInfoEnum.CHAIN3:
+        title = `【${ResonatorInfoEnum.CHAIN3}】${this.skill_infos.chain3.name}<br /><br />`;
+        text = this.skill_infos.chain3.description.replace(/\n/g, "<br />");
+        break;
+      case ResonatorInfoEnum.CHAIN4:
+        title = `【${ResonatorInfoEnum.CHAIN4}】${this.skill_infos.chain4.name}<br /><br />`;
+        text = this.skill_infos.chain4.description.replace(/\n/g, "<br />");
+        break;
+      case ResonatorInfoEnum.CHAIN5:
+        title = `【${ResonatorInfoEnum.CHAIN5}】${this.skill_infos.chain5.name}<br /><br />`;
+        text = this.skill_infos.chain5.description.replace(/\n/g, "<br />");
+        break;
+      case ResonatorInfoEnum.CHAIN6:
+        title = `【${ResonatorInfoEnum.CHAIN6}】${this.skill_infos.chain6.name}<br /><br />`;
+        text = this.skill_infos.chain6.description.replace(/\n/g, "<br />");
         break;
       default:
         return "";

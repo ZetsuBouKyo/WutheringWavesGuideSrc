@@ -6,6 +6,8 @@ import sub_affixes from "@/assets/data/echo/sub_affixes.json";
 
 import { AbbrBonusEnum } from "@/types/buff";
 
+import { EchoInfo } from "@/ww/echo";
+
 const sonataNames = Object.keys(sonatas);
 
 const echoesForCalculation: Array<any> = [
@@ -68,6 +70,13 @@ export const useEchoStore = defineStore("echo", {
     },
     getAbbrs(): Array<string> {
       return Object.values(AbbrBonusEnum);
+    },
+    getInfoByName(name: string): EchoInfo | undefined {
+      for (const echo of echoesForCalculation) {
+        if (echo.name === name) {
+          return new EchoInfo(echo);
+        }
+      }
     },
   },
 });

@@ -77,4 +77,19 @@ export class WeaponInfo {
     const passive_buff = passive_buffs[t];
     return passive_buff;
   }
+
+  public getHtmlInfo(): string {
+    let text: string = "";
+    if (this.name) {
+      text = `【${this.name}】`;
+    }
+    if (this.passive.name) {
+      text = `${text} ${this.passive.name}`;
+    }
+    if (this.passive.description) {
+      text = `${text}\n\n${this.passive.description}`;
+    }
+    text = text.replace(/\n/g, "<br />");
+    return text;
+  }
 }

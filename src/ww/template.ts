@@ -72,6 +72,7 @@ export class TemplateRowBuff {
       return;
     }
     Object.assign(this, buff);
+    this._item.title = buff.name ? buff.name : "";
   }
 
   public isEmpty(): boolean {
@@ -81,12 +82,23 @@ export class TemplateRowBuff {
     return true;
   }
 
-  public updateByRowBuff(buff: { title: string; value: RowBuff } | any) {
-    console.log(buff);
-    this.name = buff.title;
-    this.type = buff.value?.type;
-    this.value = buff.value?.value;
-    this.duration = buff.value?.duration;
+  public updateByRowBuff(buff: { title: string; value: RowBuff } | string | any) {
+    if (typeof buff === "string") {
+      this.name = buff;
+      this._item = { title: buff, value: undefined };
+    }
+    if (buff.title) {
+      this.name = buff.title;
+    }
+    if (buff.value?.type) {
+      this.type = buff.value?.type;
+    }
+    if (buff.value?.value) {
+      this.value = buff.value?.value;
+    }
+    if (buff.value?.duration) {
+      this.duration = buff.value?.duration;
+    }
   }
 }
 

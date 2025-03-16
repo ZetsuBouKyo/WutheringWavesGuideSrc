@@ -142,7 +142,10 @@ export class RowWeapon {
       return;
     }
 
-    const info = new WeaponInfo(await weaponStore.getInfoByNo(no));
+    const info = await weaponStore.getInfoByNo(no);
+    if (!info) {
+      return;
+    }
 
     this._info = info;
     this.star = info.star;

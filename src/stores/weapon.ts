@@ -1,6 +1,7 @@
 import { mande } from "mande";
 import { defineStore } from "pinia";
 
+import { WeaponInfo } from "@/ww/weapon";
 import { getKeyByValue } from "@/ww/utils";
 
 const name2no: { [name: string]: string } = {
@@ -122,19 +123,19 @@ export const useWeaponStore = defineStore("weapon", {
     getNameByNo(no: string): string {
       return getKeyByValue(name2no, no);
     },
-    async getInfoByNo(no: string): Promise<any> {
+    async getInfoByNo(no: string): Promise<WeaponInfo | undefined> {
       try {
         const req = mande(`/data/weapons/${no}/info.json`);
         if (nos.includes(no)) {
-          const info: any = await req.get();
+          const info: any = new WeaponInfo(await req.get());
           return info;
         }
         return undefined;
       } catch (error) {
-        return error;
+        throw error;
       }
     },
-    async getInfoByName(name: string): Promise<any> {
+    async getInfoByName(name: string): Promise<WeaponInfo | undefined> {
       const no = this.getNoByName(name);
       const info = await this.getInfoByNo(no);
       return info;

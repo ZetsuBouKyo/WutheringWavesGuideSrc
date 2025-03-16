@@ -185,15 +185,15 @@
                 </span>
               </template>
               <template v-slot:item.name="{ item }">
-                <v-tooltip location="top" :text="item.name">
+                <v-tooltip location="end" :text="item.name" :disabled="!item.name">
                   <template v-slot:activator="{ props }">
                     <!-- this is magic -->
                     <v-combobox v-bind="props" v-model="item._item" :items="template.getRowBuffsForSelect()"
                       @update:model-value="templateRows[buffId].buffs[item.id].updateByRowBuff(item._item)"
                       variant="outlined" width="300px" density="compact" hide-details>
                       <template v-slot:item="{ props, item }">
-                        <v-tooltip location="end">
-                          <div>comment</div>
+                        <v-tooltip location="end" width="400px" :disabled="!item.value.getHtmlToolTip()">
+                          <div v-html="item.value.tooltip"></div>
                           <template v-slot:activator="{ props: tooltipProps }">
                             <v-list-item v-bind="{ ...props, ...tooltipProps }"></v-list-item>
                           </template>

@@ -3,7 +3,7 @@ import weapon from "@/assets/data/buffs/weapon.json";
 import echo from "@/assets/data/buffs/echo.json";
 import echo_sonata from "@/assets/data/buffs/echo_sonata.json";
 
-import { RowBuff, RowResonatorBuff, RowWeaponBuff, RowEchoBuff, RowSonataBuff } from "@/ww/row/buff";
+import { RowResonatorBuff, RowWeaponBuff, RowEchoBuff, RowSonataBuff } from "@/ww/row/buff";
 
 class _ResonatorBuffs {
   public data: Array<any> = [];
