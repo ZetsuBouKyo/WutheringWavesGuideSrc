@@ -18,6 +18,18 @@ export class RowCalculationData {
   public echoes: RowEchoes = new RowEchoes();
   public buffs: RowBuffs = new RowBuffs();
   public monster: RowMonster = new RowMonster();
+
+  constructor(data: any = {}) {
+    if (!data || Object.keys(data).length === 0) {
+      return;
+    }
+    const { resonator, weapon, echoes, buffs, monster } = data;
+    this.resonator = new RowResonator(resonator);
+    this.weapon = new RowWeapon(weapon);
+    this.echoes = new RowEchoes(echoes);
+    this.buffs = new RowBuffs(buffs);
+    this.monster = new RowMonster(monster);
+  }
 }
 
 export class RowCalculationResultRegions {

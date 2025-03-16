@@ -6,7 +6,7 @@ import { StatBuffEnum, type TStatBuffEnum } from "@/types/buff";
 import { useEchoStore } from "@/stores/echo";
 import { ResonatorBuffs, WeaponBuffs, EchoBuffs, SonataBuffs } from "@/stores/buff";
 
-import { RowCalculation } from "@/ww/row";
+import { RowCalculation, RowCalculationData } from "@/ww/row";
 import { RowResonator } from "@/ww/row/resonator";
 import { RowWeapon } from "@/ww/row/weapon";
 import { RowEchoes } from "@/ww/row/echoes";
@@ -123,7 +123,6 @@ export class TemplateRow {
   public id: number = 0;
   public selected: boolean = false;
   public skill_ids: Array<any> = [];
-  public row_buffs: Array<RowBuff> = [];
 
   // Calculation
   public calculation: RowCalculation = new RowCalculation();
@@ -132,7 +131,7 @@ export class TemplateRow {
     if (!row || Object.keys(row).length === 0) {
       return;
     }
-    const { buffs, ...data } = row;
+    const { buffs, calculation, ...data } = row;
     Object.assign(this, data);
     if (buffs.length > 0) {
       this.buffs = [];
@@ -141,6 +140,10 @@ export class TemplateRow {
         b.id = i;
         this.buffs.push(b);
       });
+    }
+    if (calculation && calculation.data) {
+      const data = new RowCalculationData(calculation.data);
+      this.calculation = new RowCalculation(data.resonator, data.weapon, data.echoes, data.buffs, data.monster);
     }
   }
 
@@ -210,6 +213,22 @@ export class TemplateCalculationResonator {
   public resonator: RowResonator = new RowResonator();
   public weapon: RowWeapon = new RowWeapon();
   public echoes: RowEchoes = new RowEchoes();
+
+  constructor(r: any = {}) {
+    if (!r || Object.keys(r).length === 0) {
+      return;
+    }
+    const { resonator, weapon, echoes } = r;
+    if (resonator) {
+      this.resonator = new RowResonator(resonator);
+    }
+    if (weapon) {
+      this.weapon = new RowWeapon(weapon);
+    }
+    if (echoes) {
+      this.echoes = new RowEchoes(echoes);
+    }
+  }
 
   public getId(): string {
     let s = "";
@@ -358,6 +377,35 @@ export class TemplateCalculation {
     new TemplateCalculationResonator(),
   ];
   public monster: RowMonster = new RowMonster(); // TODO: deprecate?
+
+  constructor(calculation: any = {}) {
+    if (!calculation || Object.keys(calculation).length === 0) {
+      return;
+    }
+    const { resonators, monster } = calculation;
+
+    if (resonators) {
+      resonators.forEach((resonator: any, i: number) => {
+        switch (i) {
+          case 0:
+            this.resonators[0] = new TemplateCalculationResonator(resonator);
+            break;
+          case 1:
+            this.resonators[1] = new TemplateCalculationResonator(resonator);
+            break;
+          case 2:
+            this.resonators[2] = new TemplateCalculationResonator(resonator);
+            break;
+          default:
+            break;
+        }
+      });
+    }
+
+    if (monster) {
+      this.monster = new RowMonster(monster);
+    }
+  }
 }
 
 export class Template {
@@ -382,20 +430,24 @@ export class Template {
       this.resonators = [new TemplateResonator(), new TemplateResonator(), new TemplateResonator()];
       return;
     }
-    const { resonators, rows, ...data } = template;
+    const { resonators, rows, calculation, ...data } = template;
     Object.assign(this, data);
-    if (resonators.length > 0) {
+    if (resonators && resonators.length > 0) {
       this.resonators = [];
       resonators.forEach((resonator: any) => {
         this.resonators.push(new TemplateResonator(resonator));
       });
     }
 
-    if (rows.length > 0) {
+    if (rows && rows.length > 0) {
       this.rows = [];
       rows.forEach((row: any) => {
         this.rows.push(new TemplateRow(row));
       });
+    }
+
+    if (calculation) {
+      this.calculation = new TemplateCalculation(calculation);
     }
   }
 
@@ -475,6 +527,10 @@ export class Template {
     this.resonators.forEach(async (_, i) => {
       await this.initResonator(i);
     });
+  }
+
+  public getJson(): object {
+    return JSON.parse(JSON.stringify(this));
   }
 
   public getRowBuffNames(): Array<string> {

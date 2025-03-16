@@ -10,6 +10,14 @@
           </template>
           <v-tab value="damage_analysis">{{ $t('general.damage_analysis') }}</v-tab>
         </v-tabs>
+        <div class="d-flex flex-row align-center ml-auto">
+          <v-file-input class="mr-2" max-width="100%" min-width="200" :label="$t('general.load_file')" accept=".json"
+            @change="loadData" variant="outlined" density="compact" hide-details>
+          </v-file-input>
+          <v-btn class="mr-2" v-on:click="saveToJson">
+            {{ $t('general.download_json') }}
+          </v-btn>
+        </div>
       </div>
     </v-container>
     <v-container>
@@ -99,6 +107,9 @@ import { ref } from 'vue'
 
 import { useTemplateStore } from '@/stores/calculation/template';
 
+import { Template } from '@/ww/template';
+import { saveJson } from '@/ww/utils';
+
 const route = useRoute();
 let id: any = route.query.id
 if (!id) {
@@ -115,6 +126,38 @@ const template = useTemplateStore(id)
 
 const tab = ref<string>("")
 const templateTab = ref<string>("basic_info")
+
+
+function saveToJson() {
+  const data = {
+    template: template.data.getJson()
+  }
+  let fname = template.data.id
+  if (fname) {
+    saveJson(data, fname)
+  } else {
+    saveJson(data)
+  }
+}
+
+function loadData(event: Event) {
+  const input = event.target as HTMLInputElement;
+  if (!input.files || input.files.length === 0) {
+    return [undefined, undefined];
+  }
+  const file = input.files[0];
+  const reader = new FileReader();
+  let data;
+  reader.onload = (e) => {
+    try {
+      data = JSON.parse(e.target?.result as string);
+      template.data = new Template(data.template)
+    } catch (error) {
+      console.error("Invalid JSON file", error);
+    }
+  };
+  reader.readAsText(file);
+};
 </script>
 
 <style scoped lang="sass">
