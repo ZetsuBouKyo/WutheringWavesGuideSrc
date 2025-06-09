@@ -8,7 +8,7 @@
         <div class="bg-grey-darken-4 d-flex flex-row align-center pa-2 mr-1">
           <img class="title mr-4" :src="resonatorStore.getIconSrcByName(resonator.name)" />
           <h3>{{ $t(resonator.name) }}</h3>
-          <img class="title" :src="resonator.getElementSrc()" />
+          <img class="title" :src="resonator.elementSrc" />
           <h3 class="mr-4">{{ $t(resonator.element) }}</h3>
         </div>
         <div class="bg-grey-darken-4 d-flex flex-row pa-2 mr-1">

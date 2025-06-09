@@ -10,6 +10,7 @@ export class ResonatorModel {
   public element: string = "";
   public element_src: string = ""; // TODO: deprecated
   public element_en: string = ""; // TODO: deprecated
+  public elementSrc: string = "";
   public name: string = "";
   public chain: string = "";
   public weapon_name: string = "";

@@ -1807,6 +1807,32 @@
         "skill_bonus_type": ""
     },
     {
+        "id": "[光噪效應-全部]菲比-延奏技能-傾聽之心",
+        "category": "共鳴者",
+        "source": "菲比-延奏技能",
+        "suffix": "傾聽之心",
+        "type": "加深",
+        "value": "1.0",
+        "stack": "1",
+        "duration": "30",
+        "target": "全部",
+        "element": "",
+        "skill_bonus_type": "光噪效應"
+    },
+    {
+        "id": "[衍射-全部]菲比-延奏技能-傾聽之心",
+        "category": "共鳴者",
+        "source": "菲比-延奏技能",
+        "suffix": "傾聽之心",
+        "type": "抗性降低",
+        "value": "0.1",
+        "stack": "1",
+        "duration": "30",
+        "target": "全部",
+        "element": "衍射",
+        "skill_bonus_type": ""
+    },
+    {
         "id": "[衍射-自己]菲比-固有技能2-啟示",
         "category": "共鳴者",
         "source": "菲比-固有技能2",
@@ -1882,6 +1908,84 @@
         "duration": "20",
         "target": "自己",
         "element": "",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[普攻-自己]贊尼-共鳴解放-晨昏交替之時",
+        "category": "共鳴者",
+        "source": "贊尼-共鳴解放",
+        "suffix": "晨昏交替之時",
+        "type": "倍率",
+        "value": "0.25",
+        "stack": "1",
+        "duration": "",
+        "target": "自己",
+        "element": "",
+        "skill_bonus_type": "普攻"
+    },
+    {
+        "id": "[加成-自己]贊尼-延奏技能-來日道標",
+        "category": "共鳴者",
+        "source": "贊尼-延奏技能",
+        "suffix": "來日道標",
+        "type": "加成",
+        "value": "0.1",
+        "stack": "1",
+        "duration": "",
+        "target": "自己",
+        "element": "",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[衍射-自己以外]贊尼-延奏技能-來日道標",
+        "category": "共鳴者",
+        "source": "贊尼-延奏技能",
+        "suffix": "來日道標",
+        "type": "加深",
+        "value": "0.2",
+        "stack": "1",
+        "duration": "20",
+        "target": "自己以外",
+        "element": "衍射",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[招式倍率-自己]贊尼-共鳴回路-焰光-LV1",
+        "category": "共鳴者",
+        "source": "贊尼-共鳴回路",
+        "suffix": "焰光-LV1",
+        "type": "招式倍率",
+        "value": "0.05",
+        "stack": "1",
+        "duration": "",
+        "target": "自己",
+        "element": "",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[招式倍率-自己]贊尼-共鳴回路-焰光-LV10",
+        "category": "共鳴者",
+        "source": "贊尼-共鳴回路",
+        "suffix": "焰光-LV10",
+        "type": "招式倍率",
+        "value": "0.0995",
+        "stack": "1",
+        "duration": "",
+        "target": "自己",
+        "element": "",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[衍射-無]贊尼-固有技能1-快速響應",
+        "category": "共鳴者",
+        "source": "贊尼-固有技能1",
+        "suffix": "快速響應",
+        "type": "加成",
+        "value": "0.12",
+        "stack": "1",
+        "duration": "14",
+        "target": "",
+        "element": "衍射",
         "skill_bonus_type": ""
     }
 ]

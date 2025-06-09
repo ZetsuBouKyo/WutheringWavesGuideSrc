@@ -25,6 +25,7 @@ const ActionIcons: any = {
 
 export enum RotationActionEnum {
   COORDINATED_ATTACK = "協同攻擊",
+  SPECTRO_FRAZZLE = "光噪效應",
 }
 
 type RotationAction = {
@@ -75,7 +76,12 @@ export function getRotation(rows: Array<IRotationRow | any>): Array<ResonatorRot
     const resonatorName = row.resonator_name;
     const actionName = row.action;
 
-    if (!resonatorName || !actionName || actionName === RotationActionEnum.COORDINATED_ATTACK) {
+    if (
+      !resonatorName ||
+      !actionName ||
+      actionName === RotationActionEnum.COORDINATED_ATTACK ||
+      actionName === RotationActionEnum.SPECTRO_FRAZZLE
+    ) {
       return;
     }
 

@@ -128,6 +128,7 @@ export class ResonatorDamageDistribution {
   public outro: string = "";
   public echo: string = "";
   public coordinated_attack: string = "";
+  public spectro_frazzle: string = "";
   public none: string = "";
   public normal_attack: string = "";
   public resonance_skill: string = "";
@@ -206,6 +207,9 @@ export class ResonatorDamageDistribution {
           break;
         case SkillBonusEnum.COORDINATED_ATTACK:
           this.coordinated_attack = toNumberString(getDecimal(damage).plus(getNumber(this.coordinated_attack)));
+          break;
+        case SkillBonusEnum.SPECTRO_FRAZZLE:
+          this.spectro_frazzle = toNumberString(getDecimal(damage).plus(getNumber(this.spectro_frazzle)));
           break;
         case SkillBonusEnum.NONE:
         case "":
@@ -499,6 +503,7 @@ export class TeamDamageDistribution {
       "outro",
       "echo",
       "coordinated_attack",
+      "spectro_frazzle",
       "none",
     ];
     skillBonuses.forEach((b: string) => {

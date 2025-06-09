@@ -181,6 +181,10 @@ export class RowEchoes {
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.AERO, "", "0.12"));
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.HEAVY, "0.12"));
         break;
+      case EchoNameEnum.CAPITANEUS:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.SPECTRO, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.HEAVY, "0.12"));
+        break;
       default:
         return buffs;
     }

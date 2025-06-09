@@ -650,7 +650,7 @@
         "skill_bonus_type": "重擊"
     },
     {
-        "id": "[加深]和光回唱-1諧振-光躁效應",
+        "id": "[光噪效應]和光回唱-1諧振-光躁效應",
         "category": "武器",
         "source": "和光回唱-1諧振",
         "suffix": "光躁效應",
@@ -660,7 +660,7 @@
         "duration": "30",
         "target": "",
         "element": "",
-        "skill_bonus_type": ""
+        "skill_bonus_type": "光噪效應"
     },
     {
         "id": "[普攻]和光回唱-5諧振",
@@ -689,7 +689,7 @@
         "skill_bonus_type": "重擊"
     },
     {
-        "id": "[加深]和光回唱-5諧振-光躁效應",
+        "id": "[光噪效應]和光回唱-5諧振-光躁效應",
         "category": "武器",
         "source": "和光回唱-5諧振",
         "suffix": "光躁效應",
@@ -699,6 +699,32 @@
         "duration": "30",
         "target": "",
         "element": "",
+        "skill_bonus_type": "光噪效應"
+    },
+    {
+        "id": "[忽視防禦]焰光裁定-1諧振",
+        "category": "武器",
+        "source": "焰光裁定-1諧振",
+        "suffix": "",
+        "type": "忽視防禦",
+        "value": "0.08",
+        "stack": "1",
+        "duration": "6",
+        "target": "",
+        "element": "",
         "skill_bonus_type": ""
+    },
+    {
+        "id": "[光噪效應]焰光裁定-1諧振",
+        "category": "武器",
+        "source": "焰光裁定-1諧振",
+        "suffix": "",
+        "type": "加深",
+        "value": "0.5",
+        "stack": "1",
+        "duration": "6",
+        "target": "",
+        "element": "",
+        "skill_bonus_type": "光噪效應"
     }
 ]

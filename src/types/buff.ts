@@ -52,6 +52,7 @@ export const SkillBonusEnum = {
   OUTRO: "延奏",
   ECHO: "聲骸",
   COORDINATED_ATTACK: "協同攻擊",
+  SPECTRO_FRAZZLE: "光噪效應",
   HEALING: "治療",
   NONE: "無",
 } as const;
