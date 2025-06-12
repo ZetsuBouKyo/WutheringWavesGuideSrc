@@ -726,5 +726,83 @@
         "target": "",
         "element": "",
         "skill_bonus_type": "光噪效應"
+    },
+    {
+        "id": "[共鳴技能]血誓盟約-1諧振",
+        "category": "武器",
+        "source": "血誓盟約-1諧振",
+        "suffix": "",
+        "type": "加成",
+        "value": "0.1",
+        "stack": "1",
+        "duration": "6",
+        "target": "",
+        "element": "",
+        "skill_bonus_type": "共鳴技能"
+    },
+    {
+        "id": "[氣動]血誓盟約-1諧振",
+        "category": "武器",
+        "source": "血誓盟約-1諧振",
+        "suffix": "",
+        "type": "加深",
+        "value": "0.1",
+        "stack": "1",
+        "duration": "30",
+        "target": "",
+        "element": "氣動",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[氣動]林間的詠嘆調-1諧振",
+        "category": "武器",
+        "source": "林間的詠嘆調-1諧振",
+        "suffix": "",
+        "type": "加成",
+        "value": "0.24",
+        "stack": "1",
+        "duration": "10",
+        "target": "",
+        "element": "氣動",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[抗性降低]林間的詠嘆調-1諧振",
+        "category": "武器",
+        "source": "林間的詠嘆調-1諧振",
+        "suffix": "",
+        "type": "抗性降低",
+        "value": "0.1",
+        "stack": "1",
+        "duration": "20",
+        "target": "",
+        "element": "",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[忽視防禦]不屈命定之冠-1諧振",
+        "category": "武器",
+        "source": "不屈命定之冠-1諧振",
+        "suffix": "",
+        "type": "忽視防禦",
+        "value": "0.08",
+        "stack": "1",
+        "duration": "15",
+        "target": "",
+        "element": "",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[加深]不屈命定之冠-1諧振",
+        "category": "武器",
+        "source": "不屈命定之冠-1諧振",
+        "suffix": "",
+        "type": "加深",
+        "value": "0.2",
+        "stack": "1",
+        "duration": "15",
+        "target": "",
+        "element": "",
+        "skill_bonus_type": ""
     }
 ]

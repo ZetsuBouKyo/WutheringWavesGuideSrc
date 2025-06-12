@@ -157,6 +157,7 @@ const i18n = createI18n({
           outro: "延奏",
           echo: "聲骸",
           coordinated_attack: "協同攻擊",
+          aero_erosion: "風蝕效應",
           spectro_frazzle: "光噪效應",
           none: "無",
         },

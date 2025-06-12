@@ -219,6 +219,7 @@ export function getSkillBonusType(): Array<string> {
     SkillBonusEnum.OUTRO,
     SkillBonusEnum.ECHO,
     SkillBonusEnum.COORDINATED_ATTACK,
+    SkillBonusEnum.AERO_EROSION,
     SkillBonusEnum.SPECTRO_FRAZZLE,
   ];
 }

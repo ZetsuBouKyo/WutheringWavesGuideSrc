@@ -226,6 +226,9 @@ export class TemplateCalculationResonator {
       this.weapon = new RowWeapon(weapon);
     }
     if (echoes) {
+      if (resonator && resonator.name && !echoes.resonator_name) {
+        echoes.resonator_name = resonator.name;
+      }
       this.echoes = new RowEchoes(echoes);
     }
   }

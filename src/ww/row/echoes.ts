@@ -12,6 +12,7 @@ import {
   StatBuffEnum,
 } from "@/types/buff";
 import { EchoNameEnum } from "@/types/echo";
+import { ResonatorNameEnum } from "@/types/resonator";
 import { SonataEnum } from "@/types/sonata";
 
 import { RowEcho } from "@/ww/row/echo";
@@ -62,6 +63,7 @@ export class RowEchoesSummary {
 }
 
 export class RowEchoes {
+  public resonator_name: string = "";
   public policy: string = "";
   public base_attr: string = "";
   public main_skill_bonus: string = "";
@@ -85,6 +87,7 @@ export class RowEchoes {
 
   public duplicate(): RowEchoes {
     const echoes = new RowEchoes();
+    echoes.resonator_name = this.resonator_name;
     echoes.policy = this.policy;
     echoes.base_attr = this.base_attr;
     this.echoes.forEach((echo, i) => {
@@ -184,6 +187,19 @@ export class RowEchoes {
       case EchoNameEnum.CAPITANEUS:
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.SPECTRO, "", "0.12"));
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.HEAVY, "0.12"));
+        break;
+      case EchoNameEnum.REMINISCENCE_FLEURDELYS:
+        switch (this.resonator_name) {
+          case ResonatorNameEnum.RESONATOR_AERO:
+          case ResonatorNameEnum.CARTETHYIA:
+            buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.AERO, "", "0.1"));
+            break;
+        }
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.AERO, "", "0.1"));
+        break;
+      case EchoNameEnum.NIGHTMARES_KELPIE:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.GLACIO, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.AERO, "", "0.12"));
         break;
       default:
         return buffs;

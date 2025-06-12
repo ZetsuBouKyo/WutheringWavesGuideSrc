@@ -27,6 +27,9 @@ export class RowCalculationData {
     this.resonator = new RowResonator(resonator);
     this.weapon = new RowWeapon(weapon);
     this.echoes = new RowEchoes(echoes);
+    if (!this.echoes.resonator_name && this.resonator.name) {
+      this.echoes.resonator_name = this.resonator.name;
+    }
     this.buffs = new RowBuffs(buffs);
     this.monster = new RowMonster(monster);
   }
@@ -128,6 +131,9 @@ export class RowCalculation {
     this.data.resonator = resonator;
     this.data.weapon = weapon;
     this.data.echoes = echoes;
+    if (!this.data.echoes.resonator_name && this.data.resonator.name) {
+      this.data.echoes.resonator_name = this.data.resonator.name;
+    }
     this.data.buffs = buffs;
     this.data.monster = monster;
   }

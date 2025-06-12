@@ -39,3 +39,8 @@ export const ResonatorInfoEnum = {
   CHAIN6: "共鳴鏈6",
 } as const;
 export type TResonatorInfoEnum = (typeof ResonatorInfoEnum)[keyof typeof ResonatorInfoEnum] | string;
+
+export const ResonatorNameEnum = {
+  RESONATOR_AERO: "漂泊者·氣動",
+  CARTETHYIA: "卡提希婭",
+} as const;

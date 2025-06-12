@@ -232,5 +232,83 @@
         "target": "自己",
         "element": "衍射",
         "skill_bonus_type": ""
+    },
+    {
+        "id": "[氣動-自己]流雲逝盡之空-5/5",
+        "category": "合鳴",
+        "source": "流雲逝盡之空",
+        "suffix": "5/5",
+        "type": "加成",
+        "value": "0.15",
+        "stack": "1",
+        "duration": "20",
+        "target": "自己",
+        "element": "氣動",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[氣動-全部]流雲逝盡之空-5/5",
+        "category": "合鳴",
+        "source": "流雲逝盡之空",
+        "suffix": "5/5",
+        "type": "加成",
+        "value": "0.15",
+        "stack": "1",
+        "duration": "20",
+        "target": "全部",
+        "element": "氣動",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[暴擊-自己]願戴榮光之旅-5/5",
+        "category": "合鳴",
+        "source": "願戴榮光之旅",
+        "suffix": "5/5",
+        "type": "暴擊",
+        "value": "0.1",
+        "stack": "1",
+        "duration": "10",
+        "target": "自己",
+        "element": "",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[氣動-自己]願戴榮光之旅-5/5",
+        "category": "合鳴",
+        "source": "願戴榮光之旅",
+        "suffix": "5/5",
+        "type": "加成",
+        "value": "0.3",
+        "stack": "1",
+        "duration": "10",
+        "target": "自己",
+        "element": "氣動",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[熱熔-全部]奔狼燎原之焰-5/5",
+        "category": "合鳴",
+        "source": "奔狼燎原之焰",
+        "suffix": "5/5",
+        "type": "加成",
+        "value": "0.15",
+        "stack": "1",
+        "duration": "35",
+        "target": "全部",
+        "element": "熱熔",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[共鳴解放-自己]奔狼燎原之焰-5/5",
+        "category": "合鳴",
+        "source": "奔狼燎原之焰",
+        "suffix": "5/5",
+        "type": "加成",
+        "value": "0.2",
+        "stack": "1",
+        "duration": "35",
+        "target": "自己",
+        "element": "",
+        "skill_bonus_type": "共鳴解放"
     }
 ]

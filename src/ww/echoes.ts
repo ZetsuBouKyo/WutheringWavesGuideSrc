@@ -18,6 +18,9 @@ export class RowAutoFillEchoes {
     this.resonator = resonator;
     this.weapon = weapon;
     this.echoes = echoes;
+    if (!this.echoes.resonator_name && this.resonator.name) {
+      this.echoes.resonator_name = this.resonator.name;
+    }
     if (echoes.echoes.length !== 5) {
       throw new Error("`echoStores` length must be exactly 5");
     }

@@ -1,4 +1,4 @@
-import sonata_info from "@/assets/data/sonatas.json";
+import sonata_info from "@/assets/data/echo/sonatas.json";
 
 export class SonataInfo {
   public name: string = "";
