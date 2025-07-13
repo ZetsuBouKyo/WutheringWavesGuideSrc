@@ -188,6 +188,10 @@ export class RowEchoes {
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.SPECTRO, "", "0.12"));
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.HEAVY, "0.12"));
         break;
+      case EchoNameEnum.LIONESS_OF_GLORY:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.FUSION, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.LIBERATION, "0.12"));
+        break;
       case EchoNameEnum.REMINISCENCE_FLEURDELYS:
         switch (this.resonator_name) {
           case ResonatorNameEnum.RESONATOR_AERO:

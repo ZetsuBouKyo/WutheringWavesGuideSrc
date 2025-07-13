@@ -804,5 +804,31 @@
         "target": "",
         "element": "",
         "skill_bonus_type": ""
+    },
+    {
+        "id": "[共鳴解放]焰痕-1諧振",
+        "category": "武器",
+        "source": "焰痕-1諧振",
+        "suffix": "",
+        "type": "加成",
+        "value": "0.24",
+        "stack": "1",
+        "duration": "6",
+        "target": "",
+        "element": "",
+        "skill_bonus_type": "共鳴解放"
+    },
+    {
+        "id": "[熱熔]焰痕-1諧振-延長-隊伍",
+        "category": "武器",
+        "source": "焰痕-1諧振",
+        "suffix": "延長-隊伍",
+        "type": "加成",
+        "value": "0.24",
+        "stack": "1",
+        "duration": "30",
+        "target": "",
+        "element": "熱熔",
+        "skill_bonus_type": ""
     }
 ]

@@ -13,4 +13,5 @@ export const EchoNameEnum = {
   CAPITANEUS: "榮光節使",
   REMINISCENCE_FLEURDELYS: "共鳴迴響·芙露德莉斯",
   NIGHTMARES_KELPIE: "夢魘·凱爾匹",
+  LIONESS_OF_GLORY: "榮耀獅像",
 } as const;
