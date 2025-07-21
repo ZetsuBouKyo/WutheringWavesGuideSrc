@@ -44,6 +44,7 @@ const name2no: { [name: string]: string } = {
   "漂泊者·湮滅(女)": "1604",
   "漂泊者·湮滅(男)": "1605",
   洛可可: "1606",
+  坎特蕾拉: "1607",
 };
 
 export const spoilerNames: Array<string> = [];
