@@ -53,7 +53,7 @@
                 <h2>{{ $t('general.manual_input') }}</h2>
               </div>
               <div v-for="(_, i) in echoes.data.echoes" class="d-flex flex-column w-100">
-                <div class="d-flex flex-row mb-4">
+                <div class="d-flex flex-row mb-4 text-yellow-darken-1">
                   <h3>{{ $t('general.nth_echo', { n: i + 1 }) }}</h3>
                 </div>
                 <RowEcho :i="i" :id="id" />

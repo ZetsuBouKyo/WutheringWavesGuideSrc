@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column w-100">
-    <div class="d-flex flex-row mb-4">
+    <div class="d-flex flex-row mb-4 text-yellow-darken-1 font-weight-bold">
       <span>{{ $t('calculation.region.attr') }}</span>
     </div>
     <div class="d-flex flex-row mb-4">
@@ -33,7 +33,7 @@
         hide-details>
       </v-text-field>
     </div>
-    <div class=" d-flex flex-row mb-4">
+    <div class=" d-flex flex-row mb-4 text-yellow-darken-1 font-weight-bold">
       <span>{{ $t('calculation.region.skill_dmg') }}</span>
     </div>
     <div class=" d-flex flex-row mb-4">
@@ -42,7 +42,7 @@
         density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row mb-4">
+    <div class="d-flex flex-row mb-4 text-yellow-darken-1 font-weight-bold">
       <span>{{ $t('calculation.region.magnifier') }}</span>
     </div>
     <div class=" d-flex flex-row mb-4">
@@ -50,7 +50,7 @@
         density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row mb-4">
+    <div class="d-flex flex-row mb-4 text-yellow-darken-1 font-weight-bold">
       <span>{{ $t('calculation.region.amplifier') }}</span>
     </div>
     <div class=" d-flex flex-row mb-4">
@@ -58,7 +58,7 @@
         density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row mb-4">
+    <div class="d-flex flex-row mb-4 text-yellow-darken-1 font-weight-bold">
       <span>{{ $t('calculation.region.bonus') }}</span>
     </div>
     <div class=" d-flex flex-row mb-4">
@@ -66,7 +66,7 @@
         density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row mb-4">
+    <div class="d-flex flex-row mb-4 text-yellow-darken-1 font-weight-bold">
       <span>{{ $t('calculation.region.crit') }}</span>
     </div>
     <div class=" d-flex flex-row mb-4">
@@ -81,7 +81,7 @@
         hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row mb-4">
+    <div class="d-flex flex-row mb-4 text-yellow-darken-1 font-weight-bold">
       <span>{{ $t('calculation.region.def') }}</span>
     </div>
     <div class=" d-flex flex-row mb-4">
@@ -90,7 +90,7 @@
         hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row mb-4">
+    <div class="d-flex flex-row mb-4 text-yellow-darken-1 font-weight-bold">
       <span>{{ $t('calculation.region.res') }}</span>
     </div>
     <div class=" d-flex flex-row mb-4">

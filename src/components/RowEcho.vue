@@ -18,7 +18,7 @@
       </v-select>
     </div>
     <!-- Main affixes -->
-    <div class="d-flex flex-row mb-4">
+    <div class="d-flex flex-row mb-4 text-light-blue-darken-1 font-weight-bold">
       <span>{{ $t('general.main_affix') }}</span>
     </div>
     <div class="d-flex flex-row mb-4">
@@ -32,7 +32,7 @@
         @update:modelValue="echoes.resetPolicy" variant="outlined" density="compact" hide-details>
       </v-text-field>
     </div>
-    <div class="d-flex flex-row mb-4">
+    <div class="d-flex flex-row mb-4 text-light-blue-darken-1 font-weight-bold">
       <span>{{ $t('general.fixed_main_affix') }}</span>
     </div>
     <div class="d-flex flex-row mb-4" :key="echo._fixed_main_affix_key">
@@ -42,7 +42,7 @@
       </v-text-field>
     </div>
     <!-- Sub affixes -->
-    <div class="d-flex flex-row mb-4">
+    <div class="d-flex flex-row mb-4 text-light-blue-darken-1 font-weight-bold">
       <span>{{ $t('general.sub_affix') }}</span>
     </div>
     <div v-for="key in echo.getSubAffixKeys()" class="d-flex flex-row mb-4">
