@@ -1,5 +1,18 @@
 [
     {
+        "id": "[攻擊百分比]星序協響-1諧振-隊伍",
+        "category": "武器",
+        "source": "星序協響-1諧振",
+        "suffix": "隊伍",
+        "type": "攻擊百分比",
+        "value": "0.14",
+        "stack": "1",
+        "duration": "30",
+        "target": "",
+        "element": "",
+        "skill_bonus_type": ""
+    },
+    {
         "id": "[普攻]擎淵怒濤-1諧振",
         "category": "武器",
         "source": "擎淵怒濤-1諧振",
