@@ -15,8 +15,8 @@ export const useRowWeaponStore = (id: string) => {
       loadJson(data: any) {
         this.data = new RowWeapon(data);
       },
-      async updateRowWeaponByName() {
-        await this.data.updateRowWeaponByName();
+      updateRowWeaponByName() {
+        this.data.updateRowWeaponByName();
       },
     },
   });

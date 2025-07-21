@@ -92,7 +92,7 @@ export class RowBuff {
         if (sources.length !== 2) {
           return "";
         }
-        info = await store.getInfoByName(sources[0]);
+        info = store.getInfoByName(sources[0]);
         if (!info.name) {
           return "";
         }

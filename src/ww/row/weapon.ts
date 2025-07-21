@@ -124,7 +124,7 @@ export class RowWeapon {
     return levels;
   }
 
-  public async updateRowWeaponByName() {
+  public updateRowWeaponByName() {
     const name = this.name;
     if (!name) {
       return;
@@ -142,7 +142,7 @@ export class RowWeapon {
       return;
     }
 
-    const info = await weaponStore.getInfoByNo(no);
+    const info = weaponStore.getInfoByNo(no);
     if (!info) {
       return;
     }

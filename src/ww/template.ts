@@ -471,7 +471,7 @@ export class Template {
     // Weapon
     this.calculation.resonators[i].weapon.name = this.resonators[i].resonator_weapon_name;
     this.calculation.resonators[i].weapon.tune = this.resonators[i].resonator_weapon_rank;
-    await this.calculation.resonators[i].weapon.updateRowWeaponByName();
+    this.calculation.resonators[i].weapon.updateRowWeaponByName();
 
     // Echoes
     this.calculation.resonators[i].echoes.base_attr = this.resonators[i].resonator_base_attr;
