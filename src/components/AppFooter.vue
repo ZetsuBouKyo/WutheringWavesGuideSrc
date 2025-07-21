@@ -1,22 +1,30 @@
 <template>
-  <v-footer class="footer" app>
-    <a v-for="item in items" :key="item.title" :href="item.href" :title="item.title"
-      class="d-inline-block mx-2 social-link" rel="noopener noreferrer" target="_blank">
-      <v-icon :icon="item.icon" size="16" />
-    </a>
-
-    <div class="text-caption text-disabled" style="position: absolute; right: 16px;">
-      &copy; 2025-{{ (new Date()).getFullYear() }} <span class="d-none d-sm-inline-block">ZetsuBouKyo</span>
-      —
-      <a class="text-decoration-none on-surface" href="https://en.wikipedia.org/wiki/MIT_License"
-        rel="noopener noreferrer" target="_blank">
-        MIT License
-      </a>
+  <div class="d-flex flex-column">
+    <div class="ad d-flex justify-center">
+      <ins class="adsbygoogle" style="display: inline-block; width: 728px; height: 90px"
+        data-ad-client="ca-pub-4447988057129505" data-ad-slot="7073650511"></ins>
     </div>
-  </v-footer>
+    <v-footer class="footer" app>
+      <a v-for="item in items" :key="item.title" :href="item.href" :title="item.title"
+        class="d-inline-block mx-2 social-link" rel="noopener noreferrer" target="_blank">
+        <v-icon :icon="item.icon" size="16" />
+      </a>
+
+      <div class="text-caption text-disabled" style="position: absolute; right: 16px;">
+        &copy; 2025-{{ (new Date()).getFullYear() }} <span class="d-none d-sm-inline-block">ZetsuBouKyo</span>
+        —
+        <a class="text-decoration-none on-surface" href="https://en.wikipedia.org/wiki/MIT_License"
+          rel="noopener noreferrer" target="_blank">
+          MIT License
+        </a>
+      </div>
+    </v-footer>
+  </div>
 </template>
 
 <script setup lang="ts">
+import { onMounted } from "vue";
+
 const items = [
   {
     title: 'Twitter',
@@ -34,16 +42,26 @@ const items = [
     href: 'https://github.com/ZetsuBouKyo/WutheringWavesGuide',
   },
 ]
+
+onMounted(() => {
+  try {
+    // @ts-ignore
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  } catch (e) {
+  }
+});
 </script>
 
 <style scoped lang="sass">
-  .social-link :deep(.v-icon)
-    color: rgba(var(--v-theme-on-background), var(--v-disabled-opacity))
-    text-decoration: none
-    transition: .2s ease-in-out
+.ad
+  margin-bottom: 48px
+.social-link :deep(.v-icon)
+  color: rgba(var(--v-theme-on-background), var(--v-disabled-opacity))
+  text-decoration: none
+  transition: .2s ease-in-out
 
-    &:hover
-      color: rgba(25, 118, 210, 1)
-  .footer
-    height: var(--ww-footer-height)
+  &:hover
+    color: rgba(25, 118, 210, 1)
+.footer
+  height: var(--ww-footer-height)
 </style>
