@@ -201,9 +201,17 @@ export class RowEchoes {
         }
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.AERO, "", "0.1"));
         break;
+      case EchoNameEnum.REMINISCENCE_FENRICO:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, SkillBonusEnum.HEAVY, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.AERO, "", "0.12"));
+        break;
       case EchoNameEnum.NIGHTMARES_KELPIE:
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.GLACIO, "", "0.12"));
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.AERO, "", "0.12"));
+        break;
+      case EchoNameEnum.NIGHTMARES_HECATE:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.HAVOC, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.ECHO, "0.2"));
         break;
       default:
         return buffs;

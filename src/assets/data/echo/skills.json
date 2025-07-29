@@ -222,5 +222,89 @@
         "base_attr": "攻擊",
         "bonus_type": "聲骸",
         "dmg": "405.00%"
+    },
+    {
+        "id": "五星 榮光節使-1",
+        "element": "衍射",
+        "base_attr": "攻擊",
+        "bonus_type": "聲骸",
+        "dmg": "118.80%"
+    },
+    {
+        "id": "五星 榮光節使-2",
+        "element": "衍射",
+        "base_attr": "攻擊",
+        "bonus_type": "聲骸",
+        "dmg": "59.40%"
+    },
+    {
+        "id": "五星 共鳴迴響·芙露德莉斯-1",
+        "element": "氣動",
+        "base_attr": "攻擊",
+        "bonus_type": "聲骸",
+        "dmg": "27.36%"
+    },
+    {
+        "id": "五星 共鳴迴響·芙露德莉斯-2",
+        "element": "氣動",
+        "base_attr": "攻擊",
+        "bonus_type": "聲骸",
+        "dmg": "136.80%"
+    },
+    {
+        "id": "五星 夢魘·凱爾匹-1",
+        "element": "冷凝",
+        "base_attr": "攻擊",
+        "bonus_type": "聲骸",
+        "dmg": "405.00%"
+    },
+    {
+        "id": "五星 夢魘·凱爾匹-2",
+        "element": "氣動",
+        "base_attr": "攻擊",
+        "bonus_type": "聲骸",
+        "dmg": "405.00%"
+    },
+    {
+        "id": "五星 榮耀獅像-1",
+        "element": "熱熔",
+        "base_attr": "攻擊",
+        "bonus_type": "聲骸",
+        "dmg": "82.08%"
+    },
+    {
+        "id": "五星 榮耀獅像-2",
+        "element": "熱熔",
+        "base_attr": "攻擊",
+        "bonus_type": "聲骸",
+        "dmg": "191.52%"
+    },
+    {
+        "id": "五星 夢魘·飛廉之猩-1",
+        "element": "氣動",
+        "base_attr": "攻擊",
+        "bonus_type": "聲骸",
+        "dmg": "164.16%"
+    },
+    {
+        "id": "五星 夢魘·飛廉之猩-2",
+        "element": "氣動",
+        "base_attr": "攻擊",
+        "bonus_type": "聲骸",
+        "dmg": "21.89%"
+    },
+    {
+        "id": "五星 夢魘·赫卡忒-1",
+        "element": "湮滅",
+        "base_attr": "攻擊",
+        "bonus_type": "聲骸",
+        "dmg": "152.39%"
+    },
+    {
+        "id": "五星 共鳴迴響·芬萊克",
+        "element": "氣動",
+        "base_attr": "攻擊",
+        "bonus_type": "聲骸",
+        "dmg": "273.60%"
     }
 ]

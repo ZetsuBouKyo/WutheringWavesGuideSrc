@@ -12,6 +12,8 @@ export const EchoNameEnum = {
   NIGHTMARE_FEILIAN_BERINGAL: "夢魘·飛廉之猩",
   CAPITANEUS: "榮光節使",
   REMINISCENCE_FLEURDELYS: "共鳴迴響·芙露德莉斯",
+  REMINISCENCE_FENRICO: "共鳴迴響·芬萊克",
   NIGHTMARES_KELPIE: "夢魘·凱爾匹",
   LIONESS_OF_GLORY: "榮耀獅像",
+  NIGHTMARES_HECATE: "夢魘·赫卡忒",
 } as const;

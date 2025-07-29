@@ -35,6 +35,7 @@ const name2no: { [name: string]: string } = {
   "漂泊者·衍射(男)": "1501",
   "漂泊者·衍射(女)": "1502",
   維里奈: "1503",
+  燈燈: "1504",
   守岸人: "1505",
   菲比: "1506",
   贊尼: "1507",
@@ -45,6 +46,7 @@ const name2no: { [name: string]: string } = {
   "漂泊者·湮滅(男)": "1605",
   洛可可: "1606",
   坎特蕾拉: "1607",
+  弗洛洛: "1608",
 };
 
 export const spoilerNames: Array<string> = [];
