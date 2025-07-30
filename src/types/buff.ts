@@ -126,6 +126,7 @@ export const StatBuffEnum = {
   BONUS_BASIC_ATTACK: "bonus_basic_attack",
   BONUS_HEAVY_ATTACK: "bonus_heavy_attack",
   BONUS_RESONANCE_LIBERATION: "bonus_resonance_liberation",
+  BONUS_ECHO: "bonus_echo",
   BONUS_HEALING: "bonus_healing",
 } as const;
 export type TStatBuffEnum = (typeof StatBuffEnum)[keyof typeof StatBuffEnum];

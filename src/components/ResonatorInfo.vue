@@ -191,6 +191,8 @@ const echoRight = [
   { [echoRightCol1]: t('general.bonus_heavy_attack'), [echoRightCol2]: toPercentageString(resonator.echo_heavy_attack_dmg_bonus) },
   { [echoRightCol1]: t('general.bonus_resonance_liberation'), [echoRightCol2]: toPercentageString(resonator.echo_resonance_liberation_dmg_bonus) },
   { [echoRightCol1]: "", [echoRightCol2]: "" },
+  { [echoRightCol1]: t('general.bonus_echo'), [echoRightCol2]: toPercentageString(resonator.echo_echo_dmg_bonus) },
+  { [echoRightCol1]: "", [echoRightCol2]: "" },
   { [echoRightCol1]: t('general.bonus_healing'), [echoRightCol2]: toPercentageString(resonator.echo_healing_bonus) },
   { [echoRightCol1]: "", [echoRightCol2]: "" },
   { [echoRightCol1]: t('general.bonus_glacio'), [echoRightCol2]: toPercentageString(resonator.echo_glacio_dmg_bonus) },

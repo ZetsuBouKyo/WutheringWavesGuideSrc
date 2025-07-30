@@ -116,6 +116,7 @@ const i18n = createI18n({
         bonus_basic_attack: "普攻傷害加成",
         bonus_heavy_attack: "重擊傷害加成",
         bonus_resonance_liberation: "共鳴解放傷害加成",
+        bonus_echo: "聲骸技能傷害加成",
         bonus_healing: "治療效果加成",
         bonus_physics: "物理傷害加成",
         bonus_glacio: "冷凝傷害加成",

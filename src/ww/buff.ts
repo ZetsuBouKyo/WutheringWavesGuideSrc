@@ -36,6 +36,9 @@ export class StatBuff {
   public [StatBuffEnum.BONUS_BASIC_ATTACK]: string = "";
   public [StatBuffEnum.BONUS_HEAVY_ATTACK]: string = "";
   public [StatBuffEnum.BONUS_RESONANCE_LIBERATION]: string = "";
+
+  public [StatBuffEnum.BONUS_ECHO]: string = "";
+
   public [StatBuffEnum.BONUS_HEALING]: string = "";
 
   constructor(buff: any = {}) {

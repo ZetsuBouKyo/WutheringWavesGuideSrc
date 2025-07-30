@@ -68,6 +68,7 @@ export class ResonatorModel {
   public echo_basic_attack_dmg_bonus: string = "";
   public echo_heavy_attack_dmg_bonus: string = "";
   public echo_resonance_liberation_dmg_bonus: string = "";
+  public echo_echo_dmg_bonus: string = "";
   public echo_healing_bonus: string = "";
   public echo_glacio_dmg_bonus: string = "";
   public echo_fusion_dmg_bonus: string = "";

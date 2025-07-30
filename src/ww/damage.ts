@@ -99,6 +99,7 @@ function getResonatorModel(resonator: TemplateCalculationResonator): ResonatorMo
   resonatorModel.echo_resonance_liberation_dmg_bonus = toPercentageString(
     resonator.echoes.summary.getStat(StatBuffEnum.BONUS_RESONANCE_LIBERATION),
   );
+  resonatorModel.echo_echo_dmg_bonus = toPercentageString(resonator.echoes.summary.getStat(StatBuffEnum.BONUS_ECHO));
   resonatorModel.echo_healing_bonus = toPercentageString(resonator.echoes.summary.getStat(StatBuffEnum.BONUS_HEALING));
   resonatorModel.echo_glacio_dmg_bonus = toPercentageString(
     resonator.echoes.summary.getStat(StatBuffEnum.BONUS_GLACIO),
