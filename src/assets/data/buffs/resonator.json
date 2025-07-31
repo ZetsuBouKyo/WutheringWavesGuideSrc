@@ -1671,7 +1671,7 @@
         "type": "攻擊",
         "value": "1.0",
         "stack": "1",
-        "duration": "300",
+        "duration": "30",
         "target": "全部",
         "element": "",
         "skill_bonus_type": ""
