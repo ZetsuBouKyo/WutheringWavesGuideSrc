@@ -546,7 +546,7 @@
         "skill_bonus_type": "普攻"
     },
     {
-        "id": "[共鳴技能]悲喜劇-1諧振",
+        "id": "[重擊]悲喜劇-1諧振",
         "category": "武器",
         "source": "悲喜劇-1諧振",
         "suffix": "",
@@ -556,7 +556,7 @@
         "duration": "3",
         "target": "",
         "element": "",
-        "skill_bonus_type": "共鳴技能"
+        "skill_bonus_type": "重擊"
     },
     {
         "id": "[共鳴技能]死與舞-1諧振",
@@ -842,6 +842,71 @@
         "duration": "30",
         "target": "",
         "element": "熱熔",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[普攻]海的呢喃-1諧振-第1層",
+        "category": "武器",
+        "source": "海的呢喃-1諧振",
+        "suffix": "第1層",
+        "type": "加成",
+        "value": "0.4",
+        "stack": "1",
+        "duration": "10",
+        "target": "",
+        "element": "",
+        "skill_bonus_type": "普攻"
+    },
+    {
+        "id": "[湮滅]海的呢喃-1諧振-第2層",
+        "category": "武器",
+        "source": "海的呢喃-1諧振",
+        "suffix": "第2層",
+        "type": "抗性降低",
+        "value": "0.12",
+        "stack": "1",
+        "duration": "10",
+        "target": "",
+        "element": "湮滅",
+        "skill_bonus_type": ""
+    },
+    {
+        "id": "[共鳴技能]幽冥的忘憂章-1諧振",
+        "category": "武器",
+        "source": "幽冥的忘憂章-1諧振",
+        "suffix": "",
+        "type": "加成",
+        "value": "0.32",
+        "stack": "1",
+        "duration": "12",
+        "target": "",
+        "element": "",
+        "skill_bonus_type": "共鳴技能"
+    },
+    {
+        "id": "[聲骸]幽冥的忘憂章-1諧振",
+        "category": "武器",
+        "source": "幽冥的忘憂章-1諧振",
+        "suffix": "",
+        "type": "加深",
+        "value": "0.32",
+        "stack": "1",
+        "duration": "12",
+        "target": "",
+        "element": "",
+        "skill_bonus_type": "聲骸"
+    },
+    {
+        "id": "[忽視防禦]幽冥的忘憂章-1諧振",
+        "category": "武器",
+        "source": "幽冥的忘憂章-1諧振",
+        "suffix": "",
+        "type": "忽視防禦",
+        "value": "0.08",
+        "stack": "1",
+        "duration": "12",
+        "target": "",
+        "element": "",
         "skill_bonus_type": ""
     }
 ]

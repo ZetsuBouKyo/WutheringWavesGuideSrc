@@ -336,5 +336,31 @@
         "target": "自己",
         "element": "",
         "skill_bonus_type": "聲骸"
+    },
+    {
+        "id": "[延奏-自己]幽夜隱匿之帷-5/5",
+        "category": "合鳴",
+        "source": "幽夜隱匿之帷",
+        "suffix": "5/5",
+        "type": "招式倍率",
+        "value": "4.8",
+        "stack": "1",
+        "duration": "",
+        "target": "自己",
+        "element": "",
+        "skill_bonus_type": "延奏"
+    },
+    {
+        "id": "[湮滅-下一位]幽夜隱匿之帷-5/5",
+        "category": "合鳴",
+        "source": "幽夜隱匿之帷",
+        "suffix": "5/5",
+        "type": "加成",
+        "value": "0.15",
+        "stack": "1",
+        "duration": "15",
+        "target": "下一位",
+        "element": "湮滅",
+        "skill_bonus_type": ""
     }
 ]
