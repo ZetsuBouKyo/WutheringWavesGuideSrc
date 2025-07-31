@@ -271,5 +271,18 @@
         "target": "自己",
         "element": "",
         "skill_bonus_type": "協同攻擊"
+    },
+    {
+        "id": "[聲骸-自己]夢魘·無冠者",
+        "category": "聲骸",
+        "source": "夢魘·無冠者",
+        "suffix": "",
+        "type": "加成",
+        "value": "0.2",
+        "stack": "1",
+        "duration": "2",
+        "target": "自己",
+        "element": "",
+        "skill_bonus_type": "聲骸"
     }
 ]
