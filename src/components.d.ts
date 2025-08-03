@@ -12,6 +12,7 @@ declare module 'vue' {
     Doc: typeof import('./components/Doc.vue')['default']
     DocHeaders: typeof import('./components/DocHeaders.vue')['default']
     Explorer: typeof import('./components/Explorer.vue')['default']
+    ImageDownloadPanel: typeof import('./components/ImageDownloadPanel.vue')['default']
     Markdown: typeof import('./components/Markdown.vue')['default']
     ResonatorInfo: typeof import('./components/ResonatorInfo.vue')['default']
     ResonatorTier: typeof import('./components/ResonatorTier.vue')['default']
