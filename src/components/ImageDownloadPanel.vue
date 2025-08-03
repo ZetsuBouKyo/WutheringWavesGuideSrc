@@ -40,6 +40,7 @@ const width = ref<string>(props.defaultWidth)
 
 async function saveImage() {
   if (image) {
+    image.value?.classList.add("bg-background")
     await saveDomToImage(image, props.fname)
   }
 }

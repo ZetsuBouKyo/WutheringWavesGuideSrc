@@ -1,7 +1,10 @@
 <template>
-  <ResonatorTier v-if="comparison" :title="`【${affixPolicyForTitle}】${resonatorNameForTitle} ${$t(comparison.title)}`"
-    :resonatorNo="resonatorNo" :teamDamageDistributions="teamDamageDistributions">
-  </ResonatorTier>
+  <ImageDownloadPanel v-if="comparison"
+    :fname="`【${affixPolicyForTitle}】${resonatorNameForTitle} ${$t(comparison.title)}`">
+    <ResonatorTier v-if="comparison" :title="`【${affixPolicyForTitle}】${resonatorNameForTitle} ${$t(comparison.title)}`"
+      :resonatorNo="resonatorNo" :teamDamageDistributions="teamDamageDistributions">
+    </ResonatorTier>
+  </ImageDownloadPanel>
 </template>
 
 <script lang="ts" setup>

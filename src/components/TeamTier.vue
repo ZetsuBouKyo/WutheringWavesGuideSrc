@@ -13,7 +13,7 @@
             <v-row class="text-grey-darken-1">
               <div class="d-flex flex-row w-100">
                 <span class="header">{{ $t('general.template_id') }}: </span>
-                <a class="text-decoration-none text-truncate"
+                <a class="value text-decoration-none text-truncate w-100"
                   :href="`/template/${teamDistribution.getHashedTemplateID()}`">
                   {{ $t(teamDistribution.template_id) }}
                 </a>
@@ -22,13 +22,13 @@
             <v-row class="text-grey-darken-1">
               <div class="d-flex flex-row w-100">
                 <span class="header text-truncater">{{ $t('general.monster_id') }}: </span>
-                <span class="text-truncate">{{ $t(teamDistribution.monster_id) }}</span>
+                <span class="value text-truncate">{{ $t(teamDistribution.monster_id) }}</span>
               </div>
             </v-row>
             <v-row class="text-grey-darken-1">
               <div class="d-flex flex-row w-100">
                 <span class="header text-truncate">{{ $t('general.team_dps') }}: </span>
-                <span class="text-truncate">{{ teamDistribution.getTeamDPSString() }} </span>
+                <span class="value text-truncate">{{ teamDistribution.getTeamDPSString() }} </span>
               </div>
             </v-row>
           </v-col>
@@ -46,7 +46,7 @@
                     <div
                       :class="`barh w-100 d-flex flex-row-reverse align-center bg-${resonatorNameToElementEn[resonatorName]} ${isDivide(i)}`">
                       <span v-if="teamDistribution.getResonatorMaxDPSPercentage(resonatorName) > 0.1"
-                        class="mr-4 text-truncate">
+                        class="mr-4 text-truncate text-end w-100">
                         {{ teamDistribution.getResonatorMaxDPSPercentageString(resonatorName) }}</span>
                     </div>
                   </div>
@@ -154,6 +154,8 @@ watch(() => { return teamDamageDistributions.length }, () => {
   width: 60px
 .header
   width: 80px
+.value
+  width: calc(100% - 80px)
 .barh
   height: 40px
 .divide

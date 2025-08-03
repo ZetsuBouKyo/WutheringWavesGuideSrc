@@ -1,11 +1,11 @@
 <template>
   <v-container>
     <div class="d-flex flex-column align-start">
-      <v-row class="mb-2">
+      <v-row class="my-2">
         <h1 :key="title">{{ title }}</h1>
       </v-row>
-      <v-row v-if="isWarning" class="ma-1">
-        <h2>{{ $t('resonator.damage_comparison.warning') }}</h2>
+      <v-row v-if="isWarning" class="ma-1 w-100">
+        <h2 class="w-100">{{ $t('resonator.damage_comparison.warning') }}</h2>
       </v-row>
       <div class="d-flex flex-column w-100 my-2" v-for="(teamDistribution, i) in teamDamageDistributions" :key="i">
         <div class="d-flex flex-row mb-1">
@@ -14,17 +14,18 @@
           </div>
           <v-col>
             <v-row class="text-grey-darken-1">
-              <div class="d-flex flex-row">
+              <div class="d-flex flex-row w-100">
                 <span class="header">{{ $t('general.template_id') }}: </span>
-                <a class="text-blue-accent-1 text-decoration-none text-truncate"
-                  :href="`/template/${teamDistribution.getHashedTemplateID()}`">{{
-                    teamDistribution.template_id }}</a>
+                <a class="value text-blue-accent-1 text-decoration-none text-truncate"
+                  :href="`/template/${teamDistribution.getHashedTemplateID()}`">
+                  {{ teamDistribution.template_id }}
+                </a>
               </div>
             </v-row>
             <v-row class="text-grey-darken-1">
-              <div class="d-flex flex-row">
+              <div class="d-flex flex-row w-100">
                 <span class="header">{{ $t('general.resonator_id') }}: </span>
-                <div class="text-blue-accent-1 text-decoration-none text-truncate cursor-pointer"
+                <div class="value d-flex text-blue-accent-1 text-decoration-none text-truncate cursor-pointer"
                   v-on:click="jumpToSection(goTo, `#resonator${i}`)">
                   {{ teamDistribution.resonators[resonatorName].resonator_id }}
                 </div>
@@ -39,7 +40,7 @@
             <v-row class="text-grey-darken-1">
               <div class="d-flex flex-row">
                 <span class="header text-truncate">{{ $t('general.team_dps') }}: </span>
-                <div class="d-flex flex-row text-truncate">
+                <div class="value d-flex flex-row text-truncate">
                   <span>{{ teamDistribution.getMinTeamDPSString() }} ({{ teamDistribution.duration_2 }}s)</span>
                   <span>&ensp;~&ensp;</span>
                   <span class="text-grey-lighten-1">
@@ -54,7 +55,7 @@
           <div v-if="teamDistribution.getResonatorMaxDPSPercentageByBasedDPS(resonatorName, baseDPS) > 0.5"
             :class="`barh d-flex flex-row-reverse align-center bg-${resonatorElementEn}`"
             :style="`width: ${teamDistribution.getResonatorMaxDPSPercentageStringByBasedDPS(resonatorName, baseDPS)};`">
-            <span class="mr-4 text-truncate">
+            <span class="mr-4 text-truncate text-end w-100">
               DPS: {{ teamDistribution.getResonatorDPSString(resonatorName) }}
               ({{ teamDistribution.getResonatorMaxDPSPercentageStringByBasedDPS(resonatorName, baseDPS) }})</span>
           </div>
@@ -62,7 +63,7 @@
             <div :class="`barh d-flex bg-${resonatorElementEn}`"
               :style="`width: ${teamDistribution.getResonatorMaxDPSPercentageStringByBasedDPS(resonatorName, baseDPS)};`">
             </div>
-            <span class="ml-4 text-truncate">
+            <span class="ml-4 text-truncate w-100">
               DPS: {{ teamDistribution.getResonatorDPSString(resonatorName) }}
               ({{ teamDistribution.getResonatorMaxDPSPercentageStringByBasedDPS(resonatorName, baseDPS) }})</span>
           </div>
@@ -142,6 +143,8 @@ watch(() => { return teamDamageDistributions.length }, () => {
   width: 60px
 .header
   width: 80px
+.value
+  width: calc(100% - 80px)
 .barh
   height: 40px
 </style>

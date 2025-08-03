@@ -1,9 +1,11 @@
 <template>
   <v-container>
-    <ResonatorTier :title="$t('template.header.echo_damage_comparison', { name: resonatorName })"
-      :resonatorNo="resonatorNo" :teamDamageDistributions="teamDamageDistributions" :isWarning="false" :toSort="false"
-      :key="teamDamageDistributions.length">
-    </ResonatorTier>
+    <ImageDownloadPanel :fname="$t('template.header.echo_damage_comparison', { name: resonatorName })">
+      <ResonatorTier :title="$t('template.header.echo_damage_comparison', { name: resonatorName })"
+        :resonatorNo="resonatorNo" :teamDamageDistributions="teamDamageDistributions" :isWarning="false" :toSort="false"
+        :key="teamDamageDistributions.length">
+      </ResonatorTier>
+    </ImageDownloadPanel>
     <v-col v-for="(resonatorInfo, i) in resonatorInfos" :key="i">
       <v-container>
         <v-row class="mb-2">

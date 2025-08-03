@@ -168,6 +168,7 @@ const i18n = createI18n({
         template: "模板",
         template_id: "模板ID",
         monster_id: "怪物ID",
+        team: "隊伍",
         team_dps: "隊伍DPS",
         resonator_nth: "共鳴者{n}",
         resonator_1: "共鳴者1",

@@ -1,6 +1,9 @@
 <template>
-  <TeamTier v-if="comparison" :title="`【${affixPolicyForTitle}】${resonatorNameForTitle} ${$t(comparison.title)}`"
-    :affixPolicy="affixPolicy" :templateIds="templateIds" />
+  <ImageDownloadPanel v-if="comparison"
+    :fname="`【${affixPolicyForTitle}】${resonatorNameForTitle} ${$t(comparison.title)}`">
+    <TeamTier :title="`【${affixPolicyForTitle}】${resonatorNameForTitle} ${$t(comparison.title)}`"
+      :affixPolicy="affixPolicy" :templateIds="templateIds" />
+  </ImageDownloadPanel>
 </template>
 
 <script lang="ts" setup>
