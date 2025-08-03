@@ -196,6 +196,12 @@
                   </span>
                 </v-row>
                 <v-row class="ma-1 text-truncate">
+                  <span class="team-damage-distribution-header">{{ $t('general.resonator') }}: </span>
+                  <span class="team-damage-distribution-header-value text-truncate">
+                    {{ $t(resonatorName) }}
+                  </span>
+                </v-row>
+                <v-row class="ma-1 text-truncate">
                   <span class="team-damage-distribution-header">{{ $t('general.resonator_dps') }}: </span>
                   <span class="team-damage-distribution-header-value text-truncate">
                     {{ damageAnalysis.damage_distribution.getResonatorDPSString(resonatorName) }}
@@ -264,6 +270,12 @@
                   </span>
                 </v-row>
                 <v-row class="ma-1 text-truncate">
+                  <span class="team-damage-distribution-header">{{ $t('general.resonator') }}: </span>
+                  <span class="team-damage-distribution-header-value text-truncate">
+                    {{ $t(resonatorName) }}
+                  </span>
+                </v-row>
+                <v-row class="ma-1 text-truncate">
                   <span class="team-damage-distribution-header">{{ $t('general.resonator_damage') }}: </span>
                   <span class="team-damage-distribution-header-value text-truncate">
                     {{ damageAnalysis.damage_distribution.getResonatorDamageString(resonatorName) }}
@@ -325,6 +337,12 @@
                   <span class="team-damage-distribution-header">{{ $t('general.monster_id') }}: </span>
                   <span class="team-damage-distribution-header-value text-truncate">
                     {{ $t(damageAnalysis.resonator_template.monster_id) }}
+                  </span>
+                </v-row>
+                <v-row class="ma-1 text-truncate">
+                  <span class="team-damage-distribution-header">{{ $t('general.resonator') }}: </span>
+                  <span class="team-damage-distribution-header-value text-truncate">
+                    {{ $t(resonatorName) }}
                   </span>
                 </v-row>
                 <v-row class="ma-1 text-truncate">
