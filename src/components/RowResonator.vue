@@ -27,7 +27,7 @@
         density="compact" hide-details>
         <template v-slot:item="{ props, item }">
           <v-tooltip location="end" max-width="400" :disabled="!item.value.tooltip">
-            <div v-html="item.value.tooltip"></div>
+            <div v-html="getPlainText(item.value.tooltip)"></div>
             <template v-slot:activator="{ props: tooltipProps }">
               <v-list-item v-bind="{ ...props, ...tooltipProps }"></v-list-item>
             </template>
@@ -198,6 +198,7 @@ import { useResonatorStore } from '@/stores/resonator';
 import { getResonatorBaseAttrs } from '@/ww/resonator';
 import { RowAutoFillEchoes } from "@/ww/echoes"
 import { getSkillBonusType } from '@/ww/buff';
+import { getPlainText } from '@/ww/utils';
 
 const route = useRoute();
 let spoiler: any = route.query.spoiler

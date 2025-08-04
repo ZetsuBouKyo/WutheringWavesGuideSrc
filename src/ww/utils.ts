@@ -149,3 +149,13 @@ export function getDecimal(n: any): Decimal {
   }
   return new Decimal(getNumber(n));
 }
+
+export function getPlainText(text: string): string {
+  if (!text) {
+    return "";
+  }
+  let t1 = text.replace(/<\s*(color|size)=.*?>|<\/\s*(color|size)\s*>/gi, "");
+  // @ts-ignore
+  let t2 = t1.replaceAll(" ", "");
+  return t2;
+}
