@@ -159,3 +159,28 @@ export function getPlainText(text: string): string {
   let t2 = t1.replaceAll(" ", "");
   return t2;
 }
+
+export function getFormatString(template: string, ...args: Array<any>) {
+  if (!template) {
+    return args[0];
+  }
+  return template.replace(/{(\d+)}/g, (match, index) => {
+    return typeof args[index] !== "undefined" ? args[index] : match;
+  });
+}
+
+export function getRichText(text: string): string {
+  return text
+    .replace(/<size=(\d+)>/g, "")
+    .replace(/<\/size>/g, "")
+    .replace(/<color=Ice>/g, '<span class="text-glacio font-weight-bold">')
+    .replace(/<color=Fire>/g, '<span class="text-fusion font-weight-bold">')
+    .replace(/<color=Thunder>/g, '<span class="text-electro font-weight-bold">')
+    .replace(/<color=Wind>/g, '<span class="text-aero font-weight-bold">')
+    .replace(/<color=Light>/g, '<span class="text-spectro font-weight-bold">')
+    .replace(/<color=Dark>/g, '<span class="text-havoc font-weight-bold">')
+    .replace(/<color=Highlight>/g, '<span class="text-highlight font-weight-bold">')
+    .replace(/<\/color>/g, "</span>")
+    .replace(/<a href=(\d+)>/g, "")
+    .replace(/\n/g, "<br>");
+}

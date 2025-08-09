@@ -42,9 +42,6 @@ export class StatBuff {
   public [StatBuffEnum.BONUS_HEALING]: string = "";
 
   constructor(buff: any = {}) {
-    if (!buff || Object.keys(buff).length === 0) {
-      return;
-    }
     Object.assign(this, buff);
   }
 

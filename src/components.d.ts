@@ -15,6 +15,7 @@ declare module 'vue' {
     ImageDownloadPanel: typeof import('./components/ImageDownloadPanel.vue')['default']
     Markdown: typeof import('./components/Markdown.vue')['default']
     ResonatorInfo: typeof import('./components/ResonatorInfo.vue')['default']
+    ResonatorSkillData: typeof import('./components/ResonatorSkillData.vue')['default']
     ResonatorTier: typeof import('./components/ResonatorTier.vue')['default']
     Rotation: typeof import('./components/Rotation.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

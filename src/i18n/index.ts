@@ -30,6 +30,11 @@ const i18n = createI18n({
         result: "計算結果",
       },
       general: {
+        detailed_skill_info: "詳細技能",
+        skill_damage: "技能傷害",
+        element: "屬性",
+        resonance_energy_regen: "回復共鳴能量",
+        concerto_regen: "回復協奏能量",
         analyze: "分析",
         damage_analysis: "傷害分析",
         table: "表單",
@@ -226,6 +231,13 @@ const i18n = createI18n({
       },
       resonator: {
         header: {
+          skill: "技能",
+          normal_attack: "常態攻擊",
+          resonance_skill: "共鳴技能",
+          forte_circuit: "共鳴回路",
+          resonance_liberation: "共鳴解放",
+          intro_skill: "變奏技能",
+          outro_skill: "延奏技能",
           damage_analysis: "傷害分析",
           damage_comparison: "傷害比較",
         },

@@ -77,11 +77,12 @@ export class ResonatorModel {
   public echo_spectro_dmg_bonus: string = "";
   public echo_havoc_dmg_bonus: string = "";
 
-  constructor(model: any = {}) {
-    if (!model || Object.keys(model).length === 0) {
-      return;
-    }
-    Object.assign(this, model);
+  constructor(data: any = {}) {
+    Object.assign(this, data);
+  }
+
+  duplicate(): ResonatorModel {
+    return new ResonatorModel(JSON.parse(JSON.stringify(this)));
   }
 
   public getElementSrc(): string {
@@ -117,12 +118,129 @@ export class ResonatorModels {
   }
 }
 
-export class ResonatorInfo {
-  public no: string = "";
+export class ResonatorTagInfo {
   public name: string = "";
-  public rank: string = "";
+  public desc: string = "";
+  public icon: string = "";
+  public color: string = "";
+
+  constructor(data: any = {}) {
+    Object.assign(this, data);
+  }
+
+  duplicate(): ResonatorTagInfo {
+    return new ResonatorTagInfo(JSON.parse(JSON.stringify(this)));
+  }
+}
+
+export class ResonatorStat {
+  public life: number = 0;
+  public atk: number = 0;
+  public def: number = 0;
+  public exp: number = 0;
+
+  constructor(data: any = {}) {
+    Object.assign(this, data);
+  }
+
+  duplicate(): ResonatorStat {
+    return new ResonatorStat(JSON.parse(JSON.stringify(this)));
+  }
+}
+
+export class ResonatorSpecialCook {
+  public id: number = 0;
+  public name: string = "";
+  public desc: string = "";
+  public icon: string = "";
+  public rarity: number = 0;
+
+  constructor(data: any = {}) {
+    Object.assign(this, data);
+  }
+
+  duplicate(): ResonatorSpecialCook {
+    return new ResonatorSpecialCook(JSON.parse(JSON.stringify(this)));
+  }
+}
+
+export class ResonatorCharactorInfo {
+  public birth: string = "";
+  public sex: string = "";
+  public country: string = "";
+  public influence: string = "";
+  public info: string = "";
+  public talentname: string = "";
+  public talentdoc: string = "";
+  public talentcertification: string = "";
+  public cvnamecn: string = "";
+  public cvnamejp: string = "";
+  public cvnameko: string = "";
+  public cvnameen: string = "";
+
+  constructor(data: any = {}) {
+    Object.assign(this, data);
+  }
+
+  duplicate(): ResonatorCharactorInfo {
+    return new ResonatorCharactorInfo(JSON.parse(JSON.stringify(this)));
+  }
+}
+
+export class ResonatorStory {
+  public title: string = "";
+  public content: string = "";
+
+  constructor(data: any = {}) {
+    Object.assign(this, data);
+  }
+
+  duplicate(): ResonatorStory {
+    return new ResonatorStory(JSON.parse(JSON.stringify(this)));
+  }
+}
+
+export class ResonatorVoice {
+  public type: number | undefined = undefined;
+  public title: string = "";
+  public content: string = "";
+
+  constructor(data: any = {}) {
+    Object.assign(this, data);
+  }
+
+  duplicate(): ResonatorVoice {
+    return new ResonatorVoice(JSON.parse(JSON.stringify(this)));
+  }
+}
+
+export class ResonatorGood {
+  public title: string = "";
+  public content: string = "";
+  public icon: string = "";
+
+  constructor(data: any = {}) {
+    Object.assign(this, data);
+  }
+
+  duplicate(): ResonatorGood {
+    return new ResonatorGood(JSON.parse(JSON.stringify(this)));
+  }
+}
+
+export class ResonatorInfo {
+  public id: string = "";
+  public no: string = ""; // @deprecated
+  public rarity: string = "";
+  public rank: string = ""; // @deprecated
+  public name: string = "";
+  public nick_name: string = "";
+  public desc: string = "";
+  public tags: Array<ResonatorTagInfo> = [];
   public is_permanent?: boolean = undefined;
   public stat_bonus: StatBuff = new StatBuff();
+  public weapon_no: string = "";
+  public element_no: string = "";
   public element_zh_tw: string = "";
   public element_en: string = "";
 
@@ -130,29 +248,112 @@ export class ResonatorInfo {
   public skills: Array<any> = [];
   public skill_infos: any = {};
 
+  public total_exp: number = 0;
+  public stats: { [key: string]: ResonatorStat } = {};
+  public special_cook: ResonatorSpecialCook = new ResonatorSpecialCook();
+  public chara_info: ResonatorCharactorInfo = new ResonatorCharactorInfo();
+  public stories: Array<ResonatorStory> = [];
+  public voices: Array<ResonatorVoice> = [];
+  public goods: Array<ResonatorGood> = [];
+
   constructor(info: any = {}) {
     if (!info || Object.keys(info).length === 0) {
       return;
     }
-    Object.assign(this, info);
+    const { tags, stat_bonus, stats, special_cook, chara_info, stories, voices, goods, ...data } = info;
+    Object.assign(this, data);
+
+    if (tags) {
+      for (const tag of tags) {
+        this.tags.push(new ResonatorTagInfo(tag));
+      }
+    }
+
+    if (stat_bonus) {
+      this.stat_bonus = new StatBuff(stat_bonus);
+    }
+
+    if (stats) {
+      const levels = Object.keys(stats);
+      for (const level of levels) {
+        this.stats[level] = new ResonatorStat(stats[level]);
+      }
+    }
+
+    if (special_cook) {
+      this.special_cook = new ResonatorSpecialCook(special_cook);
+    }
+
+    if (chara_info) {
+      this.chara_info = new ResonatorCharactorInfo(chara_info);
+    }
+
+    if (stories) {
+      for (const story of stories) {
+        this.stories.push(new ResonatorStory(story));
+      }
+    }
+
+    if (voices) {
+      for (const voice of voices) {
+        this.voices.push(new ResonatorVoice(voice));
+      }
+    }
+
+    if (goods) {
+      for (const good of goods) {
+        this.goods.push(new ResonatorGood(good));
+      }
+    }
   }
 
   public duplicate(): ResonatorInfo {
     const info = new ResonatorInfo();
-    info.no = this.no;
+    info.id = this.id;
+    info.no = this.no; // @deprecated
+    info.rarity = this.rarity;
+    info.rank = this.rank; // @deprecated
     info.name = this.name;
-    info.rank = this.rank;
+    info.nick_name = this.nick_name;
+    info.desc = this.desc;
+
+    info.tags = [];
+    for (const tag of this.tags) {
+      info.tags.push(tag.duplicate());
+    }
+
     info.is_permanent = this.is_permanent;
     if (this.stat_bonus.duplicate !== undefined) {
       info.stat_bonus = this.stat_bonus.duplicate();
     } else {
       info.stat_bonus = JSON.parse(JSON.stringify(this.stat_bonus));
     }
+    info.weapon_no = this.weapon_no;
+    info.element_no = this.element_no;
     info.element_zh_tw = this.element_zh_tw;
     info.element_en = this.element_en;
     info.attrs = JSON.parse(JSON.stringify(this.attrs));
     info.skills = JSON.parse(JSON.stringify(this.skills));
     info.skill_infos = JSON.parse(JSON.stringify(this.skill_infos));
+
+    info.total_exp = this.total_exp;
+    const levels = Object.keys(this.stats);
+    for (const level of levels) {
+      info.stats[level] = this.stats[level].duplicate();
+    }
+    info.special_cook = this.special_cook.duplicate();
+    info.chara_info = this.chara_info.duplicate();
+
+    for (const story of this.stories) {
+      info.stories.push(story.duplicate());
+    }
+    for (const voice of this.voices) {
+      info.voices.push(voice.duplicate());
+    }
+    for (const good of this.goods) {
+      info.goods.push(good.duplicate());
+    }
+
     return info;
   }
 

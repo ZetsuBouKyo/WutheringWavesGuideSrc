@@ -24,6 +24,7 @@ export default createVuetify({
           aero: "rgb(88, 252, 180)",
           spectro: "rgb(255, 228, 108)",
           havoc: "rgb(208, 140, 180)",
+          highlight: "rgb(0, 255, 0)",
         },
       },
     },
