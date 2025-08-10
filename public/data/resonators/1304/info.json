@@ -26,7 +26,7 @@
         "crit_rate": "0.08",
         "bonus_spectro": "0.2"
     },
-    "weapon_no": 1,
+    "weapon_id": 1,
     "element_id": 5,
     "element_zh_tw": "衍射",
     "element_en": "spectro",

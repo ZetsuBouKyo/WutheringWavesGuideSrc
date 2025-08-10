@@ -31,7 +31,7 @@
         "hp_p": "0.12",
         "bonus_healing": "0.12"
     },
-    "weapon_no": 5,
+    "weapon_id": 5,
     "element_id": 1,
     "element_zh_tw": "冷凝",
     "element_en": "glacio",

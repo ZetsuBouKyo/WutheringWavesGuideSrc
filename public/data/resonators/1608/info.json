@@ -37,7 +37,7 @@
         "atk_p": "0.12",
         "crit_rate": "0.08"
     },
-    "weapon_no": 5,
+    "weapon_id": 5,
     "element_id": 6,
     "element_zh_tw": "湮滅",
     "element_en": "havoc",

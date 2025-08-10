@@ -25,7 +25,7 @@
         "atk_p": "0.12",
         "bonus_havoc": "0.12"
     },
-    "weapon_no": 2,
+    "weapon_id": 2,
     "element_id": 6,
     "element_zh_tw": "湮滅",
     "element_en": "havoc",

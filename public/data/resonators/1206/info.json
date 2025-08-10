@@ -38,7 +38,7 @@
         "crit_rate": "0.08",
         "bonus_fusion": "0.15"
     },
-    "weapon_no": 2,
+    "weapon_id": 2,
     "element_id": 2,
     "element_zh_tw": "熱熔",
     "element_en": "fusion",

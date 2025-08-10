@@ -25,7 +25,7 @@
         "atk_p": "0.12",
         "crit_dmg": "0.16"
     },
-    "weapon_no": 1,
+    "weapon_id": 1,
     "element_id": 3,
     "element_zh_tw": "導電",
     "element_en": "electro",

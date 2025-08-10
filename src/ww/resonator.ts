@@ -239,7 +239,7 @@ export class ResonatorInfo {
   public tags: Array<ResonatorTagInfo> = [];
   public is_permanent?: boolean = undefined;
   public stat_bonus: StatBuff = new StatBuff();
-  public weapon_no: string = "";
+  public weapon_id: string = "";
   public element_id: string = "";
   public element_zh_tw: string = "";
   public element_en: string = "";
@@ -328,7 +328,7 @@ export class ResonatorInfo {
     } else {
       info.stat_bonus = JSON.parse(JSON.stringify(this.stat_bonus));
     }
-    info.weapon_no = this.weapon_no;
+    info.weapon_id = this.weapon_id;
     info.element_id = this.element_id;
     info.element_zh_tw = this.element_zh_tw;
     info.element_en = this.element_en;

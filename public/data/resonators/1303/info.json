@@ -37,7 +37,7 @@
         "def_p": "0.152",
         "bonus_electro": "0.12"
     },
-    "weapon_no": 4,
+    "weapon_id": 4,
     "element_id": 3,
     "element_zh_tw": "導電",
     "element_en": "electro",

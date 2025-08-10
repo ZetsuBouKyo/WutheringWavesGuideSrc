@@ -37,7 +37,7 @@
         "atk_p": "0.12",
         "crit_rate": "0.08"
     },
-    "weapon_no": 4,
+    "weapon_id": 4,
     "element_id": 5,
     "element_zh_tw": "衍射",
     "element_en": "spectro",

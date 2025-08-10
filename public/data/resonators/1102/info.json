@@ -25,7 +25,7 @@
         "atk_p": "0.12",
         "bonus_glacio": "0.12"
     },
-    "weapon_no": 2,
+    "weapon_id": 2,
     "element_id": 1,
     "element_zh_tw": "冷凝",
     "element_en": "glacio",

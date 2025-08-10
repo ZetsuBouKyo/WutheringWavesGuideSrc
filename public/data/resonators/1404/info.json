@@ -31,7 +31,7 @@
         "atk_p": "0.12",
         "crit_rate": "0.08"
     },
-    "weapon_no": 1,
+    "weapon_id": 1,
     "element_id": 4,
     "element_zh_tw": "氣動",
     "element_en": "aero",

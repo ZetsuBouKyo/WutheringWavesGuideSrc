@@ -31,7 +31,7 @@
         "hp_p": "0.12",
         "bonus_healing": "0.12"
     },
-    "weapon_no": 5,
+    "weapon_id": 5,
     "element_id": 5,
     "element_zh_tw": "衍射",
     "element_en": "spectro",

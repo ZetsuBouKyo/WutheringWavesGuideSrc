@@ -37,7 +37,7 @@
         "hp_p": "0.12",
         "crit_rate": "0.08"
     },
-    "weapon_no": 2,
+    "weapon_id": 2,
     "element_id": 4,
     "element_zh_tw": "氣動",
     "element_en": "aero",

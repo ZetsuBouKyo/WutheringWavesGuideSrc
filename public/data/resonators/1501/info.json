@@ -25,7 +25,7 @@
         "atk_p": "0.12",
         "bonus_spectro": "0.12"
     },
-    "weapon_no": 2,
+    "weapon_id": 2,
     "element_id": 5,
     "element_zh_tw": "衍射",
     "element_en": "spectro",
