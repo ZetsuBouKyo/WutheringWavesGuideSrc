@@ -38,7 +38,7 @@
         "bonus_fusion": "0.12"
     },
     "weapon_no": 3,
-    "element_no": 2,
+    "element_id": 2,
     "element_zh_tw": "熱熔",
     "element_en": "fusion",
     "attrs": [

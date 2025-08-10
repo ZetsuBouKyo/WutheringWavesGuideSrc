@@ -38,7 +38,7 @@
         "crit_rate": "0.08"
     },
     "weapon_no": 4,
-    "element_no": 1,
+    "element_id": 1,
     "element_zh_tw": "冷凝",
     "element_en": "glacio",
     "attrs": [

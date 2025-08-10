@@ -26,7 +26,7 @@
         "bonus_aero": "0.12"
     },
     "weapon_no": 3,
-    "element_no": 4,
+    "element_id": 4,
     "element_zh_tw": "氣動",
     "element_en": "aero",
     "attrs": [

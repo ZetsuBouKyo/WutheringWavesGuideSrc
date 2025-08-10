@@ -44,7 +44,7 @@
         "crit_dmg": "0.16"
     },
     "weapon_no": 4,
-    "element_no": 6,
+    "element_id": 6,
     "element_zh_tw": "湮滅",
     "element_en": "havoc",
     "attrs": [

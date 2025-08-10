@@ -34,7 +34,7 @@
         "bonus_basic_attack": "0.15"
     },
     "weapon_no": 2,
-    "element_no": 6,
+    "element_id": 6,
     "element_zh_tw": "湮滅",
     "element_en": "havoc",
     "attrs": [
