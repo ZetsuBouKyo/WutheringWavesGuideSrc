@@ -33,12 +33,10 @@ import { getFormatString, getRichText } from "@/ww/utils"
 
 const { t } = useI18n()
 
-type TypeOption = "normal_attack" | "resonance_skill" | "anotherType" | "";
-
 const props = defineProps({
   info: {
     type: Object as PropType<ResonatorInfo>,
-    default: undefined
+    default: new ResonatorInfo()
   },
   type: {
     type: String,
@@ -46,8 +44,7 @@ const props = defineProps({
   }
 });
 
-
-const detailedSkills = {}
+const detailedSkills: any = {}
 const skillTable = reactive<Array<any>>([])
 const skills = props.info.skills
 for (const skill of skills) {
@@ -56,10 +53,10 @@ for (const skill of skills) {
   const lv10 = skill.lv10
   const skill_type = skill.skill_type
 
-  if (!id || type !== "Damage" || !lv10 || skill_type !== SkillTypeEnum[props.type.toUpperCase()]) {
+  if (!id || type !== "Damage" || !lv10 || !props.type || skill_type !== SkillTypeEnum[props.type.toUpperCase() as keyof typeof SkillTypeEnum]) {
     continue
   }
-  const row = {}
+  const row: any = {}
 
   const skill_bonus_types = []
   if (skill.bonus_type) {
@@ -86,7 +83,7 @@ for (const skill of skills) {
 const skillInfoTable = reactive<Array<any>>([])
 const skillInfoList = props.info.skill_infos[props.type].skill_list
 for (const skill of skillInfoList) {
-  const row = {}
+  const row: any = {}
 
   let skillName = skill.name
 
