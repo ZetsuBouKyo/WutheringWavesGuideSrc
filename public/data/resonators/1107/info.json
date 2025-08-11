@@ -6,6 +6,8 @@
     "name": "珂萊塔",
     "nick_name": "珂萊塔",
     "desc": "<a href=850101>莫塔里</a>家族的二小姐，不被教條限制的藝術投資人。\n明面上，珂萊塔遊走在交際與交易中，暗地裡，她則為家族處理著不可明說的「麻煩」。\n一顆「寶石」的綻放，一場生命的凋零，她以自我為名，給予現實另一向度的重塑。",
+    "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_32_UI.webp",
+    "background": "/assets/UI/UIResources/Common/Image/IconRolePile/T_IconRole_Pile_kelaita_UI.webp",
     "tags": [
         {
             "name": "主力輸出",
@@ -26,6 +28,7 @@
         "crit_rate": "0.08"
     },
     "weapon_id": 3,
+    "weapon_zh_tw": "佩槍",
     "element_id": 1,
     "element_zh_tw": "冷凝",
     "element_en": "glacio",
@@ -1581,7 +1584,7 @@
             "_toughness": "2.0000",
             "sta_regen": "",
             "resonance_energy_regen": "2.00",
-            "concerto_regen": "0.00",
+            "concerto_regen": "5.00",
             "sta_cost": "",
             "concerto_cost": "",
             "resonance_cost": "",
@@ -1613,7 +1616,7 @@
             "_toughness": "2.0000",
             "sta_regen": "",
             "resonance_energy_regen": "3.00",
-            "concerto_regen": "0.00",
+            "concerto_regen": "5.00",
             "sta_cost": "",
             "concerto_cost": "",
             "resonance_cost": "",
@@ -3860,7 +3863,141 @@
             "description": "共鳴解放<color=Highlight>死兆</color>的射擊造成更高的傷害，並且生成的晶體數量翻倍，二者總計使共鳴解放<color=Highlight>死兆</color>傷害倍率提升186.6%。\n共鳴解放<color=Highlight>死兆</color>的射擊命中目標時，對目標附加<color=Highlight>煥彩</color>效果：持續時間內無法進行任何動作，受到傷害或持續1.5秒時清除效果。"
         }
     },
-    "total_exp": 3118700,
+    "total_exp": 2438000,
+    "consume": {
+        "levels": {
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 853000
+            },
+            "43010004": {
+                "id": 43010004,
+                "name": "特級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_4_UI.webp",
+                "value": 121
+            },
+            "43010003": {
+                "id": 43010003,
+                "name": "高級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_3_UI.webp",
+                "value": 2
+            },
+            "43010001": {
+                "id": 43010001,
+                "name": "初級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_1_UI.webp",
+                "value": 2
+            }
+        },
+        "skills": {
+            "43020021": {
+                "id": 43020021,
+                "name": "含雜晶化燃素",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_01_UI.webp",
+                "value": 25
+            },
+            "41100041": {
+                "id": 41100041,
+                "name": "低頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_1_UI.webp",
+                "value": 25
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 2030000
+            },
+            "43020022": {
+                "id": 43020022,
+                "name": "粗萃晶化燃素",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_02_UI.webp",
+                "value": 28
+            },
+            "41100042": {
+                "id": 41100042,
+                "name": "中頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_2_UI.webp",
+                "value": 28
+            },
+            "43020023": {
+                "id": 43020023,
+                "name": "精餾晶化燃素",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_03_UI.webp",
+                "value": 55
+            },
+            "41100043": {
+                "id": 41100043,
+                "name": "高頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_3_UI.webp",
+                "value": 40
+            },
+            "41400194": {
+                "id": 41400194,
+                "name": "冥扉的歡覷",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_007_UI.webp",
+                "value": 26
+            },
+            "43020024": {
+                "id": 43020024,
+                "name": "高純晶化燃素",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_04_UI.webp",
+                "value": 67
+            },
+            "41100044": {
+                "id": 41100044,
+                "name": "全頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_4_UI.webp",
+                "value": 57
+            }
+        },
+        "ascensions": {
+            "41100041": {
+                "id": 41100041,
+                "name": "低頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_1_UI.webp",
+                "value": 4
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 170000
+            },
+            "41400174": {
+                "id": 41400174,
+                "name": "白金機心",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_006_UI.webp",
+                "value": 46
+            },
+            "42601150": {
+                "id": 42601150,
+                "name": "劍菖蒲",
+                "icon": "/assets/UI/UIResources/Common/Image/IconC/T_IconC_044_UI.webp",
+                "value": 60
+            },
+            "41100042": {
+                "id": 41100042,
+                "name": "中頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_2_UI.webp",
+                "value": 12
+            },
+            "41100043": {
+                "id": 41100043,
+                "name": "高頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_3_UI.webp",
+                "value": 12
+            },
+            "41100044": {
+                "id": 41100044,
+                "name": "全頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_4_UI.webp",
+                "value": 4
+            }
+        }
+    },
     "stats": {
         "1": {
             "life": 996,

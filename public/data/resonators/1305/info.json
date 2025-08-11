@@ -6,6 +6,8 @@
     "name": "相里要",
     "nick_name": "存在异常，如有疑問請聯絡官方客服",
     "desc": "<a href=850091>今州</a><a href=850092>華胥研究院</a>首席研究員，最年輕的全科學者。\n為人溫和明理，對機關術研究有獨特的見解與執著的追求。",
+    "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_25_UI.webp",
+    "background": "/assets/UI/UIResources/Common/Image/IconRolePile/T_IconRole_Pile_xiangliyao_UI.webp",
     "tags": [
         {
             "name": "主力輸出",
@@ -26,6 +28,7 @@
         "crit_dmg": "0.16"
     },
     "weapon_id": 4,
+    "weapon_zh_tw": "臂鎧",
     "element_id": 3,
     "element_zh_tw": "導電",
     "element_en": "electro",
@@ -3348,7 +3351,141 @@
             "description": "強化施放共鳴解放<color=Highlight>思維矩陣</color>時獲得的幻方，使共鳴技能<color=Highlight>萬方法則</color>傷害倍率提升76%。"
         }
     },
-    "total_exp": 3118700,
+    "total_exp": 2438000,
+    "consume": {
+        "levels": {
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 853000
+            },
+            "43010004": {
+                "id": 43010004,
+                "name": "特級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_4_UI.webp",
+                "value": 121
+            },
+            "43010003": {
+                "id": 43010003,
+                "name": "高級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_3_UI.webp",
+                "value": 2
+            },
+            "43010001": {
+                "id": 43010001,
+                "name": "初級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_1_UI.webp",
+                "value": 2
+            }
+        },
+        "skills": {
+            "43020051": {
+                "id": 43020051,
+                "name": "聲律種核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_013_UI.webp",
+                "value": 25
+            },
+            "41100011": {
+                "id": 41100011,
+                "name": "低頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_1_UI.webp",
+                "value": 25
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 2030000
+            },
+            "43020052": {
+                "id": 43020052,
+                "name": "聲律萌芽",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_014_UI.webp",
+                "value": 28
+            },
+            "41100012": {
+                "id": 41100012,
+                "name": "中頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_2_UI.webp",
+                "value": 28
+            },
+            "43020053": {
+                "id": 43020053,
+                "name": "聲律新葉",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_015_UI.webp",
+                "value": 55
+            },
+            "41100013": {
+                "id": 41100013,
+                "name": "高頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_3_UI.webp",
+                "value": 40
+            },
+            "41400114": {
+                "id": 41400114,
+                "name": "不息壞滅",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_L_014_UI.webp",
+                "value": 26
+            },
+            "43020054": {
+                "id": 43020054,
+                "name": "聲律花蕾",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_016_UI.webp",
+                "value": 67
+            },
+            "41100014": {
+                "id": 41100014,
+                "name": "全頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_4_UI.webp",
+                "value": 57
+            }
+        },
+        "ascensions": {
+            "41100011": {
+                "id": 41100011,
+                "name": "低頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_1_UI.webp",
+                "value": 4
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 170000
+            },
+            "41400134": {
+                "id": 41400134,
+                "name": "隱雷聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_L_012_UI.webp",
+                "value": 46
+            },
+            "42300100": {
+                "id": 42300100,
+                "name": "紫珊瑚",
+                "icon": "/assets/UI/UIResources/Common/Image/IconC/T_IconC_Sep_061_UI.webp",
+                "value": 60
+            },
+            "41100012": {
+                "id": 41100012,
+                "name": "中頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_2_UI.webp",
+                "value": 12
+            },
+            "41100013": {
+                "id": 41100013,
+                "name": "高頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_3_UI.webp",
+                "value": 12
+            },
+            "41100014": {
+                "id": 41100014,
+                "name": "全頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_4_UI.webp",
+                "value": 4
+            }
+        }
+    },
     "stats": {
         "1": {
             "life": 850,

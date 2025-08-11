@@ -6,6 +6,8 @@
     "name": "凌陽",
     "nick_name": "存在异常，如有疑問請聯絡官方客服",
     "desc": "<a href=850091>今州</a><a href=850130>瑞獅團</a>成員，善良靈性的異族來客。熱情開朗，勇敢正直，對人類抱有強烈的興趣。擁有極強的體能與力量，始終在以自己的方式詮釋著「<a href=850131>獅子舞</a>」的含義。",
+    "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_14_UI.webp",
+    "background": "/assets/UI/UIResources/Common/Image/IconRolePile/T_IconRole_Pile_lingyang_UI.webp",
     "tags": [
         {
             "name": "主力輸出",
@@ -20,6 +22,7 @@
         "bonus_glacio": "0.12"
     },
     "weapon_id": 4,
+    "weapon_zh_tw": "臂鎧",
     "element_id": 1,
     "element_zh_tw": "冷凝",
     "element_en": "glacio",
@@ -2534,7 +2537,141 @@
             "description": "處於共鳴回路<color=Highlight><a href=850058>行獅</a></color>狀態時，凌陽每次施放共鳴技能<color=Highlight>飛身式·翻山越澗</color>後3秒內，下1次普攻的普攻傷害加成提升100%。"
         }
     },
-    "total_exp": 3118700,
+    "total_exp": 2438000,
+    "consume": {
+        "levels": {
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 853000
+            },
+            "43010004": {
+                "id": 43010004,
+                "name": "特級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_4_UI.webp",
+                "value": 121
+            },
+            "43010003": {
+                "id": 43010003,
+                "name": "高級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_3_UI.webp",
+                "value": 2
+            },
+            "43010001": {
+                "id": 43010001,
+                "name": "初級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_1_UI.webp",
+                "value": 2
+            }
+        },
+        "skills": {
+            "43020051": {
+                "id": 43020051,
+                "name": "聲律種核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_013_UI.webp",
+                "value": 25
+            },
+            "41100011": {
+                "id": 41100011,
+                "name": "低頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_1_UI.webp",
+                "value": 25
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 2030000
+            },
+            "43020052": {
+                "id": 43020052,
+                "name": "聲律萌芽",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_014_UI.webp",
+                "value": 28
+            },
+            "41100012": {
+                "id": 41100012,
+                "name": "中頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_2_UI.webp",
+                "value": 28
+            },
+            "43020053": {
+                "id": 43020053,
+                "name": "聲律新葉",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_015_UI.webp",
+                "value": 55
+            },
+            "41100013": {
+                "id": 41100013,
+                "name": "高頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_3_UI.webp",
+                "value": 40
+            },
+            "41400114": {
+                "id": 41400114,
+                "name": "不息壞滅",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_L_014_UI.webp",
+                "value": 26
+            },
+            "43020054": {
+                "id": 43020054,
+                "name": "聲律花蕾",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_016_UI.webp",
+                "value": 67
+            },
+            "41100014": {
+                "id": 41100014,
+                "name": "全頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_4_UI.webp",
+                "value": 57
+            }
+        },
+        "ascensions": {
+            "41100011": {
+                "id": 41100011,
+                "name": "低頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_1_UI.webp",
+                "value": 4
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 170000
+            },
+            "41400074": {
+                "id": 41400074,
+                "name": "留音聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_L_007_UI.webp",
+                "value": 46
+            },
+            "42300080": {
+                "id": 42300080,
+                "name": "雲芝",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_SM_Gat_30A_UI.webp",
+                "value": 60
+            },
+            "41100012": {
+                "id": 41100012,
+                "name": "中頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_2_UI.webp",
+                "value": 12
+            },
+            "41100013": {
+                "id": 41100013,
+                "name": "高頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_3_UI.webp",
+                "value": 12
+            },
+            "41100014": {
+                "id": 41100014,
+                "name": "全頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_4_UI.webp",
+                "value": 4
+            }
+        }
+    },
     "stats": {
         "1": {
             "life": 831,

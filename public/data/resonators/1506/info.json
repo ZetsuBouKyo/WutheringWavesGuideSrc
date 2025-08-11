@@ -6,6 +6,8 @@
     "name": "菲比",
     "nick_name": "菲比",
     "desc": "<a href=850099>隱海修會</a>的<a href=850100>教士</a>菲比，友善而虔誠的聖職者少女，以純粹之心修習，認真踐行著身為教士的一切職責。她的祈禱恰如她手中的光芒，柔和明亮，為人們帶來溫暖與安寧。",
+    "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_45_UI.webp",
+    "background": "/assets/UI/UIResources/Common/Image/IconRolePile/T_IconRole_Pile_Feibi_UI.webp",
     "tags": [
         {
             "name": "主力輸出",
@@ -32,6 +34,7 @@
         "crit_dmg": "0.16"
     },
     "weapon_id": 5,
+    "weapon_zh_tw": "音感儀",
     "element_id": 5,
     "element_zh_tw": "衍射",
     "element_en": "spectro",
@@ -2546,7 +2549,141 @@
             "description": "【<a href=850007>鏡之環</a>】的停滯效果增加2秒。【<a href=850007>鏡之環</a>】持續期間，對每個進入【<a href=850007>鏡之環</a>】的目標施加停滯效果；同一個【<a href=850007>鏡之環</a>】最多可對12個目標施加停滯效果，且對每個目標只能施加一次。\n<color=Highlight>赦罪</color>狀態、<color=Highlight>告解</color>狀態下，菲比施放<color=Highlight>共鳴技能</color>召喚【<a href=850007>鏡之環</a>】時，攻擊提升10%，持續20秒，同時向【<a href=850007>鏡之環</a>】位置附帶一次重擊<color=Highlight>星輝</color>。此次重擊<color=Highlight>星輝</color>不消耗【<a href=850014>福音</a>】，不視為施放<color=Highlight>重擊</color>。"
         }
     },
-    "total_exp": 3118700,
+    "total_exp": 2438000,
+    "consume": {
+        "levels": {
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 853000
+            },
+            "43010004": {
+                "id": 43010004,
+                "name": "特級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_4_UI.webp",
+                "value": 121
+            },
+            "43010003": {
+                "id": 43010003,
+                "name": "高級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_3_UI.webp",
+                "value": 2
+            },
+            "43010001": {
+                "id": 43010001,
+                "name": "初級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_1_UI.webp",
+                "value": 2
+            }
+        },
+        "skills": {
+            "43020031": {
+                "id": 43020031,
+                "name": "慢板渦流",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_005_UI.webp",
+                "value": 25
+            },
+            "41100011": {
+                "id": 41100011,
+                "name": "低頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_1_UI.webp",
+                "value": 25
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 2030000
+            },
+            "43020032": {
+                "id": 43020032,
+                "name": "柔板渦流",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_006_UI.webp",
+                "value": 28
+            },
+            "41100012": {
+                "id": 41100012,
+                "name": "中頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_2_UI.webp",
+                "value": 28
+            },
+            "43020033": {
+                "id": 43020033,
+                "name": "行板渦流",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_007_UI.webp",
+                "value": 55
+            },
+            "41100013": {
+                "id": 41100013,
+                "name": "高頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_3_UI.webp",
+                "value": 40
+            },
+            "41400144": {
+                "id": 41400144,
+                "name": "歲時之角刃",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_005_UI.webp",
+                "value": 26
+            },
+            "43020034": {
+                "id": 43020034,
+                "name": "急板渦流",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_008_UI.webp",
+                "value": 67
+            },
+            "41100014": {
+                "id": 41100014,
+                "name": "全頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_4_UI.webp",
+                "value": 57
+            }
+        },
+        "ascensions": {
+            "41100011": {
+                "id": 41100011,
+                "name": "低頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_1_UI.webp",
+                "value": 4
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 170000
+            },
+            "41400164": {
+                "id": 41400164,
+                "name": "滌罪音螺",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_009_UI.webp",
+                "value": 46
+            },
+            "42601160": {
+                "id": 42601160,
+                "name": "禮花蒴",
+                "icon": "/assets/UI/UIResources/Common/Image/IconC/T_IconC_043_UI.webp",
+                "value": 60
+            },
+            "41100012": {
+                "id": 41100012,
+                "name": "中頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_2_UI.webp",
+                "value": 12
+            },
+            "41100013": {
+                "id": 41100013,
+                "name": "高頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_3_UI.webp",
+                "value": 12
+            },
+            "41100014": {
+                "id": 41100014,
+                "name": "全頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_4_UI.webp",
+                "value": 4
+            }
+        }
+    },
     "stats": {
         "1": {
             "life": 866,

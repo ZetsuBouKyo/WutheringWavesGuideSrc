@@ -6,6 +6,8 @@
     "name": "椿",
     "nick_name": "存在异常，如有疑問請聯絡官方客服",
     "desc": "<a href=850109>黑海岸</a>的執花，自由隨性、危險迷人的育種者。\n正在為黑海岸在<a href=850079>索拉里斯</a>各地旅行，尋找有潛力的人才。忠於自我，不遙望過去未來，只專注享受此時此刻的快樂。",
+    "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_29_UI.webp",
+    "background": "/assets/UI/UIResources/Common/Image/IconRolePile/T_IconRole_Pile_chun_UI.webp",
     "tags": [
         {
             "name": "主力輸出",
@@ -34,6 +36,7 @@
         "bonus_basic_attack": "0.15"
     },
     "weapon_id": 2,
+    "weapon_zh_tw": "迅刀",
     "element_id": 6,
     "element_zh_tw": "湮滅",
     "element_en": "havoc",
@@ -3858,7 +3861,141 @@
             "description": "共鳴回路<color=Highlight>酣夢</color>的傷害倍率提升效果額外提升150%；\n共鳴回路<color=Highlight>永生花</color>：施放共鳴回路<color=Highlight>一日花</color>後15秒內，協奏能量充滿時，若<color=Highlight>永生花</color>不處於冷卻狀態，共鳴技能替換為<color=Highlight>永生花</color>。\n施放<color=Highlight>永生花</color>時，消耗50點協奏值，回復50點【紅椿·蕊】，造成共鳴回路<color=Highlight>一日花</color>100%的<color=Dark>湮滅傷害</color>，此次傷害為普攻傷害，每25秒可施放1次。\n施放<color=Highlight>永生花</color>後，進入<color=Highlight><a href=850021>含苞狀態</a></color>，清除所有紅椿·蕾，並將共鳴回路<color=Highlight>酣夢</color>的傷害倍率提升效果提升至250%。\n共鳴回路<color=Highlight>永生花</color>免疫打斷。"
         }
     },
-    "total_exp": 3118700,
+    "total_exp": 2438000,
+    "consume": {
+        "levels": {
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 853000
+            },
+            "43010004": {
+                "id": 43010004,
+                "name": "特級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_4_UI.webp",
+                "value": 121
+            },
+            "43010003": {
+                "id": 43010003,
+                "name": "高級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_3_UI.webp",
+                "value": 2
+            },
+            "43010001": {
+                "id": 43010001,
+                "name": "初級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_1_UI.webp",
+                "value": 2
+            }
+        },
+        "skills": {
+            "43020011": {
+                "id": 43020011,
+                "name": "惰性金屬液滴",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_Setpup_004_1_UI.webp",
+                "value": 25
+            },
+            "41100011": {
+                "id": 41100011,
+                "name": "低頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_1_UI.webp",
+                "value": 25
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 2030000
+            },
+            "43020012": {
+                "id": 43020012,
+                "name": "活性金屬液滴",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_Setpup_004_2_UI.webp",
+                "value": 28
+            },
+            "41100012": {
+                "id": 41100012,
+                "name": "中頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_2_UI.webp",
+                "value": 28
+            },
+            "43020013": {
+                "id": 43020013,
+                "name": "極化金屬液滴",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_Setpup_004_3_UI.webp",
+                "value": 55
+            },
+            "41100013": {
+                "id": 41100013,
+                "name": "高頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_3_UI.webp",
+                "value": 40
+            },
+            "41400124": {
+                "id": 41400124,
+                "name": "無妄之羽",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_L_013_UI.webp",
+                "value": 26
+            },
+            "43020014": {
+                "id": 43020014,
+                "name": "異構金屬液滴",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_Setpup_004_4_UI.webp",
+                "value": 67
+            },
+            "41100014": {
+                "id": 41100014,
+                "name": "全頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_4_UI.webp",
+                "value": 57
+            }
+        },
+        "ascensions": {
+            "41100011": {
+                "id": 41100011,
+                "name": "低頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_1_UI.webp",
+                "value": 4
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 170000
+            },
+            "41400154": {
+                "id": 41400154,
+                "name": "幽囚拓撲",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_L_015_UI.webp",
+                "value": 46
+            },
+            "42310230": {
+                "id": 42310230,
+                "name": "暫星",
+                "icon": "/assets/UI/UIResources/Common/Image/IconTask/T_IconTask_Task_084_UI.webp",
+                "value": 60
+            },
+            "41100012": {
+                "id": 41100012,
+                "name": "中頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_2_UI.webp",
+                "value": 12
+            },
+            "41100013": {
+                "id": 41100013,
+                "name": "高頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_3_UI.webp",
+                "value": 12
+            },
+            "41100014": {
+                "id": 41100014,
+                "name": "全頻囈語聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_002_4_UI.webp",
+                "value": 4
+            }
+        }
+    },
     "stats": {
         "1": {
             "life": 826,

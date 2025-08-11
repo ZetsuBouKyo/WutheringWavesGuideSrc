@@ -6,6 +6,8 @@
     "name": "今汐",
     "nick_name": "存在异常，如有疑問請聯絡官方客服",
     "desc": "<a href=850118>今令尹</a>今汐，萬丈天光被她化作點點輝芒，溫柔地照亮人們的願望。\n命運向她指明神靈的方向，但她腳下的道路，仍然通向人類的未來。",
+    "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_24_UI.webp",
+    "background": "/assets/UI/UIResources/Common/Image/IconRolePile/T_IconRole_Pile_jinxi_UI.webp",
     "tags": [
         {
             "name": "主力輸出",
@@ -27,6 +29,7 @@
         "bonus_spectro": "0.2"
     },
     "weapon_id": 1,
+    "weapon_zh_tw": "長刃",
     "element_id": 5,
     "element_zh_tw": "衍射",
     "element_en": "spectro",
@@ -3052,7 +3055,26 @@
                     "name": "冷卻時間",
                     "format": "{0}秒",
                     "param": [
-                        ["3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3"]
+                        [
+                            "3",
+                            "3",
+                            "3",
+                            "3",
+                            "3",
+                            "3",
+                            "3",
+                            "3",
+                            "3",
+                            "3",
+                            "3",
+                            "3",
+                            "3",
+                            "3",
+                            "3",
+                            "3",
+                            "3",
+                            "3"
+                        ]
                     ]
                 },
                 {
@@ -3085,7 +3107,26 @@
                     "name": "神霓飛芒回復協奏能量",
                     "format": null,
                     "param": [
-                        ["4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4"]
+                        [
+                            "4",
+                            "4",
+                            "4",
+                            "4",
+                            "4",
+                            "4",
+                            "4",
+                            "4",
+                            "4",
+                            "4",
+                            "4",
+                            "4",
+                            "4",
+                            "4",
+                            "4",
+                            "4",
+                            "4",
+                            "4"
+                        ]
                     ]
                 }
             ]
@@ -3420,14 +3461,52 @@
                     "name": "遊龍廻光持續時間",
                     "format": "{0}秒",
                     "param": [
-                        ["5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5"]
+                        [
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5"
+                        ]
                     ]
                 },
                 {
                     "name": "同奏持續時間",
                     "format": "{0}秒",
                     "param": [
-                        ["5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5", "5"]
+                        [
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5",
+                            "5"
+                        ]
                     ]
                 },
                 {
@@ -3460,7 +3539,26 @@
                     "name": "逐天取月回復協奏能量",
                     "format": null,
                     "param": [
-                        ["8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8", "8"]
+                        [
+                            "8",
+                            "8",
+                            "8",
+                            "8",
+                            "8",
+                            "8",
+                            "8",
+                            "8",
+                            "8",
+                            "8",
+                            "8",
+                            "8",
+                            "8",
+                            "8",
+                            "8",
+                            "8",
+                            "8",
+                            "8"
+                        ]
                     ]
                 },
                 {
@@ -3701,7 +3799,141 @@
             "description": "共鳴技能<color=Highlight>驚龍破空</color>傷害倍率提升45%，消耗【<a href=850002>韶光</a>】時帶來的倍率增加效果額外提升45%。"
         }
     },
-    "total_exp": 3118700,
+    "total_exp": 2438000,
+    "consume": {
+        "levels": {
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 853000
+            },
+            "43010004": {
+                "id": 43010004,
+                "name": "特級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_4_UI.webp",
+                "value": 121
+            },
+            "43010003": {
+                "id": 43010003,
+                "name": "高級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_3_UI.webp",
+                "value": 2
+            },
+            "43010001": {
+                "id": 43010001,
+                "name": "初級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_1_UI.webp",
+                "value": 2
+            }
+        },
+        "skills": {
+            "43020041": {
+                "id": 43020041,
+                "name": "海蝕嵌合體210",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_009_UI.webp",
+                "value": 25
+            },
+            "41100021": {
+                "id": 41100021,
+                "name": "低頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_1_UI.webp",
+                "value": 25
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 2030000
+            },
+            "43020042": {
+                "id": 43020042,
+                "name": "海蝕嵌合體226",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_010_UI.webp",
+                "value": 28
+            },
+            "41100022": {
+                "id": 41100022,
+                "name": "中頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_2_UI.webp",
+                "value": 28
+            },
+            "43020043": {
+                "id": 43020043,
+                "name": "海蝕嵌合體235",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_011_UI.webp",
+                "value": 55
+            },
+            "41100023": {
+                "id": 41100023,
+                "name": "高頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_3_UI.webp",
+                "value": 40
+            },
+            "41400144": {
+                "id": 41400144,
+                "name": "歲時之角刃",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_005_UI.webp",
+                "value": 26
+            },
+            "43020044": {
+                "id": 43020044,
+                "name": "海蝕嵌合體239",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_012_UI.webp",
+                "value": 67
+            },
+            "41100024": {
+                "id": 41100024,
+                "name": "全頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_4_UI.webp",
+                "value": 57
+            }
+        },
+        "ascensions": {
+            "41100021": {
+                "id": 41100021,
+                "name": "低頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_1_UI.webp",
+                "value": 4
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 170000
+            },
+            "41400034": {
+                "id": 41400034,
+                "name": "哀歌聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_L_006_UI.webp",
+                "value": 46
+            },
+            "42310210": {
+                "id": 42310210,
+                "name": "龍吐珠",
+                "icon": "/assets/UI/UIResources/Common/Image/IconC/T_IconC_030_UI.webp",
+                "value": 60
+            },
+            "41100022": {
+                "id": 41100022,
+                "name": "中頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_2_UI.webp",
+                "value": 12
+            },
+            "41100023": {
+                "id": 41100023,
+                "name": "高頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_3_UI.webp",
+                "value": 12
+            },
+            "41100024": {
+                "id": 41100024,
+                "name": "全頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_4_UI.webp",
+                "value": 4
+            }
+        }
+    },
     "stats": {
         "1": {
             "life": 866,

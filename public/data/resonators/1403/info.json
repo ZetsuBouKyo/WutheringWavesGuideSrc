@@ -6,6 +6,8 @@
     "name": "秋水",
     "nick_name": "隱霧迷蹤",
     "desc": "秋水，如大霧一般令人捉摸不透。\n在霧的一面，他是笑臉相迎的情報商人，而另一面又與<a href=850109>黑海岸</a>有千絲萬縷的聯繫。\n據說只要開出好價錢，就能從他手上買到稱心如意的情報。",
+    "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_12_UI.webp",
+    "background": "/assets/UI/UIResources/Common/Image/IconRolePile/T_IconRole_Pile_qiushui_UI.webp",
     "tags": [
         {
             "name": "快速協奏",
@@ -26,6 +28,7 @@
         "bonus_aero": "0.12"
     },
     "weapon_id": 3,
+    "weapon_zh_tw": "佩槍",
     "element_id": 4,
     "element_zh_tw": "氣動",
     "element_en": "aero",
@@ -3132,7 +3135,141 @@
             "description": "共鳴解放<color=Highlight>霧裡觀花</color>的效果會使暴擊額外提升8%，秋水的重擊穿過【<a href=850049>虛實之門</a>】時，傷害額外提升50%。"
         }
     },
-    "total_exp": 3118700,
+    "total_exp": 2438000,
+    "consume": {
+        "levels": {
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 853000
+            },
+            "43010004": {
+                "id": 43010004,
+                "name": "特級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_4_UI.webp",
+                "value": 121
+            },
+            "43010003": {
+                "id": 43010003,
+                "name": "高級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_3_UI.webp",
+                "value": 2
+            },
+            "43010001": {
+                "id": 43010001,
+                "name": "初級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_1_UI.webp",
+                "value": 2
+            }
+        },
+        "skills": {
+            "43020021": {
+                "id": 43020021,
+                "name": "含雜晶化燃素",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_01_UI.webp",
+                "value": 25
+            },
+            "41100021": {
+                "id": 41100021,
+                "name": "低頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_1_UI.webp",
+                "value": 25
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 2030000
+            },
+            "43020022": {
+                "id": 43020022,
+                "name": "粗萃晶化燃素",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_02_UI.webp",
+                "value": 28
+            },
+            "41100022": {
+                "id": 41100022,
+                "name": "中頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_2_UI.webp",
+                "value": 28
+            },
+            "43020023": {
+                "id": 43020023,
+                "name": "精餾晶化燃素",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_03_UI.webp",
+                "value": 55
+            },
+            "41100023": {
+                "id": 41100023,
+                "name": "高頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_3_UI.webp",
+                "value": 40
+            },
+            "41400094": {
+                "id": 41400094,
+                "name": "碑趺古鐘",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_L_003_1_UI.webp",
+                "value": 26
+            },
+            "43020024": {
+                "id": 43020024,
+                "name": "高純晶化燃素",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_04_UI.webp",
+                "value": 67
+            },
+            "41100024": {
+                "id": 41100024,
+                "name": "全頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_4_UI.webp",
+                "value": 57
+            }
+        },
+        "ascensions": {
+            "41100021": {
+                "id": 41100021,
+                "name": "低頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_1_UI.webp",
+                "value": 4
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 170000
+            },
+            "41400054": {
+                "id": 41400054,
+                "name": "呼嘯岩拳",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_L_011_UI.webp",
+                "value": 46
+            },
+            "42300090": {
+                "id": 42300090,
+                "name": "傲寒鐘",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_SM_Gat_31A_UI.webp",
+                "value": 60
+            },
+            "41100022": {
+                "id": 41100022,
+                "name": "中頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_2_UI.webp",
+                "value": 12
+            },
+            "41100023": {
+                "id": 41100023,
+                "name": "高頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_3_UI.webp",
+                "value": 12
+            },
+            "41100024": {
+                "id": 41100024,
+                "name": "全頻嘯叫聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_E_002_4_UI.webp",
+                "value": 4
+            }
+        }
+    },
     "stats": {
         "1": {
             "life": 788,

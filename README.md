@@ -1,5 +1,7 @@
 # Wuthering Waves Guide
 
+> **《鳴潮》及相關名稱、圖像、數據均屬原版權方所有，本分析僅供非商業用途參考。**
+
 [鳴潮攻略網站](https://wutheringwavesguide.netlify.app/)的原始碼。網站內包含共鳴者傷害分析、傷害計算機、排軸產圖小工具。
 
 - [0+1 隊伍 Tier List](https://wutheringwavesguide.netlify.app/tiers/t01/affixes_15_1) 本 Tier List 由於開發者時間有限，尚未包含所有隊伍、手法，歡迎大家加入開發完善。

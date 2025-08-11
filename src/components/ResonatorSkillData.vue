@@ -5,15 +5,6 @@
     </div>
     <div class="bg-blue-grey-darken-4 pa-2" v-html="getRichText(info.skill_infos[type].description)">
     </div>
-    <!-- <v-tooltip location="bottom">
-      <v-data-table class="table my-1" :items="skillTable" disable-sort hide-default-footer
-        :items-per-page="skillTable.length + 1" />
-      <template v-slot:activator="{ props }">
-        <div v-bind="props">
-          123
-        </div>
-      </template>
-</v-tooltip> -->
     <v-data-table v-if="skillInfoTable.length > 0" class="table my-1" :items="skillInfoTable" disable-sort
       hide-default-footer :items-per-page="skillInfoTable.length + 1">
       <template v-slot:item.LV10="{ item }">
@@ -180,48 +171,49 @@ function getToolTipTable(lv: string) {
 
 const skillInfoTable = reactive<Array<any>>([])
 const skillInfoList = props.info.skill_infos[props.type].skill_list
-for (const skill of skillInfoList) {
-  const row: any = {}
+if (skillInfoList) {
+  for (const skill of skillInfoList) {
+    const row: any = {}
 
-  let skillName = skill.name
+    let skillName = skill.name
 
-  let element = "-"
-  let base_attr = "-"
-  let resonance_energy_regen = "-"
-  let concerto_regen = "-"
+    let element = "-"
+    let base_attr = "-"
+    let resonance_energy_regen = "-"
+    let concerto_regen = "-"
 
-  if (skillName === t('general.skill_damage')) {
-    skillName = props.info.skill_infos[props.type].name
+    if (skillName === t('general.skill_damage')) {
+      skillName = props.info.skill_infos[props.type].name
+    }
+    if (detailedSkills[skillName]) {
+      element = detailedSkills[skillName].element
+      base_attr = detailedSkills[skillName].base_attr
+      resonance_energy_regen = detailedSkills[skillName].resonance_energy_regen
+      concerto_regen = detailedSkills[skillName].concerto_regen
+    }
+
+
+    row[t('general.name')] = skill.name
+    // row[t('general.element')] = element
+    // row[t('general.base_attr')] = base_attr
+
+    // row["LV1"] = getFormatString(skill.format, skill.param[0][0])
+    // row["LV2"] = getFormatString(skill.format, skill.param[0][1])
+    // row["LV3"] = getFormatString(skill.format, skill.param[0][2])
+    // row["LV4"] = getFormatString(skill.format, skill.param[0][3])
+    // row["LV5"] = getFormatString(skill.format, skill.param[0][4])
+    // row["LV6"] = getFormatString(skill.format, skill.param[0][5])
+    // row["LV7"] = getFormatString(skill.format, skill.param[0][6])
+    // row["LV8"] = getFormatString(skill.format, skill.param[0][7])
+    // row["LV9"] = getFormatString(skill.format, skill.param[0][8])
+    const lv10 = getFormatString(skill.format, skill.param[0][9])
+    row["LV10"] = lv10
+    // row[t('general.resonance_energy_regen')] = resonance_energy_regen
+    // row[t('general.concerto_regen')] = concerto_regen
+
+    skillInfoTable.push(row)
   }
-  if (detailedSkills[skillName]) {
-    element = detailedSkills[skillName].element
-    base_attr = detailedSkills[skillName].base_attr
-    resonance_energy_regen = detailedSkills[skillName].resonance_energy_regen
-    concerto_regen = detailedSkills[skillName].concerto_regen
-  }
-
-
-  row[t('general.name')] = skill.name
-  // row[t('general.element')] = element
-  // row[t('general.base_attr')] = base_attr
-
-  // row["LV1"] = getFormatString(skill.format, skill.param[0][0])
-  // row["LV2"] = getFormatString(skill.format, skill.param[0][1])
-  // row["LV3"] = getFormatString(skill.format, skill.param[0][2])
-  // row["LV4"] = getFormatString(skill.format, skill.param[0][3])
-  // row["LV5"] = getFormatString(skill.format, skill.param[0][4])
-  // row["LV6"] = getFormatString(skill.format, skill.param[0][5])
-  // row["LV7"] = getFormatString(skill.format, skill.param[0][6])
-  // row["LV8"] = getFormatString(skill.format, skill.param[0][7])
-  // row["LV9"] = getFormatString(skill.format, skill.param[0][8])
-  const lv10 = getFormatString(skill.format, skill.param[0][9])
-  row["LV10"] = lv10
-  // row[t('general.resonance_energy_regen')] = resonance_energy_regen
-  // row[t('general.concerto_regen')] = concerto_regen
-
-  skillInfoTable.push(row)
 }
-
 </script>
 
 <style scoped lang="sass">

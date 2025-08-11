@@ -228,18 +228,36 @@ export class ResonatorGood {
   }
 }
 
+export class ResonatorItem {
+  public id: number | string = "";
+  public name: string = "";
+  public icon: string = "";
+  public value: number = 0;
+
+  constructor(data: any = {}) {
+    Object.assign(this, data);
+  }
+
+  duplicate(): ResonatorItem {
+    return new ResonatorItem(JSON.parse(JSON.stringify(this)));
+  }
+}
+
 export class ResonatorInfo {
   public id: string = "";
   public no: string = ""; // @deprecated
-  public rarity: string = "";
+  public rarity: number | "" = "";
   public rank: string = ""; // @deprecated
   public name: string = "";
   public nick_name: string = "";
   public desc: string = "";
+  public icon: string = "";
+  public background: string = "";
   public tags: Array<ResonatorTagInfo> = [];
   public is_permanent?: boolean = undefined;
   public stat_bonus: StatBuff = new StatBuff();
   public weapon_id: string = "";
+  public weapon_zh_tw: string = "";
   public element_id: string = "";
   public element_zh_tw: string = "";
   public element_en: string = "";
@@ -249,6 +267,16 @@ export class ResonatorInfo {
   public skill_infos: any = {};
 
   public total_exp: number = 0;
+  public consume: {
+    levels: { [key: string]: ResonatorItem };
+    skills: { [key: string]: ResonatorItem };
+    ascensions: { [key: string]: ResonatorItem };
+  } = {
+    levels: {},
+    skills: {},
+    ascensions: {},
+  };
+
   public stats: { [key: string]: ResonatorStat } = {};
   public special_cook: ResonatorSpecialCook = new ResonatorSpecialCook();
   public chara_info: ResonatorCharactorInfo = new ResonatorCharactorInfo();
@@ -260,7 +288,7 @@ export class ResonatorInfo {
     if (!info || Object.keys(info).length === 0) {
       return;
     }
-    const { tags, stat_bonus, stats, special_cook, chara_info, stories, voices, goods, ...data } = info;
+    const { tags, stat_bonus, consume, stats, special_cook, chara_info, stories, voices, goods, ...data } = info;
     Object.assign(this, data);
 
     if (tags) {
@@ -271,6 +299,20 @@ export class ResonatorInfo {
 
     if (stat_bonus) {
       this.stat_bonus = new StatBuff(stat_bonus);
+    }
+
+    if (consume) {
+      const consumeKeys = Object.keys(consume);
+      for (const consumeKey of consumeKeys) {
+        const items = consume[consumeKey];
+        const itemKeys = Object.keys(items);
+        for (const itemKey of itemKeys) {
+          const item = items[itemKey];
+          if (item) {
+            this.consume[consumeKey as "levels" | "skills" | "ascensions"][itemKey] = new ResonatorItem(item);
+          }
+        }
+      }
     }
 
     if (stats) {
@@ -316,6 +358,8 @@ export class ResonatorInfo {
     info.name = this.name;
     info.nick_name = this.nick_name;
     info.desc = this.desc;
+    info.icon = this.icon;
+    info.background = this.background;
 
     info.tags = [];
     for (const tag of this.tags) {
@@ -329,6 +373,7 @@ export class ResonatorInfo {
       info.stat_bonus = JSON.parse(JSON.stringify(this.stat_bonus));
     }
     info.weapon_id = this.weapon_id;
+    info.weapon_zh_tw = this.weapon_zh_tw;
     info.element_id = this.element_id;
     info.element_zh_tw = this.element_zh_tw;
     info.element_en = this.element_en;
@@ -337,10 +382,24 @@ export class ResonatorInfo {
     info.skill_infos = JSON.parse(JSON.stringify(this.skill_infos));
 
     info.total_exp = this.total_exp;
+
+    const consumeKeys = Object.keys(this.consume);
+    for (const consumeKey of consumeKeys) {
+      const items = this.consume[consumeKey as "levels" | "skills" | "ascensions"];
+      const itemKeys = Object.keys(items);
+      for (const itemKey of itemKeys) {
+        const item = items[itemKey];
+        if (item) {
+          info.consume[consumeKey as "levels" | "skills" | "ascensions"][itemKey] = item.duplicate();
+        }
+      }
+    }
+
     const levels = Object.keys(this.stats);
     for (const level of levels) {
       info.stats[level] = this.stats[level].duplicate();
     }
+
     info.special_cook = this.special_cook.duplicate();
     info.chara_info = this.chara_info.duplicate();
 

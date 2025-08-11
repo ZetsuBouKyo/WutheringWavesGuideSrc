@@ -6,6 +6,8 @@
     "name": "弗洛洛",
     "nick_name": "弗洛洛",
     "desc": "遊走於生死之間的殘星會會監，神秘而危險的指揮家……\n她沉默地揮舞指揮棒，手中調律頻率演奏出的「靈魂」旋律，既可塑造美好的世界，也可喚來千軍萬馬。",
+    "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_41_UI.webp",
+    "background": "/assets/UI/UIResources/Common/Image/IconRolePile/T_IconRole_Pile_fuluoluo_UI.webp",
     "tags": [
         {
             "name": "主力輸出",
@@ -38,6 +40,7 @@
         "crit_rate": "0.08"
     },
     "weapon_id": 5,
+    "weapon_zh_tw": "音感儀",
     "element_id": 6,
     "element_zh_tw": "湮滅",
     "element_en": "havoc",
@@ -3636,7 +3639,141 @@
             "description": "<color=Highlight>強化攻擊·赫卡忒</color>傷害倍率提升24%。\n<size=10></size>\n施放<color=Highlight>亡與死的樂章</color>、<color=Highlight>永不消逝的夢囈</color>期間，將召喚赫卡忒施放1次<color=Highlight>重世幻象·赫卡忒</color>，造成弗洛洛攻擊216.42%的<color=Dark>湮滅傷害</color>，命中目標時獲得8層<color=Highlight>餘響</color>。本次傷害為<color=Highlight>聲骸技能傷害</color>。\n<size=10></size>\n處於<color=Highlight><a href=160804>指揮狀態</a></color>時，若弗洛洛不為隊伍中登場角色，目標受到赫卡忒和弗洛洛的傷害提升40%。\n處於<color=Highlight><a href=160804>指揮狀態</a></color>時，若弗洛洛為隊伍中登場角色，湮滅傷害加成提升60%。"
         }
     },
-    "total_exp": 3118700,
+    "total_exp": 2438000,
+    "consume": {
+        "levels": {
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 853000
+            },
+            "43010004": {
+                "id": 43010004,
+                "name": "特級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_4_UI.webp",
+                "value": 121
+            },
+            "43010003": {
+                "id": 43010003,
+                "name": "高級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_3_UI.webp",
+                "value": 2
+            },
+            "43010001": {
+                "id": 43010001,
+                "name": "初級共鳴促劑",
+                "icon": "/assets/UI/UIResources/Common/Image/IconRup/T_IconRup_exp_1_UI.webp",
+                "value": 2
+            }
+        },
+        "skills": {
+            "43020031": {
+                "id": 43020031,
+                "name": "慢板渦流",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_005_UI.webp",
+                "value": 25
+            },
+            "41100041": {
+                "id": 41100041,
+                "name": "低頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_1_UI.webp",
+                "value": 25
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 2030000
+            },
+            "43020032": {
+                "id": 43020032,
+                "name": "柔板渦流",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_006_UI.webp",
+                "value": 28
+            },
+            "41100042": {
+                "id": 41100042,
+                "name": "中頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_2_UI.webp",
+                "value": 28
+            },
+            "43020033": {
+                "id": 43020033,
+                "name": "行板渦流",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_007_UI.webp",
+                "value": 55
+            },
+            "41100043": {
+                "id": 41100043,
+                "name": "高頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_3_UI.webp",
+                "value": 40
+            },
+            "41400194": {
+                "id": 41400194,
+                "name": "冥扉的歡覷",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_007_UI.webp",
+                "value": 26
+            },
+            "43020034": {
+                "id": 43020034,
+                "name": "急板渦流",
+                "icon": "/assets/UI/UIResources/Common/Image/IconWup/T_IconWup_008_UI.webp",
+                "value": 67
+            },
+            "41100044": {
+                "id": 41100044,
+                "name": "全頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_4_UI.webp",
+                "value": 57
+            }
+        },
+        "ascensions": {
+            "41100041": {
+                "id": 41100041,
+                "name": "低頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_1_UI.webp",
+                "value": 4
+            },
+            "2": {
+                "id": 2,
+                "name": "貝幣",
+                "icon": "/assets/UI/UIResources/Common/Image/IconA/T_IconA_hsb_UI.webp",
+                "value": 170000
+            },
+            "41400224": {
+                "id": 41400224,
+                "name": "箴言與謊言",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_L_019_UI.webp",
+                "value": 46
+            },
+            "42601250": {
+                "id": 42601250,
+                "name": "「來生」",
+                "icon": "/assets/UI/UIResources/Common/Image/IconC/T_IconC_054_UI.webp",
+                "value": 60
+            },
+            "41100042": {
+                "id": 41100042,
+                "name": "中頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_2_UI.webp",
+                "value": 12
+            },
+            "41100043": {
+                "id": 41100043,
+                "name": "高頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_3_UI.webp",
+                "value": 12
+            },
+            "41100044": {
+                "id": 41100044,
+                "name": "全頻聚方聲核",
+                "icon": "/assets/UI/UIResources/Common/Image/IconMout/T_IconMout_O_004_4_UI.webp",
+                "value": 4
+            }
+        }
+    },
     "stats": {
         "1": {
             "life": 862,
