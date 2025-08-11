@@ -1,5 +1,5 @@
 <template>
-  <div v-if="info && type" class="f-flex flex-column" :key="type">
+  <div v-if="info && type" class="d-flex flex-column" :key="type">
     <div :class="`d-flex text-${info.element_en} font-weight-bold my-1`">
       {{ $t(info.skill_infos[type].name) }}
     </div>

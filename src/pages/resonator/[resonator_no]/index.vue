@@ -19,59 +19,59 @@
     </template>
     <template v-slot:right>
       <div class="d-flex flex-column w-100" v-if="resonatorInfo !== undefined">
-        <div class="f-flex flex-row my-1">
+        <div class="d-flex flex-row my-1">
           <h1>{{ $t(resonatorInfo.name) }}</h1>
         </div>
         <!-- Damage analysis -->
-        <div class="f-flex flex-row mt-8 mb-1">
+        <div class="d-flex flex-row mt-8 mb-1">
           <h2 id="damage_analysis">{{ $t('resonator.header.damage_analysis') }}</h2>
         </div>
-        <div class="f-flex" v-for="(templateId, i) in templateIds" :key="i">
+        <div class="d-flex" v-for="(templateId, i) in templateIds" :key="i">
           <v-list-item class="text-blue-accent-1" :title="$t(templateId)"
             :to="`/template/${calculatedTemplateStore.getHashedTemplateIdByTemplateId(templateId)}`" :active="false">
           </v-list-item>
         </div>
         <div v-if="comparisons.length > 0">
-          <div class="f-flex flex-row mt-8 mb-1">
+          <div class="d-flex flex-row mt-8 mb-1">
             <h2 id="damage_comparison">{{ $t('resonator.header.damage_comparison') }}</h2>
           </div>
-          <div class="f-flex flex-column py-1" v-for="(comparison, i) in comparisons" :key="i"
+          <div class="d-flex flex-column py-1" v-for="(comparison, i) in comparisons" :key="i"
             :id="$t(comparison.title)">
             <h3 :id="getComparisonId(i)" class="mb-2">{{ $t(comparison.title) }}</h3>
-            <div class="f-flex flex-column py-1">
+            <div class="d-flex flex-column py-1">
               <h4>{{ $t('resonator.damage_comparison.team_based') }}</h4>
-              <div class="f-flex flex-column my-2">
-                <div class="f-flex flex-row">
+              <div class="d-flex flex-column my-2">
+                <div class="d-flex flex-row">
                   <v-list-item class="text-blue-accent-1 w-100" :title="$t('general.affixes_15_1')"
                     :to="`/resonator/${resonatorNo}/comparison/affixes_15_1/${comparison.id}/team_dps`"
                     :active="false"></v-list-item>
                 </div>
-                <div class="f-flex flex-row">
+                <div class="d-flex flex-row">
                   <v-list-item class="text-blue-accent-1 w-100" :title="$t('general.affixes_20_small')"
                     :to="`/resonator/${resonatorNo}/comparison/affixes_20_small/${comparison.id}/team_dps`"
                     :active="false"></v-list-item>
                 </div>
-                <div class="f-flex flex-row">
+                <div class="d-flex flex-row">
                   <v-list-item class="text-blue-accent-1 w-100" :title="$t('general.affixes_20_skill_bonus')"
                     :to="`/resonator/${resonatorNo}/comparison/affixes_20_skill_bonus/${comparison.id}/team_dps`"
                     :active="false"></v-list-item>
                 </div>
               </div>
             </div>
-            <div class="f-flex flex-column py-1">
+            <div class="d-flex flex-column py-1">
               <h4>{{ $t('resonator.damage_comparison.resonator_based', { name: resonatorInfo.name }) }}</h4>
-              <div class="f-flex flex-column my-2">
-                <div class="f-flex flex-row">
+              <div class="d-flex flex-column my-2">
+                <div class="d-flex flex-row">
                   <v-list-item class="text-blue-accent-1" :title="$t('general.affixes_15_1')"
                     :to="`/resonator/${resonatorNo}/comparison/affixes_15_1/${comparison.id}/resonator_dps`"
                     :active="false"></v-list-item>
                 </div>
-                <div class="f-flex flex-row">
+                <div class="d-flex flex-row">
                   <v-list-item class="text-blue-accent-1" :title="$t('general.affixes_20_small')"
                     :to="`/resonator/${resonatorNo}/comparison/affixes_20_small/${comparison.id}/resonator_dps`"
                     :active="false"></v-list-item>
                 </div>
-                <div class="f-flex flex-row">
+                <div class="d-flex flex-row">
                   <v-list-item class="text-blue-accent-1" :title="$t('general.affixes_20_skill_bonus')"
                     :to="`/resonator/${resonatorNo}/comparison/affixes_20_skill_bonus/${comparison.id}/resonator_dps`"
                     :active="false"></v-list-item>
