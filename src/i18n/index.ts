@@ -30,6 +30,8 @@ const i18n = createI18n({
         result: "計算結果",
       },
       general: {
+        sum: "總和",
+        wiki: "WIKI",
         detailed_skill_info: "詳細技能",
         skill_damage: "技能傷害",
         element: "屬性",
