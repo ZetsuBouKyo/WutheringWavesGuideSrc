@@ -10,7 +10,7 @@ import {
 import { useResonatorStore } from "@/stores/resonator";
 import { useWeaponStore } from "@/stores/weapon";
 import { useEchoStore } from "@/stores/echo";
-import { getSonataInfo } from "@/stores/sonata";
+import { getSonataInfoByName } from "@/stores/sonata";
 
 export class RowBuff {
   public id: string = ""; // TODO: id -> name?
@@ -110,7 +110,7 @@ export class RowBuff {
         if (!this.source) {
           return "";
         }
-        info = getSonataInfo(this.source);
+        info = getSonataInfoByName(this.source);
         if (!info) {
           return "";
         }

@@ -19,11 +19,14 @@ declare module 'vue-router/auto-routes' {
    */
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
+    '/echo/': RouteRecordInfo<'/echo/', '/echo', Record<never, never>, Record<never, never>>,
+    '/echo/[echo_id]/': RouteRecordInfo<'/echo/[echo_id]/', '/echo/:echo_id', { echo_id: ParamValue<true> }, { echo_id: ParamValue<false> }>,
     '/resonator/': RouteRecordInfo<'/resonator/', '/resonator', Record<never, never>, Record<never, never>>,
     '/resonator/[resonator_no]/': RouteRecordInfo<'/resonator/[resonator_no]/', '/resonator/:resonator_no', { resonator_no: ParamValue<true> }, { resonator_no: ParamValue<false> }>,
     '/resonator/[resonator_no]/comparison/[affix_policy]/[comparison_id]/resonator_dps': RouteRecordInfo<'/resonator/[resonator_no]/comparison/[affix_policy]/[comparison_id]/resonator_dps', '/resonator/:resonator_no/comparison/:affix_policy/:comparison_id/resonator_dps', { resonator_no: ParamValue<true>, affix_policy: ParamValue<true>, comparison_id: ParamValue<true> }, { resonator_no: ParamValue<false>, affix_policy: ParamValue<false>, comparison_id: ParamValue<false> }>,
     '/resonator/[resonator_no]/comparison/[affix_policy]/[comparison_id]/team_dps': RouteRecordInfo<'/resonator/[resonator_no]/comparison/[affix_policy]/[comparison_id]/team_dps', '/resonator/:resonator_no/comparison/:affix_policy/:comparison_id/team_dps', { resonator_no: ParamValue<true>, affix_policy: ParamValue<true>, comparison_id: ParamValue<true> }, { resonator_no: ParamValue<false>, affix_policy: ParamValue<false>, comparison_id: ParamValue<false> }>,
     '/resonator/[resonator_no]/wiki': RouteRecordInfo<'/resonator/[resonator_no]/wiki', '/resonator/:resonator_no/wiki', { resonator_no: ParamValue<true> }, { resonator_no: ParamValue<false> }>,
+    '/sonata/': RouteRecordInfo<'/sonata/', '/sonata', Record<never, never>, Record<never, never>>,
     '/template/[id]/': RouteRecordInfo<'/template/[id]/', '/template/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/template/[id]/damage_analysis/[affix_policy]': RouteRecordInfo<'/template/[id]/damage_analysis/[affix_policy]', '/template/:id/damage_analysis/:affix_policy', { id: ParamValue<true>, affix_policy: ParamValue<true> }, { id: ParamValue<false>, affix_policy: ParamValue<false> }>,
     '/template/[id]/echo_comparison/[affix_policy]/[resonator_no]': RouteRecordInfo<'/template/[id]/echo_comparison/[affix_policy]/[resonator_no]', '/template/:id/echo_comparison/:affix_policy/:resonator_no', { id: ParamValue<true>, affix_policy: ParamValue<true>, resonator_no: ParamValue<true> }, { id: ParamValue<false>, affix_policy: ParamValue<false>, resonator_no: ParamValue<false> }>,

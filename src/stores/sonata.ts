@@ -1,42 +1,46 @@
-import { type ISonataInfo } from "@/types/sonata";
-
-import sonata_info from "@/assets/data/echo/sonatas.json";
+import sonata_info from "@/assets/data/sonatas.json";
 
 export class SonataInfo {
+  public id: number | "" = "";
   public name: string = "";
-  public piece_2: string = "";
-  public piece_3: string = "";
-  public piece_5: string = "";
+  public icon: string = "";
+  public color: string = "";
+  public set: { [key: string]: { desc: string; description: string; param: Array<string> } } = {};
+
+  constructor(data: any = {}) {
+    Object.assign(this, data);
+  }
+
+  duplicate(): SonataInfo {
+    return new SonataInfo(JSON.parse(JSON.stringify(this)));
+  }
 
   public getHtmlInfo(): string {
     let text = "";
     if (this.name) {
       text = `${text}【${this.name}】\n\n`;
     }
-    if (this.piece_2) {
-      text = `${text}2/2\n${this.piece_2}\n\n`;
-    }
-    if (this.piece_3) {
-      text = `${text}3/3\n${this.piece_3}\n\n`;
-    }
-    if (this.piece_5) {
-      text = `${text}5/5\n${this.piece_5}`;
+    for (const key of Object.keys(this.set)) {
+      text = `${text}${key}/${key}\n${this.set[key].description}\n\n`;
     }
     text = text.replace(/\n/g, "<br />");
     return text;
   }
 }
 
-export function getSonataInfo(name: string): SonataInfo | undefined {
-  const data = sonata_info[name as keyof typeof sonata_info] as ISonataInfo;
-  if (!data) {
-    return;
-  }
+const name2info: { [name: string]: SonataInfo } = {};
+for (const _info of sonata_info) {
+  name2info[_info.name] = new SonataInfo(_info);
+}
 
-  const info = new SonataInfo();
-  info.name = name;
-  info.piece_2 = data["2"] ? data["2"] : "";
-  info.piece_3 = data["3"] ? data["3"] : "";
-  info.piece_5 = data["5"] ? data["5"] : "";
-  return info;
+export function getSonataInfoByName(name: string): SonataInfo | undefined {
+  return name2info[name];
+}
+
+export function getSonataNames(): Array<string> {
+  return Object.keys(name2info);
+}
+
+export function getSonataInfos(): Array<SonataInfo> {
+  return Object.values(name2info);
 }

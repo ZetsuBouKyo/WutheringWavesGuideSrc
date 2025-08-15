@@ -27,16 +27,35 @@ export function getMainAffixes(cost: string): { [buff: TStatBuffEnum | string]: 
 }
 
 export class EchoInfo {
+  public id: number | undefined = undefined;
+  public monster_info: number | undefined = undefined;
+  public code: string = "";
   public name: string = "";
+  public type: string = "";
+  public element_ids: Array<number> = [];
   public cost: string = "";
+  public intensity_code: number | undefined = undefined;
+  public intensity_zh_tw: string = "";
+  public place: string = "";
+  public icon: string = "";
   public sonatas: Array<string> = [];
-  public skill: { description: string } = { description: "" };
+  public skill_id: number | undefined = undefined;
+  public skill: { description: string; desc: string; simple_desc: string; param: Array<Array<string>> } = {
+    description: "",
+    desc: "",
+    simple_desc: "",
+    param: [],
+  };
+  public damage_ids: Array<number> = [];
+  public damage: Array<any> = [];
+  public groups: Array<any> = [];
 
-  constructor(echo: any = {}) {
-    if (!echo || Object.keys(echo).length === 0) {
-      return;
-    }
-    Object.assign(this, echo);
+  constructor(data: any = {}) {
+    Object.assign(this, data);
+  }
+
+  duplicate(): EchoInfo {
+    return new EchoInfo(JSON.parse(JSON.stringify(this)));
   }
 
   public getHtmlInfo(): string {

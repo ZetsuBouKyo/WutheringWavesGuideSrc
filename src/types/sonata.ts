@@ -14,9 +14,3 @@ export const SonataEnum = {
   EMPYREAN_ANTHEM: "高天共奏之曲",
   TIDEBREAKING_COURAGE: "無懼浪濤之勇",
 } as const;
-
-export interface ISonataInfo {
-  2: string;
-  3: string;
-  5: string;
-}

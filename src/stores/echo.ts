@@ -1,14 +1,14 @@
 import { defineStore } from "pinia";
 
 import echoes from "@/assets/data/echo/infos.json";
-import sonatas from "@/assets/data/echo/sonatas.json";
 import sub_affixes from "@/assets/data/echo/sub_affixes.json";
 
 import { AbbrBonusEnum } from "@/types/buff";
 
+import { getSonataNames } from "@/stores/sonata";
 import { EchoInfo } from "@/ww/echo";
 
-const sonataNames = Object.keys(sonatas);
+const sonataNames = getSonataNames();
 
 const echoesForCalculation: Array<any> = [
   {
@@ -52,6 +52,13 @@ export const useEchoStore = defineStore("echo", {
       });
       return e;
     },
+    getEchoes(): Array<EchoInfo> {
+      const infos = [];
+      for (const echo of echoes) {
+        infos.push(new EchoInfo(echo));
+      }
+      return infos;
+    },
     getSubAffixKeys(): Array<string> {
       return Object.keys(sub_affixes);
     },
@@ -74,6 +81,13 @@ export const useEchoStore = defineStore("echo", {
     getInfoByName(name: string): EchoInfo | undefined {
       for (const echo of echoesForCalculation) {
         if (echo.name === name) {
+          return new EchoInfo(echo);
+        }
+      }
+    },
+    getInfoByID(id: number | string): EchoInfo | undefined {
+      for (const echo of echoes) {
+        if (echo.id.toString() === id.toString()) {
           return new EchoInfo(echo);
         }
       }
