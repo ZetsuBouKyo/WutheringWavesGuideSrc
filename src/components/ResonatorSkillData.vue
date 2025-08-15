@@ -104,11 +104,10 @@ const skillTable = reactive<Array<any>>([])
 const skills = props.info.skills
 for (const skill of skills) {
   const id = skill.id
-  const type = skill.type
   const lv10 = skill.lv10
   const skill_type = skill.skill_type
 
-  if (type !== "Damage" || !lv10 || !props.type || skill_type !== SkillTypeEnum[props.type.toUpperCase() as keyof typeof SkillTypeEnum]) {
+  if (!lv10 || !props.type || skill_type !== SkillTypeEnum[props.type.toUpperCase() as keyof typeof SkillTypeEnum]) {
     continue
   }
   const row: any = {}
