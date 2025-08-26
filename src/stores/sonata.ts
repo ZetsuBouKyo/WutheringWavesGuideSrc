@@ -20,8 +20,13 @@ export class SonataInfo {
     if (this.name) {
       text = `${text}【${this.name}】\n\n`;
     }
-    for (const key of Object.keys(this.set)) {
-      text = `${text}${key}/${key}\n${this.set[key].description}\n\n`;
+    const keys = Object.keys(this.set);
+    for (const key of keys) {
+      if (key === keys[keys.length - 1]) {
+        text = `${text}${key}/${key}\n${this.set[key].description}`;
+      } else {
+        text = `${text}${key}/${key}\n${this.set[key].description}\n\n`;
+      }
     }
     text = text.replace(/\n/g, "<br />");
     return text;
