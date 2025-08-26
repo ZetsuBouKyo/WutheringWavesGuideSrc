@@ -1,20 +1,10 @@
 import layout from "@/layouts/default.vue";
 import Markdown from "@/components/Markdown.vue";
 
-export const docs: any = {
-  path: "/docs",
+export const guide: any = {
+  path: "/guide",
   component: layout,
   children: [
-    {
-      path: "",
-      component: Markdown,
-      meta: { path: "main.md" },
-    },
-    {
-      path: "simulated_echo",
-      component: Markdown,
-      meta: { path: "simulated_echo.md" },
-    },
     {
       path: "statistics/development_materials/comparison",
       component: Markdown,
@@ -49,6 +39,16 @@ export const docs: any = {
       path: "statistics/development_materials/v1_4_solaris_8",
       component: Markdown,
       meta: { path: "statistics/development_materials/v1_4_solaris_8.md" },
+    },
+    {
+      path: "simulated_echo",
+      component: Markdown,
+      meta: { path: "simulated_echo.md" },
+    },
+    {
+      path: "",
+      component: Markdown,
+      meta: { path: "main.md" },
     },
   ],
 };

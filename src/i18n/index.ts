@@ -236,6 +236,7 @@ const i18n = createI18n({
         tab: {
           welcome: "Welcome",
           docs: "文件",
+          guide: "攻略",
           resonator: "共鳴者",
           echo: "聲骸",
           sonata: "合鳴",

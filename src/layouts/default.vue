@@ -6,7 +6,7 @@
     </v-row>
     <v-tabs align-tabs="center" color="blue-accent-1">
       <v-tab to="/">{{ $t('nav.tab.welcome') }}</v-tab>
-      <v-tab to="/docs">{{ $t('nav.tab.docs') }}</v-tab>
+      <v-tab to="/guide">{{ $t('nav.tab.guide') }}</v-tab>
       <v-tab to="/resonator">{{ $t('nav.tab.resonator') }}</v-tab>
       <v-tab to="/echo">{{ $t('nav.tab.echo') }}</v-tab>
       <v-tab to="/sonata">{{ $t('nav.tab.sonata') }}</v-tab>
