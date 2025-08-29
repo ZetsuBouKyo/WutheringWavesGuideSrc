@@ -56,10 +56,12 @@ export interface IWeaponAttr {
 }
 
 export interface IWeaponInfo {
+  id: number;
   no: string;
   name: string;
+  rarity: number;
   star: string;
-  type: string;
+  type_zh_tw: string;
   passive: IWeaponPassiveInfo;
   attrs: Array<IWeaponAttr>;
 }

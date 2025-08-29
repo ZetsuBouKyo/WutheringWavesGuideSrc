@@ -140,22 +140,36 @@ export class RowEchoes {
     }
     const source: string = `${name}-${RowBuffSourceEnum.MAIN_SLOT}`;
     switch (name) {
-      case EchoNameEnum.HECATE:
-        buffs.push(
-          this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.COORDINATED_ATTACK, "0.4"),
-        );
-        break;
-      case EchoNameEnum.SENTRY_CONSTRUCT:
+      case EchoNameEnum.ABYSSAL_PATRICIUS:
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.GLACIO, "", "0.12"));
-        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.SKILL, "0.12"));
+        break;
+      case EchoNameEnum.VITREUM_DANCER:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.ELECTRO, "", "0.12"));
         break;
       case EchoNameEnum.LORELEI:
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.HAVOC, "", "0.12"));
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.BASIC, "0.12"));
         break;
-      case EchoNameEnum.NIGHTMARE_INFERNO_RIDER:
-        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.FUSION, "", "0.12"));
+      case EchoNameEnum.SENTRY_CONSTRUCT:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.GLACIO, "", "0.12"));
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.SKILL, "0.12"));
+        break;
+      case EchoNameEnum.DRAGON_OF_DIRGE:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.FUSION, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.BASIC, "0.12"));
+        break;
+      case EchoNameEnum.HECATE:
+        buffs.push(
+          this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.COORDINATED_ATTACK, "0.4"),
+        );
+        break;
+      case EchoNameEnum.NIGHTMARE_FEILIAN_BERINGAL:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.AERO, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.HEAVY, "0.12"));
+        break;
+      case EchoNameEnum.NIGHTMARE_IMPERMANENCE_HERON:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.HAVOC, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.HEAVY, "0.12"));
         break;
       case EchoNameEnum.NIGHTMARE_THUNDERING_MEPHIS:
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.ELECTRO, "", "0.12"));
@@ -165,32 +179,26 @@ export class RowEchoes {
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.ELECTRO, "", "0.12"));
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.SKILL, "0.12"));
         break;
-      case EchoNameEnum.DRAGON_OF_DIRGE:
-        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.FUSION, "", "0.12"));
-        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.BASIC, "0.12"));
-        break;
       case EchoNameEnum.NIGHTMARE_CROWNLESS:
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.HAVOC, "", "0.12"));
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.BASIC, "0.12"));
         break;
+      case EchoNameEnum.NIGHTMARE_INFERNO_RIDER:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.FUSION, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.SKILL, "0.12"));
+        break;
       case EchoNameEnum.NIGHTMARE_MOURNING_AIX:
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.SPECTRO, "", "0.12"));
-        break;
-      case EchoNameEnum.NIGHTMARE_IMPERMANENCE_HERON:
-        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.HAVOC, "", "0.12"));
-        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.HEAVY, "0.12"));
-        break;
-      case EchoNameEnum.NIGHTMARE_FEILIAN_BERINGAL:
-        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.AERO, "", "0.12"));
-        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.HEAVY, "0.12"));
         break;
       case EchoNameEnum.CAPITANEUS:
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.SPECTRO, "", "0.12"));
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.HEAVY, "0.12"));
         break;
-      case EchoNameEnum.LIONESS_OF_GLORY:
-        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.FUSION, "", "0.12"));
-        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.LIBERATION, "0.12"));
+      case EchoNameEnum.NIGHTMARE_LAMPYLUMEN_MYRIAD:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.GLACIO, "", "0.12"));
+        buffs.push(
+          this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.COORDINATED_ATTACK, "0.3"),
+        );
         break;
       case EchoNameEnum.REMINISCENCE_FLEURDELYS:
         switch (this.resonator_name) {
@@ -201,17 +209,37 @@ export class RowEchoes {
         }
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.AERO, "", "0.1"));
         break;
-      case EchoNameEnum.REMINISCENCE_FENRICO:
-        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, SkillBonusEnum.HEAVY, "", "0.12"));
+      case EchoNameEnum.KERASAUR:
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.AERO, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.LIBERATION, "0.12"));
         break;
       case EchoNameEnum.NIGHTMARE_KELPIE:
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.GLACIO, "", "0.12"));
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.AERO, "", "0.12"));
         break;
+      case EchoNameEnum.LIONESS_OF_GLORY:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.FUSION, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.LIBERATION, "0.12"));
+        break;
       case EchoNameEnum.NIGHTMARE_HECATE:
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.HAVOC, "", "0.12"));
         buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.ECHO, "0.2"));
+        break;
+      case EchoNameEnum.REMINISCENCE_FENRICO:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.AERO, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.HEAVY, "0.12"));
+        break;
+      case EchoNameEnum.CORROSAURUS:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.FUSION, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.ECHO, "0.2"));
+        break;
+      case EchoNameEnum.THE_FALSE_SOVEREIGN:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.ELECTRO, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.HEAVY, "0.12"));
+        break;
+      case EchoNameEnum.LADY_OF_THE_SEA:
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, ElementBonusEnum.AERO, "", "0.12"));
+        buffs.push(this.getPassiveSkillRowBuff(source, BuffTypeEnum.BONUS, "", SkillBonusEnum.LIBERATION, "0.12"));
         break;
       default:
         return buffs;
