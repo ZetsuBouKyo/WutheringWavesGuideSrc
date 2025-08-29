@@ -28,6 +28,23 @@
 
 ### Windows
 
+#### Tauri
+
+```script
+# Install Rust
+winget install --id Rustlang.Rustup
+# Set path and reopen the VSCode
+# Check
+rustc --version
+
+# Install Tauri
+npm install --save-dev @tauri-apps/cli
+npm install @tauri-apps/api
+
+# Build the app
+npm run tauri build
+```
+
 #### Web
 
 ```script
