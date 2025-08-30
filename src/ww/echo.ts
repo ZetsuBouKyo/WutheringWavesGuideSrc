@@ -50,6 +50,8 @@ export class EchoInfo {
   public damage: Array<any> = [];
   public groups: Array<any> = [];
 
+  public show: boolean = true;
+
   constructor(data: any = {}) {
     Object.assign(this, data);
   }

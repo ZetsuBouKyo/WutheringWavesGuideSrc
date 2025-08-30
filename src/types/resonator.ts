@@ -27,6 +27,17 @@ export interface IRowResonator {
   skill: IRowResonatorSkill;
 }
 
+export interface IBasicResonatorInfo {
+  no: string;
+  name: string;
+  rarity: number | string;
+  element_en: string;
+  weapon_zh_tw: string;
+  elementSrc: string;
+  iconSrc: string;
+  show: boolean;
+}
+
 export const ResonatorInfoEnum = {
   ...SkillTypeEnum,
   INHERENT_SKILL_1: "固有技能1",

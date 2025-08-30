@@ -1,7 +1,7 @@
 import { SkillBonusEnum } from "@/types/buff";
 import { ElementEnum } from "@/types/element";
 import { SkillAttrEnum } from "@/types/skill";
-import { ResonatorInfoEnum, type TResonatorInfoEnum } from "@/types/resonator";
+import { ResonatorInfoEnum, type TResonatorInfoEnum, type IBasicResonatorInfo } from "@/types/resonator";
 
 import { StatBuff } from "./buff";
 
@@ -444,6 +444,27 @@ export class ResonatorInfo {
       }
     }
     return "";
+  }
+
+  public getElementSrc(): string {
+    return `/assets/elements/${this.element_en}.png`;
+  }
+
+  public getIconSrc(): string {
+    return `/assets/resonators/${this.id}/icon.png`;
+  }
+
+  public getBasicInfo(): IBasicResonatorInfo {
+    return {
+      no: this.no,
+      name: this.name,
+      rarity: this.rarity,
+      element_en: this.element_en,
+      weapon_zh_tw: this.weapon_zh_tw,
+      iconSrc: this.getIconSrc(),
+      elementSrc: this.getElementSrc(),
+      show: true,
+    };
   }
 
   public getHtmlInfoBySkillType(type: TResonatorInfoEnum): string {

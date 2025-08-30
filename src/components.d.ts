@@ -8,13 +8,16 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./components/AppFooter.vue')['default']
+    CostFilter: typeof import('./components/CostFilter.vue')['default']
     DamageAnalysis: typeof import('./components/DamageAnalysis.vue')['default']
     Doc: typeof import('./components/Doc.vue')['default']
     DocHeaders: typeof import('./components/DocHeaders.vue')['default']
     EchoInfo: typeof import('./components/EchoInfo.vue')['default']
+    ElementFilter: typeof import('./components/ElementFilter.vue')['default']
     Explorer: typeof import('./components/Explorer.vue')['default']
     ImageDownloadPanel: typeof import('./components/ImageDownloadPanel.vue')['default']
     Markdown: typeof import('./components/Markdown.vue')['default']
+    RarityFilter: typeof import('./components/RarityFilter.vue')['default']
     ResonatorInfo: typeof import('./components/ResonatorInfo.vue')['default']
     ResonatorSkillData: typeof import('./components/ResonatorSkillData.vue')['default']
     ResonatorTier: typeof import('./components/ResonatorTier.vue')['default']
@@ -35,6 +38,7 @@ declare module 'vue' {
     RowResonatorResult: typeof import('./components/RowResonatorResult.vue')['default']
     RowWeapon: typeof import('./components/RowWeapon.vue')['default']
     RowWeaponResult: typeof import('./components/RowWeaponResult.vue')['default']
+    SonataFilter: typeof import('./components/SonataFilter.vue')['default']
     SonataInfo: typeof import('./components/SonataInfo.vue')['default']
     TeamTier: typeof import('./components/TeamTier.vue')['default']
     TemplateAutoFillEcho: typeof import('./components/TemplateAutoFillEcho.vue')['default']
@@ -43,5 +47,6 @@ declare module 'vue' {
     TemplateEcho: typeof import('./components/TemplateEcho.vue')['default']
     TemplateResonator: typeof import('./components/TemplateResonator.vue')['default']
     TemplateRotation: typeof import('./components/TemplateRotation.vue')['default']
+    WeaponFilter: typeof import('./components/WeaponFilter.vue')['default']
   }
 }
