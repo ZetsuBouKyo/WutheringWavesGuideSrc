@@ -1,57 +1,62 @@
 import { mande } from "mande";
 import { defineStore } from "pinia";
 
-import { getKeyByValue } from "@/ww/utils";
+import { type IBasicResonatorInfo } from "@/types/resonator";
+
 import { ResonatorInfo } from "@/ww/resonator";
 
+import _resonators from "@/assets/data/resonators.json";
 import echoSkills from "@/assets/data/echo/skills.json";
 
-const name2no: { [name: string]: string } = {
-  散華: "1102",
-  白芷: "1103",
-  凌陽: "1104",
-  折枝: "1105",
-  釉瑚: "1106",
-  珂萊塔: "1107",
-  熾霞: "1202",
-  安可: "1203",
-  莫特斐: "1204",
-  長離: "1205",
-  布蘭特: "1206",
-  露帕: "1207",
-  卡卡羅: "1301",
-  吟霖: "1302",
-  淵武: "1303",
-  今汐: "1304",
-  相里要: "1305",
-  奧古斯塔: "1306",
-  秧秧: "1402",
-  秋水: "1403",
-  忌炎: "1404",
-  鑒心: "1405",
-  "漂泊者·氣動(男)": "1406",
-  夏空: "1407",
-  "漂泊者·氣動(女)": "1408",
-  卡提希婭: "1409",
-  尤諾: "1410",
-  "漂泊者·衍射(男)": "1501",
-  "漂泊者·衍射(女)": "1502",
-  維里奈: "1503",
-  燈燈: "1504",
-  守岸人: "1505",
-  菲比: "1506",
-  贊尼: "1507",
-  桃祈: "1601",
-  丹瑾: "1602",
-  椿: "1603",
-  "漂泊者·湮滅(女)": "1604",
-  "漂泊者·湮滅(男)": "1605",
-  洛可可: "1606",
-  坎特蕾拉: "1607",
-  弗洛洛: "1608",
-};
-
 export const spoilerNames: Array<string> = [];
+
+class _Resonators {
+  public rows: Array<IBasicResonatorInfo> = [];
+
+  constructor(resonators: Array<IBasicResonatorInfo>, resonatorNames: Array<string> | undefined) {
+    for (const resonator of resonators) {
+      if (!resonatorNames || resonatorNames.includes(resonator.name)) {
+        resonator.show = true;
+        this.rows.push(resonator);
+      }
+    }
+  }
+
+  public filter(element_en: string | undefined, rarity: string | number | undefined, weapon_zh_tw: string | undefined) {
+    for (const row of this.rows) {
+      row.show = true;
+      if (element_en) {
+        if (row.element_en !== element_en) {
+          row.show = false;
+        }
+      }
+      if (rarity) {
+        rarity = rarity.toString();
+        if (row.rarity.toString() !== rarity) {
+          row.show = false;
+        }
+      }
+      if (weapon_zh_tw) {
+        if (row.weapon_zh_tw !== weapon_zh_tw) {
+          row.show = false;
+        }
+      }
+    }
+  }
+
+  public getNames(): Array<string> {
+    const names = [];
+    for (const row of this.rows) {
+      if (row.show) {
+        names.push(row.name);
+      }
+    }
+    return names;
+  }
+}
+export function getBasicResonatorInfos(resonatorNames: Array<string> | undefined = undefined): _Resonators {
+  return new _Resonators(_resonators, resonatorNames);
+}
 
 export function getEchoDamageSkillItems(): Array<any> {
   const items: Array<any> = [];
@@ -73,7 +78,11 @@ export const useResonatorStore = defineStore("resonator", {
   state: () => ({}),
   actions: {
     getNames(spoiler: any = false): Array<string> {
-      const names: Array<string> = Object.keys(name2no);
+      const names: Array<string> = [];
+      for (const resonator of _resonators) {
+        names.push(resonator.name);
+      }
+
       if (spoiler === true) {
         return names;
       }
@@ -96,10 +105,20 @@ export const useResonatorStore = defineStore("resonator", {
       return new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
     },
     getNoByName(name: string): any {
-      return name2no[name];
+      for (const resonator of _resonators) {
+        if (resonator.name === name) {
+          return resonator.id.toString();
+        }
+      }
+      return "";
     },
     getNameByNo(no: string): string {
-      return getKeyByValue(name2no, no);
+      for (const resonator of _resonators) {
+        if (resonator.id.toString() === no.toString()) {
+          return resonator.name;
+        }
+      }
+      return "";
     },
     getIconSrcByNo(no: string): string {
       return `/assets/resonators/${no}/icon.png`;

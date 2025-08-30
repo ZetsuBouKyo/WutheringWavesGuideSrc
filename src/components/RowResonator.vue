@@ -1,5 +1,8 @@
 <template>
   <div class="d-flex flex-column w-100">
+    <ElementFilter class="d-flex mb-2" v-model="selectedElement" @update:modelValue="filter" />
+    <RarityFilter class="d-flex mb-2" v-model="selectedRarity" @update:modelValue="filter" :rarities='["4", "5"]' />
+    <WeaponFilter class="d-flex mb-4" v-model="selectedWeapon" @update:modelValue="filter" />
     <div class="d-flex flex-row mb-4">
       <v-combobox v-model="resonator.data.name" :items="resonatorNames" :label="$t('general.name')"
         :rules="[checkResonatorName]" @update:modelValue="updateResonator" variant="outlined" density="compact"
@@ -14,6 +17,11 @@
     <div class="d-flex flex-row mb-4">
       <v-select v-model="resonator.data.chain" :items="resonatorChains" :label="$t('general.resonator_chain')"
         variant="outlined" density="compact" hide-details>
+      </v-select>
+    </div>
+    <div class="d-flex flex-row mb-4">
+      <v-select v-model="resonator.data.weapon_zh_tw" :label="$t('general.weapon')" variant="outlined" density="compact"
+        hide-details disabled>
       </v-select>
     </div>
     <!-- Skill -->
@@ -193,7 +201,7 @@ import { useRoute } from 'vue-router'
 import { useRowResonatorStore } from '@/stores/calculation/resonator';
 import { useRowWeaponStore } from '@/stores/calculation/weapon';
 import { useRowEchoesStore } from '@/stores/calculation/echoes';
-import { useResonatorStore } from '@/stores/resonator';
+import { useResonatorStore, getBasicResonatorInfos } from '@/stores/resonator';
 
 import { getResonatorBaseAttrs } from '@/ww/resonator';
 import { RowAutoFillEchoes } from "@/ww/echoes"
@@ -218,17 +226,22 @@ const id = props.id
 
 const { t } = useI18n()
 
+const basicResonatorInfos = getBasicResonatorInfos()
+
 const resonatorStore = useResonatorStore()
-const resonatorNames = resonatorStore.getNames(spoiler)
+const resonatorNames = ref(basicResonatorInfos.getNames())
 const resonatorLevels = resonatorStore.getLevels()
 const resonatorChains = resonatorStore.getChains()
 const resonatorSkillLevels = resonatorStore.getSkillLevels()
 
+const selectedElement = ref(undefined)
+const selectedRarity = ref(undefined)
+const selectedWeapon = ref(undefined)
 const resonator = useRowResonatorStore(id)
 const resonatorSkillItems = ref<any>([])
 
 function checkResonatorName(name: string) {
-  if (resonatorNames.includes(name)) {
+  if (resonatorNames.value.includes(name)) {
     return true
   }
   return t('general.error')
@@ -265,6 +278,12 @@ function checkResonatorSkill(new_item: any) {
   }
   return t('general.error')
 }
+
+function filter() {
+  basicResonatorInfos.filter(selectedElement.value, selectedRarity.value, selectedWeapon.value)
+  resonatorNames.value = basicResonatorInfos.getNames()
+}
+
 </script>
 
 <style scoped lang="sass">

@@ -50,6 +50,7 @@ export class RowResonator {
   public element_zh_tw: string = "";
   public level: string = "90";
   public chain: string = "0";
+  public weapon_zh_tw: string = "";
   public hp: string = "";
   public atk: string = "";
   public def: string = "";
@@ -92,6 +93,7 @@ export class RowResonator {
     r.element_zh_tw = this.element_zh_tw;
     r.level = this.level;
     r.chain = this.chain;
+    r.weapon_zh_tw = this.weapon_zh_tw;
     r.hp = this.hp;
     r.atk = this.atk;
     r.def = this.def;
@@ -229,6 +231,7 @@ export class RowResonator {
     this._info = info;
     this.element_en = info.element_en;
     this.element_zh_tw = info.element_zh_tw;
+    this.weapon_zh_tw = info.weapon_zh_tw;
 
     // Base attr
     this.updateByLevel();

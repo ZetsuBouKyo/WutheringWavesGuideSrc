@@ -8,13 +8,13 @@
     </div>
     <h2 class="mb-4">{{ $t('resonators.damage_analysis') }}</h2>
     <v-sheet class=" d-flex flex-wrap justify-center">
-      <template v-for="resonator in dResonators" :key="resonator.no">
-        <v-tooltip v-if="resonator.show" :text="`${resonator.no} ${resonator.name}`">
+      <template v-for="resonator in dResonators" :key="resonator.id">
+        <v-tooltip v-if="resonator.show" :text="`${resonator.id} ${resonator.name}`">
           <template v-slot:activator="{ props }">
-            <v-card class="ma-2 pa-2" v-bind="props" :to="`/resonator/${resonator.no}`">
-              <v-img width="100" :src="resonator.iconSrc"></v-img>
+            <v-card class="ma-2 pa-2" v-bind="props" :to="`/resonator/${resonator.id}`">
+              <v-img width="100" :src="resonator.icon"></v-img>
               <v-row no-gutters align="center" justify="center">
-                <img :src="resonator.elementSrc" height="36">
+                <img :src="getElementSrc(resonator.element_en)" height="36">
                 <span class="mr-2 text-truncate name">{{ resonator.name }}</span>
               </v-row>
             </v-card>
@@ -24,13 +24,13 @@
     </v-sheet>
     <h2 class="my-4">{{ $t('general.wiki') }}</h2>
     <v-sheet class=" d-flex flex-wrap justify-center">
-      <template v-for="resonator in wResonators" :key="resonator.no">
-        <v-tooltip v-if="resonator.show" :text="`${resonator.no} ${resonator.name}`">
+      <template v-for="resonator in wResonators" :key="resonator.id">
+        <v-tooltip v-if="resonator.show" :text="`${resonator.id} ${resonator.name}`">
           <template v-slot:activator="{ props }">
-            <v-card class="ma-2 pa-2" v-bind="props" :to="`/resonator/${resonator.no}/wiki`">
-              <v-img width="100" :src="resonator.iconSrc"></v-img>
+            <v-card class="ma-2 pa-2" v-bind="props" :to="`/resonator/${resonator.id}/wiki`">
+              <v-img width="100" :src="resonator.icon"></v-img>
               <v-row no-gutters align="center" justify="center">
-                <img :src="resonator.elementSrc" height="36">
+                <img :src="getElementSrc(resonator.element_en)" height="36">
                 <span class="mr-2 text-truncate name">{{ resonator.name }}</span>
               </v-row>
             </v-card>
@@ -47,7 +47,8 @@ import { useRoute } from 'vue-router'
 
 import { type IBasicResonatorInfo } from '@/types/resonator';
 
-import { useResonatorStore } from '@/stores/resonator';
+import { getElementSrc } from '@/stores/element';
+import { getBasicResonatorInfos } from '@/stores/resonator';
 import { useCalculatedTemplateStore } from '@/stores/calculatedTemplate';
 import ElementFilter from '@/components/ElementFilter.vue';
 
@@ -60,11 +61,13 @@ if (spoiler === "true" || spoiler === true) {
   spoiler = false
 }
 
-const resonatorStore = useResonatorStore()
 const calculatedTemplateStore = useCalculatedTemplateStore()
 
-const dResonators = reactive<Array<IBasicResonatorInfo>>([])
-const wResonators = reactive<Array<IBasicResonatorInfo>>([])
+const dBasicResonatorInfos = ref(getBasicResonatorInfos([]))
+const wBasicResonatorInfos = ref(getBasicResonatorInfos())
+
+const dResonators = ref<Array<IBasicResonatorInfo>>(dBasicResonatorInfos.value.rows)
+const wResonators = ref<Array<IBasicResonatorInfo>>(wBasicResonatorInfos.value.rows)
 const selectedElement = ref(undefined)
 const selectedRarity = ref(undefined)
 const selectedWeapon = ref(undefined)
@@ -77,52 +80,20 @@ function sorting(resonatorA: any, resonatorB: any) {
   }
   return noA - noB
 }
+wResonators.value.sort(sorting)
 
 function filter() {
-  const r = [dResonators, wResonators]
-  for (const resonators of r) {
-    for (const resonator of resonators) {
-      resonator.show = true
-      if (selectedElement.value) {
-        if (resonator.element_en !== selectedElement.value) {
-          resonator.show = false
-        }
-      }
-      if (selectedRarity.value) {
-        if (resonator.rarity.toString() !== selectedRarity.value) {
-          resonator.show = false
-        }
-      }
-      if (selectedWeapon.value) {
-        if (resonator.weapon_zh_tw !== selectedWeapon.value) {
-          resonator.show = false
-        }
-      }
-    }
-  }
+  dBasicResonatorInfos.value.filter(selectedElement.value, selectedRarity.value, selectedWeapon.value)
+  wBasicResonatorInfos.value.filter(selectedElement.value, selectedRarity.value, selectedWeapon.value)
 }
 
 onMounted(async () => {
   // Damage analysis
   await calculatedTemplateStore.init()
   const dNames = calculatedTemplateStore.getNames(spoiler)
-  dNames.forEach(async (name: string) => {
-    const no = resonatorStore.getNoByName(name)
-    const info = await resonatorStore.getInfoByNo(no)
-    const resonator = info.getBasicInfo()
-    dResonators.push(resonator)
-    dResonators.sort(sorting)
-  })
-
-  // WIKI
-  const wNames = resonatorStore.getNames()
-  wNames.forEach(async (name: string) => {
-    const no = resonatorStore.getNoByName(name)
-    const info = await resonatorStore.getInfoByNo(no)
-    const resonator = info.getBasicInfo()
-    wResonators.push(resonator)
-    wResonators.sort(sorting)
-  })
+  dBasicResonatorInfos.value = getBasicResonatorInfos(dNames)
+  dResonators.value = dBasicResonatorInfos.value.rows
+  dResonators.value.sort(sorting)
 })
 </script>
 

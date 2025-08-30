@@ -1,0 +1,338 @@
+[
+    {
+        "id": 1102,
+        "name": "散華",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_7_UI.webp",
+        "rarity": 4,
+        "weapon_zh_tw": "迅刀",
+        "element_en": "glacio"
+    },
+    {
+        "id": 1103,
+        "name": "白芷",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_6_UI.webp",
+        "rarity": 4,
+        "weapon_zh_tw": "音感儀",
+        "element_en": "glacio"
+    },
+    {
+        "id": 1104,
+        "name": "凌陽",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_14_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "臂鎧",
+        "element_en": "glacio"
+    },
+    {
+        "id": 1105,
+        "name": "折枝",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_27_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "音感儀",
+        "element_en": "glacio"
+    },
+    {
+        "id": 1106,
+        "name": "釉瑚",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_31_UI.webp",
+        "rarity": 4,
+        "weapon_zh_tw": "臂鎧",
+        "element_en": "glacio"
+    },
+    {
+        "id": 1107,
+        "name": "珂萊塔",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_32_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "佩槍",
+        "element_en": "glacio"
+    },
+    {
+        "id": 1202,
+        "name": "熾霞",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_2_UI.webp",
+        "rarity": 4,
+        "weapon_zh_tw": "佩槍",
+        "element_en": "fusion"
+    },
+    {
+        "id": 1203,
+        "name": "安可",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_8_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "音感儀",
+        "element_en": "fusion"
+    },
+    {
+        "id": 1204,
+        "name": "莫特斐",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_13_UI.webp",
+        "rarity": 4,
+        "weapon_zh_tw": "佩槍",
+        "element_en": "fusion"
+    },
+    {
+        "id": 1205,
+        "name": "長離",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_26_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "迅刀",
+        "element_en": "fusion"
+    },
+    {
+        "id": 1206,
+        "name": "布蘭特",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_44_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "迅刀",
+        "element_en": "fusion"
+    },
+    {
+        "id": 1207,
+        "name": "露帕",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_46_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "長刃",
+        "element_en": "fusion"
+    },
+    {
+        "id": 1301,
+        "name": "卡卡羅",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_18_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "長刃",
+        "element_en": "electro"
+    },
+    {
+        "id": 1302,
+        "name": "吟霖",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_17_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "音感儀",
+        "element_en": "electro"
+    },
+    {
+        "id": 1303,
+        "name": "淵武",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_15_UI.webp",
+        "rarity": 4,
+        "weapon_zh_tw": "臂鎧",
+        "element_en": "electro"
+    },
+    {
+        "id": 1304,
+        "name": "今汐",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_24_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "長刃",
+        "element_en": "spectro"
+    },
+    {
+        "id": 1305,
+        "name": "相里要",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_25_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "臂鎧",
+        "element_en": "electro"
+    },
+    {
+        "id": 1306,
+        "name": "奧古斯塔",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_51_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "長刃",
+        "element_en": "electro"
+    },
+    {
+        "id": 1402,
+        "name": "秧秧",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_1_UI.webp",
+        "rarity": 4,
+        "weapon_zh_tw": "迅刀",
+        "element_en": "aero"
+    },
+    {
+        "id": 1403,
+        "name": "秋水",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_12_UI.webp",
+        "rarity": 4,
+        "weapon_zh_tw": "佩槍",
+        "element_en": "aero"
+    },
+    {
+        "id": 1404,
+        "name": "忌炎",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_11_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "長刃",
+        "element_en": "aero"
+    },
+    {
+        "id": 1405,
+        "name": "鑒心",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_23_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "臂鎧",
+        "element_en": "aero"
+    },
+    {
+        "id": 1406,
+        "name": "漂泊者·氣動(男)",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_4_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "迅刀",
+        "element_en": "aero"
+    },
+    {
+        "id": 1407,
+        "name": "夏空",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_37_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "佩槍",
+        "element_en": "aero"
+    },
+    {
+        "id": 1408,
+        "name": "漂泊者·氣動(女)",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_5_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "迅刀",
+        "element_en": "aero"
+    },
+    {
+        "id": 1409,
+        "name": "卡提希婭",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_40_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "迅刀",
+        "element_en": "aero"
+    },
+    {
+        "id": 1410,
+        "name": "尤諾",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_48_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "臂鎧",
+        "element_en": "aero"
+    },
+    {
+        "id": 1501,
+        "name": "漂泊者·衍射(男)",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_4_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "迅刀",
+        "element_en": "spectro"
+    },
+    {
+        "id": 1502,
+        "name": "漂泊者·衍射(女)",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_5_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "迅刀",
+        "element_en": "spectro"
+    },
+    {
+        "id": 1503,
+        "name": "維里奈",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_3_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "音感儀",
+        "element_en": "spectro"
+    },
+    {
+        "id": 1504,
+        "name": "燈燈",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_30_UI.webp",
+        "rarity": 4,
+        "weapon_zh_tw": "長刃",
+        "element_en": "electro"
+    },
+    {
+        "id": 1505,
+        "name": "守岸人",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_28_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "音感儀",
+        "element_en": "spectro"
+    },
+    {
+        "id": 1506,
+        "name": "菲比",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_45_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "音感儀",
+        "element_en": "spectro"
+    },
+    {
+        "id": 1507,
+        "name": "贊尼",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_38_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "臂鎧",
+        "element_en": "spectro"
+    },
+    {
+        "id": 1601,
+        "name": "桃祈",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_9_UI.webp",
+        "rarity": 4,
+        "weapon_zh_tw": "長刃",
+        "element_en": "havoc"
+    },
+    {
+        "id": 1602,
+        "name": "丹瑾",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_10_UI.webp",
+        "rarity": 4,
+        "weapon_zh_tw": "迅刀",
+        "element_en": "havoc"
+    },
+    {
+        "id": 1603,
+        "name": "椿",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_29_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "迅刀",
+        "element_en": "havoc"
+    },
+    {
+        "id": 1604,
+        "name": "漂泊者·湮滅(女)",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_5_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "迅刀",
+        "element_en": "havoc"
+    },
+    {
+        "id": 1605,
+        "name": "漂泊者·湮滅(男)",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_4_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "迅刀",
+        "element_en": "havoc"
+    },
+    {
+        "id": 1606,
+        "name": "洛可可",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_33_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "臂鎧",
+        "element_en": "havoc"
+    },
+    {
+        "id": 1607,
+        "name": "坎特蕾拉",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_34_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "音感儀",
+        "element_en": "havoc"
+    },
+    {
+        "id": 1608,
+        "name": "弗洛洛",
+        "icon": "/assets/UI/UIResources/Common/Image/IconRoleHead256/T_IconRoleHead256_41_UI.webp",
+        "rarity": 5,
+        "weapon_zh_tw": "音感儀",
+        "element_en": "havoc"
+    }
+]

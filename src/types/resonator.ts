@@ -28,14 +28,13 @@ export interface IRowResonator {
 }
 
 export interface IBasicResonatorInfo {
-  no: string;
+  id: number;
   name: string;
-  rarity: number | string;
-  element_en: string;
+  icon: string;
+  rarity: number | "";
   weapon_zh_tw: string;
-  elementSrc: string;
-  iconSrc: string;
-  show: boolean;
+  element_en: string;
+  show?: boolean;
 }
 
 export const ResonatorInfoEnum = {

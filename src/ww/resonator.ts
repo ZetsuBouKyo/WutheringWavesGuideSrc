@@ -3,6 +3,8 @@ import { ElementEnum } from "@/types/element";
 import { SkillAttrEnum } from "@/types/skill";
 import { ResonatorInfoEnum, type TResonatorInfoEnum, type IBasicResonatorInfo } from "@/types/resonator";
 
+import { getElementSrc } from "@/stores/element";
+
 import { StatBuff } from "./buff";
 
 export class ResonatorModel {
@@ -447,24 +449,7 @@ export class ResonatorInfo {
   }
 
   public getElementSrc(): string {
-    return `/assets/elements/${this.element_en}.png`;
-  }
-
-  public getIconSrc(): string {
-    return `/assets/resonators/${this.id}/icon.png`;
-  }
-
-  public getBasicInfo(): IBasicResonatorInfo {
-    return {
-      no: this.no,
-      name: this.name,
-      rarity: this.rarity,
-      element_en: this.element_en,
-      weapon_zh_tw: this.weapon_zh_tw,
-      iconSrc: this.getIconSrc(),
-      elementSrc: this.getElementSrc(),
-      show: true,
-    };
+    return getElementSrc(this.element_en);
   }
 
   public getHtmlInfoBySkillType(type: TResonatorInfoEnum): string {
