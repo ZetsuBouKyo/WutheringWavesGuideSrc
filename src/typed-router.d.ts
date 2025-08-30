@@ -36,5 +36,7 @@ declare module 'vue-router/auto-routes' {
     '/tool/rotation_builder': RouteRecordInfo<'/tool/rotation_builder', '/tool/rotation_builder', Record<never, never>, Record<never, never>>,
     '/tool/simple_calculator': RouteRecordInfo<'/tool/simple_calculator', '/tool/simple_calculator', Record<never, never>, Record<never, never>>,
     '/tool/template_calculator': RouteRecordInfo<'/tool/template_calculator', '/tool/template_calculator', Record<never, never>, Record<never, never>>,
+    '/weapon/': RouteRecordInfo<'/weapon/', '/weapon', Record<never, never>, Record<never, never>>,
+    '/weapon/[weapon_id]/': RouteRecordInfo<'/weapon/[weapon_id]/', '/weapon/:weapon_id', { weapon_id: ParamValue<true> }, { weapon_id: ParamValue<false> }>,
   }
 }

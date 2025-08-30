@@ -238,6 +238,7 @@ const i18n = createI18n({
           docs: "文件",
           guide: "攻略",
           resonator: "共鳴者",
+          weapon: "武器",
           echo: "聲骸",
           sonata: "合鳴",
           tiers: "Tiers",

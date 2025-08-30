@@ -1,10 +1,14 @@
 import { getNumber } from "./utils";
 
 export class WeaponInfo {
+  public id: number | "" = "";
   public no: string = "";
   public name: string = "";
+  public description: string = "";
+  public icon: string = "";
+  public rarity: number | "" = "";
   public star: string = "";
-  public type: string = "";
+  public type_zh_tw: string = "";
   public passive: { name: string; description: string; passive_buffs: Array<any> } = {
     name: "",
     description: "",
@@ -21,10 +25,14 @@ export class WeaponInfo {
 
   public duplicate(): WeaponInfo {
     const info = new WeaponInfo();
+    info.id = this.id;
     info.no = this.no;
     info.name = this.name;
+    info.description = this.description;
+    info.icon = this.icon;
+    info.rarity = this.rarity;
     info.star = this.star;
-    info.type = this.type;
+    info.type_zh_tw = this.type_zh_tw;
     info.passive = JSON.parse(JSON.stringify(this.passive));
     info.attrs = JSON.parse(JSON.stringify(this.attrs));
     return info;
@@ -48,6 +56,14 @@ export class WeaponInfo {
       }
     }
     return "";
+  }
+
+  public getThirdAttrKey(): string {
+    let key = Object.keys(this.attrs[0]).find((k) => k !== "lv" && k !== "atk");
+    if (key === undefined) {
+      key = "";
+    }
+    return key;
   }
 
   public getStatBonus(level: string): any {

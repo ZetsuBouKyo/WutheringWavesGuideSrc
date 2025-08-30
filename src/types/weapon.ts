@@ -59,6 +59,8 @@ export interface IWeaponInfo {
   id: number;
   no: string;
   name: string;
+  description: string;
+  icon: string;
   rarity: number;
   star: string;
   type_zh_tw: string;

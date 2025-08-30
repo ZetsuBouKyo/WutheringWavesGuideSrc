@@ -8,6 +8,7 @@
       <v-tab to="/">{{ $t('nav.tab.welcome') }}</v-tab>
       <v-tab to="/guide">{{ $t('nav.tab.guide') }}</v-tab>
       <v-tab to="/resonator">{{ $t('nav.tab.resonator') }}</v-tab>
+      <v-tab to="/weapon">{{ $t('nav.tab.weapon') }}</v-tab>
       <v-tab to="/echo">{{ $t('nav.tab.echo') }}</v-tab>
       <v-tab to="/sonata">{{ $t('nav.tab.sonata') }}</v-tab>
       <v-tab to="/tiers">{{ $t('nav.tab.tiers') }}</v-tab>
