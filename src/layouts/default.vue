@@ -4,7 +4,7 @@
       <a href="/"><img class="mr-4" src="/assets/logo.png" height="48px" /></a>
       <h1 class="text-truncate">{{ $t('nav.title') }}</h1>
     </v-row>
-    <v-tabs align-tabs="center" color="blue-accent-1">
+    <v-tabs align-tabs="center" color="blue-accent-1" show-arrows>
       <v-tab to="/">{{ $t('nav.tab.welcome') }}</v-tab>
       <v-tab to="/guide">{{ $t('nav.tab.guide') }}</v-tab>
       <v-tab to="/resonator">{{ $t('nav.tab.resonator') }}</v-tab>
