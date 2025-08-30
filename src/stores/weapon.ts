@@ -21,6 +21,59 @@ for (const _info of _weapons_info) {
   }
 }
 
+class _Weapon {
+  public rows: Array<IWeaponInfo> = [];
+
+  constructor(weapons: Array<IWeaponInfo>) {
+    this.rows = weapons;
+    for (const row of this.rows) {
+      row.show = true;
+    }
+  }
+
+  public filter(type_zh_tw: string | undefined, rarity: string | number | undefined) {
+    for (const row of this.rows) {
+      row.show = true;
+      if (type_zh_tw) {
+        if (row.type_zh_tw !== type_zh_tw) {
+          row.show = false;
+        }
+      }
+      if (rarity) {
+        rarity = rarity.toString();
+        if (row.rarity.toString() !== rarity) {
+          row.show = false;
+        }
+      }
+    }
+  }
+
+  public getNames(type_zh_tw: string | undefined, rarity: string | number | undefined): Array<string> {
+    const names = [];
+    for (const row of this.rows) {
+      row.show = true;
+      if (type_zh_tw) {
+        if (row.type_zh_tw !== type_zh_tw) {
+          row.show = false;
+        }
+      }
+      if (rarity) {
+        rarity = rarity.toString();
+        if (row.rarity.toString() !== rarity) {
+          row.show = false;
+        }
+      }
+      if (row.show) {
+        names.push(row.name);
+      }
+    }
+    return names;
+  }
+}
+export function getWeaponInfos() {
+  return new _Weapon(_weapons_info);
+}
+
 const spoilerNames: Array<string> = [];
 
 export const useWeaponStore = defineStore("weapon", {

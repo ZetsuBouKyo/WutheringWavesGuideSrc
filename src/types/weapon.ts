@@ -66,4 +66,6 @@ export interface IWeaponInfo {
   type_zh_tw: string;
   passive: IWeaponPassiveInfo;
   attrs: Array<IWeaponAttr>;
+
+  show?: boolean;
 }

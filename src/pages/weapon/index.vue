@@ -2,9 +2,10 @@
   <v-container class="h-100">
     <h1 class="mb-4">{{ $t('general.weapon') }}</h1>
     <div class="d-flex flex-column mb-4">
-      <WeaponFilter class="d-flex mb-2" v-model="selectedWeapon" @update:modelValue="filter" />
-      <RarityFilter class="d-flex mb-2" v-model="selectedRarity" @update:modelValue="filter"
-        :rarities='["3", "4", "5"]' />
+      <WeaponFilter class="d-flex mb-2" v-model="selectedWeapon"
+        @update:modelValue="weaponInfos.filter(selectedWeapon, selectedRarity)" />
+      <RarityFilter class="d-flex mb-2" v-model="selectedRarity"
+        @update:modelValue="weaponInfos.filter(selectedWeapon, selectedRarity)" :rarities='["3", "4", "5"]' />
     </div>
     <span>{{ $t('general.total') }}: {{ getNumber() }}</span>
     <v-sheet class=" d-flex flex-wrap justify-center">
@@ -29,9 +30,9 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-import _weapons from "@/assets/data/weapons.json";
-
 import { type IWeaponInfo } from "@/types/weapon";
+
+import { getWeaponInfos } from "@/stores/weapon"
 
 interface IWeapon extends IWeaponInfo {
   show?: boolean
@@ -40,27 +41,8 @@ interface IWeapon extends IWeaponInfo {
 const selectedWeapon = ref(undefined)
 const selectedRarity = ref(undefined)
 
-let weapons: Array<IWeapon> = _weapons
-
-for (const weapon of weapons) {
-  weapon.show = true
-}
-
-function filter() {
-  for (const weapon of weapons) {
-    weapon.show = true
-    if (selectedWeapon.value) {
-      if (weapon.type_zh_tw !== selectedWeapon.value) {
-        weapon.show = false
-      }
-    }
-    if (selectedRarity.value) {
-      if (weapon.rarity.toString() !== selectedRarity.value) {
-        weapon.show = false
-      }
-    }
-  }
-}
+const weaponInfos = getWeaponInfos()
+let weapons: Array<IWeapon> = weaponInfos.rows
 
 function getNumber() {
   let c = 0
