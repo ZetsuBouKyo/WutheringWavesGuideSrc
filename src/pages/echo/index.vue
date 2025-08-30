@@ -22,7 +22,6 @@
                 </v-tooltip>
               </v-row>
               <v-row no-gutters align="center" justify="center">
-                <!-- <img :src="resonator.elementSrc" height="36"> -->
                 <span class="mr-2 text-truncate name text-center">{{ echo.name }}</span>
               </v-row>
             </v-card>
