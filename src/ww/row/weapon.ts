@@ -13,7 +13,7 @@ export class RowWeapon {
   public no: string = "";
   public name: string = "";
   public star: string = "";
-  public type: string = "";
+  public type_zh_tw: string = "";
   public level: string = "90";
   public tune: string = "1";
   public atk: string = "";
@@ -38,7 +38,7 @@ export class RowWeapon {
     w.no = this.no;
     w.name = this.name;
     w.star = this.star;
-    w.type = this.type;
+    w.type_zh_tw = this.type_zh_tw;
     w.level = this.level;
     w.tune = this.tune;
     w.atk = this.atk;
@@ -149,7 +149,7 @@ export class RowWeapon {
 
     this._info = info;
     this.star = info.star;
-    this.type = info.type;
+    this.type_zh_tw = info.type_zh_tw;
 
     // Update level
     const maxLevel = info.getMaxLevel();
