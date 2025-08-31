@@ -104,9 +104,23 @@ export async function saveDomToImage(ref: any, fname: string) {
   }
 }
 
-export function saveJson(data: any, fname: string = "data") {
+export function cleanJson(old: any) {
+  const data: Record<string, any> = {};
+  for (const [key, value] of Object.entries(old)) {
+    if (typeof value === "string" && value !== "") {
+      data[key] = value;
+    } else if (value instanceof Array && value.length) {
+      data[key] = value;
+    }
+  }
+  return data;
+}
+
+export function saveJson(data: any, fname: string = "data", indent: number = 4) {
   const a = document.createElement("a");
-  a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 4) as BlobPart], { type: "application/json" }));
+  a.href = URL.createObjectURL(
+    new Blob([JSON.stringify(data, null, indent) as BlobPart], { type: "application/json" }),
+  );
   a.download = `${fname}.json`;
   a.click();
 }

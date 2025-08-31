@@ -16,7 +16,7 @@ import { RowBuffs } from "@/ww/row/buffs";
 
 import { RowAutoFillEchoes } from "@/ww/echoes";
 import { getRotation } from "@/ww/rotation";
-import { getDecimal, toNumberString, toPercentageString } from "@/ww/utils";
+import { cleanJson, getDecimal, toNumberString, toPercentageString } from "@/ww/utils";
 
 export class TemplateResonator {
   public resonator_name: string = "";
@@ -52,6 +52,19 @@ export class TemplateResonator {
       return;
     }
     Object.assign(this, resonator);
+  }
+
+  public toSaveData() {
+    const { sub_tab, ...rest } = this;
+    const data: Record<string, any> = cleanJson(rest);
+
+    if (data.resonator_inherent_skill_1) {
+      delete data.resonator_inherent_skill_1;
+    }
+    if (data.resonator_inherent_skill_2) {
+      delete data.resonator_inherent_skill_2;
+    }
+    return data;
   }
 }
 
@@ -99,6 +112,12 @@ export class TemplateRowBuff {
     if (buff.value?.duration) {
       this.duration = buff.value?.duration;
     }
+  }
+
+  public toSaveData() {
+    const { id, selected, _item, ...rest } = this;
+    const data: Record<string, any> = cleanJson(rest);
+    return data;
   }
 }
 
@@ -206,6 +225,22 @@ export class TemplateRow {
 
     calculation.calculate();
     return calculation;
+  }
+
+  public toSaveData() {
+    const { id, selected, skill_ids, calculation, ...rest } = this;
+    const data: Record<string, any> = cleanJson(rest);
+
+    const newBuffs = [];
+    for (const buff of this.buffs) {
+      const newBuff = buff.toSaveData();
+      if (Object.keys(newBuff).length > 0) {
+        newBuffs.push(newBuff);
+      }
+    }
+    data.buffs = newBuffs;
+
+    return data;
   }
 }
 
@@ -414,7 +449,7 @@ export class TemplateCalculation {
 export class Template {
   public hashed_id: string = "";
   public id: string = "";
-  public labels: Array<{ name: string; duration_1: string; duration_2: string }> = [];
+  public labels: Array<{ name: string; duration_1: string; duration_2: string }> = []; // deprecated
   public test_resonator_id_1: string = "";
   public test_resonator_id_2: string = "";
   public test_resonator_id_3: string = "";
@@ -718,5 +753,28 @@ export class Template {
     for (let i = 0; i < this.rows.length; i++) {
       this.calculateRow(i);
     }
+  }
+
+  public toSaveData() {
+    const { calculation, calculated, ...rest } = this;
+
+    // Resonators
+    const savedResonators = [];
+    for (const resonator of this.resonators) {
+      savedResonators.push(resonator.toSaveData());
+    }
+
+    // Rows
+    const savedRows = [];
+    for (const row of this.rows) {
+      savedRows.push(row.toSaveData());
+    }
+
+    const data: Record<string, any> = cleanJson(rest);
+
+    data.resonators = savedResonators;
+    data.rows = savedRows;
+
+    return data;
   }
 }

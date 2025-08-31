@@ -129,9 +129,8 @@ const templateTab = ref<string>("basic_info")
 
 
 function saveToJson() {
-  const data = {
-    template: template.data.getJson()
-  }
+  const data = template.data.toSaveData()
+
   let fname = template.data.id
   if (fname) {
     saveJson(data, fname)
@@ -140,7 +139,7 @@ function saveToJson() {
   }
 }
 
-function loadData(event: Event) {
+async function loadData(event: Event) {
   const input = event.target as HTMLInputElement;
   if (!input.files || input.files.length === 0) {
     return [undefined, undefined];
@@ -151,7 +150,8 @@ function loadData(event: Event) {
   reader.onload = (e) => {
     try {
       data = JSON.parse(e.target?.result as string);
-      template.data = new Template(data.template)
+      template.data = new Template(data)
+      template.data.init()
     } catch (error) {
       console.error("Invalid JSON file", error);
     }
